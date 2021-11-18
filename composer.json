@@ -1,5 +1,5 @@
 {
-    "name": "GIT_USER_ID/GIT_REPO_ID",
+    "name": "merge-api/merge-hris-php",
     "description": "The unified API for building rich integrations with multiple HR Information System platforms.",
     "keywords": [
         "openapitools",

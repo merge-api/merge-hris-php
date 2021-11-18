@@ -407,7 +407,6 @@ class BenefitsApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off for this employee. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -418,9 +417,9 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PaginatedBenefitList
      */
-    public function benefitsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function benefitsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        list($response) = $this->benefitsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+        list($response) = $this->benefitsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
         return $response;
     }
 
@@ -432,7 +431,6 @@ class BenefitsApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off for this employee. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -443,9 +441,9 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PaginatedBenefitList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function benefitsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function benefitsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        $request = $this->benefitsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->benefitsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -526,7 +524,6 @@ class BenefitsApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off for this employee. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -536,9 +533,9 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function benefitsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function benefitsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        return $this->benefitsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id)
+        return $this->benefitsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -554,7 +551,6 @@ class BenefitsApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off for this employee. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -564,10 +560,10 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function benefitsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function benefitsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
         $returnType = '\OpenAPI\Client\Model\PaginatedBenefitList';
-        $request = $this->benefitsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->benefitsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -610,7 +606,6 @@ class BenefitsApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off for this employee. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -620,7 +615,7 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function benefitsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function benefitsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -678,17 +673,6 @@ class BenefitsApi
             }
             else {
                 $queryParams['employee_id'] = $employee_id;
-            }
-        }
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
             }
         }
         // query params
@@ -821,16 +805,15 @@ class BenefitsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Benefit
      */
-    public function benefitsRetrieve($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function benefitsRetrieve($x_account_token, $id, $include_remote_data = null)
     {
-        list($response) = $this->benefitsRetrieveWithHttpInfo($x_account_token, $id, $expand, $include_remote_data);
+        list($response) = $this->benefitsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data);
         return $response;
     }
 
@@ -839,16 +822,15 @@ class BenefitsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Benefit, HTTP status code, HTTP response headers (array of strings)
      */
-    public function benefitsRetrieveWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function benefitsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $request = $this->benefitsRetrieveRequest($x_account_token, $id, $expand, $include_remote_data);
+        $request = $this->benefitsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -926,15 +908,14 @@ class BenefitsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function benefitsRetrieveAsync($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function benefitsRetrieveAsync($x_account_token, $id, $include_remote_data = null)
     {
-        return $this->benefitsRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand, $include_remote_data)
+        return $this->benefitsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -947,16 +928,15 @@ class BenefitsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function benefitsRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function benefitsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
         $returnType = '\OpenAPI\Client\Model\Benefit';
-        $request = $this->benefitsRetrieveRequest($x_account_token, $id, $expand, $include_remote_data);
+        $request = $this->benefitsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -996,13 +976,12 @@ class BenefitsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function benefitsRetrieveRequest($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function benefitsRetrieveRequest($x_account_token, $id, $include_remote_data = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -1024,17 +1003,6 @@ class BenefitsApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
-            }
-        }
         // query params
         if ($include_remote_data !== null) {
             if('form' === 'form' && is_array($include_remote_data)) {

@@ -77,13 +77,13 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'manager' => 'string',
         'team' => 'string',
         'ssn' => 'string',
-        'gender' => 'GenderEnum',
-        'ethnicity' => 'EthnicityEnum',
-        'marital_status' => 'MaritalStatusEnum',
+        'gender' => 'string',
+        'ethnicity' => 'string',
+        'marital_status' => 'string',
         'date_of_birth' => '\DateTime',
         'hire_date' => '\DateTime',
         'start_date' => '\DateTime',
-        'employment_status' => 'EmploymentStatusEnum',
+        'employment_status' => 'string',
         'termination_date' => '\DateTime',
         'avatar' => 'string',
         'remote_data' => '\OpenAPI\Client\Model\RemoteData[]',
@@ -778,7 +778,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets gender
      *
-     * @return GenderEnum|null
+     * @return string|null
      */
     public function getGender()
     {
@@ -788,7 +788,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gender
      *
-     * @param GenderEnum|null $gender The employee's gender.
+     * @param string|null $gender gender
      *
      * @return self
      */
@@ -802,7 +802,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets ethnicity
      *
-     * @return EthnicityEnum|null
+     * @return string|null
      */
     public function getEthnicity()
     {
@@ -812,7 +812,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ethnicity
      *
-     * @param EthnicityEnum|null $ethnicity The employee's ethnicity.
+     * @param string|null $ethnicity ethnicity
      *
      * @return self
      */
@@ -826,7 +826,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets marital_status
      *
-     * @return MaritalStatusEnum|null
+     * @return string|null
      */
     public function getMaritalStatus()
     {
@@ -836,7 +836,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets marital_status
      *
-     * @param MaritalStatusEnum|null $marital_status The employee's marital status.
+     * @param string|null $marital_status marital_status
      *
      * @return self
      */
@@ -922,7 +922,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets employment_status
      *
-     * @return EmploymentStatusEnum|null
+     * @return string|null
      */
     public function getEmploymentStatus()
     {
@@ -932,7 +932,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employment_status
      *
-     * @param EmploymentStatusEnum|null $employment_status The employment status of the employee.
+     * @param string|null $employment_status employment_status
      *
      * @return self
      */

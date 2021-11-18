@@ -207,33 +207,6 @@ class EmployeeRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "gender"
-     */
-    public function testPropertyGender()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "ethnicity"
-     */
-    public function testPropertyEthnicity()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "marital_status"
-     */
-    public function testPropertyMaritalStatus()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "date_of_birth"
      */
     public function testPropertyDateOfBirth()
@@ -255,15 +228,6 @@ class EmployeeRequestTest extends TestCase
      * Test attribute "start_date"
      */
     public function testPropertyStartDate()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "employment_status"
-     */
-    public function testPropertyEmploymentStatus()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional] [readonly]
-**status** | [**\OpenAPI\Client\Model\IssueStatusEnum**](IssueStatusEnum.md) |  | [optional]
+**status** | **string** |  | [optional] [readonly]
 **error_description** | **string** |  |
 **end_user** | **array<string,mixed>** |  | [optional] [readonly]
 **first_incident_time** | [**\DateTime**](\DateTime.md) |  | [optional]

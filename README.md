@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+      "url": "https://github.com/merge-api/merge-hris-php.git"
     }
   ],
   "require": {
-    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
+    "merge-api/merge-hris-php": "*@dev"
   }
 }
 ```
@@ -104,18 +104,11 @@ Class | Method | HTTP request | Description
 *LocationsApi* | [**locationsList**](docs/Api/LocationsApi.md#locationslist) | **GET** /locations | 
 *LocationsApi* | [**locationsRetrieve**](docs/Api/LocationsApi.md#locationsretrieve) | **GET** /locations/{id} | 
 *PassthroughApi* | [**passthroughCreate**](docs/Api/PassthroughApi.md#passthroughcreate) | **POST** /passthrough | 
-*PayrollRunsApi* | [**payrollRunsList**](docs/Api/PayrollRunsApi.md#payrollrunslist) | **GET** /payroll-runs | 
-*PayrollRunsApi* | [**payrollRunsRetrieve**](docs/Api/PayrollRunsApi.md#payrollrunsretrieve) | **GET** /payroll-runs/{id} | 
 *RegenerateKeyApi* | [**regenerateKeyCreate**](docs/Api/RegenerateKeyApi.md#regeneratekeycreate) | **POST** /regenerate-key | 
 *SyncStatusApi* | [**syncStatusList**](docs/Api/SyncStatusApi.md#syncstatuslist) | **GET** /sync-status | 
 *SyncStatusApi* | [**syncStatusResyncCreate**](docs/Api/SyncStatusApi.md#syncstatusresynccreate) | **POST** /sync-status/resync | 
 *TeamsApi* | [**teamsList**](docs/Api/TeamsApi.md#teamslist) | **GET** /teams | 
 *TeamsApi* | [**teamsRetrieve**](docs/Api/TeamsApi.md#teamsretrieve) | **GET** /teams/{id} | 
-*TimeOffApi* | [**timeOffCreate**](docs/Api/TimeOffApi.md#timeoffcreate) | **POST** /time-off | 
-*TimeOffApi* | [**timeOffList**](docs/Api/TimeOffApi.md#timeofflist) | **GET** /time-off | 
-*TimeOffApi* | [**timeOffRetrieve**](docs/Api/TimeOffApi.md#timeoffretrieve) | **GET** /time-off/{id} | 
-*TimeOffBalanceApi* | [**timeOffBalanceList**](docs/Api/TimeOffBalanceApi.md#timeoffbalancelist) | **GET** /time-off-balance | 
-*TimeOffBalanceApi* | [**timeOffBalanceRetrieve**](docs/Api/TimeOffBalanceApi.md#timeoffbalanceretrieve) | **GET** /time-off-balance/{id} | 
 
 ## Models
 
@@ -127,7 +120,6 @@ Class | Method | HTTP request | Description
 - [AccountToken](docs/Model/AccountToken.md)
 - [AvailableActions](docs/Model/AvailableActions.md)
 - [Benefit](docs/Model/Benefit.md)
-- [BenefitPlanTypeEnum](docs/Model/BenefitPlanTypeEnum.md)
 - [BenefitRequest](docs/Model/BenefitRequest.md)
 - [CategoriesEnum](docs/Model/CategoriesEnum.md)
 - [CategoryEnum](docs/Model/CategoryEnum.md)
@@ -141,18 +133,11 @@ Class | Method | HTTP request | Description
 - [EmployeePayrollRun](docs/Model/EmployeePayrollRun.md)
 - [EmployeeRequest](docs/Model/EmployeeRequest.md)
 - [Employment](docs/Model/Employment.md)
-- [EmploymentStatusEnum](docs/Model/EmploymentStatusEnum.md)
-- [EmploymentTypeEnum](docs/Model/EmploymentTypeEnum.md)
 - [EndUserDetailsRequest](docs/Model/EndUserDetailsRequest.md)
-- [EthnicityEnum](docs/Model/EthnicityEnum.md)
-- [FlsaStatusEnum](docs/Model/FlsaStatusEnum.md)
-- [GenderEnum](docs/Model/GenderEnum.md)
 - [GenerateRemoteKeyRequest](docs/Model/GenerateRemoteKeyRequest.md)
 - [Issue](docs/Model/Issue.md)
-- [IssueStatusEnum](docs/Model/IssueStatusEnum.md)
 - [LinkToken](docs/Model/LinkToken.md)
 - [Location](docs/Model/Location.md)
-- [MaritalStatusEnum](docs/Model/MaritalStatusEnum.md)
 - [MethodEnum](docs/Model/MethodEnum.md)
 - [ModelOperation](docs/Model/ModelOperation.md)
 - [PaginatedAccountDetailsAndActionsList](docs/Model/PaginatedAccountDetailsAndActionsList.md)
@@ -164,35 +149,18 @@ Class | Method | HTTP request | Description
 - [PaginatedEmploymentList](docs/Model/PaginatedEmploymentList.md)
 - [PaginatedIssueList](docs/Model/PaginatedIssueList.md)
 - [PaginatedLocationList](docs/Model/PaginatedLocationList.md)
-- [PaginatedPayrollRunList](docs/Model/PaginatedPayrollRunList.md)
 - [PaginatedSyncStatusList](docs/Model/PaginatedSyncStatusList.md)
 - [PaginatedTeamList](docs/Model/PaginatedTeamList.md)
-- [PaginatedTimeOffBalanceList](docs/Model/PaginatedTimeOffBalanceList.md)
-- [PaginatedTimeOffList](docs/Model/PaginatedTimeOffList.md)
-- [PayCurrencyEnum](docs/Model/PayCurrencyEnum.md)
-- [PayFrequencyEnum](docs/Model/PayFrequencyEnum.md)
-- [PayPeriodEnum](docs/Model/PayPeriodEnum.md)
-- [PayrollRun](docs/Model/PayrollRun.md)
-- [PolicyTypeEnum](docs/Model/PolicyTypeEnum.md)
 - [RemoteData](docs/Model/RemoteData.md)
 - [RemoteDataRequest](docs/Model/RemoteDataRequest.md)
 - [RemoteKey](docs/Model/RemoteKey.md)
 - [RemoteKeyForRegenerationRequest](docs/Model/RemoteKeyForRegenerationRequest.md)
 - [RemoteResponse](docs/Model/RemoteResponse.md)
 - [RequestFormatEnum](docs/Model/RequestFormatEnum.md)
-- [RequestTypeEnum](docs/Model/RequestTypeEnum.md)
-- [RunStateEnum](docs/Model/RunStateEnum.md)
-- [RunTypeEnum](docs/Model/RunTypeEnum.md)
 - [SyncStatus](docs/Model/SyncStatus.md)
 - [SyncStatusStatusEnum](docs/Model/SyncStatusStatusEnum.md)
 - [Tax](docs/Model/Tax.md)
 - [Team](docs/Model/Team.md)
-- [TimeOff](docs/Model/TimeOff.md)
-- [TimeOffBalance](docs/Model/TimeOffBalance.md)
-- [TimeOffRequest](docs/Model/TimeOffRequest.md)
-- [TimeOffStatusEnum](docs/Model/TimeOffStatusEnum.md)
-- [TypeEnum](docs/Model/TypeEnum.md)
-- [UnitsEnum](docs/Model/UnitsEnum.md)
 
 ## Authorization
 

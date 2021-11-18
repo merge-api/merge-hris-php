@@ -75,13 +75,9 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'manager' => 'string',
         'team' => 'string',
         'ssn' => 'string',
-        'gender' => 'GenderEnum',
-        'ethnicity' => 'EthnicityEnum',
-        'marital_status' => 'MaritalStatusEnum',
         'date_of_birth' => '\DateTime',
         'hire_date' => '\DateTime',
         'start_date' => '\DateTime',
-        'employment_status' => 'EmploymentStatusEnum',
         'termination_date' => '\DateTime',
         'avatar' => 'string',
         'custom_fields' => 'array<string,mixed>'
@@ -109,13 +105,9 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'manager' => 'uuid',
         'team' => 'uuid',
         'ssn' => null,
-        'gender' => null,
-        'ethnicity' => null,
-        'marital_status' => null,
         'date_of_birth' => 'date-time',
         'hire_date' => 'date-time',
         'start_date' => 'date-time',
-        'employment_status' => null,
         'termination_date' => 'date-time',
         'avatar' => 'uri',
         'custom_fields' => null
@@ -162,13 +154,9 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'manager' => 'manager',
         'team' => 'team',
         'ssn' => 'ssn',
-        'gender' => 'gender',
-        'ethnicity' => 'ethnicity',
-        'marital_status' => 'marital_status',
         'date_of_birth' => 'date_of_birth',
         'hire_date' => 'hire_date',
         'start_date' => 'start_date',
-        'employment_status' => 'employment_status',
         'termination_date' => 'termination_date',
         'avatar' => 'avatar',
         'custom_fields' => 'custom_fields'
@@ -194,13 +182,9 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'manager' => 'setManager',
         'team' => 'setTeam',
         'ssn' => 'setSsn',
-        'gender' => 'setGender',
-        'ethnicity' => 'setEthnicity',
-        'marital_status' => 'setMaritalStatus',
         'date_of_birth' => 'setDateOfBirth',
         'hire_date' => 'setHireDate',
         'start_date' => 'setStartDate',
-        'employment_status' => 'setEmploymentStatus',
         'termination_date' => 'setTerminationDate',
         'avatar' => 'setAvatar',
         'custom_fields' => 'setCustomFields'
@@ -226,13 +210,9 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'manager' => 'getManager',
         'team' => 'getTeam',
         'ssn' => 'getSsn',
-        'gender' => 'getGender',
-        'ethnicity' => 'getEthnicity',
-        'marital_status' => 'getMaritalStatus',
         'date_of_birth' => 'getDateOfBirth',
         'hire_date' => 'getHireDate',
         'start_date' => 'getStartDate',
-        'employment_status' => 'getEmploymentStatus',
         'termination_date' => 'getTerminationDate',
         'avatar' => 'getAvatar',
         'custom_fields' => 'getCustomFields'
@@ -309,13 +289,9 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['manager'] = $data['manager'] ?? null;
         $this->container['team'] = $data['team'] ?? null;
         $this->container['ssn'] = $data['ssn'] ?? null;
-        $this->container['gender'] = $data['gender'] ?? null;
-        $this->container['ethnicity'] = $data['ethnicity'] ?? null;
-        $this->container['marital_status'] = $data['marital_status'] ?? null;
         $this->container['date_of_birth'] = $data['date_of_birth'] ?? null;
         $this->container['hire_date'] = $data['hire_date'] ?? null;
         $this->container['start_date'] = $data['start_date'] ?? null;
-        $this->container['employment_status'] = $data['employment_status'] ?? null;
         $this->container['termination_date'] = $data['termination_date'] ?? null;
         $this->container['avatar'] = $data['avatar'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
@@ -710,78 +686,6 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets gender
-     *
-     * @return GenderEnum|null
-     */
-    public function getGender()
-    {
-        return $this->container['gender'];
-    }
-
-    /**
-     * Sets gender
-     *
-     * @param GenderEnum|null $gender The employee's gender.
-     *
-     * @return self
-     */
-    public function setGender($gender)
-    {
-        $this->container['gender'] = $gender;
-
-        return $this;
-    }
-
-    /**
-     * Gets ethnicity
-     *
-     * @return EthnicityEnum|null
-     */
-    public function getEthnicity()
-    {
-        return $this->container['ethnicity'];
-    }
-
-    /**
-     * Sets ethnicity
-     *
-     * @param EthnicityEnum|null $ethnicity The employee's ethnicity.
-     *
-     * @return self
-     */
-    public function setEthnicity($ethnicity)
-    {
-        $this->container['ethnicity'] = $ethnicity;
-
-        return $this;
-    }
-
-    /**
-     * Gets marital_status
-     *
-     * @return MaritalStatusEnum|null
-     */
-    public function getMaritalStatus()
-    {
-        return $this->container['marital_status'];
-    }
-
-    /**
-     * Sets marital_status
-     *
-     * @param MaritalStatusEnum|null $marital_status The employee's marital status.
-     *
-     * @return self
-     */
-    public function setMaritalStatus($marital_status)
-    {
-        $this->container['marital_status'] = $marital_status;
-
-        return $this;
-    }
-
-    /**
      * Gets date_of_birth
      *
      * @return \DateTime|null
@@ -849,30 +753,6 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setStartDate($start_date)
     {
         $this->container['start_date'] = $start_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets employment_status
-     *
-     * @return EmploymentStatusEnum|null
-     */
-    public function getEmploymentStatus()
-    {
-        return $this->container['employment_status'];
-    }
-
-    /**
-     * Sets employment_status
-     *
-     * @param EmploymentStatusEnum|null $employment_status The employment status of the employee.
-     *
-     * @return self
-     */
-    public function setEmploymentStatus($employment_status)
-    {
-        $this->container['employment_status'] = $employment_status;
 
         return $this;
     }

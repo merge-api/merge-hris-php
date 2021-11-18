@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `employeePayrollRunsList()`
 
 ```php
-employeePayrollRunsList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before): \OpenAPI\Client\Model\PaginatedEmployeePayrollRunList
+employeePayrollRunsList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before): \OpenAPI\Client\Model\PaginatedEmployeePayrollRunList
 ```
 
 
@@ -44,7 +44,6 @@ $cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | 
 $employee_id = 'employee_id_example'; // string | If provided, will only return employee payroll runs for this employee.
 $ended_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return employee payroll runs ended after this datetime.
 $ended_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return employee payroll runs ended before this datetime.
-$expand = employee,payroll_run; // string | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified after this datetime.
 $modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified before this datetime.
@@ -55,7 +54,7 @@ $started_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If p
 $started_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return employee payroll runs started before this datetime.
 
 try {
-    $result = $apiInstance->employeePayrollRunsList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before);
+    $result = $apiInstance->employeePayrollRunsList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeePayrollRunsApi->employeePayrollRunsList: ', $e->getMessage(), PHP_EOL;
@@ -73,7 +72,6 @@ Name | Type | Description  | Notes
  **employee_id** | **string**| If provided, will only return employee payroll runs for this employee. | [optional]
  **ended_after** | **\DateTime**| If provided, will only return employee payroll runs ended after this datetime. | [optional]
  **ended_before** | **\DateTime**| If provided, will only return employee payroll runs ended before this datetime. | [optional]
- **expand** | **string**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **\DateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **\DateTime**| If provided, will only return objects modified before this datetime. | [optional]
@@ -103,7 +101,7 @@ Name | Type | Description  | Notes
 ## `employeePayrollRunsRetrieve()`
 
 ```php
-employeePayrollRunsRetrieve($x_account_token, $id, $expand, $include_remote_data): \OpenAPI\Client\Model\EmployeePayrollRun
+employeePayrollRunsRetrieve($x_account_token, $id, $include_remote_data): \OpenAPI\Client\Model\EmployeePayrollRun
 ```
 
 
@@ -131,11 +129,10 @@ $apiInstance = new OpenAPI\Client\Api\EmployeePayrollRunsApi(
 );
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $id = 'id_example'; // string
-$expand = employee,payroll_run; // string | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 
 try {
-    $result = $apiInstance->employeePayrollRunsRetrieve($x_account_token, $id, $expand, $include_remote_data);
+    $result = $apiInstance->employeePayrollRunsRetrieve($x_account_token, $id, $include_remote_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeePayrollRunsApi->employeePayrollRunsRetrieve: ', $e->getMessage(), PHP_EOL;
@@ -148,7 +145,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **string**| Token identifying the end user. |
  **id** | [**string**](../Model/.md)|  |
- **expand** | **string**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type

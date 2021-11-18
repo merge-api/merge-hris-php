@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **remote_id** | **string** | The third-party API ID of the matching object. | [optional]
 **employee** | **string** | The employee on the plan. | [optional]
 **provider_name** | **string** | The name of the benefit provider. | [optional]
-**benefit_plan_type** | [**BenefitPlanTypeEnum**](BenefitPlanTypeEnum.md) | The type of benefit plan | [optional]
+**benefit_plan_type** | **string** |  | [optional] [readonly]
 **employee_contribution** | **float** | The employee&#39;s contribution. | [optional]
 **company_contribution** | **float** | The company&#39;s contribution. | [optional]
 **remote_data** | [**\OpenAPI\Client\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]

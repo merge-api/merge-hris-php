@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 ## `benefitsList()`
 
 ```php
-benefitsList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id): \OpenAPI\Client\Model\PaginatedBenefitList
+benefitsList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id): \OpenAPI\Client\Model\PaginatedBenefitList
 ```
 
 
@@ -109,7 +109,6 @@ $created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If p
 $created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects created before this datetime.
 $cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | The pagination cursor value.
 $employee_id = 'employee_id_example'; // string | If provided, will only return time off for this employee.
-$expand = employee; // string | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified after this datetime.
 $modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified before this datetime.
@@ -117,7 +116,7 @@ $page_size = 56; // int | Number of results to return per page.
 $remote_id = 'remote_id_example'; // string | The API provider's ID for the given object.
 
 try {
-    $result = $apiInstance->benefitsList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+    $result = $apiInstance->benefitsList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BenefitsApi->benefitsList: ', $e->getMessage(), PHP_EOL;
@@ -133,7 +132,6 @@ Name | Type | Description  | Notes
  **created_before** | **\DateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **string**| The pagination cursor value. | [optional]
  **employee_id** | **string**| If provided, will only return time off for this employee. | [optional]
- **expand** | **string**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **\DateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **\DateTime**| If provided, will only return objects modified before this datetime. | [optional]
@@ -160,7 +158,7 @@ Name | Type | Description  | Notes
 ## `benefitsRetrieve()`
 
 ```php
-benefitsRetrieve($x_account_token, $id, $expand, $include_remote_data): \OpenAPI\Client\Model\Benefit
+benefitsRetrieve($x_account_token, $id, $include_remote_data): \OpenAPI\Client\Model\Benefit
 ```
 
 
@@ -188,11 +186,10 @@ $apiInstance = new OpenAPI\Client\Api\BenefitsApi(
 );
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $id = 'id_example'; // string
-$expand = employee; // string | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 
 try {
-    $result = $apiInstance->benefitsRetrieve($x_account_token, $id, $expand, $include_remote_data);
+    $result = $apiInstance->benefitsRetrieve($x_account_token, $id, $include_remote_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BenefitsApi->benefitsRetrieve: ', $e->getMessage(), PHP_EOL;
@@ -205,7 +202,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **string**| Token identifying the end user. |
  **id** | [**string**](../Model/.md)|  |
- **expand** | **string**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type

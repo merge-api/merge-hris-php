@@ -407,7 +407,6 @@ class EmployeesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
      * @param  string $manager_id If provided, will only return employees for this manager. (optional)
@@ -424,9 +423,9 @@ class EmployeesApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PaginatedEmployeeList
      */
-    public function employeesList($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
+    public function employeesList($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
     {
-        list($response) = $this->employeesListWithHttpInfo($x_account_token, $company_id, $created_after, $created_before, $cursor, $expand, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $personal_email, $remote_id, $team_id, $work_email, $work_location_id);
+        list($response) = $this->employeesListWithHttpInfo($x_account_token, $company_id, $created_after, $created_before, $cursor, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $personal_email, $remote_id, $team_id, $work_email, $work_location_id);
         return $response;
     }
 
@@ -438,7 +437,6 @@ class EmployeesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
      * @param  string $manager_id If provided, will only return employees for this manager. (optional)
@@ -455,9 +453,9 @@ class EmployeesApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PaginatedEmployeeList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function employeesListWithHttpInfo($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
+    public function employeesListWithHttpInfo($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
     {
-        $request = $this->employeesListRequest($x_account_token, $company_id, $created_after, $created_before, $cursor, $expand, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $personal_email, $remote_id, $team_id, $work_email, $work_location_id);
+        $request = $this->employeesListRequest($x_account_token, $company_id, $created_after, $created_before, $cursor, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $personal_email, $remote_id, $team_id, $work_email, $work_location_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -538,7 +536,6 @@ class EmployeesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
      * @param  string $manager_id If provided, will only return employees for this manager. (optional)
@@ -554,9 +551,9 @@ class EmployeesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employeesListAsync($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
+    public function employeesListAsync($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
     {
-        return $this->employeesListAsyncWithHttpInfo($x_account_token, $company_id, $created_after, $created_before, $cursor, $expand, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $personal_email, $remote_id, $team_id, $work_email, $work_location_id)
+        return $this->employeesListAsyncWithHttpInfo($x_account_token, $company_id, $created_after, $created_before, $cursor, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $personal_email, $remote_id, $team_id, $work_email, $work_location_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -572,7 +569,6 @@ class EmployeesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
      * @param  string $manager_id If provided, will only return employees for this manager. (optional)
@@ -588,10 +584,10 @@ class EmployeesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employeesListAsyncWithHttpInfo($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
+    public function employeesListAsyncWithHttpInfo($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
     {
         $returnType = '\OpenAPI\Client\Model\PaginatedEmployeeList';
-        $request = $this->employeesListRequest($x_account_token, $company_id, $created_after, $created_before, $cursor, $expand, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $personal_email, $remote_id, $team_id, $work_email, $work_location_id);
+        $request = $this->employeesListRequest($x_account_token, $company_id, $created_after, $created_before, $cursor, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $personal_email, $remote_id, $team_id, $work_email, $work_location_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -634,7 +630,6 @@ class EmployeesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
      * @param  string $manager_id If provided, will only return employees for this manager. (optional)
@@ -650,7 +645,7 @@ class EmployeesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function employeesListRequest($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
+    public function employeesListRequest($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -708,17 +703,6 @@ class EmployeesApi
             }
             else {
                 $queryParams['cursor'] = $cursor;
-            }
-        }
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
             }
         }
         // query params
@@ -917,7 +901,6 @@ class EmployeesApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
      *
@@ -925,9 +908,9 @@ class EmployeesApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Employee
      */
-    public function employeesRetrieve($x_account_token, $id, $expand = null, $include_remote_data = null, $include_sensitive_fields = null)
+    public function employeesRetrieve($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null)
     {
-        list($response) = $this->employeesRetrieveWithHttpInfo($x_account_token, $id, $expand, $include_remote_data, $include_sensitive_fields);
+        list($response) = $this->employeesRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data, $include_sensitive_fields);
         return $response;
     }
 
@@ -936,7 +919,6 @@ class EmployeesApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
      *
@@ -944,9 +926,9 @@ class EmployeesApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Employee, HTTP status code, HTTP response headers (array of strings)
      */
-    public function employeesRetrieveWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null, $include_sensitive_fields = null)
+    public function employeesRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null)
     {
-        $request = $this->employeesRetrieveRequest($x_account_token, $id, $expand, $include_remote_data, $include_sensitive_fields);
+        $request = $this->employeesRetrieveRequest($x_account_token, $id, $include_remote_data, $include_sensitive_fields);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1024,16 +1006,15 @@ class EmployeesApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employeesRetrieveAsync($x_account_token, $id, $expand = null, $include_remote_data = null, $include_sensitive_fields = null)
+    public function employeesRetrieveAsync($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null)
     {
-        return $this->employeesRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand, $include_remote_data, $include_sensitive_fields)
+        return $this->employeesRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data, $include_sensitive_fields)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1046,17 +1027,16 @@ class EmployeesApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employeesRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null, $include_sensitive_fields = null)
+    public function employeesRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null)
     {
         $returnType = '\OpenAPI\Client\Model\Employee';
-        $request = $this->employeesRetrieveRequest($x_account_token, $id, $expand, $include_remote_data, $include_sensitive_fields);
+        $request = $this->employeesRetrieveRequest($x_account_token, $id, $include_remote_data, $include_sensitive_fields);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1096,14 +1076,13 @@ class EmployeesApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function employeesRetrieveRequest($x_account_token, $id, $expand = null, $include_remote_data = null, $include_sensitive_fields = null)
+    public function employeesRetrieveRequest($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -1125,17 +1104,6 @@ class EmployeesApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
-            }
-        }
         // query params
         if ($include_remote_data !== null) {
             if('form' === 'form' && is_array($include_remote_data)) {
