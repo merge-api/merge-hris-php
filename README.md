@@ -104,11 +104,18 @@ Class | Method | HTTP request | Description
 *LocationsApi* | [**locationsList**](docs/Api/LocationsApi.md#locationslist) | **GET** /locations | 
 *LocationsApi* | [**locationsRetrieve**](docs/Api/LocationsApi.md#locationsretrieve) | **GET** /locations/{id} | 
 *PassthroughApi* | [**passthroughCreate**](docs/Api/PassthroughApi.md#passthroughcreate) | **POST** /passthrough | 
+*PayrollRunsApi* | [**payrollRunsList**](docs/Api/PayrollRunsApi.md#payrollrunslist) | **GET** /payroll-runs | 
+*PayrollRunsApi* | [**payrollRunsRetrieve**](docs/Api/PayrollRunsApi.md#payrollrunsretrieve) | **GET** /payroll-runs/{id} | 
 *RegenerateKeyApi* | [**regenerateKeyCreate**](docs/Api/RegenerateKeyApi.md#regeneratekeycreate) | **POST** /regenerate-key | 
 *SyncStatusApi* | [**syncStatusList**](docs/Api/SyncStatusApi.md#syncstatuslist) | **GET** /sync-status | 
 *SyncStatusApi* | [**syncStatusResyncCreate**](docs/Api/SyncStatusApi.md#syncstatusresynccreate) | **POST** /sync-status/resync | 
 *TeamsApi* | [**teamsList**](docs/Api/TeamsApi.md#teamslist) | **GET** /teams | 
 *TeamsApi* | [**teamsRetrieve**](docs/Api/TeamsApi.md#teamsretrieve) | **GET** /teams/{id} | 
+*TimeOffApi* | [**timeOffCreate**](docs/Api/TimeOffApi.md#timeoffcreate) | **POST** /time-off | 
+*TimeOffApi* | [**timeOffList**](docs/Api/TimeOffApi.md#timeofflist) | **GET** /time-off | 
+*TimeOffApi* | [**timeOffRetrieve**](docs/Api/TimeOffApi.md#timeoffretrieve) | **GET** /time-off/{id} | 
+*TimeOffBalanceApi* | [**timeOffBalanceList**](docs/Api/TimeOffBalanceApi.md#timeoffbalancelist) | **GET** /time-off-balance | 
+*TimeOffBalanceApi* | [**timeOffBalanceRetrieve**](docs/Api/TimeOffBalanceApi.md#timeoffbalanceretrieve) | **GET** /time-off-balance/{id} | 
 
 ## Models
 
@@ -149,18 +156,26 @@ Class | Method | HTTP request | Description
 - [PaginatedEmploymentList](docs/Model/PaginatedEmploymentList.md)
 - [PaginatedIssueList](docs/Model/PaginatedIssueList.md)
 - [PaginatedLocationList](docs/Model/PaginatedLocationList.md)
+- [PaginatedPayrollRunList](docs/Model/PaginatedPayrollRunList.md)
 - [PaginatedSyncStatusList](docs/Model/PaginatedSyncStatusList.md)
 - [PaginatedTeamList](docs/Model/PaginatedTeamList.md)
+- [PaginatedTimeOffBalanceList](docs/Model/PaginatedTimeOffBalanceList.md)
+- [PaginatedTimeOffList](docs/Model/PaginatedTimeOffList.md)
+- [PayrollRun](docs/Model/PayrollRun.md)
 - [RemoteData](docs/Model/RemoteData.md)
 - [RemoteDataRequest](docs/Model/RemoteDataRequest.md)
 - [RemoteKey](docs/Model/RemoteKey.md)
 - [RemoteKeyForRegenerationRequest](docs/Model/RemoteKeyForRegenerationRequest.md)
 - [RemoteResponse](docs/Model/RemoteResponse.md)
 - [RequestFormatEnum](docs/Model/RequestFormatEnum.md)
+- [RequestTypeEnum](docs/Model/RequestTypeEnum.md)
 - [SyncStatus](docs/Model/SyncStatus.md)
 - [SyncStatusStatusEnum](docs/Model/SyncStatusStatusEnum.md)
 - [Tax](docs/Model/Tax.md)
 - [Team](docs/Model/Team.md)
+- [TimeOff](docs/Model/TimeOff.md)
+- [TimeOffBalance](docs/Model/TimeOffBalance.md)
+- [TimeOffRequest](docs/Model/TimeOffRequest.md)
 
 ## Authorization
 
