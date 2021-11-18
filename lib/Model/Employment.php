@@ -66,12 +66,12 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee' => 'string',
         'job_title' => 'string',
         'pay_rate' => 'float',
-        'pay_period' => 'PayPeriodEnum',
-        'pay_frequency' => 'PayFrequencyEnum',
-        'pay_currency' => 'PayCurrencyEnum',
-        'flsa_status' => 'FlsaStatusEnum',
+        'pay_period' => 'string',
+        'pay_frequency' => 'string',
+        'pay_currency' => 'string',
+        'flsa_status' => 'string',
         'effective_date' => '\DateTime',
-        'employment_type' => 'EmploymentTypeEnum',
+        'employment_type' => 'string',
         'remote_data' => '\OpenAPI\Client\Model\RemoteData[]'
     ];
 
@@ -396,7 +396,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets pay_period
      *
-     * @return PayPeriodEnum|null
+     * @return string|null
      */
     public function getPayPeriod()
     {
@@ -406,7 +406,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pay_period
      *
-     * @param PayPeriodEnum|null $pay_period The time period this pay rate encompasses.
+     * @param string|null $pay_period pay_period
      *
      * @return self
      */
@@ -420,7 +420,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets pay_frequency
      *
-     * @return PayFrequencyEnum|null
+     * @return string|null
      */
     public function getPayFrequency()
     {
@@ -430,7 +430,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pay_frequency
      *
-     * @param PayFrequencyEnum|null $pay_frequency The position's pay frequency.
+     * @param string|null $pay_frequency pay_frequency
      *
      * @return self
      */
@@ -444,7 +444,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets pay_currency
      *
-     * @return PayCurrencyEnum|null
+     * @return string|null
      */
     public function getPayCurrency()
     {
@@ -454,7 +454,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pay_currency
      *
-     * @param PayCurrencyEnum|null $pay_currency The position's currency code.
+     * @param string|null $pay_currency pay_currency
      *
      * @return self
      */
@@ -468,7 +468,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets flsa_status
      *
-     * @return FlsaStatusEnum|null
+     * @return string|null
      */
     public function getFlsaStatus()
     {
@@ -478,7 +478,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets flsa_status
      *
-     * @param FlsaStatusEnum|null $flsa_status The position's FLSA status.
+     * @param string|null $flsa_status flsa_status
      *
      * @return self
      */
@@ -516,7 +516,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets employment_type
      *
-     * @return EmploymentTypeEnum|null
+     * @return string|null
      */
     public function getEmploymentType()
     {
@@ -526,7 +526,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employment_type
      *
-     * @param EmploymentTypeEnum|null $employment_type The position's type of employment.
+     * @param string|null $employment_type employment_type
      *
      * @return self
      */

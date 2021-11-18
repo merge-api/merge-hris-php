@@ -64,7 +64,7 @@ class Earning implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'employee_payroll_run' => 'string',
         'amount' => 'float',
-        'type' => 'TypeEnum',
+        'type' => 'string',
         'remote_data' => 'array<string,mixed>[]'
     ];
 
@@ -306,7 +306,7 @@ class Earning implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return TypeEnum|null
+     * @return string|null
      */
     public function getType()
     {
@@ -316,7 +316,7 @@ class Earning implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param TypeEnum|null $type The type of earning.
+     * @param string|null $type type
      *
      * @return self
      */

@@ -64,7 +64,6 @@ class BenefitRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'string',
         'employee' => 'string',
         'provider_name' => 'string',
-        'benefit_plan_type' => 'BenefitPlanTypeEnum',
         'employee_contribution' => 'float',
         'company_contribution' => 'float'
     ];
@@ -80,7 +79,6 @@ class BenefitRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => null,
         'employee' => 'uuid',
         'provider_name' => null,
-        'benefit_plan_type' => null,
         'employee_contribution' => 'float',
         'company_contribution' => 'float'
     ];
@@ -115,7 +113,6 @@ class BenefitRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'remote_id',
         'employee' => 'employee',
         'provider_name' => 'provider_name',
-        'benefit_plan_type' => 'benefit_plan_type',
         'employee_contribution' => 'employee_contribution',
         'company_contribution' => 'company_contribution'
     ];
@@ -129,7 +126,6 @@ class BenefitRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'setRemoteId',
         'employee' => 'setEmployee',
         'provider_name' => 'setProviderName',
-        'benefit_plan_type' => 'setBenefitPlanType',
         'employee_contribution' => 'setEmployeeContribution',
         'company_contribution' => 'setCompanyContribution'
     ];
@@ -143,7 +139,6 @@ class BenefitRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'getRemoteId',
         'employee' => 'getEmployee',
         'provider_name' => 'getProviderName',
-        'benefit_plan_type' => 'getBenefitPlanType',
         'employee_contribution' => 'getEmployeeContribution',
         'company_contribution' => 'getCompanyContribution'
     ];
@@ -208,7 +203,6 @@ class BenefitRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['remote_id'] = $data['remote_id'] ?? null;
         $this->container['employee'] = $data['employee'] ?? null;
         $this->container['provider_name'] = $data['provider_name'] ?? null;
-        $this->container['benefit_plan_type'] = $data['benefit_plan_type'] ?? null;
         $this->container['employee_contribution'] = $data['employee_contribution'] ?? null;
         $this->container['company_contribution'] = $data['company_contribution'] ?? null;
     }
@@ -305,30 +299,6 @@ class BenefitRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setProviderName($provider_name)
     {
         $this->container['provider_name'] = $provider_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets benefit_plan_type
-     *
-     * @return BenefitPlanTypeEnum|null
-     */
-    public function getBenefitPlanType()
-    {
-        return $this->container['benefit_plan_type'];
-    }
-
-    /**
-     * Sets benefit_plan_type
-     *
-     * @param BenefitPlanTypeEnum|null $benefit_plan_type The type of benefit plan
-     *
-     * @return self
-     */
-    public function setBenefitPlanType($benefit_plan_type)
-    {
-        $this->container['benefit_plan_type'] = $benefit_plan_type;
 
         return $this;
     }

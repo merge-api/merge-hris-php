@@ -125,7 +125,6 @@ class EmployeePayrollRunsApi
      * @param  string $employee_id If provided, will only return employee payroll runs for this employee. (optional)
      * @param  \DateTime $ended_after If provided, will only return employee payroll runs ended after this datetime. (optional)
      * @param  \DateTime $ended_before If provided, will only return employee payroll runs ended before this datetime. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -139,9 +138,9 @@ class EmployeePayrollRunsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PaginatedEmployeePayrollRunList
      */
-    public function employeePayrollRunsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
+    public function employeePayrollRunsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
     {
-        list($response) = $this->employeePayrollRunsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before);
+        list($response) = $this->employeePayrollRunsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before);
         return $response;
     }
 
@@ -155,7 +154,6 @@ class EmployeePayrollRunsApi
      * @param  string $employee_id If provided, will only return employee payroll runs for this employee. (optional)
      * @param  \DateTime $ended_after If provided, will only return employee payroll runs ended after this datetime. (optional)
      * @param  \DateTime $ended_before If provided, will only return employee payroll runs ended before this datetime. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -169,9 +167,9 @@ class EmployeePayrollRunsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PaginatedEmployeePayrollRunList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function employeePayrollRunsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
+    public function employeePayrollRunsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
     {
-        $request = $this->employeePayrollRunsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before);
+        $request = $this->employeePayrollRunsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before);
 
         try {
             $options = $this->createHttpClientOption();
@@ -254,7 +252,6 @@ class EmployeePayrollRunsApi
      * @param  string $employee_id If provided, will only return employee payroll runs for this employee. (optional)
      * @param  \DateTime $ended_after If provided, will only return employee payroll runs ended after this datetime. (optional)
      * @param  \DateTime $ended_before If provided, will only return employee payroll runs ended before this datetime. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -267,9 +264,9 @@ class EmployeePayrollRunsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employeePayrollRunsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
+    public function employeePayrollRunsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
     {
-        return $this->employeePayrollRunsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before)
+        return $this->employeePayrollRunsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -287,7 +284,6 @@ class EmployeePayrollRunsApi
      * @param  string $employee_id If provided, will only return employee payroll runs for this employee. (optional)
      * @param  \DateTime $ended_after If provided, will only return employee payroll runs ended after this datetime. (optional)
      * @param  \DateTime $ended_before If provided, will only return employee payroll runs ended before this datetime. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -300,10 +296,10 @@ class EmployeePayrollRunsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employeePayrollRunsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
+    public function employeePayrollRunsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
     {
         $returnType = '\OpenAPI\Client\Model\PaginatedEmployeePayrollRunList';
-        $request = $this->employeePayrollRunsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before);
+        $request = $this->employeePayrollRunsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -348,7 +344,6 @@ class EmployeePayrollRunsApi
      * @param  string $employee_id If provided, will only return employee payroll runs for this employee. (optional)
      * @param  \DateTime $ended_after If provided, will only return employee payroll runs ended after this datetime. (optional)
      * @param  \DateTime $ended_before If provided, will only return employee payroll runs ended before this datetime. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -361,7 +356,7 @@ class EmployeePayrollRunsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function employeePayrollRunsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
+    public function employeePayrollRunsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -441,17 +436,6 @@ class EmployeePayrollRunsApi
             }
             else {
                 $queryParams['ended_before'] = $ended_before;
-            }
-        }
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
             }
         }
         // query params
@@ -617,16 +601,15 @@ class EmployeePayrollRunsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmployeePayrollRun
      */
-    public function employeePayrollRunsRetrieve($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function employeePayrollRunsRetrieve($x_account_token, $id, $include_remote_data = null)
     {
-        list($response) = $this->employeePayrollRunsRetrieveWithHttpInfo($x_account_token, $id, $expand, $include_remote_data);
+        list($response) = $this->employeePayrollRunsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data);
         return $response;
     }
 
@@ -635,16 +618,15 @@ class EmployeePayrollRunsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmployeePayrollRun, HTTP status code, HTTP response headers (array of strings)
      */
-    public function employeePayrollRunsRetrieveWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function employeePayrollRunsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $request = $this->employeePayrollRunsRetrieveRequest($x_account_token, $id, $expand, $include_remote_data);
+        $request = $this->employeePayrollRunsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -722,15 +704,14 @@ class EmployeePayrollRunsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employeePayrollRunsRetrieveAsync($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function employeePayrollRunsRetrieveAsync($x_account_token, $id, $include_remote_data = null)
     {
-        return $this->employeePayrollRunsRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand, $include_remote_data)
+        return $this->employeePayrollRunsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -743,16 +724,15 @@ class EmployeePayrollRunsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employeePayrollRunsRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function employeePayrollRunsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
         $returnType = '\OpenAPI\Client\Model\EmployeePayrollRun';
-        $request = $this->employeePayrollRunsRetrieveRequest($x_account_token, $id, $expand, $include_remote_data);
+        $request = $this->employeePayrollRunsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -792,13 +772,12 @@ class EmployeePayrollRunsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function employeePayrollRunsRetrieveRequest($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function employeePayrollRunsRetrieveRequest($x_account_token, $id, $include_remote_data = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -820,17 +799,6 @@ class EmployeePayrollRunsApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
-            }
-        }
         // query params
         if ($include_remote_data !== null) {
             if('form' === 'form' && is_array($include_remote_data)) {

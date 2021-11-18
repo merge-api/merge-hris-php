@@ -108,15 +108,6 @@ class BenefitRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "benefit_plan_type"
-     */
-    public function testPropertyBenefitPlanType()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "employee_contribution"
      */
     public function testPropertyEmployeeContribution()

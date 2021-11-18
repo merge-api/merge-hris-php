@@ -123,7 +123,6 @@ class TimeOffBalanceApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off balances for this employee. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -135,9 +134,9 @@ class TimeOffBalanceApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PaginatedTimeOffBalanceList
      */
-    public function timeOffBalanceList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $policy_type = null, $remote_id = null)
+    public function timeOffBalanceList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $policy_type = null, $remote_id = null)
     {
-        list($response) = $this->timeOffBalanceListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_id);
+        list($response) = $this->timeOffBalanceListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_id);
         return $response;
     }
 
@@ -149,7 +148,6 @@ class TimeOffBalanceApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off balances for this employee. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -161,9 +159,9 @@ class TimeOffBalanceApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PaginatedTimeOffBalanceList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function timeOffBalanceListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $policy_type = null, $remote_id = null)
+    public function timeOffBalanceListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $policy_type = null, $remote_id = null)
     {
-        $request = $this->timeOffBalanceListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_id);
+        $request = $this->timeOffBalanceListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -244,7 +242,6 @@ class TimeOffBalanceApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off balances for this employee. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -255,9 +252,9 @@ class TimeOffBalanceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffBalanceListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $policy_type = null, $remote_id = null)
+    public function timeOffBalanceListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $policy_type = null, $remote_id = null)
     {
-        return $this->timeOffBalanceListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_id)
+        return $this->timeOffBalanceListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -273,7 +270,6 @@ class TimeOffBalanceApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off balances for this employee. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -284,10 +280,10 @@ class TimeOffBalanceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffBalanceListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $policy_type = null, $remote_id = null)
+    public function timeOffBalanceListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $policy_type = null, $remote_id = null)
     {
         $returnType = '\OpenAPI\Client\Model\PaginatedTimeOffBalanceList';
-        $request = $this->timeOffBalanceListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_id);
+        $request = $this->timeOffBalanceListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -330,7 +326,6 @@ class TimeOffBalanceApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off balances for this employee. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -341,7 +336,7 @@ class TimeOffBalanceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function timeOffBalanceListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $policy_type = null, $remote_id = null)
+    public function timeOffBalanceListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $policy_type = null, $remote_id = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -399,17 +394,6 @@ class TimeOffBalanceApi
             }
             else {
                 $queryParams['employee_id'] = $employee_id;
-            }
-        }
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
             }
         }
         // query params
@@ -553,16 +537,15 @@ class TimeOffBalanceApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TimeOffBalance
      */
-    public function timeOffBalanceRetrieve($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function timeOffBalanceRetrieve($x_account_token, $id, $include_remote_data = null)
     {
-        list($response) = $this->timeOffBalanceRetrieveWithHttpInfo($x_account_token, $id, $expand, $include_remote_data);
+        list($response) = $this->timeOffBalanceRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data);
         return $response;
     }
 
@@ -571,16 +554,15 @@ class TimeOffBalanceApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TimeOffBalance, HTTP status code, HTTP response headers (array of strings)
      */
-    public function timeOffBalanceRetrieveWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function timeOffBalanceRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $request = $this->timeOffBalanceRetrieveRequest($x_account_token, $id, $expand, $include_remote_data);
+        $request = $this->timeOffBalanceRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -658,15 +640,14 @@ class TimeOffBalanceApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffBalanceRetrieveAsync($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function timeOffBalanceRetrieveAsync($x_account_token, $id, $include_remote_data = null)
     {
-        return $this->timeOffBalanceRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand, $include_remote_data)
+        return $this->timeOffBalanceRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -679,16 +660,15 @@ class TimeOffBalanceApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffBalanceRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function timeOffBalanceRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
         $returnType = '\OpenAPI\Client\Model\TimeOffBalance';
-        $request = $this->timeOffBalanceRetrieveRequest($x_account_token, $id, $expand, $include_remote_data);
+        $request = $this->timeOffBalanceRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -728,13 +708,12 @@ class TimeOffBalanceApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function timeOffBalanceRetrieveRequest($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function timeOffBalanceRetrieveRequest($x_account_token, $id, $include_remote_data = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -756,17 +735,6 @@ class TimeOffBalanceApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
-            }
-        }
         // query params
         if ($include_remote_data !== null) {
             if('form' === 'form' && is_array($include_remote_data)) {

@@ -63,8 +63,8 @@ class PayrollRun implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'remote_id' => 'string',
-        'run_state' => 'RunStateEnum',
-        'run_type' => 'RunTypeEnum',
+        'run_state' => 'string',
+        'run_type' => 'string',
         'start_date' => '\DateTime',
         'end_date' => '\DateTime',
         'check_date' => '\DateTime',
@@ -300,7 +300,7 @@ class PayrollRun implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets run_state
      *
-     * @return RunStateEnum|null
+     * @return string|null
      */
     public function getRunState()
     {
@@ -310,7 +310,7 @@ class PayrollRun implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets run_state
      *
-     * @param RunStateEnum|null $run_state The state of the payroll run
+     * @param string|null $run_state run_state
      *
      * @return self
      */
@@ -324,7 +324,7 @@ class PayrollRun implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets run_type
      *
-     * @return RunTypeEnum|null
+     * @return string|null
      */
     public function getRunType()
     {
@@ -334,7 +334,7 @@ class PayrollRun implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets run_type
      *
-     * @param RunTypeEnum|null $run_type The type of the payroll run
+     * @param string|null $run_type run_type
      *
      * @return self
      */

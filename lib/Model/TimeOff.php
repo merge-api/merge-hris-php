@@ -65,9 +65,9 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'string',
         'employee' => 'string',
         'approver' => 'string',
-        'status' => 'TimeOffStatusEnum',
+        'status' => 'string',
         'employee_note' => 'string',
-        'units' => 'UnitsEnum',
+        'units' => 'string',
         'amount' => 'float',
         'request_type' => 'RequestTypeEnum',
         'start_time' => '\DateTime',
@@ -372,7 +372,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return TimeOffStatusEnum|null
+     * @return string|null
      */
     public function getStatus()
     {
@@ -382,7 +382,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param TimeOffStatusEnum|null $status The status of this time off request.
+     * @param string|null $status status
      *
      * @return self
      */
@@ -420,7 +420,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets units
      *
-     * @return UnitsEnum|null
+     * @return string|null
      */
     public function getUnits()
     {
@@ -430,7 +430,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets units
      *
-     * @param UnitsEnum|null $units The unit of time requested.
+     * @param string|null $units units
      *
      * @return self
      */

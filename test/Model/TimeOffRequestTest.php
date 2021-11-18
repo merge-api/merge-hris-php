@@ -108,27 +108,9 @@ class TimeOffRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "status"
-     */
-    public function testPropertyStatus()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "employee_note"
      */
     public function testPropertyEmployeeNote()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "units"
-     */
-    public function testPropertyUnits()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

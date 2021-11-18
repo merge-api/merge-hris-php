@@ -64,9 +64,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'string',
         'employee' => 'string',
         'approver' => 'string',
-        'status' => 'TimeOffStatusEnum',
         'employee_note' => 'string',
-        'units' => 'UnitsEnum',
         'amount' => 'float',
         'request_type' => 'RequestTypeEnum',
         'start_time' => '\DateTime',
@@ -84,9 +82,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => null,
         'employee' => 'uuid',
         'approver' => 'uuid',
-        'status' => null,
         'employee_note' => null,
-        'units' => null,
         'amount' => 'float',
         'request_type' => null,
         'start_time' => 'date-time',
@@ -123,9 +119,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'remote_id',
         'employee' => 'employee',
         'approver' => 'approver',
-        'status' => 'status',
         'employee_note' => 'employee_note',
-        'units' => 'units',
         'amount' => 'amount',
         'request_type' => 'request_type',
         'start_time' => 'start_time',
@@ -141,9 +135,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'setRemoteId',
         'employee' => 'setEmployee',
         'approver' => 'setApprover',
-        'status' => 'setStatus',
         'employee_note' => 'setEmployeeNote',
-        'units' => 'setUnits',
         'amount' => 'setAmount',
         'request_type' => 'setRequestType',
         'start_time' => 'setStartTime',
@@ -159,9 +151,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'getRemoteId',
         'employee' => 'getEmployee',
         'approver' => 'getApprover',
-        'status' => 'getStatus',
         'employee_note' => 'getEmployeeNote',
-        'units' => 'getUnits',
         'amount' => 'getAmount',
         'request_type' => 'getRequestType',
         'start_time' => 'getStartTime',
@@ -228,9 +218,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['remote_id'] = $data['remote_id'] ?? null;
         $this->container['employee'] = $data['employee'] ?? null;
         $this->container['approver'] = $data['approver'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
         $this->container['employee_note'] = $data['employee_note'] ?? null;
-        $this->container['units'] = $data['units'] ?? null;
         $this->container['amount'] = $data['amount'] ?? null;
         $this->container['request_type'] = $data['request_type'] ?? null;
         $this->container['start_time'] = $data['start_time'] ?? null;
@@ -334,30 +322,6 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets status
-     *
-     * @return TimeOffStatusEnum|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param TimeOffStatusEnum|null $status The status of this time off request.
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
      * Gets employee_note
      *
      * @return string|null
@@ -377,30 +341,6 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEmployeeNote($employee_note)
     {
         $this->container['employee_note'] = $employee_note;
-
-        return $this;
-    }
-
-    /**
-     * Gets units
-     *
-     * @return UnitsEnum|null
-     */
-    public function getUnits()
-    {
-        return $this->container['units'];
-    }
-
-    /**
-     * Sets units
-     *
-     * @param UnitsEnum|null $units The unit of time requested.
-     *
-     * @return self
-     */
-    public function setUnits($units)
-    {
-        $this->container['units'] = $units;
 
         return $this;
     }

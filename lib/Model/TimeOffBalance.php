@@ -66,7 +66,7 @@ class TimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee' => 'string',
         'balance' => 'float',
         'used' => 'float',
-        'policy_type' => 'PolicyTypeEnum',
+        'policy_type' => 'string',
         'remote_data' => '\OpenAPI\Client\Model\RemoteData[]'
     ];
 
@@ -366,7 +366,7 @@ class TimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets policy_type
      *
-     * @return PolicyTypeEnum|null
+     * @return string|null
      */
     public function getPolicyType()
     {
@@ -376,7 +376,7 @@ class TimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets policy_type
      *
-     * @param PolicyTypeEnum|null $policy_type The policy type of this time off balance.
+     * @param string|null $policy_type policy_type
      *
      * @return self
      */

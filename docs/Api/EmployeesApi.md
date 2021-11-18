@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 ## `employeesList()`
 
 ```php
-employeesList($x_account_token, $company_id, $created_after, $created_before, $cursor, $expand, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $personal_email, $remote_id, $team_id, $work_email, $work_location_id): \OpenAPI\Client\Model\PaginatedEmployeeList
+employeesList($x_account_token, $company_id, $created_after, $created_before, $cursor, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $personal_email, $remote_id, $team_id, $work_email, $work_location_id): \OpenAPI\Client\Model\PaginatedEmployeeList
 ```
 
 
@@ -109,7 +109,6 @@ $company_id = 'company_id_example'; // string | If provided, will only return em
 $created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects created after this datetime.
 $created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects created before this datetime.
 $cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | The pagination cursor value.
-$expand = employments,home_location,work_location,manager,team,company; // string | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $include_sensitive_fields = True; // bool | Whether to include sensetive fields (such as social security numbers) in the response.
 $manager_id = 'manager_id_example'; // string | If provided, will only return employees for this manager.
@@ -123,7 +122,7 @@ $work_email = 'work_email_example'; // string | If provided, will only return Em
 $work_location_id = 'work_location_id_example'; // string | If provided, will only return employees for this location.
 
 try {
-    $result = $apiInstance->employeesList($x_account_token, $company_id, $created_after, $created_before, $cursor, $expand, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $personal_email, $remote_id, $team_id, $work_email, $work_location_id);
+    $result = $apiInstance->employeesList($x_account_token, $company_id, $created_after, $created_before, $cursor, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $personal_email, $remote_id, $team_id, $work_email, $work_location_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeesApi->employeesList: ', $e->getMessage(), PHP_EOL;
@@ -139,7 +138,6 @@ Name | Type | Description  | Notes
  **created_after** | **\DateTime**| If provided, will only return objects created after this datetime. | [optional]
  **created_before** | **\DateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **string**| The pagination cursor value. | [optional]
- **expand** | **string**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **include_sensitive_fields** | **bool**| Whether to include sensetive fields (such as social security numbers) in the response. | [optional]
  **manager_id** | **string**| If provided, will only return employees for this manager. | [optional]
@@ -172,7 +170,7 @@ Name | Type | Description  | Notes
 ## `employeesRetrieve()`
 
 ```php
-employeesRetrieve($x_account_token, $id, $expand, $include_remote_data, $include_sensitive_fields): \OpenAPI\Client\Model\Employee
+employeesRetrieve($x_account_token, $id, $include_remote_data, $include_sensitive_fields): \OpenAPI\Client\Model\Employee
 ```
 
 
@@ -200,12 +198,11 @@ $apiInstance = new OpenAPI\Client\Api\EmployeesApi(
 );
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $id = 'id_example'; // string
-$expand = employments,home_location,work_location,manager,team,company; // string | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $include_sensitive_fields = True; // bool | Whether to include sensetive fields (such as social security numbers) in the response.
 
 try {
-    $result = $apiInstance->employeesRetrieve($x_account_token, $id, $expand, $include_remote_data, $include_sensitive_fields);
+    $result = $apiInstance->employeesRetrieve($x_account_token, $id, $include_remote_data, $include_sensitive_fields);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeesApi->employeesRetrieve: ', $e->getMessage(), PHP_EOL;
@@ -218,7 +215,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **string**| Token identifying the end user. |
  **id** | [**string**](../Model/.md)|  |
- **expand** | **string**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **include_sensitive_fields** | **bool**| Whether to include sensetive fields (such as social security numbers) in the response. | [optional]
 

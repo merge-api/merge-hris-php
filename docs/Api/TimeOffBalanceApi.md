@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `timeOffBalanceList()`
 
 ```php
-timeOffBalanceList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_id): \OpenAPI\Client\Model\PaginatedTimeOffBalanceList
+timeOffBalanceList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_id): \OpenAPI\Client\Model\PaginatedTimeOffBalanceList
 ```
 
 
@@ -42,7 +42,6 @@ $created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If p
 $created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects created before this datetime.
 $cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | The pagination cursor value.
 $employee_id = 'employee_id_example'; // string | If provided, will only return time off balances for this employee.
-$expand = employee; // string | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified after this datetime.
 $modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified before this datetime.
@@ -51,7 +50,7 @@ $policy_type = 'policy_type_example'; // string | If provided, will only return 
 $remote_id = 'remote_id_example'; // string | The API provider's ID for the given object.
 
 try {
-    $result = $apiInstance->timeOffBalanceList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_id);
+    $result = $apiInstance->timeOffBalanceList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimeOffBalanceApi->timeOffBalanceList: ', $e->getMessage(), PHP_EOL;
@@ -67,7 +66,6 @@ Name | Type | Description  | Notes
  **created_before** | **\DateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **string**| The pagination cursor value. | [optional]
  **employee_id** | **string**| If provided, will only return time off balances for this employee. | [optional]
- **expand** | **string**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **\DateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **\DateTime**| If provided, will only return objects modified before this datetime. | [optional]
@@ -95,7 +93,7 @@ Name | Type | Description  | Notes
 ## `timeOffBalanceRetrieve()`
 
 ```php
-timeOffBalanceRetrieve($x_account_token, $id, $expand, $include_remote_data): \OpenAPI\Client\Model\TimeOffBalance
+timeOffBalanceRetrieve($x_account_token, $id, $include_remote_data): \OpenAPI\Client\Model\TimeOffBalance
 ```
 
 
@@ -123,11 +121,10 @@ $apiInstance = new OpenAPI\Client\Api\TimeOffBalanceApi(
 );
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $id = 'id_example'; // string
-$expand = employee; // string | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 
 try {
-    $result = $apiInstance->timeOffBalanceRetrieve($x_account_token, $id, $expand, $include_remote_data);
+    $result = $apiInstance->timeOffBalanceRetrieve($x_account_token, $id, $include_remote_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimeOffBalanceApi->timeOffBalanceRetrieve: ', $e->getMessage(), PHP_EOL;
@@ -140,7 +137,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **string**| Token identifying the end user. |
  **id** | [**string**](../Model/.md)|  |
- **expand** | **string**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type

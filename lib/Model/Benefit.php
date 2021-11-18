@@ -65,7 +65,7 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'string',
         'employee' => 'string',
         'provider_name' => 'string',
-        'benefit_plan_type' => 'BenefitPlanTypeEnum',
+        'benefit_plan_type' => 'string',
         'employee_contribution' => 'float',
         'company_contribution' => 'float',
         'remote_data' => '\OpenAPI\Client\Model\RemoteData[]'
@@ -348,7 +348,7 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets benefit_plan_type
      *
-     * @return BenefitPlanTypeEnum|null
+     * @return string|null
      */
     public function getBenefitPlanType()
     {
@@ -358,7 +358,7 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets benefit_plan_type
      *
-     * @param BenefitPlanTypeEnum|null $benefit_plan_type The type of benefit plan
+     * @param string|null $benefit_plan_type benefit_plan_type
      *
      * @return self
      */
