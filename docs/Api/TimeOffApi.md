@@ -1,4 +1,4 @@
-# OpenAPI\Client\TimeOffApi
+# MergeHRISClient\TimeOffApi
 
 All URIs are relative to https://api.merge.dev/api/hris/v1.
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## `timeOffCreate()`
 
 ```php
-timeOffCreate($x_account_token, $run_async, $time_off_request): \OpenAPI\Client\Model\TimeOff
+timeOffCreate($x_account_token, $run_async, $time_off_request): \MergeHRISClient\Model\TimeOff
 ```
 
 
@@ -27,12 +27,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\TimeOffApi(
+$apiInstance = new MergeHRISClient\Api\TimeOffApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -40,7 +40,7 @@ $apiInstance = new OpenAPI\Client\Api\TimeOffApi(
 );
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $run_async = True; // bool | Whether or not third-party updates should be run asynchronously.
-$time_off_request = new \OpenAPI\Client\Model\TimeOffRequest(); // \OpenAPI\Client\Model\TimeOffRequest
+$time_off_request = new \MergeHRISClient\Model\TimeOffRequest(); // \MergeHRISClient\Model\TimeOffRequest
 
 try {
     $result = $apiInstance->timeOffCreate($x_account_token, $run_async, $time_off_request);
@@ -56,11 +56,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **string**| Token identifying the end user. |
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
- **time_off_request** | [**\OpenAPI\Client\Model\TimeOffRequest**](../Model/TimeOffRequest.md)|  | [optional]
+ **time_off_request** | [**\MergeHRISClient\Model\TimeOffRequest**](../Model/TimeOffRequest.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TimeOff**](../Model/TimeOff.md)
+[**\MergeHRISClient\Model\TimeOff**](../Model/TimeOff.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 ## `timeOffList()`
 
 ```php
-timeOffList($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $request_type, $status): \OpenAPI\Client\Model\PaginatedTimeOffList
+timeOffList($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $request_type, $status): \MergeHRISClient\Model\PaginatedTimeOffList
 ```
 
 
@@ -93,12 +93,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\TimeOffApi(
+$apiInstance = new MergeHRISClient\Api\TimeOffApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PaginatedTimeOffList**](../Model/PaginatedTimeOffList.md)
+[**\MergeHRISClient\Model\PaginatedTimeOffList**](../Model/PaginatedTimeOffList.md)
 
 ### Authorization
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 ## `timeOffRetrieve()`
 
 ```php
-timeOffRetrieve($x_account_token, $id, $include_remote_data): \OpenAPI\Client\Model\TimeOff
+timeOffRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\TimeOff
 ```
 
 
@@ -179,12 +179,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\TimeOffApi(
+$apiInstance = new MergeHRISClient\Api\TimeOffApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TimeOff**](../Model/TimeOff.md)
+[**\MergeHRISClient\Model\TimeOff**](../Model/TimeOff.md)
 
 ### Authorization
 

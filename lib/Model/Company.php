@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MergeHRISClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MergeHRISClient\ObjectSerializer;
 
 /**
  * Company Class Doc Comment
  *
  * @category Class
  * @description # The Company Object ### Description The &#x60;Company&#x60; object is used to represent a Company.  ### Usage Example Fetch from the &#x60;LIST Companies&#x60; endpoint and filter by &#x60;ID&#x60; to show all companies.
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -66,7 +66,7 @@ class Company implements ModelInterface, ArrayAccess, \JsonSerializable
         'legal_name' => 'string',
         'display_name' => 'string',
         'eins' => 'string[]',
-        'remote_data' => '\OpenAPI\Client\Model\RemoteData[]'
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
     /**
@@ -360,7 +360,7 @@ class Company implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets remote_data
      *
-     * @return \OpenAPI\Client\Model\RemoteData[]|null
+     * @return \MergeHRISClient\Model\RemoteData[]|null
      */
     public function getRemoteData()
     {
@@ -370,7 +370,7 @@ class Company implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets remote_data
      *
-     * @param \OpenAPI\Client\Model\RemoteData[]|null $remote_data remote_data
+     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
      *
      * @return self
      */

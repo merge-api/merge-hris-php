@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace MergeHRISClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use MergeHRISClient\ApiException;
+use MergeHRISClient\Configuration;
+use MergeHRISClient\HeaderSelector;
+use MergeHRISClient\ObjectSerializer;
 
 /**
  * BenefitsApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -120,11 +120,11 @@ class BenefitsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\BenefitRequest $benefit_request benefit_request (optional)
+     * @param  \MergeHRISClient\Model\BenefitRequest $benefit_request benefit_request (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Benefit
+     * @return \MergeHRISClient\Model\Benefit
      */
     public function benefitsCreate($x_account_token, $run_async = null, $benefit_request = null)
     {
@@ -137,11 +137,11 @@ class BenefitsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\BenefitRequest $benefit_request (optional)
+     * @param  \MergeHRISClient\Model\BenefitRequest $benefit_request (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Benefit, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\Benefit, HTTP status code, HTTP response headers (array of strings)
      */
     public function benefitsCreateWithHttpInfo($x_account_token, $run_async = null, $benefit_request = null)
     {
@@ -177,20 +177,20 @@ class BenefitsApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\Benefit' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\Benefit' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Benefit', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Benefit', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Benefit';
+            $returnType = '\MergeHRISClient\Model\Benefit';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -208,7 +208,7 @@ class BenefitsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Benefit',
+                        '\MergeHRISClient\Model\Benefit',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -223,7 +223,7 @@ class BenefitsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\BenefitRequest $benefit_request (optional)
+     * @param  \MergeHRISClient\Model\BenefitRequest $benefit_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -243,14 +243,14 @@ class BenefitsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\BenefitRequest $benefit_request (optional)
+     * @param  \MergeHRISClient\Model\BenefitRequest $benefit_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function benefitsCreateAsyncWithHttpInfo($x_account_token, $run_async = null, $benefit_request = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Benefit';
+        $returnType = '\MergeHRISClient\Model\Benefit';
         $request = $this->benefitsCreateRequest($x_account_token, $run_async, $benefit_request);
 
         return $this->client
@@ -291,7 +291,7 @@ class BenefitsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\BenefitRequest $benefit_request (optional)
+     * @param  \MergeHRISClient\Model\BenefitRequest $benefit_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -413,9 +413,9 @@ class BenefitsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PaginatedBenefitList
+     * @return \MergeHRISClient\Model\PaginatedBenefitList
      */
     public function benefitsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
@@ -437,9 +437,9 @@ class BenefitsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PaginatedBenefitList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\PaginatedBenefitList, HTTP status code, HTTP response headers (array of strings)
      */
     public function benefitsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
@@ -475,20 +475,20 @@ class BenefitsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PaginatedBenefitList' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\PaginatedBenefitList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PaginatedBenefitList', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedBenefitList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PaginatedBenefitList';
+            $returnType = '\MergeHRISClient\Model\PaginatedBenefitList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -506,7 +506,7 @@ class BenefitsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PaginatedBenefitList',
+                        '\MergeHRISClient\Model\PaginatedBenefitList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -562,7 +562,7 @@ class BenefitsApi
      */
     public function benefitsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\PaginatedBenefitList';
+        $returnType = '\MergeHRISClient\Model\PaginatedBenefitList';
         $request = $this->benefitsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
 
         return $this->client
@@ -807,9 +807,9 @@ class BenefitsApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Benefit
+     * @return \MergeHRISClient\Model\Benefit
      */
     public function benefitsRetrieve($x_account_token, $id, $include_remote_data = null)
     {
@@ -824,9 +824,9 @@ class BenefitsApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Benefit, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\Benefit, HTTP status code, HTTP response headers (array of strings)
      */
     public function benefitsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
@@ -862,20 +862,20 @@ class BenefitsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Benefit' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\Benefit' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Benefit', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Benefit', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Benefit';
+            $returnType = '\MergeHRISClient\Model\Benefit';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -893,7 +893,7 @@ class BenefitsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Benefit',
+                        '\MergeHRISClient\Model\Benefit',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -935,7 +935,7 @@ class BenefitsApi
      */
     public function benefitsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Benefit';
+        $returnType = '\MergeHRISClient\Model\Benefit';
         $request = $this->benefitsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client

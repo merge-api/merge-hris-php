@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **employment_status** | **string** |  | [optional] [readonly]
 **termination_date** | [**\DateTime**](\DateTime.md) | The employee&#39;s termination date. | [optional]
 **avatar** | **string** | The URL of the employee&#39;s avatar image. | [optional]
-**remote_data** | [**\OpenAPI\Client\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
+**remote_data** | [**\MergeHRISClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
 **custom_fields** | **array<string,mixed>** | Custom fields configured for a given model. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

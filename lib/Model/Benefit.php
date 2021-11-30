@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MergeHRISClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MergeHRISClient\ObjectSerializer;
 
 /**
  * Benefit Class Doc Comment
  *
  * @category Class
  * @description # The Benefit Object ### Description The &#x60;Benefit&#x60; object is used to represent a Benefit for an employee.  ### Usage Example Fetch from the &#x60;LIST Benefits&#x60; endpoint and filter by &#x60;ID&#x60; to show all benefits.
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -68,7 +68,7 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
         'benefit_plan_type' => 'string',
         'employee_contribution' => 'float',
         'company_contribution' => 'float',
-        'remote_data' => '\OpenAPI\Client\Model\RemoteData[]'
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
     /**
@@ -420,7 +420,7 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets remote_data
      *
-     * @return \OpenAPI\Client\Model\RemoteData[]|null
+     * @return \MergeHRISClient\Model\RemoteData[]|null
      */
     public function getRemoteData()
     {
@@ -430,7 +430,7 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets remote_data
      *
-     * @param \OpenAPI\Client\Model\RemoteData[]|null $remote_data remote_data
+     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
      *
      * @return self
      */

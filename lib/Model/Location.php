@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MergeHRISClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MergeHRISClient\ObjectSerializer;
 
 /**
  * Location Class Doc Comment
  *
  * @category Class
  * @description # The Location Object ### Description The &#x60;Location&#x60; object is used to represent a Location for a Company or Employee address. This is shared across many models and is referenced whenever a location is stored.  ### Usage Example Fetch from the &#x60;LIST Locations&#x60; endpoint and filter by &#x60;ID&#x60; to show all office locations.
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -71,7 +71,7 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
         'state' => 'string',
         'zip_code' => 'string',
         'country' => 'CountryEnum',
-        'remote_data' => '\OpenAPI\Client\Model\RemoteData[]'
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
     /**
@@ -510,7 +510,7 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets remote_data
      *
-     * @return \OpenAPI\Client\Model\RemoteData[]|null
+     * @return \MergeHRISClient\Model\RemoteData[]|null
      */
     public function getRemoteData()
     {
@@ -520,7 +520,7 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets remote_data
      *
-     * @param \OpenAPI\Client\Model\RemoteData[]|null $remote_data remote_data
+     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
      *
      * @return self
      */

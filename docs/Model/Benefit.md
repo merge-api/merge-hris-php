@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **benefit_plan_type** | **string** |  | [optional] [readonly]
 **employee_contribution** | **float** | The employee&#39;s contribution. | [optional]
 **company_contribution** | **float** | The company&#39;s contribution. | [optional]
-**remote_data** | [**\OpenAPI\Client\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
+**remote_data** | [**\MergeHRISClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

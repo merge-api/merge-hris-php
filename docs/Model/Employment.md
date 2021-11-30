@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **flsa_status** | **string** |  | [optional] [readonly]
 **effective_date** | [**\DateTime**](\DateTime.md) | The position&#39;s effective date. | [optional]
 **employment_type** | **string** |  | [optional] [readonly]
-**remote_data** | [**\OpenAPI\Client\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
+**remote_data** | [**\MergeHRISClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

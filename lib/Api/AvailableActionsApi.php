@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace MergeHRISClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use MergeHRISClient\ApiException;
+use MergeHRISClient\Configuration;
+use MergeHRISClient\HeaderSelector;
+use MergeHRISClient\ObjectSerializer;
 
 /**
  * AvailableActionsApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -120,9 +120,9 @@ class AvailableActionsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AvailableActions
+     * @return \MergeHRISClient\Model\AvailableActions
      */
     public function availableActionsRetrieve($x_account_token)
     {
@@ -135,9 +135,9 @@ class AvailableActionsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AvailableActions, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\AvailableActions, HTTP status code, HTTP response headers (array of strings)
      */
     public function availableActionsRetrieveWithHttpInfo($x_account_token)
     {
@@ -173,20 +173,20 @@ class AvailableActionsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\AvailableActions' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\AvailableActions' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AvailableActions', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\AvailableActions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\AvailableActions';
+            $returnType = '\MergeHRISClient\Model\AvailableActions';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -204,7 +204,7 @@ class AvailableActionsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AvailableActions',
+                        '\MergeHRISClient\Model\AvailableActions',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -242,7 +242,7 @@ class AvailableActionsApi
      */
     public function availableActionsRetrieveAsyncWithHttpInfo($x_account_token)
     {
-        $returnType = '\OpenAPI\Client\Model\AvailableActions';
+        $returnType = '\MergeHRISClient\Model\AvailableActions';
         $request = $this->availableActionsRetrieveRequest($x_account_token);
 
         return $this->client

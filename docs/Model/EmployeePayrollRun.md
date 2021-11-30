@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 **start_date** | [**\DateTime**](\DateTime.md) | The day and time the payroll run started. | [optional]
 **end_date** | [**\DateTime**](\DateTime.md) | The day and time the payroll run ended. | [optional]
 **check_date** | [**\DateTime**](\DateTime.md) | The day and time the payroll run was checked. | [optional]
-**earnings** | [**\OpenAPI\Client\Model\Earning[]**](Earning.md) |  | [optional] [readonly]
-**deductions** | [**\OpenAPI\Client\Model\Deduction[]**](Deduction.md) |  | [optional] [readonly]
-**taxes** | [**\OpenAPI\Client\Model\Tax[]**](Tax.md) |  | [optional] [readonly]
-**remote_data** | [**\OpenAPI\Client\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
+**earnings** | [**\MergeHRISClient\Model\Earning[]**](Earning.md) |  | [optional] [readonly]
+**deductions** | [**\MergeHRISClient\Model\Deduction[]**](Deduction.md) |  | [optional] [readonly]
+**taxes** | [**\MergeHRISClient\Model\Tax[]**](Tax.md) |  | [optional] [readonly]
+**remote_data** | [**\MergeHRISClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

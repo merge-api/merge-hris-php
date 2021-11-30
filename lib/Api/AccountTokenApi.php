@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace MergeHRISClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use MergeHRISClient\ApiException;
+use MergeHRISClient\Configuration;
+use MergeHRISClient\HeaderSelector;
+use MergeHRISClient\ObjectSerializer;
 
 /**
  * AccountTokenApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -120,9 +120,9 @@ class AccountTokenApi
      *
      * @param  string $public_token public_token (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AccountToken
+     * @return \MergeHRISClient\Model\AccountToken
      */
     public function accountTokenRetrieve($public_token)
     {
@@ -135,9 +135,9 @@ class AccountTokenApi
      *
      * @param  string $public_token (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AccountToken, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\AccountToken, HTTP status code, HTTP response headers (array of strings)
      */
     public function accountTokenRetrieveWithHttpInfo($public_token)
     {
@@ -173,20 +173,20 @@ class AccountTokenApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\AccountToken' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\AccountToken' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AccountToken', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\AccountToken', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\AccountToken';
+            $returnType = '\MergeHRISClient\Model\AccountToken';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -204,7 +204,7 @@ class AccountTokenApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AccountToken',
+                        '\MergeHRISClient\Model\AccountToken',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -242,7 +242,7 @@ class AccountTokenApi
      */
     public function accountTokenRetrieveAsyncWithHttpInfo($public_token)
     {
-        $returnType = '\OpenAPI\Client\Model\AccountToken';
+        $returnType = '\MergeHRISClient\Model\AccountToken';
         $request = $this->accountTokenRetrieveRequest($public_token);
 
         return $this->client

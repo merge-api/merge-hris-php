@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace MergeHRISClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use MergeHRISClient\ApiException;
+use MergeHRISClient\Configuration;
+use MergeHRISClient\HeaderSelector;
+use MergeHRISClient\ObjectSerializer;
 
 /**
  * TimeOffApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -120,11 +120,11 @@ class TimeOffApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\TimeOffRequest $time_off_request time_off_request (optional)
+     * @param  \MergeHRISClient\Model\TimeOffRequest $time_off_request time_off_request (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TimeOff
+     * @return \MergeHRISClient\Model\TimeOff
      */
     public function timeOffCreate($x_account_token, $run_async = null, $time_off_request = null)
     {
@@ -137,11 +137,11 @@ class TimeOffApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\TimeOffRequest $time_off_request (optional)
+     * @param  \MergeHRISClient\Model\TimeOffRequest $time_off_request (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TimeOff, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\TimeOff, HTTP status code, HTTP response headers (array of strings)
      */
     public function timeOffCreateWithHttpInfo($x_account_token, $run_async = null, $time_off_request = null)
     {
@@ -177,20 +177,20 @@ class TimeOffApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\TimeOff' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\TimeOff' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TimeOff', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\TimeOff', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TimeOff';
+            $returnType = '\MergeHRISClient\Model\TimeOff';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -208,7 +208,7 @@ class TimeOffApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TimeOff',
+                        '\MergeHRISClient\Model\TimeOff',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -223,7 +223,7 @@ class TimeOffApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\TimeOffRequest $time_off_request (optional)
+     * @param  \MergeHRISClient\Model\TimeOffRequest $time_off_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -243,14 +243,14 @@ class TimeOffApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\TimeOffRequest $time_off_request (optional)
+     * @param  \MergeHRISClient\Model\TimeOffRequest $time_off_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function timeOffCreateAsyncWithHttpInfo($x_account_token, $run_async = null, $time_off_request = null)
     {
-        $returnType = '\OpenAPI\Client\Model\TimeOff';
+        $returnType = '\MergeHRISClient\Model\TimeOff';
         $request = $this->timeOffCreateRequest($x_account_token, $run_async, $time_off_request);
 
         return $this->client
@@ -291,7 +291,7 @@ class TimeOffApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\TimeOffRequest $time_off_request (optional)
+     * @param  \MergeHRISClient\Model\TimeOffRequest $time_off_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -416,9 +416,9 @@ class TimeOffApi
      * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
      * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;) (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PaginatedTimeOffList
+     * @return \MergeHRISClient\Model\PaginatedTimeOffList
      */
     public function timeOffList($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $request_type = null, $status = null)
     {
@@ -443,9 +443,9 @@ class TimeOffApi
      * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
      * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;) (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PaginatedTimeOffList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\PaginatedTimeOffList, HTTP status code, HTTP response headers (array of strings)
      */
     public function timeOffListWithHttpInfo($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $request_type = null, $status = null)
     {
@@ -481,20 +481,20 @@ class TimeOffApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PaginatedTimeOffList' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\PaginatedTimeOffList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PaginatedTimeOffList', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedTimeOffList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PaginatedTimeOffList';
+            $returnType = '\MergeHRISClient\Model\PaginatedTimeOffList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -512,7 +512,7 @@ class TimeOffApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PaginatedTimeOffList',
+                        '\MergeHRISClient\Model\PaginatedTimeOffList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -574,7 +574,7 @@ class TimeOffApi
      */
     public function timeOffListAsyncWithHttpInfo($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $request_type = null, $status = null)
     {
-        $returnType = '\OpenAPI\Client\Model\PaginatedTimeOffList';
+        $returnType = '\MergeHRISClient\Model\PaginatedTimeOffList';
         $request = $this->timeOffListRequest($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $request_type, $status);
 
         return $this->client
@@ -855,9 +855,9 @@ class TimeOffApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TimeOff
+     * @return \MergeHRISClient\Model\TimeOff
      */
     public function timeOffRetrieve($x_account_token, $id, $include_remote_data = null)
     {
@@ -872,9 +872,9 @@ class TimeOffApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TimeOff, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\TimeOff, HTTP status code, HTTP response headers (array of strings)
      */
     public function timeOffRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
@@ -910,20 +910,20 @@ class TimeOffApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\TimeOff' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\TimeOff' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TimeOff', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\TimeOff', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TimeOff';
+            $returnType = '\MergeHRISClient\Model\TimeOff';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -941,7 +941,7 @@ class TimeOffApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TimeOff',
+                        '\MergeHRISClient\Model\TimeOff',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -983,7 +983,7 @@ class TimeOffApi
      */
     public function timeOffRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\TimeOff';
+        $returnType = '\MergeHRISClient\Model\TimeOff';
         $request = $this->timeOffRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client

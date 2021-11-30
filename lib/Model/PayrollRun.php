@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MergeHRISClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MergeHRISClient\ObjectSerializer;
 
 /**
  * PayrollRun Class Doc Comment
  *
  * @category Class
  * @description # The PayrollRun Object ### Description The &#x60;PayrollRun&#x60; object is used to represent a payroll run.  ### Usage Example Fetch from the &#x60;LIST PayrollRuns&#x60; endpoint and filter by &#x60;ID&#x60; to show all payroll runs.
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -68,7 +68,7 @@ class PayrollRun implements ModelInterface, ArrayAccess, \JsonSerializable
         'start_date' => '\DateTime',
         'end_date' => '\DateTime',
         'check_date' => '\DateTime',
-        'remote_data' => '\OpenAPI\Client\Model\RemoteData[]'
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
     /**
@@ -420,7 +420,7 @@ class PayrollRun implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets remote_data
      *
-     * @return \OpenAPI\Client\Model\RemoteData[]|null
+     * @return \MergeHRISClient\Model\RemoteData[]|null
      */
     public function getRemoteData()
     {
@@ -430,7 +430,7 @@ class PayrollRun implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets remote_data
      *
-     * @param \OpenAPI\Client\Model\RemoteData[]|null $remote_data remote_data
+     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
      *
      * @return self
      */

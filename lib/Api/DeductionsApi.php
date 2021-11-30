@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace MergeHRISClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use MergeHRISClient\ApiException;
+use MergeHRISClient\Configuration;
+use MergeHRISClient\HeaderSelector;
+use MergeHRISClient\ObjectSerializer;
 
 /**
  * DeductionsApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -120,11 +120,11 @@ class DeductionsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\DeductionRequest $deduction_request deduction_request (optional)
+     * @param  \MergeHRISClient\Model\DeductionRequest $deduction_request deduction_request (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Deduction
+     * @return \MergeHRISClient\Model\Deduction
      */
     public function deductionsCreate($x_account_token, $run_async = null, $deduction_request = null)
     {
@@ -137,11 +137,11 @@ class DeductionsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\DeductionRequest $deduction_request (optional)
+     * @param  \MergeHRISClient\Model\DeductionRequest $deduction_request (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Deduction, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\Deduction, HTTP status code, HTTP response headers (array of strings)
      */
     public function deductionsCreateWithHttpInfo($x_account_token, $run_async = null, $deduction_request = null)
     {
@@ -177,20 +177,20 @@ class DeductionsApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\Deduction' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\Deduction' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Deduction', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Deduction', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Deduction';
+            $returnType = '\MergeHRISClient\Model\Deduction';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -208,7 +208,7 @@ class DeductionsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Deduction',
+                        '\MergeHRISClient\Model\Deduction',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -223,7 +223,7 @@ class DeductionsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\DeductionRequest $deduction_request (optional)
+     * @param  \MergeHRISClient\Model\DeductionRequest $deduction_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -243,14 +243,14 @@ class DeductionsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\DeductionRequest $deduction_request (optional)
+     * @param  \MergeHRISClient\Model\DeductionRequest $deduction_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function deductionsCreateAsyncWithHttpInfo($x_account_token, $run_async = null, $deduction_request = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Deduction';
+        $returnType = '\MergeHRISClient\Model\Deduction';
         $request = $this->deductionsCreateRequest($x_account_token, $run_async, $deduction_request);
 
         return $this->client
@@ -291,7 +291,7 @@ class DeductionsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\DeductionRequest $deduction_request (optional)
+     * @param  \MergeHRISClient\Model\DeductionRequest $deduction_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -413,9 +413,9 @@ class DeductionsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PaginatedDeductionList
+     * @return \MergeHRISClient\Model\PaginatedDeductionList
      */
     public function deductionsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_payroll_run_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
@@ -437,9 +437,9 @@ class DeductionsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PaginatedDeductionList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\PaginatedDeductionList, HTTP status code, HTTP response headers (array of strings)
      */
     public function deductionsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_payroll_run_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
@@ -475,20 +475,20 @@ class DeductionsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PaginatedDeductionList' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\PaginatedDeductionList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PaginatedDeductionList', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedDeductionList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PaginatedDeductionList';
+            $returnType = '\MergeHRISClient\Model\PaginatedDeductionList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -506,7 +506,7 @@ class DeductionsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PaginatedDeductionList',
+                        '\MergeHRISClient\Model\PaginatedDeductionList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -562,7 +562,7 @@ class DeductionsApi
      */
     public function deductionsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_payroll_run_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\PaginatedDeductionList';
+        $returnType = '\MergeHRISClient\Model\PaginatedDeductionList';
         $request = $this->deductionsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_payroll_run_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
 
         return $this->client
@@ -807,9 +807,9 @@ class DeductionsApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Deduction
+     * @return \MergeHRISClient\Model\Deduction
      */
     public function deductionsRetrieve($x_account_token, $id, $include_remote_data = null)
     {
@@ -824,9 +824,9 @@ class DeductionsApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Deduction, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\Deduction, HTTP status code, HTTP response headers (array of strings)
      */
     public function deductionsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
@@ -862,20 +862,20 @@ class DeductionsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Deduction' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\Deduction' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Deduction', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Deduction', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Deduction';
+            $returnType = '\MergeHRISClient\Model\Deduction';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -893,7 +893,7 @@ class DeductionsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Deduction',
+                        '\MergeHRISClient\Model\Deduction',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -935,7 +935,7 @@ class DeductionsApi
      */
     public function deductionsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Deduction';
+        $returnType = '\MergeHRISClient\Model\Deduction';
         $request = $this->deductionsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client

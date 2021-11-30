@@ -6,6 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **next** | **string** |  | [optional]
 **previous** | **string** |  | [optional]
-**results** | [**\OpenAPI\Client\Model\Company[]**](Company.md) |  | [optional]
+**results** | [**\MergeHRISClient\Model\Company[]**](Company.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

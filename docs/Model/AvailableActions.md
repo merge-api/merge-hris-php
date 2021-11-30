@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**integration** | [**\OpenAPI\Client\Model\AccountIntegration**](AccountIntegration.md) |  |
+**integration** | [**\MergeHRISClient\Model\AccountIntegration**](AccountIntegration.md) |  |
 **passthrough_available** | **bool** |  |
-**available_model_operations** | [**\OpenAPI\Client\Model\ModelOperation[]**](ModelOperation.md) |  | [optional]
+**available_model_operations** | [**\MergeHRISClient\Model\ModelOperation[]**](ModelOperation.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

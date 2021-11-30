@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MergeHRISClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MergeHRISClient\ObjectSerializer;
 
 /**
  * PaginatedBenefitList Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedBenefitList implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\OpenAPI\Client\Model\Benefit[]'
+        'results' => '\MergeHRISClient\Model\Benefit[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedBenefitList implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets results
      *
-     * @return \OpenAPI\Client\Model\Benefit[]|null
+     * @return \MergeHRISClient\Model\Benefit[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedBenefitList implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets results
      *
-     * @param \OpenAPI\Client\Model\Benefit[]|null $results results
+     * @param \MergeHRISClient\Model\Benefit[]|null $results results
      *
      * @return self
      */

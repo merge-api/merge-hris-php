@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MergeHRISClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MergeHRISClient\ObjectSerializer;
 
 /**
  * PaginatedLocationList Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedLocationList implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\OpenAPI\Client\Model\Location[]'
+        'results' => '\MergeHRISClient\Model\Location[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedLocationList implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets results
      *
-     * @return \OpenAPI\Client\Model\Location[]|null
+     * @return \MergeHRISClient\Model\Location[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedLocationList implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets results
      *
-     * @param \OpenAPI\Client\Model\Location[]|null $results results
+     * @param \MergeHRISClient\Model\Location[]|null $results results
      *
      * @return self
      */

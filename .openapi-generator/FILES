@@ -168,14 +168,3 @@ lib/Model/TimeOffBalance.php
 lib/Model/TimeOffRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/PayrollRunsApiTest.php
-test/Api/TimeOffApiTest.php
-test/Api/TimeOffBalanceApiTest.php
-test/Model/PaginatedPayrollRunListTest.php
-test/Model/PaginatedTimeOffBalanceListTest.php
-test/Model/PaginatedTimeOffListTest.php
-test/Model/PayrollRunTest.php
-test/Model/RequestTypeEnumTest.php
-test/Model/TimeOffBalanceTest.php
-test/Model/TimeOffRequestTest.php
-test/Model/TimeOffTest.php

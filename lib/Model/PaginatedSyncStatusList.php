@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MergeHRISClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MergeHRISClient\ObjectSerializer;
 
 /**
  * PaginatedSyncStatusList Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedSyncStatusList implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\OpenAPI\Client\Model\SyncStatus[]'
+        'results' => '\MergeHRISClient\Model\SyncStatus[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedSyncStatusList implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets results
      *
-     * @return \OpenAPI\Client\Model\SyncStatus[]|null
+     * @return \MergeHRISClient\Model\SyncStatus[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedSyncStatusList implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets results
      *
-     * @param \OpenAPI\Client\Model\SyncStatus[]|null $results results
+     * @param \MergeHRISClient\Model\SyncStatus[]|null $results results
      *
      * @return self
      */

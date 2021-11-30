@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace MergeHRISClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use MergeHRISClient\ApiException;
+use MergeHRISClient\Configuration;
+use MergeHRISClient\HeaderSelector;
+use MergeHRISClient\ObjectSerializer;
 
 /**
  * PayrollRunsApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -133,9 +133,9 @@ class PayrollRunsApi
      * @param  \DateTime $started_after If provided, will only return payroll runs started after this datetime. (optional)
      * @param  \DateTime $started_before If provided, will only return payroll runs started before this datetime. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PaginatedPayrollRunList
+     * @return \MergeHRISClient\Model\PaginatedPayrollRunList
      */
     public function payrollRunsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $ended_after = null, $ended_before = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $run_type = null, $started_after = null, $started_before = null)
     {
@@ -161,9 +161,9 @@ class PayrollRunsApi
      * @param  \DateTime $started_after If provided, will only return payroll runs started after this datetime. (optional)
      * @param  \DateTime $started_before If provided, will only return payroll runs started before this datetime. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PaginatedPayrollRunList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\PaginatedPayrollRunList, HTTP status code, HTTP response headers (array of strings)
      */
     public function payrollRunsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $ended_after = null, $ended_before = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $run_type = null, $started_after = null, $started_before = null)
     {
@@ -199,20 +199,20 @@ class PayrollRunsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PaginatedPayrollRunList' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\PaginatedPayrollRunList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PaginatedPayrollRunList', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedPayrollRunList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PaginatedPayrollRunList';
+            $returnType = '\MergeHRISClient\Model\PaginatedPayrollRunList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -230,7 +230,7 @@ class PayrollRunsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PaginatedPayrollRunList',
+                        '\MergeHRISClient\Model\PaginatedPayrollRunList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -294,7 +294,7 @@ class PayrollRunsApi
      */
     public function payrollRunsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $ended_after = null, $ended_before = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $run_type = null, $started_after = null, $started_before = null)
     {
-        $returnType = '\OpenAPI\Client\Model\PaginatedPayrollRunList';
+        $returnType = '\MergeHRISClient\Model\PaginatedPayrollRunList';
         $request = $this->payrollRunsListRequest($x_account_token, $created_after, $created_before, $cursor, $ended_after, $ended_before, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $run_type, $started_after, $started_before);
 
         return $this->client
@@ -587,9 +587,9 @@ class PayrollRunsApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PayrollRun
+     * @return \MergeHRISClient\Model\PayrollRun
      */
     public function payrollRunsRetrieve($x_account_token, $id, $include_remote_data = null)
     {
@@ -604,9 +604,9 @@ class PayrollRunsApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PayrollRun, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\PayrollRun, HTTP status code, HTTP response headers (array of strings)
      */
     public function payrollRunsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
@@ -642,20 +642,20 @@ class PayrollRunsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PayrollRun' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\PayrollRun' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PayrollRun', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PayrollRun', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PayrollRun';
+            $returnType = '\MergeHRISClient\Model\PayrollRun';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -673,7 +673,7 @@ class PayrollRunsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PayrollRun',
+                        '\MergeHRISClient\Model\PayrollRun',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -715,7 +715,7 @@ class PayrollRunsApi
      */
     public function payrollRunsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\PayrollRun';
+        $returnType = '\MergeHRISClient\Model\PayrollRun';
         $request = $this->payrollRunsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client

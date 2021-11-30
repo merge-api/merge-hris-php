@@ -1,4 +1,4 @@
-# OpenAPI\Client\CompaniesApi
+# MergeHRISClient\CompaniesApi
 
 All URIs are relative to https://api.merge.dev/api/hris/v1.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `companiesList()`
 
 ```php
-companiesList($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id): \OpenAPI\Client\Model\PaginatedCompanyList
+companiesList($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id): \MergeHRISClient\Model\PaginatedCompanyList
 ```
 
 
@@ -26,12 +26,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\CompaniesApi(
+$apiInstance = new MergeHRISClient\Api\CompaniesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PaginatedCompanyList**](../Model/PaginatedCompanyList.md)
+[**\MergeHRISClient\Model\PaginatedCompanyList**](../Model/PaginatedCompanyList.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 ## `companiesRetrieve()`
 
 ```php
-companiesRetrieve($x_account_token, $id, $include_remote_data): \OpenAPI\Client\Model\Company
+companiesRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\Company
 ```
 
 
@@ -104,12 +104,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\CompaniesApi(
+$apiInstance = new MergeHRISClient\Api\CompaniesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Company**](../Model/Company.md)
+[**\MergeHRISClient\Model\Company**](../Model/Company.md)
 
 ### Authorization
 
