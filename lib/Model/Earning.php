@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MergeHRISClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MergeHRISClient\ObjectSerializer;
 
 /**
  * Earning Class Doc Comment
  *
  * @category Class
  * @description # The Earning Object ### Description The &#x60;Earning&#x60; object is used to represent an earning for a given employee&#39;s payroll run. One run could include several earnings.  ### Usage Example Fetch from the &#x60;LIST Earnings&#x60; endpoint and filter by &#x60;ID&#x60; to show all earnings.
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>

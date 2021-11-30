@@ -1,4 +1,4 @@
-# OpenAPI\Client\PayrollRunsApi
+# MergeHRISClient\PayrollRunsApi
 
 All URIs are relative to https://api.merge.dev/api/hris/v1.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `payrollRunsList()`
 
 ```php
-payrollRunsList($x_account_token, $created_after, $created_before, $cursor, $ended_after, $ended_before, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $run_type, $started_after, $started_before): \OpenAPI\Client\Model\PaginatedPayrollRunList
+payrollRunsList($x_account_token, $created_after, $created_before, $cursor, $ended_after, $ended_before, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $run_type, $started_after, $started_before): \MergeHRISClient\Model\PaginatedPayrollRunList
 ```
 
 
@@ -26,12 +26,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\PayrollRunsApi(
+$apiInstance = new MergeHRISClient\Api\PayrollRunsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PaginatedPayrollRunList**](../Model/PaginatedPayrollRunList.md)
+[**\MergeHRISClient\Model\PaginatedPayrollRunList**](../Model/PaginatedPayrollRunList.md)
 
 ### Authorization
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 ## `payrollRunsRetrieve()`
 
 ```php
-payrollRunsRetrieve($x_account_token, $id, $include_remote_data): \OpenAPI\Client\Model\PayrollRun
+payrollRunsRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\PayrollRun
 ```
 
 
@@ -114,12 +114,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\PayrollRunsApi(
+$apiInstance = new MergeHRISClient\Api\PayrollRunsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PayrollRun**](../Model/PayrollRun.md)
+[**\MergeHRISClient\Model\PayrollRun**](../Model/PayrollRun.md)
 
 ### Authorization
 

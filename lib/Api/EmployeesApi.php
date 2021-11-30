@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace MergeHRISClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use MergeHRISClient\ApiException;
+use MergeHRISClient\Configuration;
+use MergeHRISClient\HeaderSelector;
+use MergeHRISClient\ObjectSerializer;
 
 /**
  * EmployeesApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -120,11 +120,11 @@ class EmployeesApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\EmployeeRequest $employee_request employee_request (optional)
+     * @param  \MergeHRISClient\Model\EmployeeRequest $employee_request employee_request (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Employee
+     * @return \MergeHRISClient\Model\Employee
      */
     public function employeesCreate($x_account_token, $run_async = null, $employee_request = null)
     {
@@ -137,11 +137,11 @@ class EmployeesApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\EmployeeRequest $employee_request (optional)
+     * @param  \MergeHRISClient\Model\EmployeeRequest $employee_request (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Employee, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\Employee, HTTP status code, HTTP response headers (array of strings)
      */
     public function employeesCreateWithHttpInfo($x_account_token, $run_async = null, $employee_request = null)
     {
@@ -177,20 +177,20 @@ class EmployeesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Employee' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\Employee' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Employee', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Employee', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Employee';
+            $returnType = '\MergeHRISClient\Model\Employee';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -208,7 +208,7 @@ class EmployeesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Employee',
+                        '\MergeHRISClient\Model\Employee',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -223,7 +223,7 @@ class EmployeesApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\EmployeeRequest $employee_request (optional)
+     * @param  \MergeHRISClient\Model\EmployeeRequest $employee_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -243,14 +243,14 @@ class EmployeesApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\EmployeeRequest $employee_request (optional)
+     * @param  \MergeHRISClient\Model\EmployeeRequest $employee_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function employeesCreateAsyncWithHttpInfo($x_account_token, $run_async = null, $employee_request = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Employee';
+        $returnType = '\MergeHRISClient\Model\Employee';
         $request = $this->employeesCreateRequest($x_account_token, $run_async, $employee_request);
 
         return $this->client
@@ -291,7 +291,7 @@ class EmployeesApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \OpenAPI\Client\Model\EmployeeRequest $employee_request (optional)
+     * @param  \MergeHRISClient\Model\EmployeeRequest $employee_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -419,9 +419,9 @@ class EmployeesApi
      * @param  string $work_email If provided, will only return Employees with this work email (optional)
      * @param  string $work_location_id If provided, will only return employees for this location. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PaginatedEmployeeList
+     * @return \MergeHRISClient\Model\PaginatedEmployeeList
      */
     public function employeesList($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
     {
@@ -449,9 +449,9 @@ class EmployeesApi
      * @param  string $work_email If provided, will only return Employees with this work email (optional)
      * @param  string $work_location_id If provided, will only return employees for this location. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PaginatedEmployeeList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\PaginatedEmployeeList, HTTP status code, HTTP response headers (array of strings)
      */
     public function employeesListWithHttpInfo($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
     {
@@ -487,20 +487,20 @@ class EmployeesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PaginatedEmployeeList' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\PaginatedEmployeeList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PaginatedEmployeeList', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedEmployeeList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PaginatedEmployeeList';
+            $returnType = '\MergeHRISClient\Model\PaginatedEmployeeList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -518,7 +518,7 @@ class EmployeesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PaginatedEmployeeList',
+                        '\MergeHRISClient\Model\PaginatedEmployeeList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -586,7 +586,7 @@ class EmployeesApi
      */
     public function employeesListAsyncWithHttpInfo($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\PaginatedEmployeeList';
+        $returnType = '\MergeHRISClient\Model\PaginatedEmployeeList';
         $request = $this->employeesListRequest($x_account_token, $company_id, $created_after, $created_before, $cursor, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $personal_email, $remote_id, $team_id, $work_email, $work_location_id);
 
         return $this->client
@@ -904,9 +904,9 @@ class EmployeesApi
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Employee
+     * @return \MergeHRISClient\Model\Employee
      */
     public function employeesRetrieve($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null)
     {
@@ -922,9 +922,9 @@ class EmployeesApi
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Employee, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\Employee, HTTP status code, HTTP response headers (array of strings)
      */
     public function employeesRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null)
     {
@@ -960,20 +960,20 @@ class EmployeesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Employee' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\Employee' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Employee', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Employee', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Employee';
+            $returnType = '\MergeHRISClient\Model\Employee';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -991,7 +991,7 @@ class EmployeesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Employee',
+                        '\MergeHRISClient\Model\Employee',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1035,7 +1035,7 @@ class EmployeesApi
      */
     public function employeesRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Employee';
+        $returnType = '\MergeHRISClient\Model\Employee';
         $request = $this->employeesRetrieveRequest($x_account_token, $id, $include_remote_data, $include_sensitive_fields);
 
         return $this->client

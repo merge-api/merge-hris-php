@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace MergeHRISClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use MergeHRISClient\ApiException;
+use MergeHRISClient\Configuration;
+use MergeHRISClient\HeaderSelector;
+use MergeHRISClient\ObjectSerializer;
 
 /**
  * DeleteAccountApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -120,7 +120,7 @@ class DeleteAccountApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -134,7 +134,7 @@ class DeleteAccountApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */

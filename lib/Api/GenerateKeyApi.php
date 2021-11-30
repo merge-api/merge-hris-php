@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace MergeHRISClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use MergeHRISClient\ApiException;
+use MergeHRISClient\Configuration;
+use MergeHRISClient\HeaderSelector;
+use MergeHRISClient\ObjectSerializer;
 
 /**
  * GenerateKeyApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -118,11 +118,11 @@ class GenerateKeyApi
     /**
      * Operation generateKeyCreate
      *
-     * @param  \OpenAPI\Client\Model\GenerateRemoteKeyRequest $generate_remote_key_request generate_remote_key_request (required)
+     * @param  \MergeHRISClient\Model\GenerateRemoteKeyRequest $generate_remote_key_request generate_remote_key_request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\RemoteKey
+     * @return \MergeHRISClient\Model\RemoteKey
      */
     public function generateKeyCreate($generate_remote_key_request)
     {
@@ -133,11 +133,11 @@ class GenerateKeyApi
     /**
      * Operation generateKeyCreateWithHttpInfo
      *
-     * @param  \OpenAPI\Client\Model\GenerateRemoteKeyRequest $generate_remote_key_request (required)
+     * @param  \MergeHRISClient\Model\GenerateRemoteKeyRequest $generate_remote_key_request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\RemoteKey, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\RemoteKey, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateKeyCreateWithHttpInfo($generate_remote_key_request)
     {
@@ -173,20 +173,20 @@ class GenerateKeyApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\RemoteKey' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\RemoteKey' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\RemoteKey', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\RemoteKey', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\RemoteKey';
+            $returnType = '\MergeHRISClient\Model\RemoteKey';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -204,7 +204,7 @@ class GenerateKeyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\RemoteKey',
+                        '\MergeHRISClient\Model\RemoteKey',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -217,7 +217,7 @@ class GenerateKeyApi
     /**
      * Operation generateKeyCreateAsync
      *
-     * @param  \OpenAPI\Client\Model\GenerateRemoteKeyRequest $generate_remote_key_request (required)
+     * @param  \MergeHRISClient\Model\GenerateRemoteKeyRequest $generate_remote_key_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -235,14 +235,14 @@ class GenerateKeyApi
     /**
      * Operation generateKeyCreateAsyncWithHttpInfo
      *
-     * @param  \OpenAPI\Client\Model\GenerateRemoteKeyRequest $generate_remote_key_request (required)
+     * @param  \MergeHRISClient\Model\GenerateRemoteKeyRequest $generate_remote_key_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function generateKeyCreateAsyncWithHttpInfo($generate_remote_key_request)
     {
-        $returnType = '\OpenAPI\Client\Model\RemoteKey';
+        $returnType = '\MergeHRISClient\Model\RemoteKey';
         $request = $this->generateKeyCreateRequest($generate_remote_key_request);
 
         return $this->client
@@ -281,7 +281,7 @@ class GenerateKeyApi
     /**
      * Create request for operation 'generateKeyCreate'
      *
-     * @param  \OpenAPI\Client\Model\GenerateRemoteKeyRequest $generate_remote_key_request (required)
+     * @param  \MergeHRISClient\Model\GenerateRemoteKeyRequest $generate_remote_key_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -1,4 +1,4 @@
-# OpenAPI\Client\GenerateKeyApi
+# MergeHRISClient\GenerateKeyApi
 
 All URIs are relative to https://api.merge.dev/api/hris/v1.
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `generateKeyCreate()`
 
 ```php
-generateKeyCreate($generate_remote_key_request): \OpenAPI\Client\Model\RemoteKey
+generateKeyCreate($generate_remote_key_request): \MergeHRISClient\Model\RemoteKey
 ```
 
 
@@ -25,18 +25,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\GenerateKeyApi(
+$apiInstance = new MergeHRISClient\Api\GenerateKeyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$generate_remote_key_request = new \OpenAPI\Client\Model\GenerateRemoteKeyRequest(); // \OpenAPI\Client\Model\GenerateRemoteKeyRequest
+$generate_remote_key_request = new \MergeHRISClient\Model\GenerateRemoteKeyRequest(); // \MergeHRISClient\Model\GenerateRemoteKeyRequest
 
 try {
     $result = $apiInstance->generateKeyCreate($generate_remote_key_request);
@@ -50,11 +50,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **generate_remote_key_request** | [**\OpenAPI\Client\Model\GenerateRemoteKeyRequest**](../Model/GenerateRemoteKeyRequest.md)|  |
+ **generate_remote_key_request** | [**\MergeHRISClient\Model\GenerateRemoteKeyRequest**](../Model/GenerateRemoteKeyRequest.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RemoteKey**](../Model/RemoteKey.md)
+[**\MergeHRISClient\Model\RemoteKey**](../Model/RemoteKey.md)
 
 ### Authorization
 

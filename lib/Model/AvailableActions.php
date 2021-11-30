@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MergeHRISClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MergeHRISClient\ObjectSerializer;
 
 /**
  * AvailableActions Class Doc Comment
  *
  * @category Class
  * @description # The AvailableActions Object ### Description The &#x60;Activity&#x60; object is used to see all available model/operation combinations for an integration.  ### Usage Example Fetch all the actions available for the &#x60;Zenefits&#x60; integration.
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,9 +61,9 @@ class AvailableActions implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'integration' => '\OpenAPI\Client\Model\AccountIntegration',
+        'integration' => '\MergeHRISClient\Model\AccountIntegration',
         'passthrough_available' => 'bool',
-        'available_model_operations' => '\OpenAPI\Client\Model\ModelOperation[]'
+        'available_model_operations' => '\MergeHRISClient\Model\ModelOperation[]'
     ];
 
     /**
@@ -228,7 +228,7 @@ class AvailableActions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets integration
      *
-     * @return \OpenAPI\Client\Model\AccountIntegration
+     * @return \MergeHRISClient\Model\AccountIntegration
      */
     public function getIntegration()
     {
@@ -238,7 +238,7 @@ class AvailableActions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets integration
      *
-     * @param \OpenAPI\Client\Model\AccountIntegration $integration integration
+     * @param \MergeHRISClient\Model\AccountIntegration $integration integration
      *
      * @return self
      */
@@ -276,7 +276,7 @@ class AvailableActions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets available_model_operations
      *
-     * @return \OpenAPI\Client\Model\ModelOperation[]|null
+     * @return \MergeHRISClient\Model\ModelOperation[]|null
      */
     public function getAvailableModelOperations()
     {
@@ -286,7 +286,7 @@ class AvailableActions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets available_model_operations
      *
-     * @param \OpenAPI\Client\Model\ModelOperation[]|null $available_model_operations available_model_operations
+     * @param \MergeHRISClient\Model\ModelOperation[]|null $available_model_operations available_model_operations
      *
      * @return self
      */

@@ -14,6 +14,6 @@ Name | Type | Description | Notes
 **state** | **string** | The location&#39;s state. Represents a region if outside of the US. | [optional]
 **zip_code** | **string** | The location&#39;s zip code. | [optional]
 **country** | [**CountryEnum**](CountryEnum.md) | The location&#39;s country. | [optional]
-**remote_data** | [**\OpenAPI\Client\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
+**remote_data** | [**\MergeHRISClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

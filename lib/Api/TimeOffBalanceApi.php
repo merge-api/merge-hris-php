@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace MergeHRISClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use MergeHRISClient\ApiException;
+use MergeHRISClient\Configuration;
+use MergeHRISClient\HeaderSelector;
+use MergeHRISClient\ObjectSerializer;
 
 /**
  * TimeOffBalanceApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -130,9 +130,9 @@ class TimeOffBalanceApi
      * @param  string $policy_type If provided, will only return TimeOffBalance with this policy type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PaginatedTimeOffBalanceList
+     * @return \MergeHRISClient\Model\PaginatedTimeOffBalanceList
      */
     public function timeOffBalanceList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $policy_type = null, $remote_id = null)
     {
@@ -155,9 +155,9 @@ class TimeOffBalanceApi
      * @param  string $policy_type If provided, will only return TimeOffBalance with this policy type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PaginatedTimeOffBalanceList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\PaginatedTimeOffBalanceList, HTTP status code, HTTP response headers (array of strings)
      */
     public function timeOffBalanceListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $policy_type = null, $remote_id = null)
     {
@@ -193,20 +193,20 @@ class TimeOffBalanceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PaginatedTimeOffBalanceList' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\PaginatedTimeOffBalanceList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PaginatedTimeOffBalanceList', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedTimeOffBalanceList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PaginatedTimeOffBalanceList';
+            $returnType = '\MergeHRISClient\Model\PaginatedTimeOffBalanceList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -224,7 +224,7 @@ class TimeOffBalanceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PaginatedTimeOffBalanceList',
+                        '\MergeHRISClient\Model\PaginatedTimeOffBalanceList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -282,7 +282,7 @@ class TimeOffBalanceApi
      */
     public function timeOffBalanceListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $policy_type = null, $remote_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\PaginatedTimeOffBalanceList';
+        $returnType = '\MergeHRISClient\Model\PaginatedTimeOffBalanceList';
         $request = $this->timeOffBalanceListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_id);
 
         return $this->client
@@ -539,9 +539,9 @@ class TimeOffBalanceApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TimeOffBalance
+     * @return \MergeHRISClient\Model\TimeOffBalance
      */
     public function timeOffBalanceRetrieve($x_account_token, $id, $include_remote_data = null)
     {
@@ -556,9 +556,9 @@ class TimeOffBalanceApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TimeOffBalance, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\TimeOffBalance, HTTP status code, HTTP response headers (array of strings)
      */
     public function timeOffBalanceRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
@@ -594,20 +594,20 @@ class TimeOffBalanceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\TimeOffBalance' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\TimeOffBalance' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TimeOffBalance', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\TimeOffBalance', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TimeOffBalance';
+            $returnType = '\MergeHRISClient\Model\TimeOffBalance';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -625,7 +625,7 @@ class TimeOffBalanceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TimeOffBalance',
+                        '\MergeHRISClient\Model\TimeOffBalance',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -667,7 +667,7 @@ class TimeOffBalanceApi
      */
     public function timeOffBalanceRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\TimeOffBalance';
+        $returnType = '\MergeHRISClient\Model\TimeOffBalance';
         $request = $this->timeOffBalanceRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client

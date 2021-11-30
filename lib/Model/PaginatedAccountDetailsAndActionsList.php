@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MergeHRISClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MergeHRISClient\ObjectSerializer;
 
 /**
  * PaginatedAccountDetailsAndActionsList Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedAccountDetailsAndActionsList implements ModelInterface, ArrayAcce
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\OpenAPI\Client\Model\AccountDetailsAndActions[]'
+        'results' => '\MergeHRISClient\Model\AccountDetailsAndActions[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedAccountDetailsAndActionsList implements ModelInterface, ArrayAcce
     /**
      * Gets results
      *
-     * @return \OpenAPI\Client\Model\AccountDetailsAndActions[]|null
+     * @return \MergeHRISClient\Model\AccountDetailsAndActions[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedAccountDetailsAndActionsList implements ModelInterface, ArrayAcce
     /**
      * Sets results
      *
-     * @param \OpenAPI\Client\Model\AccountDetailsAndActions[]|null $results results
+     * @param \MergeHRISClient\Model\AccountDetailsAndActions[]|null $results results
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MergeHRISClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MergeHRISClient\ObjectSerializer;
 
 /**
  * RemoteKeyForRegenerationRequest Class Doc Comment
  *
  * @category Class
  * @description # The RemoteKeyForRegeneration Object ### Description The &#x60;RemoteKeyForRegeneration&#x60; object is used to exchange an old remote key for a new one  ### Usage Example Post a &#x60;RemoteKeyForRegeneration&#x60; to swap out an old remote key for a new one
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>

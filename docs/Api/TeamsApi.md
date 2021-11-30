@@ -1,4 +1,4 @@
-# OpenAPI\Client\TeamsApi
+# MergeHRISClient\TeamsApi
 
 All URIs are relative to https://api.merge.dev/api/hris/v1.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `teamsList()`
 
 ```php
-teamsList($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $parent_team_id, $remote_id): \OpenAPI\Client\Model\PaginatedTeamList
+teamsList($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $parent_team_id, $remote_id): \MergeHRISClient\Model\PaginatedTeamList
 ```
 
 
@@ -26,12 +26,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\TeamsApi(
+$apiInstance = new MergeHRISClient\Api\TeamsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PaginatedTeamList**](../Model/PaginatedTeamList.md)
+[**\MergeHRISClient\Model\PaginatedTeamList**](../Model/PaginatedTeamList.md)
 
 ### Authorization
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 ## `teamsRetrieve()`
 
 ```php
-teamsRetrieve($x_account_token, $id, $include_remote_data): \OpenAPI\Client\Model\Team
+teamsRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\Team
 ```
 
 
@@ -106,12 +106,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\TeamsApi(
+$apiInstance = new MergeHRISClient\Api\TeamsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Team**](../Model/Team.md)
+[**\MergeHRISClient\Model\Team**](../Model/Team.md)
 
 ### Authorization
 

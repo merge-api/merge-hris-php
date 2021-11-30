@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace MergeHRISClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use MergeHRISClient\ApiException;
+use MergeHRISClient\Configuration;
+use MergeHRISClient\HeaderSelector;
+use MergeHRISClient\ObjectSerializer;
 
 /**
  * EmploymentsApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -130,9 +130,9 @@ class EmploymentsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PaginatedEmploymentList
+     * @return \MergeHRISClient\Model\PaginatedEmploymentList
      */
     public function employmentsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_id = null)
     {
@@ -155,9 +155,9 @@ class EmploymentsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PaginatedEmploymentList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\PaginatedEmploymentList, HTTP status code, HTTP response headers (array of strings)
      */
     public function employmentsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_id = null)
     {
@@ -193,20 +193,20 @@ class EmploymentsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PaginatedEmploymentList' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\PaginatedEmploymentList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PaginatedEmploymentList', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedEmploymentList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PaginatedEmploymentList';
+            $returnType = '\MergeHRISClient\Model\PaginatedEmploymentList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -224,7 +224,7 @@ class EmploymentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PaginatedEmploymentList',
+                        '\MergeHRISClient\Model\PaginatedEmploymentList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -282,7 +282,7 @@ class EmploymentsApi
      */
     public function employmentsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\PaginatedEmploymentList';
+        $returnType = '\MergeHRISClient\Model\PaginatedEmploymentList';
         $request = $this->employmentsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_id);
 
         return $this->client
@@ -539,9 +539,9 @@ class EmploymentsApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Employment
+     * @return \MergeHRISClient\Model\Employment
      */
     public function employmentsRetrieve($x_account_token, $id, $include_remote_data = null)
     {
@@ -556,9 +556,9 @@ class EmploymentsApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Employment, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\Employment, HTTP status code, HTTP response headers (array of strings)
      */
     public function employmentsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
@@ -594,20 +594,20 @@ class EmploymentsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Employment' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\Employment' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Employment', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Employment', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Employment';
+            $returnType = '\MergeHRISClient\Model\Employment';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -625,7 +625,7 @@ class EmploymentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Employment',
+                        '\MergeHRISClient\Model\Employment',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -667,7 +667,7 @@ class EmploymentsApi
      */
     public function employmentsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Employment';
+        $returnType = '\MergeHRISClient\Model\Employment';
         $request = $this->employmentsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client

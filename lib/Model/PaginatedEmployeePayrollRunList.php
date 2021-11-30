@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MergeHRISClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MergeHRISClient\ObjectSerializer;
 
 /**
  * PaginatedEmployeePayrollRunList Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedEmployeePayrollRunList implements ModelInterface, ArrayAccess, \J
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\OpenAPI\Client\Model\EmployeePayrollRun[]'
+        'results' => '\MergeHRISClient\Model\EmployeePayrollRun[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedEmployeePayrollRunList implements ModelInterface, ArrayAccess, \J
     /**
      * Gets results
      *
-     * @return \OpenAPI\Client\Model\EmployeePayrollRun[]|null
+     * @return \MergeHRISClient\Model\EmployeePayrollRun[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedEmployeePayrollRunList implements ModelInterface, ArrayAccess, \J
     /**
      * Sets results
      *
-     * @param \OpenAPI\Client\Model\EmployeePayrollRun[]|null $results results
+     * @param \MergeHRISClient\Model\EmployeePayrollRun[]|null $results results
      *
      * @return self
      */

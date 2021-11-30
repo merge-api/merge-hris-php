@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace MergeHRISClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use MergeHRISClient\ApiException;
+use MergeHRISClient\Configuration;
+use MergeHRISClient\HeaderSelector;
+use MergeHRISClient\ObjectSerializer;
 
 /**
  * IssuesApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -128,9 +128,9 @@ class IssuesApi
      * @param  string $start_date If included, will only include issues whose most recent action occurred after this time (optional)
      * @param  string $status status (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PaginatedIssueList
+     * @return \MergeHRISClient\Model\PaginatedIssueList
      */
     public function issuesList($account_token = null, $cursor = null, $end_date = null, $end_user_organization_name = null, $include_muted = null, $integration_name = null, $page_size = null, $start_date = null, $status = null)
     {
@@ -151,9 +151,9 @@ class IssuesApi
      * @param  string $start_date If included, will only include issues whose most recent action occurred after this time (optional)
      * @param  string $status status (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PaginatedIssueList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\PaginatedIssueList, HTTP status code, HTTP response headers (array of strings)
      */
     public function issuesListWithHttpInfo($account_token = null, $cursor = null, $end_date = null, $end_user_organization_name = null, $include_muted = null, $integration_name = null, $page_size = null, $start_date = null, $status = null)
     {
@@ -189,20 +189,20 @@ class IssuesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PaginatedIssueList' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\PaginatedIssueList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PaginatedIssueList', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedIssueList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PaginatedIssueList';
+            $returnType = '\MergeHRISClient\Model\PaginatedIssueList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -220,7 +220,7 @@ class IssuesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PaginatedIssueList',
+                        '\MergeHRISClient\Model\PaginatedIssueList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -274,7 +274,7 @@ class IssuesApi
      */
     public function issuesListAsyncWithHttpInfo($account_token = null, $cursor = null, $end_date = null, $end_user_organization_name = null, $include_muted = null, $integration_name = null, $page_size = null, $start_date = null, $status = null)
     {
-        $returnType = '\OpenAPI\Client\Model\PaginatedIssueList';
+        $returnType = '\MergeHRISClient\Model\PaginatedIssueList';
         $request = $this->issuesListRequest($account_token, $cursor, $end_date, $end_user_organization_name, $include_muted, $integration_name, $page_size, $start_date, $status);
 
         return $this->client
@@ -506,9 +506,9 @@ class IssuesApi
      *
      * @param  string $id id (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Issue
+     * @return \MergeHRISClient\Model\Issue
      */
     public function issuesRetrieve($id)
     {
@@ -521,9 +521,9 @@ class IssuesApi
      *
      * @param  string $id (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Issue, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\Issue, HTTP status code, HTTP response headers (array of strings)
      */
     public function issuesRetrieveWithHttpInfo($id)
     {
@@ -559,20 +559,20 @@ class IssuesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Issue' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\Issue' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Issue', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Issue', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Issue';
+            $returnType = '\MergeHRISClient\Model\Issue';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -590,7 +590,7 @@ class IssuesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Issue',
+                        '\MergeHRISClient\Model\Issue',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -628,7 +628,7 @@ class IssuesApi
      */
     public function issuesRetrieveAsyncWithHttpInfo($id)
     {
-        $returnType = '\OpenAPI\Client\Model\Issue';
+        $returnType = '\MergeHRISClient\Model\Issue';
         $request = $this->issuesRetrieveRequest($id);
 
         return $this->client

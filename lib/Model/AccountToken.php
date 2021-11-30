@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MergeHRISClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MergeHRISClient\ObjectSerializer;
 
 /**
  * AccountToken Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,7 +61,7 @@ class AccountToken implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'account_token' => 'string',
-        'integration' => '\OpenAPI\Client\Model\AccountIntegration'
+        'integration' => '\MergeHRISClient\Model\AccountIntegration'
     ];
 
     /**
@@ -245,7 +245,7 @@ class AccountToken implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets integration
      *
-     * @return \OpenAPI\Client\Model\AccountIntegration
+     * @return \MergeHRISClient\Model\AccountIntegration
      */
     public function getIntegration()
     {
@@ -255,7 +255,7 @@ class AccountToken implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets integration
      *
-     * @param \OpenAPI\Client\Model\AccountIntegration $integration integration
+     * @param \MergeHRISClient\Model\AccountIntegration $integration integration
      *
      * @return self
      */

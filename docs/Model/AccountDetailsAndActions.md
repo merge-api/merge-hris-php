@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **end_user_origin_id** | **string** |  | [optional]
 **end_user_organization_name** | **string** |  |
 **end_user_email_address** | **string** |  |
-**integration** | [**\OpenAPI\Client\Model\AccountDetailsAndActionsIntegration**](AccountDetailsAndActionsIntegration.md) |  | [optional]
+**integration** | [**\MergeHRISClient\Model\AccountDetailsAndActionsIntegration**](AccountDetailsAndActionsIntegration.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

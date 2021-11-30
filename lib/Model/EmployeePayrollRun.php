@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MergeHRISClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MergeHRISClient\ObjectSerializer;
 
 /**
  * EmployeePayrollRun Class Doc Comment
  *
  * @category Class
  * @description # The EmployeePayrollRun Object ### Description The &#x60;EmployeePayrollRun&#x60; object is used to represent a payroll run for a specific employee.  ### Usage Example Fetch from the &#x60;LIST EmployeePayrollRun&#x60; endpoint and filter by &#x60;ID&#x60; to show all employee payroll runs.
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -70,10 +70,10 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
         'start_date' => '\DateTime',
         'end_date' => '\DateTime',
         'check_date' => '\DateTime',
-        'earnings' => '\OpenAPI\Client\Model\Earning[]',
-        'deductions' => '\OpenAPI\Client\Model\Deduction[]',
-        'taxes' => '\OpenAPI\Client\Model\Tax[]',
-        'remote_data' => '\OpenAPI\Client\Model\RemoteData[]'
+        'earnings' => '\MergeHRISClient\Model\Earning[]',
+        'deductions' => '\MergeHRISClient\Model\Deduction[]',
+        'taxes' => '\MergeHRISClient\Model\Tax[]',
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
     /**
@@ -498,7 +498,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets earnings
      *
-     * @return \OpenAPI\Client\Model\Earning[]|null
+     * @return \MergeHRISClient\Model\Earning[]|null
      */
     public function getEarnings()
     {
@@ -508,7 +508,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets earnings
      *
-     * @param \OpenAPI\Client\Model\Earning[]|null $earnings earnings
+     * @param \MergeHRISClient\Model\Earning[]|null $earnings earnings
      *
      * @return self
      */
@@ -522,7 +522,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets deductions
      *
-     * @return \OpenAPI\Client\Model\Deduction[]|null
+     * @return \MergeHRISClient\Model\Deduction[]|null
      */
     public function getDeductions()
     {
@@ -532,7 +532,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets deductions
      *
-     * @param \OpenAPI\Client\Model\Deduction[]|null $deductions deductions
+     * @param \MergeHRISClient\Model\Deduction[]|null $deductions deductions
      *
      * @return self
      */
@@ -546,7 +546,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets taxes
      *
-     * @return \OpenAPI\Client\Model\Tax[]|null
+     * @return \MergeHRISClient\Model\Tax[]|null
      */
     public function getTaxes()
     {
@@ -556,7 +556,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets taxes
      *
-     * @param \OpenAPI\Client\Model\Tax[]|null $taxes taxes
+     * @param \MergeHRISClient\Model\Tax[]|null $taxes taxes
      *
      * @return self
      */
@@ -570,7 +570,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets remote_data
      *
-     * @return \OpenAPI\Client\Model\RemoteData[]|null
+     * @return \MergeHRISClient\Model\RemoteData[]|null
      */
     public function getRemoteData()
     {
@@ -580,7 +580,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets remote_data
      *
-     * @param \OpenAPI\Client\Model\RemoteData[]|null $remote_data remote_data
+     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
      *
      * @return self
      */

@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **balance** | **float** | The current PTO balance in terms of hours. | [optional]
 **used** | **float** | The amount of PTO used in terms of hours. | [optional]
 **policy_type** | **string** |  | [optional] [readonly]
-**remote_data** | [**\OpenAPI\Client\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
+**remote_data** | [**\MergeHRISClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

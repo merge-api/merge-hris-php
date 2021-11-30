@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MergeHRISClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MergeHRISClient\ObjectSerializer;
 
 /**
  * PaginatedTimeOffBalanceList Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedTimeOffBalanceList implements ModelInterface, ArrayAccess, \JsonS
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\OpenAPI\Client\Model\TimeOffBalance[]'
+        'results' => '\MergeHRISClient\Model\TimeOffBalance[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedTimeOffBalanceList implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets results
      *
-     * @return \OpenAPI\Client\Model\TimeOffBalance[]|null
+     * @return \MergeHRISClient\Model\TimeOffBalance[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedTimeOffBalanceList implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets results
      *
-     * @param \OpenAPI\Client\Model\TimeOffBalance[]|null $results results
+     * @param \MergeHRISClient\Model\TimeOffBalance[]|null $results results
      *
      * @return self
      */

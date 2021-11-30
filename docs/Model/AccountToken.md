@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_token** | **string** |  |
-**integration** | [**\OpenAPI\Client\Model\AccountIntegration**](AccountIntegration.md) |  |
+**integration** | [**\MergeHRISClient\Model\AccountIntegration**](AccountIntegration.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

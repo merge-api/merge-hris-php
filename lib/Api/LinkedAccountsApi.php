@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace MergeHRISClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use MergeHRISClient\ApiException;
+use MergeHRISClient\Configuration;
+use MergeHRISClient\HeaderSelector;
+use MergeHRISClient\ObjectSerializer;
 
 /**
  * LinkedAccountsApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -125,9 +125,9 @@ class LinkedAccountsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $status Filter by status. Options: &#x60;COMPLETE&#x60;, &#x60;INCOMPLETE&#x60;, &#x60;RELINK_NEEDED&#x60; (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PaginatedAccountDetailsAndActionsList
+     * @return \MergeHRISClient\Model\PaginatedAccountDetailsAndActionsList
      */
     public function linkedAccountsList($cursor = null, $end_user_origin_ids = null, $ids = null, $is_test_account = null, $page_size = null, $status = null)
     {
@@ -145,9 +145,9 @@ class LinkedAccountsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $status Filter by status. Options: &#x60;COMPLETE&#x60;, &#x60;INCOMPLETE&#x60;, &#x60;RELINK_NEEDED&#x60; (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PaginatedAccountDetailsAndActionsList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\PaginatedAccountDetailsAndActionsList, HTTP status code, HTTP response headers (array of strings)
      */
     public function linkedAccountsListWithHttpInfo($cursor = null, $end_user_origin_ids = null, $ids = null, $is_test_account = null, $page_size = null, $status = null)
     {
@@ -183,20 +183,20 @@ class LinkedAccountsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PaginatedAccountDetailsAndActionsList' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\PaginatedAccountDetailsAndActionsList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PaginatedAccountDetailsAndActionsList', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedAccountDetailsAndActionsList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PaginatedAccountDetailsAndActionsList';
+            $returnType = '\MergeHRISClient\Model\PaginatedAccountDetailsAndActionsList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -214,7 +214,7 @@ class LinkedAccountsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PaginatedAccountDetailsAndActionsList',
+                        '\MergeHRISClient\Model\PaginatedAccountDetailsAndActionsList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -262,7 +262,7 @@ class LinkedAccountsApi
      */
     public function linkedAccountsListAsyncWithHttpInfo($cursor = null, $end_user_origin_ids = null, $ids = null, $is_test_account = null, $page_size = null, $status = null)
     {
-        $returnType = '\OpenAPI\Client\Model\PaginatedAccountDetailsAndActionsList';
+        $returnType = '\MergeHRISClient\Model\PaginatedAccountDetailsAndActionsList';
         $request = $this->linkedAccountsListRequest($cursor, $end_user_origin_ids, $ids, $is_test_account, $page_size, $status);
 
         return $this->client
