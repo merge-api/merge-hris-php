@@ -200,6 +200,10 @@ class RemoteDataRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['path'] === null) {
             $invalidProperties[] = "'path' can't be null";
         }
+        if ((mb_strlen($this->container['path']) < 1)) {
+            $invalidProperties[] = "invalid value for 'path', the character length must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -234,6 +238,11 @@ class RemoteDataRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setPath($path)
     {
+
+        if ((mb_strlen($path) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $path when calling RemoteDataRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['path'] = $path;
 
         return $this;

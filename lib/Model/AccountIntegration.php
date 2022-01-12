@@ -61,7 +61,7 @@ class AccountIntegration implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'categories' => 'string[]',
+        'categories' => '\MergeHRISClient\Model\CategoriesEnum[]',
         'image' => 'string',
         'square_image' => 'string',
         'color' => 'string',
@@ -188,23 +188,6 @@ class AccountIntegration implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
-    const CATEGORIES_HRIS = 'hris';
-    const CATEGORIES_ATS = 'ats';
-    const CATEGORIES_ACCOUNTING = 'accounting';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCategoriesAllowableValues()
-    {
-        return [
-            self::CATEGORIES_HRIS,
-            self::CATEGORIES_ATS,
-            self::CATEGORIES_ACCOUNTING,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -291,7 +274,7 @@ class AccountIntegration implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets categories
      *
-     * @return string[]|null
+     * @return \MergeHRISClient\Model\CategoriesEnum[]|null
      */
     public function getCategories()
     {
@@ -301,21 +284,12 @@ class AccountIntegration implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets categories
      *
-     * @param string[]|null $categories Category or categories this integration belongs to. Multiple categories should be comma separated.<br/><br>Example: For [ats, hris], enter <i>ats,hris</i>
+     * @param \MergeHRISClient\Model\CategoriesEnum[]|null $categories Category or categories this integration belongs to. Multiple categories should be comma separated.<br/><br>Example: For [ats, hris], enter <i>ats,hris</i>
      *
      * @return self
      */
     public function setCategories($categories)
     {
-        $allowedValues = $this->getCategoriesAllowableValues();
-        if (!is_null($categories) && array_diff($categories, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'categories', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['categories'] = $categories;
 
         return $this;

@@ -123,6 +123,7 @@ class EmploymentsApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return employments for this employee. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -134,9 +135,9 @@ class EmploymentsApi
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedEmploymentList
      */
-    public function employmentsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_id = null)
+    public function employmentsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_id = null)
     {
-        list($response) = $this->employmentsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_id);
+        list($response) = $this->employmentsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_id);
         return $response;
     }
 
@@ -148,6 +149,7 @@ class EmploymentsApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return employments for this employee. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -159,9 +161,9 @@ class EmploymentsApi
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedEmploymentList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function employmentsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_id = null)
+    public function employmentsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_id = null)
     {
-        $request = $this->employmentsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_id);
+        $request = $this->employmentsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -242,6 +244,7 @@ class EmploymentsApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return employments for this employee. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -252,9 +255,9 @@ class EmploymentsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employmentsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_id = null)
+    public function employmentsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_id = null)
     {
-        return $this->employmentsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_id)
+        return $this->employmentsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -270,6 +273,7 @@ class EmploymentsApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return employments for this employee. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -280,10 +284,10 @@ class EmploymentsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employmentsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_id = null)
+    public function employmentsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_id = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedEmploymentList';
-        $request = $this->employmentsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_id);
+        $request = $this->employmentsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -326,6 +330,7 @@ class EmploymentsApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return employments for this employee. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -336,7 +341,7 @@ class EmploymentsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function employmentsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_id = null)
+    public function employmentsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_id = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -394,6 +399,17 @@ class EmploymentsApi
             }
             else {
                 $queryParams['employee_id'] = $employee_id;
+            }
+        }
+        // query params
+        if ($include_deleted_data !== null) {
+            if('form' === 'form' && is_array($include_deleted_data)) {
+                foreach($include_deleted_data as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['include_deleted_data'] = $include_deleted_data;
             }
         }
         // query params

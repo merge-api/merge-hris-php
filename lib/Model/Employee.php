@@ -76,6 +76,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'work_location' => 'string',
         'manager' => 'string',
         'team' => 'string',
+        'pay_group' => 'string',
         'ssn' => 'string',
         'gender' => 'string',
         'ethnicity' => 'string',
@@ -113,6 +114,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'work_location' => 'uuid',
         'manager' => 'uuid',
         'team' => 'uuid',
+        'pay_group' => 'uuid',
         'ssn' => null,
         'gender' => null,
         'ethnicity' => null,
@@ -169,6 +171,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'work_location' => 'work_location',
         'manager' => 'manager',
         'team' => 'team',
+        'pay_group' => 'pay_group',
         'ssn' => 'ssn',
         'gender' => 'gender',
         'ethnicity' => 'ethnicity',
@@ -204,6 +207,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'work_location' => 'setWorkLocation',
         'manager' => 'setManager',
         'team' => 'setTeam',
+        'pay_group' => 'setPayGroup',
         'ssn' => 'setSsn',
         'gender' => 'setGender',
         'ethnicity' => 'setEthnicity',
@@ -239,6 +243,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'work_location' => 'getWorkLocation',
         'manager' => 'getManager',
         'team' => 'getTeam',
+        'pay_group' => 'getPayGroup',
         'ssn' => 'getSsn',
         'gender' => 'getGender',
         'ethnicity' => 'getEthnicity',
@@ -325,6 +330,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['work_location'] = $data['work_location'] ?? null;
         $this->container['manager'] = $data['manager'] ?? null;
         $this->container['team'] = $data['team'] ?? null;
+        $this->container['pay_group'] = $data['pay_group'] ?? null;
         $this->container['ssn'] = $data['ssn'] ?? null;
         $this->container['gender'] = $data['gender'] ?? null;
         $this->container['ethnicity'] = $data['ethnicity'] ?? null;
@@ -536,7 +542,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets display_full_name
      *
-     * @param string|null $display_full_name The employee's full name, to use for display purposes.
+     * @param string|null $display_full_name The employee's full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name.
      *
      * @return self
      */
@@ -743,6 +749,30 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTeam($team)
     {
         $this->container['team'] = $team;
+
+        return $this;
+    }
+
+    /**
+     * Gets pay_group
+     *
+     * @return string|null
+     */
+    public function getPayGroup()
+    {
+        return $this->container['pay_group'];
+    }
+
+    /**
+     * Sets pay_group
+     *
+     * @param string|null $pay_group The employee's pay group
+     *
+     * @return self
+     */
+    public function setPayGroup($pay_group)
+    {
+        $this->container['pay_group'] = $pay_group;
 
         return $this;
     }

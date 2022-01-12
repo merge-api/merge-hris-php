@@ -65,7 +65,7 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
         'model_id' => 'string',
         'last_sync_start' => '\DateTime',
         'next_sync_start' => '\DateTime',
-        'status' => 'SyncStatusStatusEnum',
+        'status' => 'string',
         'is_initial_sync' => 'bool'
     ];
 
@@ -354,7 +354,7 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return SyncStatusStatusEnum
+     * @return string
      */
     public function getStatus()
     {
@@ -364,7 +364,7 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param SyncStatusStatusEnum $status status
+     * @param string $status status
      *
      * @return self
      */

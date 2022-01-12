@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## `timeOffCreate()`
 
 ```php
-timeOffCreate($x_account_token, $run_async, $time_off_request): \MergeHRISClient\Model\TimeOff
+timeOffCreate($x_account_token, $time_off_endpoint_request, $run_async): \MergeHRISClient\Model\TimeOffResponse
 ```
 
 
@@ -39,11 +39,11 @@ $apiInstance = new MergeHRISClient\Api\TimeOffApi(
     $config
 );
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
+$time_off_endpoint_request = new \MergeHRISClient\Model\TimeOffEndpointRequest(); // \MergeHRISClient\Model\TimeOffEndpointRequest
 $run_async = True; // bool | Whether or not third-party updates should be run asynchronously.
-$time_off_request = new \MergeHRISClient\Model\TimeOffRequest(); // \MergeHRISClient\Model\TimeOffRequest
 
 try {
-    $result = $apiInstance->timeOffCreate($x_account_token, $run_async, $time_off_request);
+    $result = $apiInstance->timeOffCreate($x_account_token, $time_off_endpoint_request, $run_async);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimeOffApi->timeOffCreate: ', $e->getMessage(), PHP_EOL;
@@ -55,12 +55,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **string**| Token identifying the end user. |
+ **time_off_endpoint_request** | [**\MergeHRISClient\Model\TimeOffEndpointRequest**](../Model/TimeOffEndpointRequest.md)|  |
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
- **time_off_request** | [**\MergeHRISClient\Model\TimeOffRequest**](../Model/TimeOffRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MergeHRISClient\Model\TimeOff**](../Model/TimeOff.md)
+[**\MergeHRISClient\Model\TimeOffResponse**](../Model/TimeOffResponse.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 ## `timeOffList()`
 
 ```php
-timeOffList($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $request_type, $status): \MergeHRISClient\Model\PaginatedTimeOffList
+timeOffList($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $request_type, $status): \MergeHRISClient\Model\PaginatedTimeOffList
 ```
 
 
@@ -110,6 +110,7 @@ $created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If p
 $created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects created before this datetime.
 $cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | The pagination cursor value.
 $employee_id = 'employee_id_example'; // string | If provided, will only return time off for this employee.
+$include_deleted_data = True; // bool | Whether to include data that was deleted in the third-party service.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified after this datetime.
 $modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified before this datetime.
@@ -119,7 +120,7 @@ $request_type = 'request_type_example'; // string | If provided, will only retur
 $status = 'status_example'; // string | If provided, will only return TimeOff with this status. Options: ('REQUESTED', 'APPROVED', 'DECLINED', 'CANCELLED', 'DELETED')
 
 try {
-    $result = $apiInstance->timeOffList($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $request_type, $status);
+    $result = $apiInstance->timeOffList($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $request_type, $status);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimeOffApi->timeOffList: ', $e->getMessage(), PHP_EOL;
@@ -136,6 +137,7 @@ Name | Type | Description  | Notes
  **created_before** | **\DateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **string**| The pagination cursor value. | [optional]
  **employee_id** | **string**| If provided, will only return time off for this employee. | [optional]
+ **include_deleted_data** | **bool**| Whether to include data that was deleted in the third-party service. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **\DateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **\DateTime**| If provided, will only return objects modified before this datetime. | [optional]
@@ -169,7 +171,7 @@ timeOffRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\M
 
 
 
-Returns an `TimeOff` object with the given `id`.
+Returns a `TimeOff` object with the given `id`.
 
 ### Example
 

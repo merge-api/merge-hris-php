@@ -61,7 +61,7 @@ class AccountDetailsAndActionsIntegration implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'categories' => '\MergeHRISClient\Model\CategoriesEnum',
+        'categories' => 'string[]',
         'image' => 'string',
         'square_image' => 'string',
         'color' => 'string',
@@ -290,7 +290,7 @@ class AccountDetailsAndActionsIntegration implements ModelInterface, ArrayAccess
     /**
      * Gets categories
      *
-     * @return \MergeHRISClient\Model\CategoriesEnum
+     * @return string[]
      */
     public function getCategories()
     {
@@ -300,7 +300,7 @@ class AccountDetailsAndActionsIntegration implements ModelInterface, ArrayAccess
     /**
      * Sets categories
      *
-     * @param \MergeHRISClient\Model\CategoriesEnum $categories categories
+     * @param string[] $categories categories
      *
      * @return self
      */

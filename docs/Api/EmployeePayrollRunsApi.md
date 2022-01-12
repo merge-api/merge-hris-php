@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `employeePayrollRunsList()`
 
 ```php
-employeePayrollRunsList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before): \MergeHRISClient\Model\PaginatedEmployeePayrollRunList
+employeePayrollRunsList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before): \MergeHRISClient\Model\PaginatedEmployeePayrollRunList
 ```
 
 
@@ -44,6 +44,7 @@ $cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | 
 $employee_id = 'employee_id_example'; // string | If provided, will only return employee payroll runs for this employee.
 $ended_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return employee payroll runs ended after this datetime.
 $ended_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return employee payroll runs ended before this datetime.
+$include_deleted_data = True; // bool | Whether to include data that was deleted in the third-party service.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified after this datetime.
 $modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified before this datetime.
@@ -54,7 +55,7 @@ $started_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If p
 $started_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return employee payroll runs started before this datetime.
 
 try {
-    $result = $apiInstance->employeePayrollRunsList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before);
+    $result = $apiInstance->employeePayrollRunsList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeePayrollRunsApi->employeePayrollRunsList: ', $e->getMessage(), PHP_EOL;
@@ -72,6 +73,7 @@ Name | Type | Description  | Notes
  **employee_id** | **string**| If provided, will only return employee payroll runs for this employee. | [optional]
  **ended_after** | **\DateTime**| If provided, will only return employee payroll runs ended after this datetime. | [optional]
  **ended_before** | **\DateTime**| If provided, will only return employee payroll runs ended before this datetime. | [optional]
+ **include_deleted_data** | **bool**| Whether to include data that was deleted in the third-party service. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **\DateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **\DateTime**| If provided, will only return objects modified before this datetime. | [optional]

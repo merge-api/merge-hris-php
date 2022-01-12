@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** |  |
-**categories** | [**\MergeHRISClient\Model\CategoriesEnum**](CategoriesEnum.md) |  |
+**categories** | **string[]** |  |
 **image** | **string** |  | [optional]
 **square_image** | **string** |  | [optional]
 **color** | **string** |  |

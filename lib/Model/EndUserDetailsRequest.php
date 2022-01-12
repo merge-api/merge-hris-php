@@ -63,7 +63,7 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'end_user_email_address' => 'string',
         'end_user_organization_name' => 'string',
         'end_user_origin_id' => 'string',
-        'categories' => 'string[]',
+        'categories' => '\MergeHRISClient\Model\CategoriesEnum[]',
         'integration' => 'string'
     ];
 
@@ -183,23 +183,6 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
-    const CATEGORIES_HRIS = 'hris';
-    const CATEGORIES_ATS = 'ats';
-    const CATEGORIES_ACCOUNTING = 'accounting';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCategoriesAllowableValues()
-    {
-        return [
-            self::CATEGORIES_HRIS,
-            self::CATEGORIES_ATS,
-            self::CATEGORIES_ACCOUNTING,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -235,12 +218,28 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['end_user_email_address'] === null) {
             $invalidProperties[] = "'end_user_email_address' can't be null";
         }
+        if ((mb_strlen($this->container['end_user_email_address']) < 1)) {
+            $invalidProperties[] = "invalid value for 'end_user_email_address', the character length must be bigger than or equal to 1.";
+        }
+
         if ($this->container['end_user_organization_name'] === null) {
             $invalidProperties[] = "'end_user_organization_name' can't be null";
         }
+        if ((mb_strlen($this->container['end_user_organization_name']) < 1)) {
+            $invalidProperties[] = "invalid value for 'end_user_organization_name', the character length must be bigger than or equal to 1.";
+        }
+
         if ($this->container['end_user_origin_id'] === null) {
             $invalidProperties[] = "'end_user_origin_id' can't be null";
         }
+        if ((mb_strlen($this->container['end_user_origin_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'end_user_origin_id', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['integration']) && (mb_strlen($this->container['integration']) < 1)) {
+            $invalidProperties[] = "invalid value for 'integration', the character length must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -275,6 +274,11 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setEndUserEmailAddress($end_user_email_address)
     {
+
+        if ((mb_strlen($end_user_email_address) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $end_user_email_address when calling EndUserDetailsRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['end_user_email_address'] = $end_user_email_address;
 
         return $this;
@@ -299,6 +303,11 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setEndUserOrganizationName($end_user_organization_name)
     {
+
+        if ((mb_strlen($end_user_organization_name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $end_user_organization_name when calling EndUserDetailsRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['end_user_organization_name'] = $end_user_organization_name;
 
         return $this;
@@ -323,6 +332,11 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setEndUserOriginId($end_user_origin_id)
     {
+
+        if ((mb_strlen($end_user_origin_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $end_user_origin_id when calling EndUserDetailsRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['end_user_origin_id'] = $end_user_origin_id;
 
         return $this;
@@ -331,7 +345,7 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets categories
      *
-     * @return string[]|null
+     * @return \MergeHRISClient\Model\CategoriesEnum[]|null
      */
     public function getCategories()
     {
@@ -341,21 +355,12 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets categories
      *
-     * @param string[]|null $categories categories
+     * @param \MergeHRISClient\Model\CategoriesEnum[]|null $categories categories
      *
      * @return self
      */
     public function setCategories($categories)
     {
-        $allowedValues = $this->getCategoriesAllowableValues();
-        if (!is_null($categories) && array_diff($categories, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'categories', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['categories'] = $categories;
 
         return $this;
@@ -380,6 +385,11 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setIntegration($integration)
     {
+
+        if (!is_null($integration) && (mb_strlen($integration) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $integration when calling EndUserDetailsRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['integration'] = $integration;
 
         return $this;

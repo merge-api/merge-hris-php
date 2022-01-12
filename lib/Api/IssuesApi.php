@@ -119,7 +119,7 @@ class IssuesApi
      * Operation issuesList
      *
      * @param  string $account_token account_token (optional)
-     * @param  int $cursor The pagination cursor value. (optional)
+     * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $end_date If included, will only include issues whose most recent action occurred before this time (optional)
      * @param  string $end_user_organization_name end_user_organization_name (optional)
      * @param  string $include_muted If True, will include muted issues (optional)
@@ -141,15 +141,15 @@ class IssuesApi
     /**
      * Operation issuesListWithHttpInfo
      *
-     * @param  string $account_token account_token (optional)
-     * @param  int $cursor The pagination cursor value. (optional)
+     * @param  string $account_token (optional)
+     * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $end_date If included, will only include issues whose most recent action occurred before this time (optional)
-     * @param  string $end_user_organization_name end_user_organization_name (optional)
+     * @param  string $end_user_organization_name (optional)
      * @param  string $include_muted If True, will include muted issues (optional)
-     * @param  string $integration_name integration_name (optional)
+     * @param  string $integration_name (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $start_date If included, will only include issues whose most recent action occurred after this time (optional)
-     * @param  string $status status (optional)
+     * @param  string $status (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -233,15 +233,15 @@ class IssuesApi
     /**
      * Operation issuesListAsync
      *
-     * @param  string $account_token account_token (optional)
-     * @param  int $cursor The pagination cursor value. (optional)
+     * @param  string $account_token (optional)
+     * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $end_date If included, will only include issues whose most recent action occurred before this time (optional)
-     * @param  string $end_user_organization_name end_user_organization_name (optional)
+     * @param  string $end_user_organization_name (optional)
      * @param  string $include_muted If True, will include muted issues (optional)
-     * @param  string $integration_name integration_name (optional)
+     * @param  string $integration_name (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $start_date If included, will only include issues whose most recent action occurred after this time (optional)
-     * @param  string $status status (optional)
+     * @param  string $status (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -259,15 +259,15 @@ class IssuesApi
     /**
      * Operation issuesListAsyncWithHttpInfo
      *
-     * @param  string $account_token account_token (optional)
-     * @param  int $cursor The pagination cursor value. (optional)
+     * @param  string $account_token (optional)
+     * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $end_date If included, will only include issues whose most recent action occurred before this time (optional)
-     * @param  string $end_user_organization_name end_user_organization_name (optional)
+     * @param  string $end_user_organization_name (optional)
      * @param  string $include_muted If True, will include muted issues (optional)
-     * @param  string $integration_name integration_name (optional)
+     * @param  string $integration_name (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $start_date If included, will only include issues whose most recent action occurred after this time (optional)
-     * @param  string $status status (optional)
+     * @param  string $status (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -313,15 +313,15 @@ class IssuesApi
     /**
      * Create request for operation 'issuesList'
      *
-     * @param  string $account_token account_token (optional)
-     * @param  int $cursor The pagination cursor value. (optional)
+     * @param  string $account_token (optional)
+     * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $end_date If included, will only include issues whose most recent action occurred before this time (optional)
-     * @param  string $end_user_organization_name end_user_organization_name (optional)
+     * @param  string $end_user_organization_name (optional)
      * @param  string $include_muted If True, will include muted issues (optional)
-     * @param  string $integration_name integration_name (optional)
+     * @param  string $integration_name (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $start_date If included, will only include issues whose most recent action occurred after this time (optional)
-     * @param  string $status status (optional)
+     * @param  string $status (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
