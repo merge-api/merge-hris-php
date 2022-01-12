@@ -62,8 +62,9 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'category' => 'CategoryEnum',
-        'status' => 'AccountDetailsAndActionsStatusEnum',
+        'category' => 'string',
+        'status' => 'string',
+        'status_detail' => 'string',
         'end_user_origin_id' => 'string',
         'end_user_organization_name' => 'string',
         'end_user_email_address' => 'string',
@@ -81,6 +82,7 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         'id' => null,
         'category' => null,
         'status' => null,
+        'status_detail' => null,
         'end_user_origin_id' => null,
         'end_user_organization_name' => null,
         'end_user_email_address' => null,
@@ -117,6 +119,7 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         'id' => 'id',
         'category' => 'category',
         'status' => 'status',
+        'status_detail' => 'status_detail',
         'end_user_origin_id' => 'end_user_origin_id',
         'end_user_organization_name' => 'end_user_organization_name',
         'end_user_email_address' => 'end_user_email_address',
@@ -132,6 +135,7 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         'id' => 'setId',
         'category' => 'setCategory',
         'status' => 'setStatus',
+        'status_detail' => 'setStatusDetail',
         'end_user_origin_id' => 'setEndUserOriginId',
         'end_user_organization_name' => 'setEndUserOrganizationName',
         'end_user_email_address' => 'setEndUserEmailAddress',
@@ -147,6 +151,7 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         'id' => 'getId',
         'category' => 'getCategory',
         'status' => 'getStatus',
+        'status_detail' => 'getStatusDetail',
         'end_user_origin_id' => 'getEndUserOriginId',
         'end_user_organization_name' => 'getEndUserOrganizationName',
         'end_user_email_address' => 'getEndUserEmailAddress',
@@ -213,6 +218,7 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         $this->container['id'] = $data['id'] ?? null;
         $this->container['category'] = $data['category'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
+        $this->container['status_detail'] = $data['status_detail'] ?? null;
         $this->container['end_user_origin_id'] = $data['end_user_origin_id'] ?? null;
         $this->container['end_user_organization_name'] = $data['end_user_organization_name'] ?? null;
         $this->container['end_user_email_address'] = $data['end_user_email_address'] ?? null;
@@ -282,7 +288,7 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets category
      *
-     * @return CategoryEnum|null
+     * @return string|null
      */
     public function getCategory()
     {
@@ -292,7 +298,7 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets category
      *
-     * @param CategoryEnum|null $category category
+     * @param string|null $category category
      *
      * @return self
      */
@@ -306,7 +312,7 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets status
      *
-     * @return AccountDetailsAndActionsStatusEnum
+     * @return string
      */
     public function getStatus()
     {
@@ -316,13 +322,37 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets status
      *
-     * @param AccountDetailsAndActionsStatusEnum $status status
+     * @param string $status status
      *
      * @return self
      */
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets status_detail
+     *
+     * @return string|null
+     */
+    public function getStatusDetail()
+    {
+        return $this->container['status_detail'];
+    }
+
+    /**
+     * Sets status_detail
+     *
+     * @param string|null $status_detail status_detail
+     *
+     * @return self
+     */
+    public function setStatusDetail($status_detail)
+    {
+        $this->container['status_detail'] = $status_detail;
 
         return $this;
     }

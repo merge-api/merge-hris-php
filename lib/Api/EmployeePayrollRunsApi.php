@@ -125,6 +125,7 @@ class EmployeePayrollRunsApi
      * @param  string $employee_id If provided, will only return employee payroll runs for this employee. (optional)
      * @param  \DateTime $ended_after If provided, will only return employee payroll runs ended after this datetime. (optional)
      * @param  \DateTime $ended_before If provided, will only return employee payroll runs ended before this datetime. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -138,9 +139,9 @@ class EmployeePayrollRunsApi
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedEmployeePayrollRunList
      */
-    public function employeePayrollRunsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
+    public function employeePayrollRunsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
     {
-        list($response) = $this->employeePayrollRunsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before);
+        list($response) = $this->employeePayrollRunsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before);
         return $response;
     }
 
@@ -154,6 +155,7 @@ class EmployeePayrollRunsApi
      * @param  string $employee_id If provided, will only return employee payroll runs for this employee. (optional)
      * @param  \DateTime $ended_after If provided, will only return employee payroll runs ended after this datetime. (optional)
      * @param  \DateTime $ended_before If provided, will only return employee payroll runs ended before this datetime. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -167,9 +169,9 @@ class EmployeePayrollRunsApi
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedEmployeePayrollRunList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function employeePayrollRunsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
+    public function employeePayrollRunsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
     {
-        $request = $this->employeePayrollRunsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before);
+        $request = $this->employeePayrollRunsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before);
 
         try {
             $options = $this->createHttpClientOption();
@@ -252,6 +254,7 @@ class EmployeePayrollRunsApi
      * @param  string $employee_id If provided, will only return employee payroll runs for this employee. (optional)
      * @param  \DateTime $ended_after If provided, will only return employee payroll runs ended after this datetime. (optional)
      * @param  \DateTime $ended_before If provided, will only return employee payroll runs ended before this datetime. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -264,9 +267,9 @@ class EmployeePayrollRunsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employeePayrollRunsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
+    public function employeePayrollRunsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
     {
-        return $this->employeePayrollRunsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before)
+        return $this->employeePayrollRunsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -284,6 +287,7 @@ class EmployeePayrollRunsApi
      * @param  string $employee_id If provided, will only return employee payroll runs for this employee. (optional)
      * @param  \DateTime $ended_after If provided, will only return employee payroll runs ended after this datetime. (optional)
      * @param  \DateTime $ended_before If provided, will only return employee payroll runs ended before this datetime. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -296,10 +300,10 @@ class EmployeePayrollRunsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employeePayrollRunsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
+    public function employeePayrollRunsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedEmployeePayrollRunList';
-        $request = $this->employeePayrollRunsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before);
+        $request = $this->employeePayrollRunsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $payroll_run_id, $remote_id, $started_after, $started_before);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -344,6 +348,7 @@ class EmployeePayrollRunsApi
      * @param  string $employee_id If provided, will only return employee payroll runs for this employee. (optional)
      * @param  \DateTime $ended_after If provided, will only return employee payroll runs ended after this datetime. (optional)
      * @param  \DateTime $ended_before If provided, will only return employee payroll runs ended before this datetime. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -356,7 +361,7 @@ class EmployeePayrollRunsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function employeePayrollRunsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
+    public function employeePayrollRunsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $payroll_run_id = null, $remote_id = null, $started_after = null, $started_before = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -436,6 +441,17 @@ class EmployeePayrollRunsApi
             }
             else {
                 $queryParams['ended_before'] = $ended_before;
+            }
+        }
+        // query params
+        if ($include_deleted_data !== null) {
+            if('form' === 'form' && is_array($include_deleted_data)) {
+                foreach($include_deleted_data as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['include_deleted_data'] = $include_deleted_data;
             }
         }
         // query params

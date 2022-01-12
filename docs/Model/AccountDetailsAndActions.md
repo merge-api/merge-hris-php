@@ -5,8 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  |
-**category** | [**CategoryEnum**](CategoryEnum.md) |  | [optional]
-**status** | [**AccountDetailsAndActionsStatusEnum**](AccountDetailsAndActionsStatusEnum.md) |  |
+**category** | **string** |  | [optional]
+**status** | **string** |  |
+**status_detail** | **string** |  | [optional]
 **end_user_origin_id** | **string** |  | [optional]
 **end_user_organization_name** | **string** |  |
 **end_user_email_address** | **string** |  |

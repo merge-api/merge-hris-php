@@ -80,22 +80,22 @@ Class | Method | HTTP request | Description
 *AccountDetailsApi* | [**accountDetailsRetrieve**](docs/Api/AccountDetailsApi.md#accountdetailsretrieve) | **GET** /account-details | 
 *AccountTokenApi* | [**accountTokenRetrieve**](docs/Api/AccountTokenApi.md#accounttokenretrieve) | **GET** /account-token/{public_token} | 
 *AvailableActionsApi* | [**availableActionsRetrieve**](docs/Api/AvailableActionsApi.md#availableactionsretrieve) | **GET** /available-actions | 
-*BenefitsApi* | [**benefitsCreate**](docs/Api/BenefitsApi.md#benefitscreate) | **POST** /benefits | 
+*BankInfoApi* | [**bankInfoList**](docs/Api/BankInfoApi.md#bankinfolist) | **GET** /bank-info | 
+*BankInfoApi* | [**bankInfoRetrieve**](docs/Api/BankInfoApi.md#bankinforetrieve) | **GET** /bank-info/{id} | 
 *BenefitsApi* | [**benefitsList**](docs/Api/BenefitsApi.md#benefitslist) | **GET** /benefits | 
 *BenefitsApi* | [**benefitsRetrieve**](docs/Api/BenefitsApi.md#benefitsretrieve) | **GET** /benefits/{id} | 
 *CompaniesApi* | [**companiesList**](docs/Api/CompaniesApi.md#companieslist) | **GET** /companies | 
 *CompaniesApi* | [**companiesRetrieve**](docs/Api/CompaniesApi.md#companiesretrieve) | **GET** /companies/{id} | 
-*DeductionsApi* | [**deductionsCreate**](docs/Api/DeductionsApi.md#deductionscreate) | **POST** /deductions | 
 *DeductionsApi* | [**deductionsList**](docs/Api/DeductionsApi.md#deductionslist) | **GET** /deductions | 
 *DeductionsApi* | [**deductionsRetrieve**](docs/Api/DeductionsApi.md#deductionsretrieve) | **GET** /deductions/{id} | 
 *DeleteAccountApi* | [**deleteAccountCreate**](docs/Api/DeleteAccountApi.md#deleteaccountcreate) | **POST** /delete-account | 
 *EmployeePayrollRunsApi* | [**employeePayrollRunsList**](docs/Api/EmployeePayrollRunsApi.md#employeepayrollrunslist) | **GET** /employee-payroll-runs | 
 *EmployeePayrollRunsApi* | [**employeePayrollRunsRetrieve**](docs/Api/EmployeePayrollRunsApi.md#employeepayrollrunsretrieve) | **GET** /employee-payroll-runs/{id} | 
-*EmployeesApi* | [**employeesCreate**](docs/Api/EmployeesApi.md#employeescreate) | **POST** /employees | 
 *EmployeesApi* | [**employeesList**](docs/Api/EmployeesApi.md#employeeslist) | **GET** /employees | 
 *EmployeesApi* | [**employeesRetrieve**](docs/Api/EmployeesApi.md#employeesretrieve) | **GET** /employees/{id} | 
 *EmploymentsApi* | [**employmentsList**](docs/Api/EmploymentsApi.md#employmentslist) | **GET** /employments | 
 *EmploymentsApi* | [**employmentsRetrieve**](docs/Api/EmploymentsApi.md#employmentsretrieve) | **GET** /employments/{id} | 
+*ForceResyncApi* | [**syncStatusResyncCreate**](docs/Api/ForceResyncApi.md#syncstatusresynccreate) | **POST** /sync-status/resync | 
 *GenerateKeyApi* | [**generateKeyCreate**](docs/Api/GenerateKeyApi.md#generatekeycreate) | **POST** /generate-key | 
 *IssuesApi* | [**issuesList**](docs/Api/IssuesApi.md#issueslist) | **GET** /issues | 
 *IssuesApi* | [**issuesRetrieve**](docs/Api/IssuesApi.md#issuesretrieve) | **GET** /issues/{id} | 
@@ -104,50 +104,49 @@ Class | Method | HTTP request | Description
 *LocationsApi* | [**locationsList**](docs/Api/LocationsApi.md#locationslist) | **GET** /locations | 
 *LocationsApi* | [**locationsRetrieve**](docs/Api/LocationsApi.md#locationsretrieve) | **GET** /locations/{id} | 
 *PassthroughApi* | [**passthroughCreate**](docs/Api/PassthroughApi.md#passthroughcreate) | **POST** /passthrough | 
+*PayGroupsApi* | [**payGroupsList**](docs/Api/PayGroupsApi.md#paygroupslist) | **GET** /pay-groups | 
+*PayGroupsApi* | [**payGroupsRetrieve**](docs/Api/PayGroupsApi.md#paygroupsretrieve) | **GET** /pay-groups/{id} | 
 *PayrollRunsApi* | [**payrollRunsList**](docs/Api/PayrollRunsApi.md#payrollrunslist) | **GET** /payroll-runs | 
 *PayrollRunsApi* | [**payrollRunsRetrieve**](docs/Api/PayrollRunsApi.md#payrollrunsretrieve) | **GET** /payroll-runs/{id} | 
 *RegenerateKeyApi* | [**regenerateKeyCreate**](docs/Api/RegenerateKeyApi.md#regeneratekeycreate) | **POST** /regenerate-key | 
 *SyncStatusApi* | [**syncStatusList**](docs/Api/SyncStatusApi.md#syncstatuslist) | **GET** /sync-status | 
-*SyncStatusApi* | [**syncStatusResyncCreate**](docs/Api/SyncStatusApi.md#syncstatusresynccreate) | **POST** /sync-status/resync | 
 *TeamsApi* | [**teamsList**](docs/Api/TeamsApi.md#teamslist) | **GET** /teams | 
 *TeamsApi* | [**teamsRetrieve**](docs/Api/TeamsApi.md#teamsretrieve) | **GET** /teams/{id} | 
 *TimeOffApi* | [**timeOffCreate**](docs/Api/TimeOffApi.md#timeoffcreate) | **POST** /time-off | 
 *TimeOffApi* | [**timeOffList**](docs/Api/TimeOffApi.md#timeofflist) | **GET** /time-off | 
 *TimeOffApi* | [**timeOffRetrieve**](docs/Api/TimeOffApi.md#timeoffretrieve) | **GET** /time-off/{id} | 
-*TimeOffBalanceApi* | [**timeOffBalanceList**](docs/Api/TimeOffBalanceApi.md#timeoffbalancelist) | **GET** /time-off-balance | 
-*TimeOffBalanceApi* | [**timeOffBalanceRetrieve**](docs/Api/TimeOffBalanceApi.md#timeoffbalanceretrieve) | **GET** /time-off-balance/{id} | 
+*TimeOffBalancesApi* | [**timeOffBalancesList**](docs/Api/TimeOffBalancesApi.md#timeoffbalanceslist) | **GET** /time-off-balances | 
+*TimeOffBalancesApi* | [**timeOffBalancesRetrieve**](docs/Api/TimeOffBalancesApi.md#timeoffbalancesretrieve) | **GET** /time-off-balances/{id} | 
 
 ## Models
 
 - [AccountDetails](docs/Model/AccountDetails.md)
 - [AccountDetailsAndActions](docs/Model/AccountDetailsAndActions.md)
 - [AccountDetailsAndActionsIntegration](docs/Model/AccountDetailsAndActionsIntegration.md)
-- [AccountDetailsAndActionsStatusEnum](docs/Model/AccountDetailsAndActionsStatusEnum.md)
 - [AccountIntegration](docs/Model/AccountIntegration.md)
 - [AccountToken](docs/Model/AccountToken.md)
 - [AvailableActions](docs/Model/AvailableActions.md)
+- [BankInfo](docs/Model/BankInfo.md)
 - [Benefit](docs/Model/Benefit.md)
-- [BenefitRequest](docs/Model/BenefitRequest.md)
 - [CategoriesEnum](docs/Model/CategoriesEnum.md)
 - [CategoryEnum](docs/Model/CategoryEnum.md)
 - [Company](docs/Model/Company.md)
 - [CountryEnum](docs/Model/CountryEnum.md)
 - [DataPassthroughRequest](docs/Model/DataPassthroughRequest.md)
 - [Deduction](docs/Model/Deduction.md)
-- [DeductionRequest](docs/Model/DeductionRequest.md)
 - [Earning](docs/Model/Earning.md)
 - [Employee](docs/Model/Employee.md)
 - [EmployeePayrollRun](docs/Model/EmployeePayrollRun.md)
-- [EmployeeRequest](docs/Model/EmployeeRequest.md)
 - [Employment](docs/Model/Employment.md)
 - [EndUserDetailsRequest](docs/Model/EndUserDetailsRequest.md)
+- [ErrorValidationProblem](docs/Model/ErrorValidationProblem.md)
 - [GenerateRemoteKeyRequest](docs/Model/GenerateRemoteKeyRequest.md)
 - [Issue](docs/Model/Issue.md)
 - [LinkToken](docs/Model/LinkToken.md)
 - [Location](docs/Model/Location.md)
-- [MethodEnum](docs/Model/MethodEnum.md)
 - [ModelOperation](docs/Model/ModelOperation.md)
 - [PaginatedAccountDetailsAndActionsList](docs/Model/PaginatedAccountDetailsAndActionsList.md)
+- [PaginatedBankInfoList](docs/Model/PaginatedBankInfoList.md)
 - [PaginatedBenefitList](docs/Model/PaginatedBenefitList.md)
 - [PaginatedCompanyList](docs/Model/PaginatedCompanyList.md)
 - [PaginatedDeductionList](docs/Model/PaginatedDeductionList.md)
@@ -156,26 +155,29 @@ Class | Method | HTTP request | Description
 - [PaginatedEmploymentList](docs/Model/PaginatedEmploymentList.md)
 - [PaginatedIssueList](docs/Model/PaginatedIssueList.md)
 - [PaginatedLocationList](docs/Model/PaginatedLocationList.md)
+- [PaginatedPayGroupList](docs/Model/PaginatedPayGroupList.md)
 - [PaginatedPayrollRunList](docs/Model/PaginatedPayrollRunList.md)
 - [PaginatedSyncStatusList](docs/Model/PaginatedSyncStatusList.md)
 - [PaginatedTeamList](docs/Model/PaginatedTeamList.md)
 - [PaginatedTimeOffBalanceList](docs/Model/PaginatedTimeOffBalanceList.md)
 - [PaginatedTimeOffList](docs/Model/PaginatedTimeOffList.md)
+- [PayGroup](docs/Model/PayGroup.md)
 - [PayrollRun](docs/Model/PayrollRun.md)
 - [RemoteData](docs/Model/RemoteData.md)
 - [RemoteDataRequest](docs/Model/RemoteDataRequest.md)
 - [RemoteKey](docs/Model/RemoteKey.md)
 - [RemoteKeyForRegenerationRequest](docs/Model/RemoteKeyForRegenerationRequest.md)
 - [RemoteResponse](docs/Model/RemoteResponse.md)
-- [RequestFormatEnum](docs/Model/RequestFormatEnum.md)
-- [RequestTypeEnum](docs/Model/RequestTypeEnum.md)
 - [SyncStatus](docs/Model/SyncStatus.md)
-- [SyncStatusStatusEnum](docs/Model/SyncStatusStatusEnum.md)
 - [Tax](docs/Model/Tax.md)
 - [Team](docs/Model/Team.md)
 - [TimeOff](docs/Model/TimeOff.md)
 - [TimeOffBalance](docs/Model/TimeOffBalance.md)
+- [TimeOffEndpointRequest](docs/Model/TimeOffEndpointRequest.md)
 - [TimeOffRequest](docs/Model/TimeOffRequest.md)
+- [TimeOffResponse](docs/Model/TimeOffResponse.md)
+- [ValidationProblemSource](docs/Model/ValidationProblemSource.md)
+- [WarningValidationProblem](docs/Model/WarningValidationProblem.md)
 
 ## Authorization
 

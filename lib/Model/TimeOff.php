@@ -69,7 +69,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee_note' => 'string',
         'units' => 'string',
         'amount' => 'float',
-        'request_type' => 'RequestTypeEnum',
+        'request_type' => 'string',
         'start_time' => '\DateTime',
         'end_time' => '\DateTime',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
@@ -468,7 +468,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets request_type
      *
-     * @return RequestTypeEnum|null
+     * @return string|null
      */
     public function getRequestType()
     {
@@ -478,7 +478,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets request_type
      *
-     * @param RequestTypeEnum|null $request_type The type of time off request.
+     * @param string|null $request_type request_type
      *
      * @return self
      */

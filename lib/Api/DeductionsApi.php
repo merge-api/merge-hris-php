@@ -116,290 +116,6 @@ class DeductionsApi
     }
 
     /**
-     * Operation deductionsCreate
-     *
-     * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\DeductionRequest $deduction_request deduction_request (optional)
-     *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\Deduction
-     */
-    public function deductionsCreate($x_account_token, $run_async = null, $deduction_request = null)
-    {
-        list($response) = $this->deductionsCreateWithHttpInfo($x_account_token, $run_async, $deduction_request);
-        return $response;
-    }
-
-    /**
-     * Operation deductionsCreateWithHttpInfo
-     *
-     * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\DeductionRequest $deduction_request (optional)
-     *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\Deduction, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function deductionsCreateWithHttpInfo($x_account_token, $run_async = null, $deduction_request = null)
-    {
-        $request = $this->deductionsCreateRequest($x_account_token, $run_async, $deduction_request);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 201:
-                    if ('\MergeHRISClient\Model\Deduction' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Deduction', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\MergeHRISClient\Model\Deduction';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\MergeHRISClient\Model\Deduction',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation deductionsCreateAsync
-     *
-     * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\DeductionRequest $deduction_request (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deductionsCreateAsync($x_account_token, $run_async = null, $deduction_request = null)
-    {
-        return $this->deductionsCreateAsyncWithHttpInfo($x_account_token, $run_async, $deduction_request)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation deductionsCreateAsyncWithHttpInfo
-     *
-     * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\DeductionRequest $deduction_request (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deductionsCreateAsyncWithHttpInfo($x_account_token, $run_async = null, $deduction_request = null)
-    {
-        $returnType = '\MergeHRISClient\Model\Deduction';
-        $request = $this->deductionsCreateRequest($x_account_token, $run_async, $deduction_request);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'deductionsCreate'
-     *
-     * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\DeductionRequest $deduction_request (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function deductionsCreateRequest($x_account_token, $run_async = null, $deduction_request = null)
-    {
-        // verify the required parameter 'x_account_token' is set
-        if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $x_account_token when calling deductionsCreate'
-            );
-        }
-
-        $resourcePath = '/deductions';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($run_async !== null) {
-            if('form' === 'form' && is_array($run_async)) {
-                foreach($run_async as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['run_async'] = $run_async;
-            }
-        }
-
-        // header params
-        if ($x_account_token !== null) {
-            $headerParams['X-Account-Token'] = ObjectSerializer::toHeaderValue($x_account_token);
-        }
-
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($deduction_request)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($deduction_request));
-            } else {
-                $httpBody = $deduction_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation deductionsList
      *
      * @param  string $x_account_token Token identifying the end user. (required)
@@ -407,6 +123,7 @@ class DeductionsApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_payroll_run_id If provided, will only return deductions for this employee payroll run. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -417,9 +134,9 @@ class DeductionsApi
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedDeductionList
      */
-    public function deductionsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_payroll_run_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function deductionsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_payroll_run_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        list($response) = $this->deductionsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_payroll_run_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+        list($response) = $this->deductionsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_payroll_run_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
         return $response;
     }
 
@@ -431,6 +148,7 @@ class DeductionsApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_payroll_run_id If provided, will only return deductions for this employee payroll run. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -441,9 +159,9 @@ class DeductionsApi
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedDeductionList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deductionsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_payroll_run_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function deductionsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_payroll_run_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        $request = $this->deductionsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_payroll_run_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->deductionsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_payroll_run_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -524,6 +242,7 @@ class DeductionsApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_payroll_run_id If provided, will only return deductions for this employee payroll run. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -533,9 +252,9 @@ class DeductionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deductionsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_payroll_run_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function deductionsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_payroll_run_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        return $this->deductionsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_payroll_run_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id)
+        return $this->deductionsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_payroll_run_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -551,6 +270,7 @@ class DeductionsApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_payroll_run_id If provided, will only return deductions for this employee payroll run. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -560,10 +280,10 @@ class DeductionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deductionsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_payroll_run_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function deductionsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_payroll_run_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedDeductionList';
-        $request = $this->deductionsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_payroll_run_id, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->deductionsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_payroll_run_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -606,6 +326,7 @@ class DeductionsApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_payroll_run_id If provided, will only return deductions for this employee payroll run. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -615,7 +336,7 @@ class DeductionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deductionsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_payroll_run_id = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function deductionsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_payroll_run_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -673,6 +394,17 @@ class DeductionsApi
             }
             else {
                 $queryParams['employee_payroll_run_id'] = $employee_payroll_run_id;
+            }
+        }
+        // query params
+        if ($include_deleted_data !== null) {
+            if('form' === 'form' && is_array($include_deleted_data)) {
+                foreach($include_deleted_data as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['include_deleted_data'] = $include_deleted_data;
             }
         }
         // query params

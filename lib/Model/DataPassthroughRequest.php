@@ -61,12 +61,12 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'method' => 'MethodEnum',
+        'method' => 'string',
         'path' => 'string',
         'base_url_override' => 'string',
         'data' => 'string',
         'headers' => 'array<string,mixed>',
-        'request_format' => 'RequestFormatEnum'
+        'request_format' => 'string'
     ];
 
     /**
@@ -225,9 +225,29 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['method'] === null) {
             $invalidProperties[] = "'method' can't be null";
         }
+        if ((mb_strlen($this->container['method']) < 1)) {
+            $invalidProperties[] = "invalid value for 'method', the character length must be bigger than or equal to 1.";
+        }
+
         if ($this->container['path'] === null) {
             $invalidProperties[] = "'path' can't be null";
         }
+        if ((mb_strlen($this->container['path']) < 1)) {
+            $invalidProperties[] = "invalid value for 'path', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['base_url_override']) && (mb_strlen($this->container['base_url_override']) < 1)) {
+            $invalidProperties[] = "invalid value for 'base_url_override', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['data']) && (mb_strlen($this->container['data']) < 1)) {
+            $invalidProperties[] = "invalid value for 'data', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['request_format']) && (mb_strlen($this->container['request_format']) < 1)) {
+            $invalidProperties[] = "invalid value for 'request_format', the character length must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -246,7 +266,7 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets method
      *
-     * @return MethodEnum
+     * @return string
      */
     public function getMethod()
     {
@@ -256,12 +276,17 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets method
      *
-     * @param MethodEnum $method method
+     * @param string $method method
      *
      * @return self
      */
     public function setMethod($method)
     {
+
+        if ((mb_strlen($method) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $method when calling DataPassthroughRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['method'] = $method;
 
         return $this;
@@ -286,6 +311,11 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setPath($path)
     {
+
+        if ((mb_strlen($path) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $path when calling DataPassthroughRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['path'] = $path;
 
         return $this;
@@ -310,6 +340,11 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setBaseUrlOverride($base_url_override)
     {
+
+        if (!is_null($base_url_override) && (mb_strlen($base_url_override) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $base_url_override when calling DataPassthroughRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['base_url_override'] = $base_url_override;
 
         return $this;
@@ -334,6 +369,11 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setData($data)
     {
+
+        if (!is_null($data) && (mb_strlen($data) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $data when calling DataPassthroughRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['data'] = $data;
 
         return $this;
@@ -366,7 +406,7 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets request_format
      *
-     * @return RequestFormatEnum|null
+     * @return string|null
      */
     public function getRequestFormat()
     {
@@ -376,12 +416,17 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets request_format
      *
-     * @param RequestFormatEnum|null $request_format request_format
+     * @param string|null $request_format request_format
      *
      * @return self
      */
     public function setRequestFormat($request_format)
     {
+
+        if (!is_null($request_format) && (mb_strlen($request_format) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $request_format when calling DataPassthroughRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['request_format'] = $request_format;
 
         return $this;

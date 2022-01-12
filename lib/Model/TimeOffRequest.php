@@ -66,7 +66,6 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'approver' => 'string',
         'employee_note' => 'string',
         'amount' => 'float',
-        'request_type' => 'RequestTypeEnum',
         'start_time' => '\DateTime',
         'end_time' => '\DateTime'
     ];
@@ -84,7 +83,6 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'approver' => 'uuid',
         'employee_note' => null,
         'amount' => 'float',
-        'request_type' => null,
         'start_time' => 'date-time',
         'end_time' => 'date-time'
     ];
@@ -121,7 +119,6 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'approver' => 'approver',
         'employee_note' => 'employee_note',
         'amount' => 'amount',
-        'request_type' => 'request_type',
         'start_time' => 'start_time',
         'end_time' => 'end_time'
     ];
@@ -137,7 +134,6 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'approver' => 'setApprover',
         'employee_note' => 'setEmployeeNote',
         'amount' => 'setAmount',
-        'request_type' => 'setRequestType',
         'start_time' => 'setStartTime',
         'end_time' => 'setEndTime'
     ];
@@ -153,7 +149,6 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'approver' => 'getApprover',
         'employee_note' => 'getEmployeeNote',
         'amount' => 'getAmount',
-        'request_type' => 'getRequestType',
         'start_time' => 'getStartTime',
         'end_time' => 'getEndTime'
     ];
@@ -220,7 +215,6 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['approver'] = $data['approver'] ?? null;
         $this->container['employee_note'] = $data['employee_note'] ?? null;
         $this->container['amount'] = $data['amount'] ?? null;
-        $this->container['request_type'] = $data['request_type'] ?? null;
         $this->container['start_time'] = $data['start_time'] ?? null;
         $this->container['end_time'] = $data['end_time'] ?? null;
     }
@@ -365,30 +359,6 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAmount($amount)
     {
         $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets request_type
-     *
-     * @return RequestTypeEnum|null
-     */
-    public function getRequestType()
-    {
-        return $this->container['request_type'];
-    }
-
-    /**
-     * Sets request_type
-     *
-     * @param RequestTypeEnum|null $request_type The type of time off request.
-     *
-     * @return self
-     */
-    public function setRequestType($request_type)
-    {
-        $this->container['request_type'] = $request_type;
 
         return $this;
     }
