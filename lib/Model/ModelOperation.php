@@ -242,7 +242,7 @@ class ModelOperation implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getModelName()
+    public function getMergeModelName()
     {
         return $this->container['model_name'];
     }
@@ -254,7 +254,7 @@ class ModelOperation implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setModelName($model_name)
+    public function setMergeModelName($model_name)
     {
         $this->container['model_name'] = $model_name;
 
