@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace MergeHRISClient\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -36,7 +36,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description EndUserDetailsRequest
- * @package     OpenAPI\Client
+ * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -120,6 +120,24 @@ class EndUserDetailsRequestTest extends TestCase
      * Test attribute "integration"
      */
     public function testPropertyIntegration()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "link_expiry_mins"
+     */
+    public function testPropertyLinkExpiryMins()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "should_create_magic_link_url"
+     */
+    public function testPropertyShouldCreateMagicLinkUrl()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

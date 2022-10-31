@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace MergeHRISClient\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -36,7 +36,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description # The Employee Object ### Description The &#x60;Employee&#x60; object is used to represent an Employee for a company.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
- * @package     OpenAPI\Client
+ * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -135,6 +135,24 @@ class EmployeeRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "username"
+     */
+    public function testPropertyUsername()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "groups"
+     */
+    public function testPropertyGroups()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "work_email"
      */
     public function testPropertyWorkEmail()
@@ -156,6 +174,15 @@ class EmployeeRequestTest extends TestCase
      * Test attribute "mobile_phone_number"
      */
     public function testPropertyMobilePhoneNumber()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "employments"
+     */
+    public function testPropertyEmployments()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -198,9 +225,45 @@ class EmployeeRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "pay_group"
+     */
+    public function testPropertyPayGroup()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "ssn"
      */
     public function testPropertySsn()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gender"
+     */
+    public function testPropertyGender()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "ethnicity"
+     */
+    public function testPropertyEthnicity()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "marital_status"
+     */
+    public function testPropertyMaritalStatus()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -228,6 +291,24 @@ class EmployeeRequestTest extends TestCase
      * Test attribute "start_date"
      */
     public function testPropertyStartDate()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "remote_created_at"
+     */
+    public function testPropertyRemoteCreatedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "employment_status"
+     */
+    public function testPropertyEmploymentStatus()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

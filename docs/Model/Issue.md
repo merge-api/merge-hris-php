@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional] [readonly]
-**status** | **string** |  | [optional] [readonly]
+**status** | [**\MergeHRISClient\Model\IssueStatusEnum**](IssueStatusEnum.md) |  | [optional]
 **error_description** | **string** |  |
 **end_user** | **array<string,mixed>** |  | [optional] [readonly]
 **first_incident_time** | [**\DateTime**](\DateTime.md) |  | [optional]

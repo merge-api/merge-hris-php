@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `timeOffBalancesList()`
 
 ```php
-timeOffBalancesList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_id): \MergeHRISClient\Model\PaginatedTimeOffBalanceList
+timeOffBalancesList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_fields, $remote_id): \MergeHRISClient\Model\PaginatedTimeOffBalanceList
 ```
 
 
@@ -42,16 +42,17 @@ $created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If p
 $created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects created before this datetime.
 $cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | The pagination cursor value.
 $employee_id = 'employee_id_example'; // string | If provided, will only return time off balances for this employee.
-$include_deleted_data = True; // bool | Whether to include data that was deleted in the third-party service.
+$include_deleted_data = True; // bool | Whether to include data that was marked as deleted by third party webhooks.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified after this datetime.
 $modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified before this datetime.
 $page_size = 56; // int | Number of results to return per page.
 $policy_type = 'policy_type_example'; // string | If provided, will only return TimeOffBalance with this policy type. Options: ('VACATION', 'SICK', 'PERSONAL', 'JURY_DUTY', 'VOLUNTEER', 'BEREAVEMENT')
+$remote_fields = policy_type; // string | Which fields should be returned in non-normalized form.
 $remote_id = 'remote_id_example'; // string | The API provider's ID for the given object.
 
 try {
-    $result = $apiInstance->timeOffBalancesList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_id);
+    $result = $apiInstance->timeOffBalancesList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_fields, $remote_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimeOffBalancesApi->timeOffBalancesList: ', $e->getMessage(), PHP_EOL;
@@ -67,12 +68,13 @@ Name | Type | Description  | Notes
  **created_before** | **\DateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **string**| The pagination cursor value. | [optional]
  **employee_id** | **string**| If provided, will only return time off balances for this employee. | [optional]
- **include_deleted_data** | **bool**| Whether to include data that was deleted in the third-party service. | [optional]
+ **include_deleted_data** | **bool**| Whether to include data that was marked as deleted by third party webhooks. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **\DateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **\DateTime**| If provided, will only return objects modified before this datetime. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
  **policy_type** | **string**| If provided, will only return TimeOffBalance with this policy type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) | [optional]
+ **remote_fields** | **string**| Which fields should be returned in non-normalized form. | [optional]
  **remote_id** | **string**| The API provider&#39;s ID for the given object. | [optional]
 
 ### Return type
@@ -95,7 +97,7 @@ Name | Type | Description  | Notes
 ## `timeOffBalancesRetrieve()`
 
 ```php
-timeOffBalancesRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\TimeOffBalance
+timeOffBalancesRetrieve($x_account_token, $id, $include_remote_data, $remote_fields): \MergeHRISClient\Model\TimeOffBalance
 ```
 
 
@@ -124,9 +126,10 @@ $apiInstance = new MergeHRISClient\Api\TimeOffBalancesApi(
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $id = 'id_example'; // string
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
+$remote_fields = policy_type; // string | Which fields should be returned in non-normalized form.
 
 try {
-    $result = $apiInstance->timeOffBalancesRetrieve($x_account_token, $id, $include_remote_data);
+    $result = $apiInstance->timeOffBalancesRetrieve($x_account_token, $id, $include_remote_data, $remote_fields);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimeOffBalancesApi->timeOffBalancesRetrieve: ', $e->getMessage(), PHP_EOL;
@@ -140,6 +143,7 @@ Name | Type | Description  | Notes
  **x_account_token** | **string**| Token identifying the end user. |
  **id** | [**string**](../Model/.md)|  |
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
+ **remote_fields** | **string**| Which fields should be returned in non-normalized form. | [optional]
 
 ### Return type
 

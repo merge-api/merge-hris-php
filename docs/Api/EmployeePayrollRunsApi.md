@@ -44,7 +44,7 @@ $cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | 
 $employee_id = 'employee_id_example'; // string | If provided, will only return employee payroll runs for this employee.
 $ended_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return employee payroll runs ended after this datetime.
 $ended_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return employee payroll runs ended before this datetime.
-$include_deleted_data = True; // bool | Whether to include data that was deleted in the third-party service.
+$include_deleted_data = True; // bool | Whether to include data that was marked as deleted by third party webhooks.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified after this datetime.
 $modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified before this datetime.
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
  **employee_id** | **string**| If provided, will only return employee payroll runs for this employee. | [optional]
  **ended_after** | **\DateTime**| If provided, will only return employee payroll runs ended after this datetime. | [optional]
  **ended_before** | **\DateTime**| If provided, will only return employee payroll runs ended before this datetime. | [optional]
- **include_deleted_data** | **bool**| Whether to include data that was deleted in the third-party service. | [optional]
+ **include_deleted_data** | **bool**| Whether to include data that was marked as deleted by third party webhooks. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **\DateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **\DateTime**| If provided, will only return objects modified before this datetime. | [optional]

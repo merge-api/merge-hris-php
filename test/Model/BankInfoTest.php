@@ -160,4 +160,13 @@ class BankInfoTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "remote_was_deleted"
+     */
+    public function testPropertyRemoteWasDeleted()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

@@ -66,7 +66,7 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'amount' => 'float',
         'employer_tax' => 'bool',
-        'remote_data' => 'array<string,mixed>[]'
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -82,7 +82,7 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'amount' => 'float',
         'employer_tax' => null,
-        'remote_data' => null
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -117,7 +117,7 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'amount' => 'amount',
         'employer_tax' => 'employer_tax',
-        'remote_data' => 'remote_data'
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -131,7 +131,7 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'amount' => 'setAmount',
         'employer_tax' => 'setEmployerTax',
-        'remote_data' => 'setRemoteData'
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -145,7 +145,7 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'amount' => 'getAmount',
         'employer_tax' => 'getEmployerTax',
-        'remote_data' => 'getRemoteData'
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -210,7 +210,7 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['name'] = $data['name'] ?? null;
         $this->container['amount'] = $data['amount'] ?? null;
         $this->container['employer_tax'] = $data['employer_tax'] ?? null;
-        $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -274,7 +274,7 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employee_payroll_run
      *
-     * @param string|null $employee_payroll_run The tax's employee payroll run.
+     * @param string|null $employee_payroll_run employee_payroll_run
      *
      * @return self
      */
@@ -358,25 +358,25 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets remote_data
+     * Gets remote_was_deleted
      *
-     * @return array<string,mixed>[]|null
+     * @return bool|null
      */
-    public function getRemoteData()
+    public function getRemoteWasDeleted()
     {
-        return $this->container['remote_data'];
+        return $this->container['remote_was_deleted'];
     }
 
     /**
-     * Sets remote_data
+     * Sets remote_was_deleted
      *
-     * @param array<string,mixed>[]|null $remote_data remote_data
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
      *
      * @return self
      */
-    public function setRemoteData($remote_data)
+    public function setRemoteWasDeleted($remote_was_deleted)
     {
-        $this->container['remote_data'] = $remote_data;
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

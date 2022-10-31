@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `accountDetailsRetrieve()`
 
 ```php
-accountDetailsRetrieve(): \MergeHRISClient\Model\AccountDetails
+accountDetailsRetrieve($x_account_token): \MergeHRISClient\Model\AccountDetails
 ```
 
 
@@ -36,9 +36,10 @@ $apiInstance = new MergeHRISClient\Api\AccountDetailsApi(
     new GuzzleHttp\Client(),
     $config
 );
+$x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 
 try {
-    $result = $apiInstance->accountDetailsRetrieve();
+    $result = $apiInstance->accountDetailsRetrieve($x_account_token);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountDetailsApi->accountDetailsRetrieve: ', $e->getMessage(), PHP_EOL;
@@ -47,7 +48,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_account_token** | **string**| Token identifying the end user. |
 
 ### Return type
 

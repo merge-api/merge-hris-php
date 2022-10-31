@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace MergeHRISClient\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -36,7 +36,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description AccountDetails
- * @package     OpenAPI\Client
+ * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -99,6 +99,15 @@ class AccountDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "integration_slug"
+     */
+    public function testPropertyIntegrationSlug()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "category"
      */
     public function testPropertyCategory()
@@ -138,6 +147,24 @@ class AccountDetailsTest extends TestCase
      * Test attribute "status"
      */
     public function testPropertyStatus()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "webhook_listener_url"
+     */
+    public function testPropertyWebhookListenerUrl()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_duplicate"
+     */
+    public function testPropertyIsDuplicate()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

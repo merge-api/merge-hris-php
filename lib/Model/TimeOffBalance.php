@@ -66,8 +66,9 @@ class TimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee' => 'string',
         'balance' => 'float',
         'used' => 'float',
-        'policy_type' => 'string',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
+        'policy_type' => 'PolicyTypeEnum',
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -84,7 +85,8 @@ class TimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializable
         'balance' => 'float',
         'used' => 'float',
         'policy_type' => null,
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -120,7 +122,8 @@ class TimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializable
         'balance' => 'balance',
         'used' => 'used',
         'policy_type' => 'policy_type',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -135,7 +138,8 @@ class TimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializable
         'balance' => 'setBalance',
         'used' => 'setUsed',
         'policy_type' => 'setPolicyType',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -150,7 +154,8 @@ class TimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializable
         'balance' => 'getBalance',
         'used' => 'getUsed',
         'policy_type' => 'getPolicyType',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -217,6 +222,7 @@ class TimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['used'] = $data['used'] ?? null;
         $this->container['policy_type'] = $data['policy_type'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -304,7 +310,7 @@ class TimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employee
      *
-     * @param string|null $employee The employee the balance belongs to.
+     * @param string|null $employee employee
      *
      * @return self
      */
@@ -328,7 +334,7 @@ class TimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets balance
      *
-     * @param float|null $balance The current PTO balance in terms of hours.
+     * @param float|null $balance The current remaining PTO balance in terms of hours. This does not represent the starting PTO balance. If the API provider only provides PTO balance in terms of days, we estimate 8 hours per day.
      *
      * @return self
      */
@@ -366,7 +372,7 @@ class TimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets policy_type
      *
-     * @return string|null
+     * @return PolicyTypeEnum|null
      */
     public function getPolicyType()
     {
@@ -376,7 +382,7 @@ class TimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets policy_type
      *
-     * @param string|null $policy_type policy_type
+     * @param PolicyTypeEnum|null $policy_type The policy type of this time off balance.
      *
      * @return self
      */
@@ -407,6 +413,30 @@ class TimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

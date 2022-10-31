@@ -62,12 +62,14 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'category' => 'string',
-        'status' => 'string',
+        'category' => 'CategoryEnum',
+        'status' => 'AccountDetailsAndActionsStatusEnum',
         'status_detail' => 'string',
         'end_user_origin_id' => 'string',
         'end_user_organization_name' => 'string',
         'end_user_email_address' => 'string',
+        'webhook_listener_url' => 'string',
+        'is_duplicate' => 'bool',
         'integration' => '\MergeHRISClient\Model\AccountDetailsAndActionsIntegration'
     ];
 
@@ -86,6 +88,8 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         'end_user_origin_id' => null,
         'end_user_organization_name' => null,
         'end_user_email_address' => null,
+        'webhook_listener_url' => null,
+        'is_duplicate' => null,
         'integration' => null
     ];
 
@@ -123,6 +127,8 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         'end_user_origin_id' => 'end_user_origin_id',
         'end_user_organization_name' => 'end_user_organization_name',
         'end_user_email_address' => 'end_user_email_address',
+        'webhook_listener_url' => 'webhook_listener_url',
+        'is_duplicate' => 'is_duplicate',
         'integration' => 'integration'
     ];
 
@@ -139,6 +145,8 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         'end_user_origin_id' => 'setEndUserOriginId',
         'end_user_organization_name' => 'setEndUserOrganizationName',
         'end_user_email_address' => 'setEndUserEmailAddress',
+        'webhook_listener_url' => 'setWebhookListenerUrl',
+        'is_duplicate' => 'setIsDuplicate',
         'integration' => 'setIntegration'
     ];
 
@@ -155,6 +163,8 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         'end_user_origin_id' => 'getEndUserOriginId',
         'end_user_organization_name' => 'getEndUserOrganizationName',
         'end_user_email_address' => 'getEndUserEmailAddress',
+        'webhook_listener_url' => 'getWebhookListenerUrl',
+        'is_duplicate' => 'getIsDuplicate',
         'integration' => 'getIntegration'
     ];
 
@@ -222,6 +232,8 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         $this->container['end_user_origin_id'] = $data['end_user_origin_id'] ?? null;
         $this->container['end_user_organization_name'] = $data['end_user_organization_name'] ?? null;
         $this->container['end_user_email_address'] = $data['end_user_email_address'] ?? null;
+        $this->container['webhook_listener_url'] = $data['webhook_listener_url'] ?? null;
+        $this->container['is_duplicate'] = $data['is_duplicate'] ?? null;
         $this->container['integration'] = $data['integration'] ?? null;
     }
 
@@ -245,6 +257,9 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         }
         if ($this->container['end_user_email_address'] === null) {
             $invalidProperties[] = "'end_user_email_address' can't be null";
+        }
+        if ($this->container['webhook_listener_url'] === null) {
+            $invalidProperties[] = "'webhook_listener_url' can't be null";
         }
         return $invalidProperties;
     }
@@ -288,7 +303,7 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets category
      *
-     * @return string|null
+     * @return CategoryEnum|null
      */
     public function getCategory()
     {
@@ -298,7 +313,7 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets category
      *
-     * @param string|null $category category
+     * @param CategoryEnum|null $category category
      *
      * @return self
      */
@@ -312,7 +327,7 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets status
      *
-     * @return string
+     * @return AccountDetailsAndActionsStatusEnum
      */
     public function getStatus()
     {
@@ -322,7 +337,7 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param AccountDetailsAndActionsStatusEnum $status status
      *
      * @return self
      */
@@ -425,6 +440,54 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
     public function setEndUserEmailAddress($end_user_email_address)
     {
         $this->container['end_user_email_address'] = $end_user_email_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets webhook_listener_url
+     *
+     * @return string
+     */
+    public function getWebhookListenerUrl()
+    {
+        return $this->container['webhook_listener_url'];
+    }
+
+    /**
+     * Sets webhook_listener_url
+     *
+     * @param string $webhook_listener_url webhook_listener_url
+     *
+     * @return self
+     */
+    public function setWebhookListenerUrl($webhook_listener_url)
+    {
+        $this->container['webhook_listener_url'] = $webhook_listener_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_duplicate
+     *
+     * @return bool|null
+     */
+    public function getIsDuplicate()
+    {
+        return $this->container['is_duplicate'];
+    }
+
+    /**
+     * Sets is_duplicate
+     *
+     * @param bool|null $is_duplicate Whether a Production Linked Account's credentials match another existing Production Linked Account. This field is `null` for Test Linked Accounts, incomplete Production Linked Accounts, and ignored duplicate Production Linked Account sets.
+     *
+     * @return self
+     */
+    public function setIsDuplicate($is_duplicate)
+    {
+        $this->container['is_duplicate'] = $is_duplicate;
 
         return $this;
     }

@@ -64,7 +64,9 @@ class RemoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'method' => 'string',
         'path' => 'string',
         'status' => 'int',
-        'response' => 'array<string,mixed>',
+        'response' => 'mixed',
+        'response_headers' => 'array<string,mixed>',
+        'response_type' => 'ResponseTypeEnum',
         'headers' => 'array<string,mixed>'
     ];
 
@@ -80,6 +82,8 @@ class RemoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'path' => null,
         'status' => null,
         'response' => null,
+        'response_headers' => null,
+        'response_type' => null,
         'headers' => null
     ];
 
@@ -114,6 +118,8 @@ class RemoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'path' => 'path',
         'status' => 'status',
         'response' => 'response',
+        'response_headers' => 'response_headers',
+        'response_type' => 'response_type',
         'headers' => 'headers'
     ];
 
@@ -127,6 +133,8 @@ class RemoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'path' => 'setPath',
         'status' => 'setStatus',
         'response' => 'setResponse',
+        'response_headers' => 'setResponseHeaders',
+        'response_type' => 'setResponseType',
         'headers' => 'setHeaders'
     ];
 
@@ -140,6 +148,8 @@ class RemoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'path' => 'getPath',
         'status' => 'getStatus',
         'response' => 'getResponse',
+        'response_headers' => 'getResponseHeaders',
+        'response_type' => 'getResponseType',
         'headers' => 'getHeaders'
     ];
 
@@ -204,6 +214,8 @@ class RemoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['path'] = $data['path'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['response'] = $data['response'] ?? null;
+        $this->container['response_headers'] = $data['response_headers'] ?? null;
+        $this->container['response_type'] = $data['response_type'] ?? null;
         $this->container['headers'] = $data['headers'] ?? null;
     }
 
@@ -318,7 +330,7 @@ class RemoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets response
      *
-     * @return array<string,mixed>
+     * @return mixed
      */
     public function getResponse()
     {
@@ -328,13 +340,61 @@ class RemoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets response
      *
-     * @param array<string,mixed> $response response
+     * @param mixed $response response
      *
      * @return self
      */
     public function setResponse($response)
     {
         $this->container['response'] = $response;
+
+        return $this;
+    }
+
+    /**
+     * Gets response_headers
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getResponseHeaders()
+    {
+        return $this->container['response_headers'];
+    }
+
+    /**
+     * Sets response_headers
+     *
+     * @param array<string,mixed>|null $response_headers response_headers
+     *
+     * @return self
+     */
+    public function setResponseHeaders($response_headers)
+    {
+        $this->container['response_headers'] = $response_headers;
+
+        return $this;
+    }
+
+    /**
+     * Gets response_type
+     *
+     * @return ResponseTypeEnum|null
+     */
+    public function getResponseType()
+    {
+        return $this->container['response_type'];
+    }
+
+    /**
+     * Sets response_type
+     *
+     * @param ResponseTypeEnum|null $response_type response_type
+     *
+     * @return self
+     */
+    public function setResponseType($response_type)
+    {
+        $this->container['response_type'] = $response_type;
 
         return $this;
     }

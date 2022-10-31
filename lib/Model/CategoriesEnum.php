@@ -46,6 +46,8 @@ class CategoriesEnum
     const HRIS = 'hris';
     const ATS = 'ats';
     const ACCOUNTING = 'accounting';
+    const TICKETING = 'ticketing';
+    const CRM = 'crm';
     
     /**
      * Gets allowable values of the enum
@@ -57,6 +59,8 @@ class CategoriesEnum
             self::HRIS,
             self::ATS,
             self::ACCOUNTING,
+            self::TICKETING,
+            self::CRM,
         ];
     }
 }

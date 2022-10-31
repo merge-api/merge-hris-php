@@ -122,7 +122,7 @@ class ForceResyncApi
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\SyncStatus
+     * @return \MergeHRISClient\Model\SyncStatus[]
      */
     public function syncStatusResyncCreate($x_account_token)
     {
@@ -137,7 +137,7 @@ class ForceResyncApi
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\SyncStatus, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeHRISClient\Model\SyncStatus[], HTTP status code, HTTP response headers (array of strings)
      */
     public function syncStatusResyncCreateWithHttpInfo($x_account_token)
     {
@@ -173,20 +173,20 @@ class ForceResyncApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\SyncStatus' === '\SplFileObject') {
+                    if ('\MergeHRISClient\Model\SyncStatus[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\SyncStatus', []),
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\SyncStatus[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\SyncStatus';
+            $returnType = '\MergeHRISClient\Model\SyncStatus[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -204,7 +204,7 @@ class ForceResyncApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\SyncStatus',
+                        '\MergeHRISClient\Model\SyncStatus[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -242,7 +242,7 @@ class ForceResyncApi
      */
     public function syncStatusResyncCreateAsyncWithHttpInfo($x_account_token)
     {
-        $returnType = '\MergeHRISClient\Model\SyncStatus';
+        $returnType = '\MergeHRISClient\Model\SyncStatus[]';
         $request = $this->syncStatusResyncCreateRequest($x_account_token);
 
         return $this->client

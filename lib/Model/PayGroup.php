@@ -64,7 +64,8 @@ class PayGroup implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'remote_id' => 'string',
         'pay_group_name' => 'string',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -78,7 +79,8 @@ class PayGroup implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'uuid',
         'remote_id' => null,
         'pay_group_name' => null,
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -111,7 +113,8 @@ class PayGroup implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'remote_id' => 'remote_id',
         'pay_group_name' => 'pay_group_name',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -123,7 +126,8 @@ class PayGroup implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'remote_id' => 'setRemoteId',
         'pay_group_name' => 'setPayGroupName',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -135,7 +139,8 @@ class PayGroup implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'remote_id' => 'getRemoteId',
         'pay_group_name' => 'getPayGroupName',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -199,6 +204,7 @@ class PayGroup implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['remote_id'] = $data['remote_id'] ?? null;
         $this->container['pay_group_name'] = $data['pay_group_name'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -317,6 +323,30 @@ class PayGroup implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

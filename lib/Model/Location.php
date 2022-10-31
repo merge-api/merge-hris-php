@@ -71,7 +71,9 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
         'state' => 'string',
         'zip_code' => 'string',
         'country' => 'CountryEnum',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
+        'location_type' => 'LocationTypeEnum',
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -92,7 +94,9 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
         'state' => null,
         'zip_code' => null,
         'country' => null,
-        'remote_data' => null
+        'location_type' => null,
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -132,7 +136,9 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
         'state' => 'state',
         'zip_code' => 'zip_code',
         'country' => 'country',
-        'remote_data' => 'remote_data'
+        'location_type' => 'location_type',
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -151,7 +157,9 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
         'state' => 'setState',
         'zip_code' => 'setZipCode',
         'country' => 'setCountry',
-        'remote_data' => 'setRemoteData'
+        'location_type' => 'setLocationType',
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -170,7 +178,9 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
         'state' => 'getState',
         'zip_code' => 'getZipCode',
         'country' => 'getCountry',
-        'remote_data' => 'getRemoteData'
+        'location_type' => 'getLocationType',
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -240,7 +250,9 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['state'] = $data['state'] ?? null;
         $this->container['zip_code'] = $data['zip_code'] ?? null;
         $this->container['country'] = $data['country'] ?? null;
+        $this->container['location_type'] = $data['location_type'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -472,7 +484,7 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets zip_code
      *
-     * @param string|null $zip_code The location's zip code.
+     * @param string|null $zip_code The location's zip code or postal code.
      *
      * @return self
      */
@@ -508,6 +520,30 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets location_type
+     *
+     * @return LocationTypeEnum|null
+     */
+    public function getLocationType()
+    {
+        return $this->container['location_type'];
+    }
+
+    /**
+     * Sets location_type
+     *
+     * @param LocationTypeEnum|null $location_type The location's type. Can be either WORK or HOME
+     *
+     * @return self
+     */
+    public function setLocationType($location_type)
+    {
+        $this->container['location_type'] = $location_type;
+
+        return $this;
+    }
+
+    /**
      * Gets remote_data
      *
      * @return \MergeHRISClient\Model\RemoteData[]|null
@@ -527,6 +563,30 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

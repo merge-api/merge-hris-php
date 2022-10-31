@@ -116,6 +116,605 @@ class EmployeesApi
     }
 
     /**
+     * Operation employeesCreate
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  \MergeHRISClient\Model\EmployeeEndpointRequest $employee_endpoint_request employee_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
+     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
+     *
+     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \MergeHRISClient\Model\EmployeeResponse
+     */
+    public function employeesCreate($x_account_token, $employee_endpoint_request, $is_debug_mode = null, $run_async = null)
+    {
+        list($response) = $this->employeesCreateWithHttpInfo($x_account_token, $employee_endpoint_request, $is_debug_mode, $run_async);
+        return $response;
+    }
+
+    /**
+     * Operation employeesCreateWithHttpInfo
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  \MergeHRISClient\Model\EmployeeEndpointRequest $employee_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
+     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
+     *
+     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \MergeHRISClient\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function employeesCreateWithHttpInfo($x_account_token, $employee_endpoint_request, $is_debug_mode = null, $run_async = null)
+    {
+        $request = $this->employeesCreateRequest($x_account_token, $employee_endpoint_request, $is_debug_mode, $run_async);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\MergeHRISClient\Model\EmployeeResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\EmployeeResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\MergeHRISClient\Model\EmployeeResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MergeHRISClient\Model\EmployeeResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation employeesCreateAsync
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  \MergeHRISClient\Model\EmployeeEndpointRequest $employee_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
+     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function employeesCreateAsync($x_account_token, $employee_endpoint_request, $is_debug_mode = null, $run_async = null)
+    {
+        return $this->employeesCreateAsyncWithHttpInfo($x_account_token, $employee_endpoint_request, $is_debug_mode, $run_async)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation employeesCreateAsyncWithHttpInfo
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  \MergeHRISClient\Model\EmployeeEndpointRequest $employee_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
+     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function employeesCreateAsyncWithHttpInfo($x_account_token, $employee_endpoint_request, $is_debug_mode = null, $run_async = null)
+    {
+        $returnType = '\MergeHRISClient\Model\EmployeeResponse';
+        $request = $this->employeesCreateRequest($x_account_token, $employee_endpoint_request, $is_debug_mode, $run_async);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'employeesCreate'
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  \MergeHRISClient\Model\EmployeeEndpointRequest $employee_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
+     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function employeesCreateRequest($x_account_token, $employee_endpoint_request, $is_debug_mode = null, $run_async = null)
+    {
+        // verify the required parameter 'x_account_token' is set
+        if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_account_token when calling employeesCreate'
+            );
+        }
+        // verify the required parameter 'employee_endpoint_request' is set
+        if ($employee_endpoint_request === null || (is_array($employee_endpoint_request) && count($employee_endpoint_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $employee_endpoint_request when calling employeesCreate'
+            );
+        }
+
+        $resourcePath = '/employees';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($is_debug_mode !== null) {
+            if('form' === 'form' && is_array($is_debug_mode)) {
+                foreach($is_debug_mode as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['is_debug_mode'] = $is_debug_mode;
+            }
+        }
+        // query params
+        if ($run_async !== null) {
+            if('form' === 'form' && is_array($run_async)) {
+                foreach($run_async as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['run_async'] = $run_async;
+            }
+        }
+
+        // header params
+        if ($x_account_token !== null) {
+            $headerParams['X-Account-Token'] = ObjectSerializer::toHeaderValue($x_account_token);
+        }
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($employee_endpoint_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($employee_endpoint_request));
+            } else {
+                $httpBody = $employee_endpoint_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation employeesIgnoreCreate
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  string $model_id model_id (required)
+     * @param  \MergeHRISClient\Model\IgnoreCommonModelRequest $ignore_common_model_request ignore_common_model_request (required)
+     *
+     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \MergeHRISClient\Model\IgnoreCommonModel
+     */
+    public function employeesIgnoreCreate($x_account_token, $model_id, $ignore_common_model_request)
+    {
+        list($response) = $this->employeesIgnoreCreateWithHttpInfo($x_account_token, $model_id, $ignore_common_model_request);
+        return $response;
+    }
+
+    /**
+     * Operation employeesIgnoreCreateWithHttpInfo
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  string $model_id (required)
+     * @param  \MergeHRISClient\Model\IgnoreCommonModelRequest $ignore_common_model_request (required)
+     *
+     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \MergeHRISClient\Model\IgnoreCommonModel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function employeesIgnoreCreateWithHttpInfo($x_account_token, $model_id, $ignore_common_model_request)
+    {
+        $request = $this->employeesIgnoreCreateRequest($x_account_token, $model_id, $ignore_common_model_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\MergeHRISClient\Model\IgnoreCommonModel' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\IgnoreCommonModel', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\MergeHRISClient\Model\IgnoreCommonModel';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MergeHRISClient\Model\IgnoreCommonModel',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation employeesIgnoreCreateAsync
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  string $model_id (required)
+     * @param  \MergeHRISClient\Model\IgnoreCommonModelRequest $ignore_common_model_request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function employeesIgnoreCreateAsync($x_account_token, $model_id, $ignore_common_model_request)
+    {
+        return $this->employeesIgnoreCreateAsyncWithHttpInfo($x_account_token, $model_id, $ignore_common_model_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation employeesIgnoreCreateAsyncWithHttpInfo
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  string $model_id (required)
+     * @param  \MergeHRISClient\Model\IgnoreCommonModelRequest $ignore_common_model_request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function employeesIgnoreCreateAsyncWithHttpInfo($x_account_token, $model_id, $ignore_common_model_request)
+    {
+        $returnType = '\MergeHRISClient\Model\IgnoreCommonModel';
+        $request = $this->employeesIgnoreCreateRequest($x_account_token, $model_id, $ignore_common_model_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'employeesIgnoreCreate'
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  string $model_id (required)
+     * @param  \MergeHRISClient\Model\IgnoreCommonModelRequest $ignore_common_model_request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function employeesIgnoreCreateRequest($x_account_token, $model_id, $ignore_common_model_request)
+    {
+        // verify the required parameter 'x_account_token' is set
+        if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_account_token when calling employeesIgnoreCreate'
+            );
+        }
+        // verify the required parameter 'model_id' is set
+        if ($model_id === null || (is_array($model_id) && count($model_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $model_id when calling employeesIgnoreCreate'
+            );
+        }
+        // verify the required parameter 'ignore_common_model_request' is set
+        if ($ignore_common_model_request === null || (is_array($ignore_common_model_request) && count($ignore_common_model_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ignore_common_model_request when calling employeesIgnoreCreate'
+            );
+        }
+
+        $resourcePath = '/employees/ignore/{model_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($x_account_token !== null) {
+            $headerParams['X-Account-Token'] = ObjectSerializer::toHeaderValue($x_account_token);
+        }
+
+        // path params
+        if ($model_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'model_id' . '}',
+                ObjectSerializer::toPathValue($model_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($ignore_common_model_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($ignore_common_model_request));
+            } else {
+                $httpBody = $ignore_common_model_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation employeesList
      *
      * @param  string $x_account_token Token identifying the end user. (required)
@@ -123,15 +722,20 @@ class EmployeesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
+     * @param  string $display_full_name If provided, will only return employees with this display name. (optional)
+     * @param  string $employment_status If provided, will only return employees with this employment status. (optional)
+     * @param  string $first_name If provided, will only return employees with this first name. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
+     * @param  string $last_name If provided, will only return employees with this last name. (optional)
      * @param  string $manager_id If provided, will only return employees for this manager. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $pay_group_id If provided, will only return employees for this pay group (optional)
      * @param  string $personal_email If provided, will only return Employees with this personal email (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $team_id If provided, will only return employees for this team. (optional)
      * @param  string $work_email If provided, will only return Employees with this work email (optional)
@@ -141,9 +745,9 @@ class EmployeesApi
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedEmployeeList
      */
-    public function employeesList($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
+    public function employeesList($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $display_full_name = null, $employment_status = null, $first_name = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $last_name = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_fields = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
     {
-        list($response) = $this->employeesListWithHttpInfo($x_account_token, $company_id, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_id, $team_id, $work_email, $work_location_id);
+        list($response) = $this->employeesListWithHttpInfo($x_account_token, $company_id, $created_after, $created_before, $cursor, $display_full_name, $employment_status, $first_name, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $last_name, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_fields, $remote_id, $team_id, $work_email, $work_location_id);
         return $response;
     }
 
@@ -155,15 +759,20 @@ class EmployeesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
+     * @param  string $display_full_name If provided, will only return employees with this display name. (optional)
+     * @param  string $employment_status If provided, will only return employees with this employment status. (optional)
+     * @param  string $first_name If provided, will only return employees with this first name. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
+     * @param  string $last_name If provided, will only return employees with this last name. (optional)
      * @param  string $manager_id If provided, will only return employees for this manager. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $pay_group_id If provided, will only return employees for this pay group (optional)
      * @param  string $personal_email If provided, will only return Employees with this personal email (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $team_id If provided, will only return employees for this team. (optional)
      * @param  string $work_email If provided, will only return Employees with this work email (optional)
@@ -173,9 +782,9 @@ class EmployeesApi
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedEmployeeList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function employeesListWithHttpInfo($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
+    public function employeesListWithHttpInfo($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $display_full_name = null, $employment_status = null, $first_name = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $last_name = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_fields = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
     {
-        $request = $this->employeesListRequest($x_account_token, $company_id, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_id, $team_id, $work_email, $work_location_id);
+        $request = $this->employeesListRequest($x_account_token, $company_id, $created_after, $created_before, $cursor, $display_full_name, $employment_status, $first_name, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $last_name, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_fields, $remote_id, $team_id, $work_email, $work_location_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -256,15 +865,20 @@ class EmployeesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
+     * @param  string $display_full_name If provided, will only return employees with this display name. (optional)
+     * @param  string $employment_status If provided, will only return employees with this employment status. (optional)
+     * @param  string $first_name If provided, will only return employees with this first name. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
+     * @param  string $last_name If provided, will only return employees with this last name. (optional)
      * @param  string $manager_id If provided, will only return employees for this manager. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $pay_group_id If provided, will only return employees for this pay group (optional)
      * @param  string $personal_email If provided, will only return Employees with this personal email (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $team_id If provided, will only return employees for this team. (optional)
      * @param  string $work_email If provided, will only return Employees with this work email (optional)
@@ -273,9 +887,9 @@ class EmployeesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employeesListAsync($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
+    public function employeesListAsync($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $display_full_name = null, $employment_status = null, $first_name = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $last_name = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_fields = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
     {
-        return $this->employeesListAsyncWithHttpInfo($x_account_token, $company_id, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_id, $team_id, $work_email, $work_location_id)
+        return $this->employeesListAsyncWithHttpInfo($x_account_token, $company_id, $created_after, $created_before, $cursor, $display_full_name, $employment_status, $first_name, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $last_name, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_fields, $remote_id, $team_id, $work_email, $work_location_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -291,15 +905,20 @@ class EmployeesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
+     * @param  string $display_full_name If provided, will only return employees with this display name. (optional)
+     * @param  string $employment_status If provided, will only return employees with this employment status. (optional)
+     * @param  string $first_name If provided, will only return employees with this first name. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
+     * @param  string $last_name If provided, will only return employees with this last name. (optional)
      * @param  string $manager_id If provided, will only return employees for this manager. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $pay_group_id If provided, will only return employees for this pay group (optional)
      * @param  string $personal_email If provided, will only return Employees with this personal email (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $team_id If provided, will only return employees for this team. (optional)
      * @param  string $work_email If provided, will only return Employees with this work email (optional)
@@ -308,10 +927,10 @@ class EmployeesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employeesListAsyncWithHttpInfo($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
+    public function employeesListAsyncWithHttpInfo($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $display_full_name = null, $employment_status = null, $first_name = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $last_name = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_fields = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedEmployeeList';
-        $request = $this->employeesListRequest($x_account_token, $company_id, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_id, $team_id, $work_email, $work_location_id);
+        $request = $this->employeesListRequest($x_account_token, $company_id, $created_after, $created_before, $cursor, $display_full_name, $employment_status, $first_name, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $last_name, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_fields, $remote_id, $team_id, $work_email, $work_location_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -354,15 +973,20 @@ class EmployeesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
+     * @param  string $display_full_name If provided, will only return employees with this display name. (optional)
+     * @param  string $employment_status If provided, will only return employees with this employment status. (optional)
+     * @param  string $first_name If provided, will only return employees with this first name. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
+     * @param  string $last_name If provided, will only return employees with this last name. (optional)
      * @param  string $manager_id If provided, will only return employees for this manager. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $pay_group_id If provided, will only return employees for this pay group (optional)
      * @param  string $personal_email If provided, will only return Employees with this personal email (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $team_id If provided, will only return employees for this team. (optional)
      * @param  string $work_email If provided, will only return Employees with this work email (optional)
@@ -371,7 +995,7 @@ class EmployeesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function employeesListRequest($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
+    public function employeesListRequest($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $display_full_name = null, $employment_status = null, $first_name = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $last_name = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_fields = null, $remote_id = null, $team_id = null, $work_email = null, $work_location_id = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -432,6 +1056,39 @@ class EmployeesApi
             }
         }
         // query params
+        if ($display_full_name !== null) {
+            if('form' === 'form' && is_array($display_full_name)) {
+                foreach($display_full_name as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['display_full_name'] = $display_full_name;
+            }
+        }
+        // query params
+        if ($employment_status !== null) {
+            if('form' === 'form' && is_array($employment_status)) {
+                foreach($employment_status as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['employment_status'] = $employment_status;
+            }
+        }
+        // query params
+        if ($first_name !== null) {
+            if('form' === 'form' && is_array($first_name)) {
+                foreach($first_name as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['first_name'] = $first_name;
+            }
+        }
+        // query params
         if ($include_deleted_data !== null) {
             if('form' === 'form' && is_array($include_deleted_data)) {
                 foreach($include_deleted_data as $key => $value) {
@@ -462,6 +1119,17 @@ class EmployeesApi
             }
             else {
                 $queryParams['include_sensitive_fields'] = $include_sensitive_fields;
+            }
+        }
+        // query params
+        if ($last_name !== null) {
+            if('form' === 'form' && is_array($last_name)) {
+                foreach($last_name as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['last_name'] = $last_name;
             }
         }
         // query params
@@ -528,6 +1196,17 @@ class EmployeesApi
             }
             else {
                 $queryParams['personal_email'] = $personal_email;
+            }
+        }
+        // query params
+        if ($remote_fields !== null) {
+            if('form' === 'form' && is_array($remote_fields)) {
+                foreach($remote_fields as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['remote_fields'] = $remote_fields;
             }
         }
         // query params
@@ -645,20 +1324,278 @@ class EmployeesApi
     }
 
     /**
+     * Operation employeesMetaPostRetrieve
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     *
+     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \MergeHRISClient\Model\MetaResponse
+     */
+    public function employeesMetaPostRetrieve($x_account_token)
+    {
+        list($response) = $this->employeesMetaPostRetrieveWithHttpInfo($x_account_token);
+        return $response;
+    }
+
+    /**
+     * Operation employeesMetaPostRetrieveWithHttpInfo
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     *
+     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \MergeHRISClient\Model\MetaResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function employeesMetaPostRetrieveWithHttpInfo($x_account_token)
+    {
+        $request = $this->employeesMetaPostRetrieveRequest($x_account_token);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\MergeHRISClient\Model\MetaResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\MetaResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\MergeHRISClient\Model\MetaResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MergeHRISClient\Model\MetaResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation employeesMetaPostRetrieveAsync
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function employeesMetaPostRetrieveAsync($x_account_token)
+    {
+        return $this->employeesMetaPostRetrieveAsyncWithHttpInfo($x_account_token)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation employeesMetaPostRetrieveAsyncWithHttpInfo
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function employeesMetaPostRetrieveAsyncWithHttpInfo($x_account_token)
+    {
+        $returnType = '\MergeHRISClient\Model\MetaResponse';
+        $request = $this->employeesMetaPostRetrieveRequest($x_account_token);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'employeesMetaPostRetrieve'
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function employeesMetaPostRetrieveRequest($x_account_token)
+    {
+        // verify the required parameter 'x_account_token' is set
+        if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_account_token when calling employeesMetaPostRetrieve'
+            );
+        }
+
+        $resourcePath = '/employees/meta/post';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($x_account_token !== null) {
+            $headerParams['X-Account-Token'] = ObjectSerializer::toHeaderValue($x_account_token);
+        }
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation employeesRetrieve
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\Employee
      */
-    public function employeesRetrieve($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null)
+    public function employeesRetrieve($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null, $remote_fields = null)
     {
-        list($response) = $this->employeesRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data, $include_sensitive_fields);
+        list($response) = $this->employeesRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data, $include_sensitive_fields, $remote_fields);
         return $response;
     }
 
@@ -669,14 +1606,15 @@ class EmployeesApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\Employee, HTTP status code, HTTP response headers (array of strings)
      */
-    public function employeesRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null)
+    public function employeesRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null, $remote_fields = null)
     {
-        $request = $this->employeesRetrieveRequest($x_account_token, $id, $include_remote_data, $include_sensitive_fields);
+        $request = $this->employeesRetrieveRequest($x_account_token, $id, $include_remote_data, $include_sensitive_fields, $remote_fields);
 
         try {
             $options = $this->createHttpClientOption();
@@ -756,13 +1694,14 @@ class EmployeesApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employeesRetrieveAsync($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null)
+    public function employeesRetrieveAsync($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null, $remote_fields = null)
     {
-        return $this->employeesRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data, $include_sensitive_fields)
+        return $this->employeesRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data, $include_sensitive_fields, $remote_fields)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -777,14 +1716,15 @@ class EmployeesApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employeesRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null)
+    public function employeesRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null, $remote_fields = null)
     {
         $returnType = '\MergeHRISClient\Model\Employee';
-        $request = $this->employeesRetrieveRequest($x_account_token, $id, $include_remote_data, $include_sensitive_fields);
+        $request = $this->employeesRetrieveRequest($x_account_token, $id, $include_remote_data, $include_sensitive_fields, $remote_fields);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -826,11 +1766,12 @@ class EmployeesApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function employeesRetrieveRequest($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null)
+    public function employeesRetrieveRequest($x_account_token, $id, $include_remote_data = null, $include_sensitive_fields = null, $remote_fields = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -872,6 +1813,17 @@ class EmployeesApi
             }
             else {
                 $queryParams['include_sensitive_fields'] = $include_sensitive_fields;
+            }
+        }
+        // query params
+        if ($remote_fields !== null) {
+            if('form' === 'form' && is_array($remote_fields)) {
+                foreach($remote_fields as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['remote_fields'] = $remote_fields;
             }
         }
 

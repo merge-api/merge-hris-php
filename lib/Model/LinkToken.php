@@ -61,7 +61,8 @@ class LinkToken implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'link_token' => 'string',
-        'integration_name' => 'string'
+        'integration_name' => 'string',
+        'magic_link_url' => 'string'
     ];
 
     /**
@@ -73,7 +74,8 @@ class LinkToken implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'link_token' => null,
-        'integration_name' => null
+        'integration_name' => null,
+        'magic_link_url' => null
     ];
 
     /**
@@ -104,7 +106,8 @@ class LinkToken implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'link_token' => 'link_token',
-        'integration_name' => 'integration_name'
+        'integration_name' => 'integration_name',
+        'magic_link_url' => 'magic_link_url'
     ];
 
     /**
@@ -114,7 +117,8 @@ class LinkToken implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'link_token' => 'setLinkToken',
-        'integration_name' => 'setIntegrationName'
+        'integration_name' => 'setIntegrationName',
+        'magic_link_url' => 'setMagicLinkUrl'
     ];
 
     /**
@@ -124,7 +128,8 @@ class LinkToken implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'link_token' => 'getLinkToken',
-        'integration_name' => 'getIntegrationName'
+        'integration_name' => 'getIntegrationName',
+        'magic_link_url' => 'getMagicLinkUrl'
     ];
 
     /**
@@ -186,6 +191,7 @@ class LinkToken implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['link_token'] = $data['link_token'] ?? null;
         $this->container['integration_name'] = $data['integration_name'] ?? null;
+        $this->container['magic_link_url'] = $data['magic_link_url'] ?? null;
     }
 
     /**
@@ -262,6 +268,30 @@ class LinkToken implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIntegrationName($integration_name)
     {
         $this->container['integration_name'] = $integration_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets magic_link_url
+     *
+     * @return string|null
+     */
+    public function getMagicLinkUrl()
+    {
+        return $this->container['magic_link_url'];
+    }
+
+    /**
+     * Sets magic_link_url
+     *
+     * @param string|null $magic_link_url magic_link_url
+     *
+     * @return self
+     */
+    public function setMagicLinkUrl($magic_link_url)
+    {
+        $this->container['magic_link_url'] = $magic_link_url;
 
         return $this;
     }
