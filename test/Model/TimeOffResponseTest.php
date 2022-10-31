@@ -106,4 +106,13 @@ class TimeOffResponseTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "logs"
+     */
+    public function testPropertyLogs()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

@@ -64,8 +64,8 @@ class Earning implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'employee_payroll_run' => 'string',
         'amount' => 'float',
-        'type' => 'string',
-        'remote_data' => 'array<string,mixed>[]'
+        'type' => 'EarningTypeEnum',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -80,7 +80,7 @@ class Earning implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee_payroll_run' => 'uuid',
         'amount' => 'float',
         'type' => null,
-        'remote_data' => null
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -114,7 +114,7 @@ class Earning implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee_payroll_run' => 'employee_payroll_run',
         'amount' => 'amount',
         'type' => 'type',
-        'remote_data' => 'remote_data'
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -127,7 +127,7 @@ class Earning implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee_payroll_run' => 'setEmployeePayrollRun',
         'amount' => 'setAmount',
         'type' => 'setType',
-        'remote_data' => 'setRemoteData'
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -140,7 +140,7 @@ class Earning implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee_payroll_run' => 'getEmployeePayrollRun',
         'amount' => 'getAmount',
         'type' => 'getType',
-        'remote_data' => 'getRemoteData'
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -204,7 +204,7 @@ class Earning implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['employee_payroll_run'] = $data['employee_payroll_run'] ?? null;
         $this->container['amount'] = $data['amount'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
-        $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -268,7 +268,7 @@ class Earning implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employee_payroll_run
      *
-     * @param string|null $employee_payroll_run The earning's employee payroll run.
+     * @param string|null $employee_payroll_run employee_payroll_run
      *
      * @return self
      */
@@ -306,7 +306,7 @@ class Earning implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return string|null
+     * @return EarningTypeEnum|null
      */
     public function getType()
     {
@@ -316,7 +316,7 @@ class Earning implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string|null $type type
+     * @param EarningTypeEnum|null $type The type of earning.
      *
      * @return self
      */
@@ -328,25 +328,25 @@ class Earning implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets remote_data
+     * Gets remote_was_deleted
      *
-     * @return array<string,mixed>[]|null
+     * @return bool|null
      */
-    public function getRemoteData()
+    public function getRemoteWasDeleted()
     {
-        return $this->container['remote_data'];
+        return $this->container['remote_was_deleted'];
     }
 
     /**
-     * Sets remote_data
+     * Sets remote_was_deleted
      *
-     * @param array<string,mixed>[]|null $remote_data remote_data
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
      *
      * @return self
      */
-    public function setRemoteData($remote_data)
+    public function setRemoteWasDeleted($remote_was_deleted)
     {
-        $this->container['remote_data'] = $remote_data;
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

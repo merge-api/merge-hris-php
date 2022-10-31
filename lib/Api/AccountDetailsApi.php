@@ -118,28 +118,30 @@ class AccountDetailsApi
     /**
      * Operation accountDetailsRetrieve
      *
+     * @param  string $x_account_token Token identifying the end user. (required)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\AccountDetails
      */
-    public function accountDetailsRetrieve()
+    public function accountDetailsRetrieve($x_account_token)
     {
-        list($response) = $this->accountDetailsRetrieveWithHttpInfo();
+        list($response) = $this->accountDetailsRetrieveWithHttpInfo($x_account_token);
         return $response;
     }
 
     /**
      * Operation accountDetailsRetrieveWithHttpInfo
      *
+     * @param  string $x_account_token Token identifying the end user. (required)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\AccountDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountDetailsRetrieveWithHttpInfo()
+    public function accountDetailsRetrieveWithHttpInfo($x_account_token)
     {
-        $request = $this->accountDetailsRetrieveRequest();
+        $request = $this->accountDetailsRetrieveRequest($x_account_token);
 
         try {
             $options = $this->createHttpClientOption();
@@ -215,13 +217,14 @@ class AccountDetailsApi
     /**
      * Operation accountDetailsRetrieveAsync
      *
+     * @param  string $x_account_token Token identifying the end user. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountDetailsRetrieveAsync()
+    public function accountDetailsRetrieveAsync($x_account_token)
     {
-        return $this->accountDetailsRetrieveAsyncWithHttpInfo()
+        return $this->accountDetailsRetrieveAsyncWithHttpInfo($x_account_token)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -232,14 +235,15 @@ class AccountDetailsApi
     /**
      * Operation accountDetailsRetrieveAsyncWithHttpInfo
      *
+     * @param  string $x_account_token Token identifying the end user. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountDetailsRetrieveAsyncWithHttpInfo()
+    public function accountDetailsRetrieveAsyncWithHttpInfo($x_account_token)
     {
         $returnType = '\MergeHRISClient\Model\AccountDetails';
-        $request = $this->accountDetailsRetrieveRequest();
+        $request = $this->accountDetailsRetrieveRequest($x_account_token);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -277,12 +281,19 @@ class AccountDetailsApi
     /**
      * Create request for operation 'accountDetailsRetrieve'
      *
+     * @param  string $x_account_token Token identifying the end user. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accountDetailsRetrieveRequest()
+    public function accountDetailsRetrieveRequest($x_account_token)
     {
+        // verify the required parameter 'x_account_token' is set
+        if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_account_token when calling accountDetailsRetrieve'
+            );
+        }
 
         $resourcePath = '/account-details';
         $formParams = [];
@@ -292,6 +303,10 @@ class AccountDetailsApi
         $multipart = false;
 
 
+        // header params
+        if ($x_account_token !== null) {
+            $headerParams['X-Account-Token'] = ObjectSerializer::toHeaderValue($x_account_token);
+        }
 
 
 

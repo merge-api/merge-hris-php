@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace MergeHRISClient\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -36,7 +36,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description # The LinkedAccount Object ### Description The &#x60;LinkedAccount&#x60; object is used to represent an end user&#39;s link with a specific integration.  ### Usage Example View a list of your organization&#39;s &#x60;LinkedAccount&#x60; objects.
- * @package     OpenAPI\Client
+ * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -108,6 +108,15 @@ class AccountDetailsAndActionsTest extends TestCase
     }
 
     /**
+     * Test attribute "status_detail"
+     */
+    public function testPropertyStatusDetail()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "end_user_origin_id"
      */
     public function testPropertyEndUserOriginId()
@@ -129,6 +138,24 @@ class AccountDetailsAndActionsTest extends TestCase
      * Test attribute "end_user_email_address"
      */
     public function testPropertyEndUserEmailAddress()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "webhook_listener_url"
+     */
+    public function testPropertyWebhookListenerUrl()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_duplicate"
+     */
+    public function testPropertyIsDuplicate()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

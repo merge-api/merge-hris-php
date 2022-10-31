@@ -122,8 +122,12 @@ class IssuesApi
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $end_date If included, will only include issues whose most recent action occurred before this time (optional)
      * @param  string $end_user_organization_name end_user_organization_name (optional)
+     * @param  \DateTime $first_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
+     * @param  \DateTime $first_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
      * @param  string $include_muted If True, will include muted issues (optional)
      * @param  string $integration_name integration_name (optional)
+     * @param  \DateTime $last_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
+     * @param  \DateTime $last_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $start_date If included, will only include issues whose most recent action occurred after this time (optional)
      * @param  string $status status (optional)
@@ -132,9 +136,9 @@ class IssuesApi
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedIssueList
      */
-    public function issuesList($account_token = null, $cursor = null, $end_date = null, $end_user_organization_name = null, $include_muted = null, $integration_name = null, $page_size = null, $start_date = null, $status = null)
+    public function issuesList($account_token = null, $cursor = null, $end_date = null, $end_user_organization_name = null, $first_incident_time_after = null, $first_incident_time_before = null, $include_muted = null, $integration_name = null, $last_incident_time_after = null, $last_incident_time_before = null, $page_size = null, $start_date = null, $status = null)
     {
-        list($response) = $this->issuesListWithHttpInfo($account_token, $cursor, $end_date, $end_user_organization_name, $include_muted, $integration_name, $page_size, $start_date, $status);
+        list($response) = $this->issuesListWithHttpInfo($account_token, $cursor, $end_date, $end_user_organization_name, $first_incident_time_after, $first_incident_time_before, $include_muted, $integration_name, $last_incident_time_after, $last_incident_time_before, $page_size, $start_date, $status);
         return $response;
     }
 
@@ -145,8 +149,12 @@ class IssuesApi
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $end_date If included, will only include issues whose most recent action occurred before this time (optional)
      * @param  string $end_user_organization_name (optional)
+     * @param  \DateTime $first_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
+     * @param  \DateTime $first_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
      * @param  string $include_muted If True, will include muted issues (optional)
      * @param  string $integration_name (optional)
+     * @param  \DateTime $last_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
+     * @param  \DateTime $last_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $start_date If included, will only include issues whose most recent action occurred after this time (optional)
      * @param  string $status (optional)
@@ -155,9 +163,9 @@ class IssuesApi
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedIssueList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function issuesListWithHttpInfo($account_token = null, $cursor = null, $end_date = null, $end_user_organization_name = null, $include_muted = null, $integration_name = null, $page_size = null, $start_date = null, $status = null)
+    public function issuesListWithHttpInfo($account_token = null, $cursor = null, $end_date = null, $end_user_organization_name = null, $first_incident_time_after = null, $first_incident_time_before = null, $include_muted = null, $integration_name = null, $last_incident_time_after = null, $last_incident_time_before = null, $page_size = null, $start_date = null, $status = null)
     {
-        $request = $this->issuesListRequest($account_token, $cursor, $end_date, $end_user_organization_name, $include_muted, $integration_name, $page_size, $start_date, $status);
+        $request = $this->issuesListRequest($account_token, $cursor, $end_date, $end_user_organization_name, $first_incident_time_after, $first_incident_time_before, $include_muted, $integration_name, $last_incident_time_after, $last_incident_time_before, $page_size, $start_date, $status);
 
         try {
             $options = $this->createHttpClientOption();
@@ -237,8 +245,12 @@ class IssuesApi
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $end_date If included, will only include issues whose most recent action occurred before this time (optional)
      * @param  string $end_user_organization_name (optional)
+     * @param  \DateTime $first_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
+     * @param  \DateTime $first_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
      * @param  string $include_muted If True, will include muted issues (optional)
      * @param  string $integration_name (optional)
+     * @param  \DateTime $last_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
+     * @param  \DateTime $last_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $start_date If included, will only include issues whose most recent action occurred after this time (optional)
      * @param  string $status (optional)
@@ -246,9 +258,9 @@ class IssuesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function issuesListAsync($account_token = null, $cursor = null, $end_date = null, $end_user_organization_name = null, $include_muted = null, $integration_name = null, $page_size = null, $start_date = null, $status = null)
+    public function issuesListAsync($account_token = null, $cursor = null, $end_date = null, $end_user_organization_name = null, $first_incident_time_after = null, $first_incident_time_before = null, $include_muted = null, $integration_name = null, $last_incident_time_after = null, $last_incident_time_before = null, $page_size = null, $start_date = null, $status = null)
     {
-        return $this->issuesListAsyncWithHttpInfo($account_token, $cursor, $end_date, $end_user_organization_name, $include_muted, $integration_name, $page_size, $start_date, $status)
+        return $this->issuesListAsyncWithHttpInfo($account_token, $cursor, $end_date, $end_user_organization_name, $first_incident_time_after, $first_incident_time_before, $include_muted, $integration_name, $last_incident_time_after, $last_incident_time_before, $page_size, $start_date, $status)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -263,8 +275,12 @@ class IssuesApi
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $end_date If included, will only include issues whose most recent action occurred before this time (optional)
      * @param  string $end_user_organization_name (optional)
+     * @param  \DateTime $first_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
+     * @param  \DateTime $first_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
      * @param  string $include_muted If True, will include muted issues (optional)
      * @param  string $integration_name (optional)
+     * @param  \DateTime $last_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
+     * @param  \DateTime $last_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $start_date If included, will only include issues whose most recent action occurred after this time (optional)
      * @param  string $status (optional)
@@ -272,10 +288,10 @@ class IssuesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function issuesListAsyncWithHttpInfo($account_token = null, $cursor = null, $end_date = null, $end_user_organization_name = null, $include_muted = null, $integration_name = null, $page_size = null, $start_date = null, $status = null)
+    public function issuesListAsyncWithHttpInfo($account_token = null, $cursor = null, $end_date = null, $end_user_organization_name = null, $first_incident_time_after = null, $first_incident_time_before = null, $include_muted = null, $integration_name = null, $last_incident_time_after = null, $last_incident_time_before = null, $page_size = null, $start_date = null, $status = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedIssueList';
-        $request = $this->issuesListRequest($account_token, $cursor, $end_date, $end_user_organization_name, $include_muted, $integration_name, $page_size, $start_date, $status);
+        $request = $this->issuesListRequest($account_token, $cursor, $end_date, $end_user_organization_name, $first_incident_time_after, $first_incident_time_before, $include_muted, $integration_name, $last_incident_time_after, $last_incident_time_before, $page_size, $start_date, $status);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -317,8 +333,12 @@ class IssuesApi
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $end_date If included, will only include issues whose most recent action occurred before this time (optional)
      * @param  string $end_user_organization_name (optional)
+     * @param  \DateTime $first_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
+     * @param  \DateTime $first_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
      * @param  string $include_muted If True, will include muted issues (optional)
      * @param  string $integration_name (optional)
+     * @param  \DateTime $last_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
+     * @param  \DateTime $last_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $start_date If included, will only include issues whose most recent action occurred after this time (optional)
      * @param  string $status (optional)
@@ -326,7 +346,7 @@ class IssuesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function issuesListRequest($account_token = null, $cursor = null, $end_date = null, $end_user_organization_name = null, $include_muted = null, $integration_name = null, $page_size = null, $start_date = null, $status = null)
+    public function issuesListRequest($account_token = null, $cursor = null, $end_date = null, $end_user_organization_name = null, $first_incident_time_after = null, $first_incident_time_before = null, $include_muted = null, $integration_name = null, $last_incident_time_after = null, $last_incident_time_before = null, $page_size = null, $start_date = null, $status = null)
     {
 
         $resourcePath = '/issues';
@@ -381,6 +401,28 @@ class IssuesApi
             }
         }
         // query params
+        if ($first_incident_time_after !== null) {
+            if('form' === 'form' && is_array($first_incident_time_after)) {
+                foreach($first_incident_time_after as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['first_incident_time_after'] = $first_incident_time_after;
+            }
+        }
+        // query params
+        if ($first_incident_time_before !== null) {
+            if('form' === 'form' && is_array($first_incident_time_before)) {
+                foreach($first_incident_time_before as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['first_incident_time_before'] = $first_incident_time_before;
+            }
+        }
+        // query params
         if ($include_muted !== null) {
             if('form' === 'form' && is_array($include_muted)) {
                 foreach($include_muted as $key => $value) {
@@ -400,6 +442,28 @@ class IssuesApi
             }
             else {
                 $queryParams['integration_name'] = $integration_name;
+            }
+        }
+        // query params
+        if ($last_incident_time_after !== null) {
+            if('form' === 'form' && is_array($last_incident_time_after)) {
+                foreach($last_incident_time_after as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['last_incident_time_after'] = $last_incident_time_after;
+            }
+        }
+        // query params
+        if ($last_incident_time_before !== null) {
+            if('form' === 'form' && is_array($last_incident_time_before)) {
+                foreach($last_incident_time_before as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['last_incident_time_before'] = $last_incident_time_before;
             }
         }
         // query params

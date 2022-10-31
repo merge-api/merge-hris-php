@@ -67,9 +67,10 @@ class BankInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'account_number' => 'string',
         'routing_number' => 'string',
         'bank_name' => 'string',
-        'account_type' => 'string',
+        'account_type' => 'AccountTypeEnum',
         'remote_created_at' => '\DateTime',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -88,7 +89,8 @@ class BankInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'bank_name' => null,
         'account_type' => null,
         'remote_created_at' => 'date-time',
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -126,7 +128,8 @@ class BankInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'bank_name' => 'bank_name',
         'account_type' => 'account_type',
         'remote_created_at' => 'remote_created_at',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -143,7 +146,8 @@ class BankInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'bank_name' => 'setBankName',
         'account_type' => 'setAccountType',
         'remote_created_at' => 'setRemoteCreatedAt',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -160,7 +164,8 @@ class BankInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'bank_name' => 'getBankName',
         'account_type' => 'getAccountType',
         'remote_created_at' => 'getRemoteCreatedAt',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -229,6 +234,7 @@ class BankInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['account_type'] = $data['account_type'] ?? null;
         $this->container['remote_created_at'] = $data['remote_created_at'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -320,7 +326,7 @@ class BankInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employee
      *
-     * @param string|null $employee The employee with this bank account.
+     * @param string|null $employee employee
      *
      * @return self
      */
@@ -410,7 +416,7 @@ class BankInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets account_type
      *
-     * @return string|null
+     * @return AccountTypeEnum|null
      */
     public function getAccountType()
     {
@@ -420,7 +426,7 @@ class BankInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets account_type
      *
-     * @param string|null $account_type account_type
+     * @param AccountTypeEnum|null $account_type The bank account type
      *
      * @return self
      */
@@ -475,6 +481,30 @@ class BankInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

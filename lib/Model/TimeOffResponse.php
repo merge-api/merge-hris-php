@@ -62,7 +62,8 @@ class TimeOffResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'model' => '\MergeHRISClient\Model\TimeOff',
         'warnings' => '\MergeHRISClient\Model\WarningValidationProblem[]',
-        'errors' => '\MergeHRISClient\Model\ErrorValidationProblem[]'
+        'errors' => '\MergeHRISClient\Model\ErrorValidationProblem[]',
+        'logs' => '\MergeHRISClient\Model\DebugModeLog[]'
     ];
 
     /**
@@ -75,7 +76,8 @@ class TimeOffResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'model' => null,
         'warnings' => null,
-        'errors' => null
+        'errors' => null,
+        'logs' => null
     ];
 
     /**
@@ -107,7 +109,8 @@ class TimeOffResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'model' => 'model',
         'warnings' => 'warnings',
-        'errors' => 'errors'
+        'errors' => 'errors',
+        'logs' => 'logs'
     ];
 
     /**
@@ -118,7 +121,8 @@ class TimeOffResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'model' => 'setModel',
         'warnings' => 'setWarnings',
-        'errors' => 'setErrors'
+        'errors' => 'setErrors',
+        'logs' => 'setLogs'
     ];
 
     /**
@@ -129,7 +133,8 @@ class TimeOffResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'model' => 'getModel',
         'warnings' => 'getWarnings',
-        'errors' => 'getErrors'
+        'errors' => 'getErrors',
+        'logs' => 'getLogs'
     ];
 
     /**
@@ -192,6 +197,7 @@ class TimeOffResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['model'] = $data['model'] ?? null;
         $this->container['warnings'] = $data['warnings'] ?? null;
         $this->container['errors'] = $data['errors'] ?? null;
+        $this->container['logs'] = $data['logs'] ?? null;
     }
 
     /**
@@ -295,6 +301,30 @@ class TimeOffResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setErrors($errors)
     {
         $this->container['errors'] = $errors;
+
+        return $this;
+    }
+
+    /**
+     * Gets logs
+     *
+     * @return \MergeHRISClient\Model\DebugModeLog[]|null
+     */
+    public function getLogs()
+    {
+        return $this->container['logs'];
+    }
+
+    /**
+     * Sets logs
+     *
+     * @param \MergeHRISClient\Model\DebugModeLog[]|null $logs logs
+     *
+     * @return self
+     */
+    public function setLogs($logs)
+    {
+        $this->container['logs'] = $logs;
 
         return $this;
     }

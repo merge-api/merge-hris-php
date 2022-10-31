@@ -120,15 +120,16 @@ class TimeOffApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  \MergeHRISClient\Model\TimeOffEndpointRequest $time_off_endpoint_request time_off_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\TimeOffResponse
      */
-    public function timeOffCreate($x_account_token, $time_off_endpoint_request, $run_async = null)
+    public function timeOffCreate($x_account_token, $time_off_endpoint_request, $is_debug_mode = null, $run_async = null)
     {
-        list($response) = $this->timeOffCreateWithHttpInfo($x_account_token, $time_off_endpoint_request, $run_async);
+        list($response) = $this->timeOffCreateWithHttpInfo($x_account_token, $time_off_endpoint_request, $is_debug_mode, $run_async);
         return $response;
     }
 
@@ -137,15 +138,16 @@ class TimeOffApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  \MergeHRISClient\Model\TimeOffEndpointRequest $time_off_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\TimeOffResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function timeOffCreateWithHttpInfo($x_account_token, $time_off_endpoint_request, $run_async = null)
+    public function timeOffCreateWithHttpInfo($x_account_token, $time_off_endpoint_request, $is_debug_mode = null, $run_async = null)
     {
-        $request = $this->timeOffCreateRequest($x_account_token, $time_off_endpoint_request, $run_async);
+        $request = $this->timeOffCreateRequest($x_account_token, $time_off_endpoint_request, $is_debug_mode, $run_async);
 
         try {
             $options = $this->createHttpClientOption();
@@ -223,14 +225,15 @@ class TimeOffApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  \MergeHRISClient\Model\TimeOffEndpointRequest $time_off_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffCreateAsync($x_account_token, $time_off_endpoint_request, $run_async = null)
+    public function timeOffCreateAsync($x_account_token, $time_off_endpoint_request, $is_debug_mode = null, $run_async = null)
     {
-        return $this->timeOffCreateAsyncWithHttpInfo($x_account_token, $time_off_endpoint_request, $run_async)
+        return $this->timeOffCreateAsyncWithHttpInfo($x_account_token, $time_off_endpoint_request, $is_debug_mode, $run_async)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -243,15 +246,16 @@ class TimeOffApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  \MergeHRISClient\Model\TimeOffEndpointRequest $time_off_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffCreateAsyncWithHttpInfo($x_account_token, $time_off_endpoint_request, $run_async = null)
+    public function timeOffCreateAsyncWithHttpInfo($x_account_token, $time_off_endpoint_request, $is_debug_mode = null, $run_async = null)
     {
         $returnType = '\MergeHRISClient\Model\TimeOffResponse';
-        $request = $this->timeOffCreateRequest($x_account_token, $time_off_endpoint_request, $run_async);
+        $request = $this->timeOffCreateRequest($x_account_token, $time_off_endpoint_request, $is_debug_mode, $run_async);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -291,12 +295,13 @@ class TimeOffApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  \MergeHRISClient\Model\TimeOffEndpointRequest $time_off_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function timeOffCreateRequest($x_account_token, $time_off_endpoint_request, $run_async = null)
+    public function timeOffCreateRequest($x_account_token, $time_off_endpoint_request, $is_debug_mode = null, $run_async = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -318,6 +323,17 @@ class TimeOffApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($is_debug_mode !== null) {
+            if('form' === 'form' && is_array($is_debug_mode)) {
+                foreach($is_debug_mode as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['is_debug_mode'] = $is_debug_mode;
+            }
+        }
         // query params
         if ($run_async !== null) {
             if('form' === 'form' && is_array($run_async)) {
@@ -414,11 +430,12 @@ class TimeOffApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off for this employee. (optional)
-     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
      * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;) (optional)
@@ -427,9 +444,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedTimeOffList
      */
-    public function timeOffList($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $request_type = null, $status = null)
+    public function timeOffList($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $request_type = null, $status = null)
     {
-        list($response) = $this->timeOffListWithHttpInfo($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $request_type, $status);
+        list($response) = $this->timeOffListWithHttpInfo($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $request_type, $status);
         return $response;
     }
 
@@ -442,11 +459,12 @@ class TimeOffApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off for this employee. (optional)
-     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
      * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;) (optional)
@@ -455,9 +473,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedTimeOffList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function timeOffListWithHttpInfo($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $request_type = null, $status = null)
+    public function timeOffListWithHttpInfo($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $request_type = null, $status = null)
     {
-        $request = $this->timeOffListRequest($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $request_type, $status);
+        $request = $this->timeOffListRequest($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $request_type, $status);
 
         try {
             $options = $this->createHttpClientOption();
@@ -539,11 +557,12 @@ class TimeOffApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off for this employee. (optional)
-     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
      * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;) (optional)
@@ -551,9 +570,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffListAsync($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $request_type = null, $status = null)
+    public function timeOffListAsync($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $request_type = null, $status = null)
     {
-        return $this->timeOffListAsyncWithHttpInfo($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $request_type, $status)
+        return $this->timeOffListAsyncWithHttpInfo($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $request_type, $status)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -570,11 +589,12 @@ class TimeOffApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off for this employee. (optional)
-     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
      * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;) (optional)
@@ -582,10 +602,10 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffListAsyncWithHttpInfo($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $request_type = null, $status = null)
+    public function timeOffListAsyncWithHttpInfo($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $request_type = null, $status = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedTimeOffList';
-        $request = $this->timeOffListRequest($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $request_type, $status);
+        $request = $this->timeOffListRequest($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $request_type, $status);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -629,11 +649,12 @@ class TimeOffApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off for this employee. (optional)
-     * @param  bool $include_deleted_data Whether to include data that was deleted in the third-party service. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
      * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;) (optional)
@@ -641,7 +662,7 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function timeOffListRequest($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $request_type = null, $status = null)
+    public function timeOffListRequest($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $request_type = null, $status = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -768,6 +789,17 @@ class TimeOffApi
             }
         }
         // query params
+        if ($remote_fields !== null) {
+            if('form' === 'form' && is_array($remote_fields)) {
+                foreach($remote_fields as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['remote_fields'] = $remote_fields;
+            }
+        }
+        // query params
         if ($remote_id !== null) {
             if('form' === 'form' && is_array($remote_id)) {
                 foreach($remote_id as $key => $value) {
@@ -871,19 +903,277 @@ class TimeOffApi
     }
 
     /**
+     * Operation timeOffMetaPostRetrieve
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     *
+     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \MergeHRISClient\Model\MetaResponse
+     */
+    public function timeOffMetaPostRetrieve($x_account_token)
+    {
+        list($response) = $this->timeOffMetaPostRetrieveWithHttpInfo($x_account_token);
+        return $response;
+    }
+
+    /**
+     * Operation timeOffMetaPostRetrieveWithHttpInfo
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     *
+     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \MergeHRISClient\Model\MetaResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function timeOffMetaPostRetrieveWithHttpInfo($x_account_token)
+    {
+        $request = $this->timeOffMetaPostRetrieveRequest($x_account_token);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\MergeHRISClient\Model\MetaResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\MetaResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\MergeHRISClient\Model\MetaResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MergeHRISClient\Model\MetaResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation timeOffMetaPostRetrieveAsync
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function timeOffMetaPostRetrieveAsync($x_account_token)
+    {
+        return $this->timeOffMetaPostRetrieveAsyncWithHttpInfo($x_account_token)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation timeOffMetaPostRetrieveAsyncWithHttpInfo
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function timeOffMetaPostRetrieveAsyncWithHttpInfo($x_account_token)
+    {
+        $returnType = '\MergeHRISClient\Model\MetaResponse';
+        $request = $this->timeOffMetaPostRetrieveRequest($x_account_token);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'timeOffMetaPostRetrieve'
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function timeOffMetaPostRetrieveRequest($x_account_token)
+    {
+        // verify the required parameter 'x_account_token' is set
+        if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_account_token when calling timeOffMetaPostRetrieve'
+            );
+        }
+
+        $resourcePath = '/time-off/meta/post';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($x_account_token !== null) {
+            $headerParams['X-Account-Token'] = ObjectSerializer::toHeaderValue($x_account_token);
+        }
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation timeOffRetrieve
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\TimeOff
      */
-    public function timeOffRetrieve($x_account_token, $id, $include_remote_data = null)
+    public function timeOffRetrieve($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
-        list($response) = $this->timeOffRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data);
+        list($response) = $this->timeOffRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields);
         return $response;
     }
 
@@ -893,14 +1183,15 @@ class TimeOffApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\TimeOff, HTTP status code, HTTP response headers (array of strings)
      */
-    public function timeOffRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
+    public function timeOffRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
-        $request = $this->timeOffRetrieveRequest($x_account_token, $id, $include_remote_data);
+        $request = $this->timeOffRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
 
         try {
             $options = $this->createHttpClientOption();
@@ -979,13 +1270,14 @@ class TimeOffApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffRetrieveAsync($x_account_token, $id, $include_remote_data = null)
+    public function timeOffRetrieveAsync($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
-        return $this->timeOffRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data)
+        return $this->timeOffRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -999,14 +1291,15 @@ class TimeOffApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
+    public function timeOffRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
         $returnType = '\MergeHRISClient\Model\TimeOff';
-        $request = $this->timeOffRetrieveRequest($x_account_token, $id, $include_remote_data);
+        $request = $this->timeOffRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1047,11 +1340,12 @@ class TimeOffApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function timeOffRetrieveRequest($x_account_token, $id, $include_remote_data = null)
+    public function timeOffRetrieveRequest($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -1082,6 +1376,17 @@ class TimeOffApi
             }
             else {
                 $queryParams['include_remote_data'] = $include_remote_data;
+            }
+        }
+        // query params
+        if ($remote_fields !== null) {
+            if('form' === 'form' && is_array($remote_fields)) {
+                foreach($remote_fields as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['remote_fields'] = $remote_fields;
             }
         }
 

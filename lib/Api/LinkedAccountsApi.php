@@ -120,14 +120,15 @@ class LinkedAccountsApi
      *
      * @param  string $category category (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $end_user_email_address end_user_email_address (optional)
-     * @param  string $end_user_organization_name end_user_organization_name (optional)
-     * @param  string $end_user_origin_id end_user_origin_id (optional)
-     * @param  string $end_user_origin_ids Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once (optional)
+     * @param  string $end_user_email_address If provided, will only return linked accounts associated with the given email address. (optional)
+     * @param  string $end_user_organization_name If provided, will only return linked accounts associated with the given organization name. (optional)
+     * @param  string $end_user_origin_id If provided, will only return linked accounts associated with the given origin ID. (optional)
+     * @param  string $end_user_origin_ids Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once. (optional)
      * @param  string $id id (optional)
-     * @param  string $ids Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once (optional)
-     * @param  string $integration_name integration_name (optional)
-     * @param  string $is_test_account If included, will only include test linked accounts. If not included, will only include non-test linked accounts (optional)
+     * @param  string $ids Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once. (optional)
+     * @param  bool $include_duplicates If &#x60;true&#x60;, will include complete production duplicates of the account specified by the &#x60;id&#x60; query parameter in the response. &#x60;id&#x60; must be for a complete production linked account. (optional)
+     * @param  string $integration_name If provided, will only return linked accounts associated with the given integration name. (optional)
+     * @param  string $is_test_account If included, will only include test linked accounts. If not included, will only include non-test linked accounts. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $status Filter by status. Options: &#x60;COMPLETE&#x60;, &#x60;INCOMPLETE&#x60;, &#x60;RELINK_NEEDED&#x60; (optional)
      *
@@ -135,9 +136,9 @@ class LinkedAccountsApi
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedAccountDetailsAndActionsList
      */
-    public function linkedAccountsList($category = null, $cursor = null, $end_user_email_address = null, $end_user_organization_name = null, $end_user_origin_id = null, $end_user_origin_ids = null, $id = null, $ids = null, $integration_name = null, $is_test_account = null, $page_size = null, $status = null)
+    public function linkedAccountsList($category = null, $cursor = null, $end_user_email_address = null, $end_user_organization_name = null, $end_user_origin_id = null, $end_user_origin_ids = null, $id = null, $ids = null, $include_duplicates = null, $integration_name = null, $is_test_account = null, $page_size = null, $status = null)
     {
-        list($response) = $this->linkedAccountsListWithHttpInfo($category, $cursor, $end_user_email_address, $end_user_organization_name, $end_user_origin_id, $end_user_origin_ids, $id, $ids, $integration_name, $is_test_account, $page_size, $status);
+        list($response) = $this->linkedAccountsListWithHttpInfo($category, $cursor, $end_user_email_address, $end_user_organization_name, $end_user_origin_id, $end_user_origin_ids, $id, $ids, $include_duplicates, $integration_name, $is_test_account, $page_size, $status);
         return $response;
     }
 
@@ -146,14 +147,15 @@ class LinkedAccountsApi
      *
      * @param  string $category (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $end_user_email_address (optional)
-     * @param  string $end_user_organization_name (optional)
-     * @param  string $end_user_origin_id (optional)
-     * @param  string $end_user_origin_ids Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once (optional)
+     * @param  string $end_user_email_address If provided, will only return linked accounts associated with the given email address. (optional)
+     * @param  string $end_user_organization_name If provided, will only return linked accounts associated with the given organization name. (optional)
+     * @param  string $end_user_origin_id If provided, will only return linked accounts associated with the given origin ID. (optional)
+     * @param  string $end_user_origin_ids Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once. (optional)
      * @param  string $id (optional)
-     * @param  string $ids Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once (optional)
-     * @param  string $integration_name (optional)
-     * @param  string $is_test_account If included, will only include test linked accounts. If not included, will only include non-test linked accounts (optional)
+     * @param  string $ids Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once. (optional)
+     * @param  bool $include_duplicates If &#x60;true&#x60;, will include complete production duplicates of the account specified by the &#x60;id&#x60; query parameter in the response. &#x60;id&#x60; must be for a complete production linked account. (optional)
+     * @param  string $integration_name If provided, will only return linked accounts associated with the given integration name. (optional)
+     * @param  string $is_test_account If included, will only include test linked accounts. If not included, will only include non-test linked accounts. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $status Filter by status. Options: &#x60;COMPLETE&#x60;, &#x60;INCOMPLETE&#x60;, &#x60;RELINK_NEEDED&#x60; (optional)
      *
@@ -161,9 +163,9 @@ class LinkedAccountsApi
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedAccountDetailsAndActionsList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function linkedAccountsListWithHttpInfo($category = null, $cursor = null, $end_user_email_address = null, $end_user_organization_name = null, $end_user_origin_id = null, $end_user_origin_ids = null, $id = null, $ids = null, $integration_name = null, $is_test_account = null, $page_size = null, $status = null)
+    public function linkedAccountsListWithHttpInfo($category = null, $cursor = null, $end_user_email_address = null, $end_user_organization_name = null, $end_user_origin_id = null, $end_user_origin_ids = null, $id = null, $ids = null, $include_duplicates = null, $integration_name = null, $is_test_account = null, $page_size = null, $status = null)
     {
-        $request = $this->linkedAccountsListRequest($category, $cursor, $end_user_email_address, $end_user_organization_name, $end_user_origin_id, $end_user_origin_ids, $id, $ids, $integration_name, $is_test_account, $page_size, $status);
+        $request = $this->linkedAccountsListRequest($category, $cursor, $end_user_email_address, $end_user_organization_name, $end_user_origin_id, $end_user_origin_ids, $id, $ids, $include_duplicates, $integration_name, $is_test_account, $page_size, $status);
 
         try {
             $options = $this->createHttpClientOption();
@@ -241,23 +243,24 @@ class LinkedAccountsApi
      *
      * @param  string $category (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $end_user_email_address (optional)
-     * @param  string $end_user_organization_name (optional)
-     * @param  string $end_user_origin_id (optional)
-     * @param  string $end_user_origin_ids Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once (optional)
+     * @param  string $end_user_email_address If provided, will only return linked accounts associated with the given email address. (optional)
+     * @param  string $end_user_organization_name If provided, will only return linked accounts associated with the given organization name. (optional)
+     * @param  string $end_user_origin_id If provided, will only return linked accounts associated with the given origin ID. (optional)
+     * @param  string $end_user_origin_ids Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once. (optional)
      * @param  string $id (optional)
-     * @param  string $ids Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once (optional)
-     * @param  string $integration_name (optional)
-     * @param  string $is_test_account If included, will only include test linked accounts. If not included, will only include non-test linked accounts (optional)
+     * @param  string $ids Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once. (optional)
+     * @param  bool $include_duplicates If &#x60;true&#x60;, will include complete production duplicates of the account specified by the &#x60;id&#x60; query parameter in the response. &#x60;id&#x60; must be for a complete production linked account. (optional)
+     * @param  string $integration_name If provided, will only return linked accounts associated with the given integration name. (optional)
+     * @param  string $is_test_account If included, will only include test linked accounts. If not included, will only include non-test linked accounts. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $status Filter by status. Options: &#x60;COMPLETE&#x60;, &#x60;INCOMPLETE&#x60;, &#x60;RELINK_NEEDED&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function linkedAccountsListAsync($category = null, $cursor = null, $end_user_email_address = null, $end_user_organization_name = null, $end_user_origin_id = null, $end_user_origin_ids = null, $id = null, $ids = null, $integration_name = null, $is_test_account = null, $page_size = null, $status = null)
+    public function linkedAccountsListAsync($category = null, $cursor = null, $end_user_email_address = null, $end_user_organization_name = null, $end_user_origin_id = null, $end_user_origin_ids = null, $id = null, $ids = null, $include_duplicates = null, $integration_name = null, $is_test_account = null, $page_size = null, $status = null)
     {
-        return $this->linkedAccountsListAsyncWithHttpInfo($category, $cursor, $end_user_email_address, $end_user_organization_name, $end_user_origin_id, $end_user_origin_ids, $id, $ids, $integration_name, $is_test_account, $page_size, $status)
+        return $this->linkedAccountsListAsyncWithHttpInfo($category, $cursor, $end_user_email_address, $end_user_organization_name, $end_user_origin_id, $end_user_origin_ids, $id, $ids, $include_duplicates, $integration_name, $is_test_account, $page_size, $status)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -270,24 +273,25 @@ class LinkedAccountsApi
      *
      * @param  string $category (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $end_user_email_address (optional)
-     * @param  string $end_user_organization_name (optional)
-     * @param  string $end_user_origin_id (optional)
-     * @param  string $end_user_origin_ids Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once (optional)
+     * @param  string $end_user_email_address If provided, will only return linked accounts associated with the given email address. (optional)
+     * @param  string $end_user_organization_name If provided, will only return linked accounts associated with the given organization name. (optional)
+     * @param  string $end_user_origin_id If provided, will only return linked accounts associated with the given origin ID. (optional)
+     * @param  string $end_user_origin_ids Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once. (optional)
      * @param  string $id (optional)
-     * @param  string $ids Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once (optional)
-     * @param  string $integration_name (optional)
-     * @param  string $is_test_account If included, will only include test linked accounts. If not included, will only include non-test linked accounts (optional)
+     * @param  string $ids Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once. (optional)
+     * @param  bool $include_duplicates If &#x60;true&#x60;, will include complete production duplicates of the account specified by the &#x60;id&#x60; query parameter in the response. &#x60;id&#x60; must be for a complete production linked account. (optional)
+     * @param  string $integration_name If provided, will only return linked accounts associated with the given integration name. (optional)
+     * @param  string $is_test_account If included, will only include test linked accounts. If not included, will only include non-test linked accounts. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $status Filter by status. Options: &#x60;COMPLETE&#x60;, &#x60;INCOMPLETE&#x60;, &#x60;RELINK_NEEDED&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function linkedAccountsListAsyncWithHttpInfo($category = null, $cursor = null, $end_user_email_address = null, $end_user_organization_name = null, $end_user_origin_id = null, $end_user_origin_ids = null, $id = null, $ids = null, $integration_name = null, $is_test_account = null, $page_size = null, $status = null)
+    public function linkedAccountsListAsyncWithHttpInfo($category = null, $cursor = null, $end_user_email_address = null, $end_user_organization_name = null, $end_user_origin_id = null, $end_user_origin_ids = null, $id = null, $ids = null, $include_duplicates = null, $integration_name = null, $is_test_account = null, $page_size = null, $status = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedAccountDetailsAndActionsList';
-        $request = $this->linkedAccountsListRequest($category, $cursor, $end_user_email_address, $end_user_organization_name, $end_user_origin_id, $end_user_origin_ids, $id, $ids, $integration_name, $is_test_account, $page_size, $status);
+        $request = $this->linkedAccountsListRequest($category, $cursor, $end_user_email_address, $end_user_organization_name, $end_user_origin_id, $end_user_origin_ids, $id, $ids, $include_duplicates, $integration_name, $is_test_account, $page_size, $status);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -327,21 +331,22 @@ class LinkedAccountsApi
      *
      * @param  string $category (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $end_user_email_address (optional)
-     * @param  string $end_user_organization_name (optional)
-     * @param  string $end_user_origin_id (optional)
-     * @param  string $end_user_origin_ids Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once (optional)
+     * @param  string $end_user_email_address If provided, will only return linked accounts associated with the given email address. (optional)
+     * @param  string $end_user_organization_name If provided, will only return linked accounts associated with the given organization name. (optional)
+     * @param  string $end_user_origin_id If provided, will only return linked accounts associated with the given origin ID. (optional)
+     * @param  string $end_user_origin_ids Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once. (optional)
      * @param  string $id (optional)
-     * @param  string $ids Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once (optional)
-     * @param  string $integration_name (optional)
-     * @param  string $is_test_account If included, will only include test linked accounts. If not included, will only include non-test linked accounts (optional)
+     * @param  string $ids Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once. (optional)
+     * @param  bool $include_duplicates If &#x60;true&#x60;, will include complete production duplicates of the account specified by the &#x60;id&#x60; query parameter in the response. &#x60;id&#x60; must be for a complete production linked account. (optional)
+     * @param  string $integration_name If provided, will only return linked accounts associated with the given integration name. (optional)
+     * @param  string $is_test_account If included, will only include test linked accounts. If not included, will only include non-test linked accounts. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $status Filter by status. Options: &#x60;COMPLETE&#x60;, &#x60;INCOMPLETE&#x60;, &#x60;RELINK_NEEDED&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function linkedAccountsListRequest($category = null, $cursor = null, $end_user_email_address = null, $end_user_organization_name = null, $end_user_origin_id = null, $end_user_origin_ids = null, $id = null, $ids = null, $integration_name = null, $is_test_account = null, $page_size = null, $status = null)
+    public function linkedAccountsListRequest($category = null, $cursor = null, $end_user_email_address = null, $end_user_organization_name = null, $end_user_origin_id = null, $end_user_origin_ids = null, $id = null, $ids = null, $include_duplicates = null, $integration_name = null, $is_test_account = null, $page_size = null, $status = null)
     {
 
         $resourcePath = '/linked-accounts';
@@ -437,6 +442,17 @@ class LinkedAccountsApi
             }
             else {
                 $queryParams['ids'] = $ids;
+            }
+        }
+        // query params
+        if ($include_duplicates !== null) {
+            if('form' === 'form' && is_array($include_duplicates)) {
+                foreach($include_duplicates as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['include_duplicates'] = $include_duplicates;
             }
         }
         // query params

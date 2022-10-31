@@ -68,6 +68,8 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'first_name' => 'string',
         'last_name' => 'string',
         'display_full_name' => 'string',
+        'username' => 'string',
+        'groups' => 'string[]',
         'work_email' => 'string',
         'personal_email' => 'string',
         'mobile_phone_number' => 'string',
@@ -78,17 +80,19 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'team' => 'string',
         'pay_group' => 'string',
         'ssn' => 'string',
-        'gender' => 'string',
-        'ethnicity' => 'string',
-        'marital_status' => 'string',
+        'gender' => 'GenderEnum',
+        'ethnicity' => 'EthnicityEnum',
+        'marital_status' => 'MaritalStatusEnum',
         'date_of_birth' => '\DateTime',
         'hire_date' => '\DateTime',
         'start_date' => '\DateTime',
-        'employment_status' => 'string',
+        'remote_created_at' => '\DateTime',
+        'employment_status' => 'EmploymentStatusEnum',
         'termination_date' => '\DateTime',
         'avatar' => 'string',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
-        'custom_fields' => 'array<string,mixed>'
+        'custom_fields' => 'array<string,mixed>',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -106,6 +110,8 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'first_name' => null,
         'last_name' => null,
         'display_full_name' => null,
+        'username' => null,
+        'groups' => 'uuid',
         'work_email' => 'email',
         'personal_email' => 'email',
         'mobile_phone_number' => null,
@@ -122,11 +128,13 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'date_of_birth' => 'date-time',
         'hire_date' => 'date-time',
         'start_date' => 'date-time',
+        'remote_created_at' => 'date-time',
         'employment_status' => null,
         'termination_date' => 'date-time',
         'avatar' => 'uri',
         'remote_data' => null,
-        'custom_fields' => null
+        'custom_fields' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -163,6 +171,8 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'first_name' => 'first_name',
         'last_name' => 'last_name',
         'display_full_name' => 'display_full_name',
+        'username' => 'username',
+        'groups' => 'groups',
         'work_email' => 'work_email',
         'personal_email' => 'personal_email',
         'mobile_phone_number' => 'mobile_phone_number',
@@ -179,11 +189,13 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'date_of_birth' => 'date_of_birth',
         'hire_date' => 'hire_date',
         'start_date' => 'start_date',
+        'remote_created_at' => 'remote_created_at',
         'employment_status' => 'employment_status',
         'termination_date' => 'termination_date',
         'avatar' => 'avatar',
         'remote_data' => 'remote_data',
-        'custom_fields' => 'custom_fields'
+        'custom_fields' => 'custom_fields',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -199,6 +211,8 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
         'display_full_name' => 'setDisplayFullName',
+        'username' => 'setUsername',
+        'groups' => 'setGroups',
         'work_email' => 'setWorkEmail',
         'personal_email' => 'setPersonalEmail',
         'mobile_phone_number' => 'setMobilePhoneNumber',
@@ -215,11 +229,13 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'date_of_birth' => 'setDateOfBirth',
         'hire_date' => 'setHireDate',
         'start_date' => 'setStartDate',
+        'remote_created_at' => 'setRemoteCreatedAt',
         'employment_status' => 'setEmploymentStatus',
         'termination_date' => 'setTerminationDate',
         'avatar' => 'setAvatar',
         'remote_data' => 'setRemoteData',
-        'custom_fields' => 'setCustomFields'
+        'custom_fields' => 'setCustomFields',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -235,6 +251,8 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
         'display_full_name' => 'getDisplayFullName',
+        'username' => 'getUsername',
+        'groups' => 'getGroups',
         'work_email' => 'getWorkEmail',
         'personal_email' => 'getPersonalEmail',
         'mobile_phone_number' => 'getMobilePhoneNumber',
@@ -251,11 +269,13 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'date_of_birth' => 'getDateOfBirth',
         'hire_date' => 'getHireDate',
         'start_date' => 'getStartDate',
+        'remote_created_at' => 'getRemoteCreatedAt',
         'employment_status' => 'getEmploymentStatus',
         'termination_date' => 'getTerminationDate',
         'avatar' => 'getAvatar',
         'remote_data' => 'getRemoteData',
-        'custom_fields' => 'getCustomFields'
+        'custom_fields' => 'getCustomFields',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -322,6 +342,8 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['first_name'] = $data['first_name'] ?? null;
         $this->container['last_name'] = $data['last_name'] ?? null;
         $this->container['display_full_name'] = $data['display_full_name'] ?? null;
+        $this->container['username'] = $data['username'] ?? null;
+        $this->container['groups'] = $data['groups'] ?? null;
         $this->container['work_email'] = $data['work_email'] ?? null;
         $this->container['personal_email'] = $data['personal_email'] ?? null;
         $this->container['mobile_phone_number'] = $data['mobile_phone_number'] ?? null;
@@ -338,11 +360,13 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['date_of_birth'] = $data['date_of_birth'] ?? null;
         $this->container['hire_date'] = $data['hire_date'] ?? null;
         $this->container['start_date'] = $data['start_date'] ?? null;
+        $this->container['remote_created_at'] = $data['remote_created_at'] ?? null;
         $this->container['employment_status'] = $data['employment_status'] ?? null;
         $this->container['termination_date'] = $data['termination_date'] ?? null;
         $this->container['avatar'] = $data['avatar'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -446,7 +470,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employee_number
      *
-     * @param string|null $employee_number The employee's number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user.
+     * @param string|null $employee_number The employee's number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user. This value can also change in many API providers.
      *
      * @return self
      */
@@ -470,7 +494,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets company
      *
-     * @param string|null $company The ID of the employee's company.
+     * @param string|null $company company
      *
      * @return self
      */
@@ -549,6 +573,54 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDisplayFullName($display_full_name)
     {
         $this->container['display_full_name'] = $display_full_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets username
+     *
+     * @return string|null
+     */
+    public function getUsername()
+    {
+        return $this->container['username'];
+    }
+
+    /**
+     * Sets username
+     *
+     * @param string|null $username The employee's username that appears in the remote UI.
+     *
+     * @return self
+     */
+    public function setUsername($username)
+    {
+        $this->container['username'] = $username;
+
+        return $this;
+    }
+
+    /**
+     * Gets groups
+     *
+     * @return string[]|null
+     */
+    public function getGroups()
+    {
+        return $this->container['groups'];
+    }
+
+    /**
+     * Sets groups
+     *
+     * @param string[]|null $groups groups
+     *
+     * @return self
+     */
+    public function setGroups($groups)
+    {
+        $this->container['groups'] = $groups;
 
         return $this;
     }
@@ -670,7 +742,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets home_location
      *
-     * @param string|null $home_location The employee's home address.
+     * @param string|null $home_location home_location
      *
      * @return self
      */
@@ -694,7 +766,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets work_location
      *
-     * @param string|null $work_location The employee's work address.
+     * @param string|null $work_location work_location
      *
      * @return self
      */
@@ -718,7 +790,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets manager
      *
-     * @param string|null $manager The employee ID of the employee's manager.
+     * @param string|null $manager manager
      *
      * @return self
      */
@@ -742,7 +814,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets team
      *
-     * @param string|null $team The employee's team.
+     * @param string|null $team team
      *
      * @return self
      */
@@ -766,7 +838,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pay_group
      *
-     * @param string|null $pay_group The employee's pay group
+     * @param string|null $pay_group pay_group
      *
      * @return self
      */
@@ -808,7 +880,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets gender
      *
-     * @return string|null
+     * @return GenderEnum|null
      */
     public function getGender()
     {
@@ -818,7 +890,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gender
      *
-     * @param string|null $gender gender
+     * @param GenderEnum|null $gender The employee's gender.
      *
      * @return self
      */
@@ -832,7 +904,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets ethnicity
      *
-     * @return string|null
+     * @return EthnicityEnum|null
      */
     public function getEthnicity()
     {
@@ -842,7 +914,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ethnicity
      *
-     * @param string|null $ethnicity ethnicity
+     * @param EthnicityEnum|null $ethnicity The employee's ethnicity.
      *
      * @return self
      */
@@ -856,7 +928,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets marital_status
      *
-     * @return string|null
+     * @return MaritalStatusEnum|null
      */
     public function getMaritalStatus()
     {
@@ -866,7 +938,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets marital_status
      *
-     * @param string|null $marital_status marital_status
+     * @param MaritalStatusEnum|null $marital_status The employee's marital status.
      *
      * @return self
      */
@@ -950,9 +1022,33 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets remote_created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getRemoteCreatedAt()
+    {
+        return $this->container['remote_created_at'];
+    }
+
+    /**
+     * Sets remote_created_at
+     *
+     * @param \DateTime|null $remote_created_at When the third party's employee was created.
+     *
+     * @return self
+     */
+    public function setRemoteCreatedAt($remote_created_at)
+    {
+        $this->container['remote_created_at'] = $remote_created_at;
+
+        return $this;
+    }
+
+    /**
      * Gets employment_status
      *
-     * @return string|null
+     * @return EmploymentStatusEnum|null
      */
     public function getEmploymentStatus()
     {
@@ -962,7 +1058,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employment_status
      *
-     * @param string|null $employment_status employment_status
+     * @param EmploymentStatusEnum|null $employment_status The employment status of the employee.
      *
      * @return self
      */
@@ -1069,6 +1165,30 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomFields($custom_fields)
     {
         $this->container['custom_fields'] = $custom_fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted remote_was_deleted
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

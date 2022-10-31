@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `syncStatusResyncCreate()`
 
 ```php
-syncStatusResyncCreate($x_account_token): \MergeHRISClient\Model\SyncStatus
+syncStatusResyncCreate($x_account_token): \MergeHRISClient\Model\SyncStatus[]
 ```
 
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\SyncStatus**](../Model/SyncStatus.md)
+[**\MergeHRISClient\Model\SyncStatus[]**](../Model/SyncStatus.md)
 
 ### Authorization
 

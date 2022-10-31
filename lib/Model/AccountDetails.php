@@ -62,11 +62,14 @@ class AccountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'integration' => 'string',
+        'integration_slug' => 'string',
         'category' => 'CategoryEnum',
         'end_user_origin_id' => 'string',
         'end_user_organization_name' => 'string',
         'end_user_email_address' => 'string',
-        'status' => 'string'
+        'status' => 'string',
+        'webhook_listener_url' => 'string',
+        'is_duplicate' => 'bool'
     ];
 
     /**
@@ -79,11 +82,14 @@ class AccountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'integration' => null,
+        'integration_slug' => null,
         'category' => null,
         'end_user_origin_id' => null,
         'end_user_organization_name' => null,
-        'end_user_email_address' => null,
-        'status' => null
+        'end_user_email_address' => 'email',
+        'status' => null,
+        'webhook_listener_url' => 'uri',
+        'is_duplicate' => null
     ];
 
     /**
@@ -115,11 +121,14 @@ class AccountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'id' => 'id',
         'integration' => 'integration',
+        'integration_slug' => 'integration_slug',
         'category' => 'category',
         'end_user_origin_id' => 'end_user_origin_id',
         'end_user_organization_name' => 'end_user_organization_name',
         'end_user_email_address' => 'end_user_email_address',
-        'status' => 'status'
+        'status' => 'status',
+        'webhook_listener_url' => 'webhook_listener_url',
+        'is_duplicate' => 'is_duplicate'
     ];
 
     /**
@@ -130,11 +139,14 @@ class AccountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'id' => 'setId',
         'integration' => 'setIntegration',
+        'integration_slug' => 'setIntegrationSlug',
         'category' => 'setCategory',
         'end_user_origin_id' => 'setEndUserOriginId',
         'end_user_organization_name' => 'setEndUserOrganizationName',
         'end_user_email_address' => 'setEndUserEmailAddress',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'webhook_listener_url' => 'setWebhookListenerUrl',
+        'is_duplicate' => 'setIsDuplicate'
     ];
 
     /**
@@ -145,11 +157,14 @@ class AccountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'id' => 'getId',
         'integration' => 'getIntegration',
+        'integration_slug' => 'getIntegrationSlug',
         'category' => 'getCategory',
         'end_user_origin_id' => 'getEndUserOriginId',
         'end_user_organization_name' => 'getEndUserOrganizationName',
         'end_user_email_address' => 'getEndUserEmailAddress',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'webhook_listener_url' => 'getWebhookListenerUrl',
+        'is_duplicate' => 'getIsDuplicate'
     ];
 
     /**
@@ -211,11 +226,14 @@ class AccountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['id'] = $data['id'] ?? null;
         $this->container['integration'] = $data['integration'] ?? null;
+        $this->container['integration_slug'] = $data['integration_slug'] ?? null;
         $this->container['category'] = $data['category'] ?? null;
         $this->container['end_user_origin_id'] = $data['end_user_origin_id'] ?? null;
         $this->container['end_user_organization_name'] = $data['end_user_organization_name'] ?? null;
         $this->container['end_user_email_address'] = $data['end_user_email_address'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
+        $this->container['webhook_listener_url'] = $data['webhook_listener_url'] ?? null;
+        $this->container['is_duplicate'] = $data['is_duplicate'] ?? null;
     }
 
     /**
@@ -286,6 +304,30 @@ class AccountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIntegration($integration)
     {
         $this->container['integration'] = $integration;
+
+        return $this;
+    }
+
+    /**
+     * Gets integration_slug
+     *
+     * @return string|null
+     */
+    public function getIntegrationSlug()
+    {
+        return $this->container['integration_slug'];
+    }
+
+    /**
+     * Sets integration_slug
+     *
+     * @param string|null $integration_slug integration_slug
+     *
+     * @return self
+     */
+    public function setIntegrationSlug($integration_slug)
+    {
+        $this->container['integration_slug'] = $integration_slug;
 
         return $this;
     }
@@ -406,6 +448,54 @@ class AccountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets webhook_listener_url
+     *
+     * @return string|null
+     */
+    public function getWebhookListenerUrl()
+    {
+        return $this->container['webhook_listener_url'];
+    }
+
+    /**
+     * Sets webhook_listener_url
+     *
+     * @param string|null $webhook_listener_url webhook_listener_url
+     *
+     * @return self
+     */
+    public function setWebhookListenerUrl($webhook_listener_url)
+    {
+        $this->container['webhook_listener_url'] = $webhook_listener_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_duplicate
+     *
+     * @return bool|null
+     */
+    public function getIsDuplicate()
+    {
+        return $this->container['is_duplicate'];
+    }
+
+    /**
+     * Sets is_duplicate
+     *
+     * @param bool|null $is_duplicate Whether a Production Linked Account's credentials match another existing Production Linked Account. This field is `null` for Test Linked Accounts, incomplete Production Linked Accounts, and ignored duplicate Production Linked Account sets.
+     *
+     * @return self
+     */
+    public function setIsDuplicate($is_duplicate)
+    {
+        $this->container['is_duplicate'] = $is_duplicate;
 
         return $this;
     }

@@ -36,7 +36,7 @@ use \MergeHRISClient\ObjectSerializer;
  * Company Class Doc Comment
  *
  * @category Class
- * @description # The Company Object ### Description The &#x60;Company&#x60; object is used to represent a Company.  ### Usage Example Fetch from the &#x60;LIST Companies&#x60; endpoint and filter by &#x60;ID&#x60; to show all companies.
+ * @description # The Company Object ### Description The &#x60;Company&#x60; object is used to represent a Company within the HRIS / Payroll system.  ### Usage Example Fetch from the &#x60;LIST Companies&#x60; endpoint and filter by &#x60;ID&#x60; to show all companies.
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -66,7 +66,8 @@ class Company implements ModelInterface, ArrayAccess, \JsonSerializable
         'legal_name' => 'string',
         'display_name' => 'string',
         'eins' => 'string[]',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -82,7 +83,8 @@ class Company implements ModelInterface, ArrayAccess, \JsonSerializable
         'legal_name' => null,
         'display_name' => null,
         'eins' => null,
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class Company implements ModelInterface, ArrayAccess, \JsonSerializable
         'legal_name' => 'legal_name',
         'display_name' => 'display_name',
         'eins' => 'eins',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -131,7 +134,8 @@ class Company implements ModelInterface, ArrayAccess, \JsonSerializable
         'legal_name' => 'setLegalName',
         'display_name' => 'setDisplayName',
         'eins' => 'setEins',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -145,7 +149,8 @@ class Company implements ModelInterface, ArrayAccess, \JsonSerializable
         'legal_name' => 'getLegalName',
         'display_name' => 'getDisplayName',
         'eins' => 'getEins',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -211,6 +216,7 @@ class Company implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['display_name'] = $data['display_name'] ?? null;
         $this->container['eins'] = $data['eins'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -377,6 +383,30 @@ class Company implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

@@ -45,6 +45,7 @@ class RequestFormatEnum
      */
     const JSON = 'JSON';
     const XML = 'XML';
+    const MULTIPART = 'MULTIPART';
     
     /**
      * Gets allowable values of the enum
@@ -55,6 +56,7 @@ class RequestFormatEnum
         return [
             self::JSON,
             self::XML,
+            self::MULTIPART,
         ];
     }
 }

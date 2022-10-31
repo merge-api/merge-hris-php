@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `locationsList()`
 
 ```php
-locationsList($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id): \MergeHRISClient\Model\PaginatedLocationList
+locationsList($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id): \MergeHRISClient\Model\PaginatedLocationList
 ```
 
 
@@ -41,15 +41,16 @@ $x_account_token = 'x_account_token_example'; // string | Token identifying the 
 $created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects created after this datetime.
 $created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects created before this datetime.
 $cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | The pagination cursor value.
-$include_deleted_data = True; // bool | Whether to include data that was deleted in the third-party service.
+$include_deleted_data = True; // bool | Whether to include data that was marked as deleted by third party webhooks.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified after this datetime.
 $modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified before this datetime.
 $page_size = 56; // int | Number of results to return per page.
+$remote_fields = location_type; // string | Which fields should be returned in non-normalized form.
 $remote_id = 'remote_id_example'; // string | The API provider's ID for the given object.
 
 try {
-    $result = $apiInstance->locationsList($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+    $result = $apiInstance->locationsList($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocationsApi->locationsList: ', $e->getMessage(), PHP_EOL;
@@ -64,11 +65,12 @@ Name | Type | Description  | Notes
  **created_after** | **\DateTime**| If provided, will only return objects created after this datetime. | [optional]
  **created_before** | **\DateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **string**| The pagination cursor value. | [optional]
- **include_deleted_data** | **bool**| Whether to include data that was deleted in the third-party service. | [optional]
+ **include_deleted_data** | **bool**| Whether to include data that was marked as deleted by third party webhooks. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **\DateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **\DateTime**| If provided, will only return objects modified before this datetime. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
+ **remote_fields** | **string**| Which fields should be returned in non-normalized form. | [optional]
  **remote_id** | **string**| The API provider&#39;s ID for the given object. | [optional]
 
 ### Return type
@@ -91,7 +93,7 @@ Name | Type | Description  | Notes
 ## `locationsRetrieve()`
 
 ```php
-locationsRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\Location
+locationsRetrieve($x_account_token, $id, $include_remote_data, $remote_fields): \MergeHRISClient\Model\Location
 ```
 
 
@@ -120,9 +122,10 @@ $apiInstance = new MergeHRISClient\Api\LocationsApi(
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $id = 'id_example'; // string
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
+$remote_fields = location_type; // string | Which fields should be returned in non-normalized form.
 
 try {
-    $result = $apiInstance->locationsRetrieve($x_account_token, $id, $include_remote_data);
+    $result = $apiInstance->locationsRetrieve($x_account_token, $id, $include_remote_data, $remote_fields);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocationsApi->locationsRetrieve: ', $e->getMessage(), PHP_EOL;
@@ -136,6 +139,7 @@ Name | Type | Description  | Notes
  **x_account_token** | **string**| Token identifying the end user. |
  **id** | [**string**](../Model/.md)|  |
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
+ **remote_fields** | **string**| Which fields should be returned in non-normalized form. | [optional]
 
 ### Return type
 

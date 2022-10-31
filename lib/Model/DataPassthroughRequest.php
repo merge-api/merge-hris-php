@@ -61,12 +61,14 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'method' => 'string',
+        'method' => 'MethodEnum',
         'path' => 'string',
         'base_url_override' => 'string',
         'data' => 'string',
+        'multipart_form_data' => '\MergeHRISClient\Model\MultipartFormFieldRequest[]',
         'headers' => 'array<string,mixed>',
-        'request_format' => 'string'
+        'request_format' => 'RequestFormatEnum',
+        'normalize_response' => 'bool'
     ];
 
     /**
@@ -81,8 +83,10 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'path' => null,
         'base_url_override' => null,
         'data' => null,
+        'multipart_form_data' => null,
         'headers' => null,
-        'request_format' => null
+        'request_format' => null,
+        'normalize_response' => null
     ];
 
     /**
@@ -116,8 +120,10 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'path' => 'path',
         'base_url_override' => 'base_url_override',
         'data' => 'data',
+        'multipart_form_data' => 'multipart_form_data',
         'headers' => 'headers',
-        'request_format' => 'request_format'
+        'request_format' => 'request_format',
+        'normalize_response' => 'normalize_response'
     ];
 
     /**
@@ -130,8 +136,10 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'path' => 'setPath',
         'base_url_override' => 'setBaseUrlOverride',
         'data' => 'setData',
+        'multipart_form_data' => 'setMultipartFormData',
         'headers' => 'setHeaders',
-        'request_format' => 'setRequestFormat'
+        'request_format' => 'setRequestFormat',
+        'normalize_response' => 'setNormalizeResponse'
     ];
 
     /**
@@ -144,8 +152,10 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'path' => 'getPath',
         'base_url_override' => 'getBaseUrlOverride',
         'data' => 'getData',
+        'multipart_form_data' => 'getMultipartFormData',
         'headers' => 'getHeaders',
-        'request_format' => 'getRequestFormat'
+        'request_format' => 'getRequestFormat',
+        'normalize_response' => 'getNormalizeResponse'
     ];
 
     /**
@@ -209,8 +219,10 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['path'] = $data['path'] ?? null;
         $this->container['base_url_override'] = $data['base_url_override'] ?? null;
         $this->container['data'] = $data['data'] ?? null;
+        $this->container['multipart_form_data'] = $data['multipart_form_data'] ?? null;
         $this->container['headers'] = $data['headers'] ?? null;
         $this->container['request_format'] = $data['request_format'] ?? null;
+        $this->container['normalize_response'] = $data['normalize_response'] ?? null;
     }
 
     /**
@@ -225,10 +237,6 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['method'] === null) {
             $invalidProperties[] = "'method' can't be null";
         }
-        if ((mb_strlen($this->container['method']) < 1)) {
-            $invalidProperties[] = "invalid value for 'method', the character length must be bigger than or equal to 1.";
-        }
-
         if ($this->container['path'] === null) {
             $invalidProperties[] = "'path' can't be null";
         }
@@ -242,10 +250,6 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
         if (!is_null($this->container['data']) && (mb_strlen($this->container['data']) < 1)) {
             $invalidProperties[] = "invalid value for 'data', the character length must be bigger than or equal to 1.";
-        }
-
-        if (!is_null($this->container['request_format']) && (mb_strlen($this->container['request_format']) < 1)) {
-            $invalidProperties[] = "invalid value for 'request_format', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -266,7 +270,7 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets method
      *
-     * @return string
+     * @return MethodEnum
      */
     public function getMethod()
     {
@@ -276,17 +280,12 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets method
      *
-     * @param string $method method
+     * @param MethodEnum $method method
      *
      * @return self
      */
     public function setMethod($method)
     {
-
-        if ((mb_strlen($method) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $method when calling DataPassthroughRequest., must be bigger than or equal to 1.');
-        }
-
         $this->container['method'] = $method;
 
         return $this;
@@ -380,6 +379,30 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
+     * Gets multipart_form_data
+     *
+     * @return \MergeHRISClient\Model\MultipartFormFieldRequest[]|null
+     */
+    public function getMultipartFormData()
+    {
+        return $this->container['multipart_form_data'];
+    }
+
+    /**
+     * Sets multipart_form_data
+     *
+     * @param \MergeHRISClient\Model\MultipartFormFieldRequest[]|null $multipart_form_data Pass an array of `MultipartFormField` objects in here instead of using the `data` param if `request_format` is set to `MULTIPART`.
+     *
+     * @return self
+     */
+    public function setMultipartFormData($multipart_form_data)
+    {
+        $this->container['multipart_form_data'] = $multipart_form_data;
+
+        return $this;
+    }
+
+    /**
      * Gets headers
      *
      * @return array<string,mixed>|null
@@ -392,7 +415,7 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets headers
      *
-     * @param array<string,mixed>|null $headers headers
+     * @param array<string,mixed>|null $headers The headers to use for the request (Merge will handle the account's authorization headers). `Content-Type` header is required for passthrough. Choose content type corresponding to expected format of receiving server.
      *
      * @return self
      */
@@ -406,7 +429,7 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets request_format
      *
-     * @return string|null
+     * @return RequestFormatEnum|null
      */
     public function getRequestFormat()
     {
@@ -416,18 +439,37 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets request_format
      *
-     * @param string|null $request_format request_format
+     * @param RequestFormatEnum|null $request_format request_format
      *
      * @return self
      */
     public function setRequestFormat($request_format)
     {
-
-        if (!is_null($request_format) && (mb_strlen($request_format) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $request_format when calling DataPassthroughRequest., must be bigger than or equal to 1.');
-        }
-
         $this->container['request_format'] = $request_format;
+
+        return $this;
+    }
+
+    /**
+     * Gets normalize_response
+     *
+     * @return bool|null
+     */
+    public function getNormalizeResponse()
+    {
+        return $this->container['normalize_response'];
+    }
+
+    /**
+     * Sets normalize_response
+     *
+     * @param bool|null $normalize_response normalize_response
+     *
+     * @return self
+     */
+    public function setNormalizeResponse($normalize_response)
+    {
+        $this->container['normalize_response'] = $normalize_response;
 
         return $this;
     }

@@ -46,6 +46,8 @@ class SyncStatusStatusEnum
     const SYNCING = 'SYNCING';
     const DONE = 'DONE';
     const FAILED = 'FAILED';
+    const DISABLED = 'DISABLED';
+    const PAUSED = 'PAUSED';
     
     /**
      * Gets allowable values of the enum
@@ -57,6 +59,8 @@ class SyncStatusStatusEnum
             self::SYNCING,
             self::DONE,
             self::FAILED,
+            self::DISABLED,
+            self::PAUSED,
         ];
     }
 }

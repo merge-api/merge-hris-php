@@ -66,7 +66,8 @@ class Deduction implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'employee_deduction' => 'float',
         'company_deduction' => 'float',
-        'remote_data' => 'array<string,mixed>[]'
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -82,7 +83,8 @@ class Deduction implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'employee_deduction' => 'float',
         'company_deduction' => 'float',
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class Deduction implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'employee_deduction' => 'employee_deduction',
         'company_deduction' => 'company_deduction',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -131,7 +134,8 @@ class Deduction implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'employee_deduction' => 'setEmployeeDeduction',
         'company_deduction' => 'setCompanyDeduction',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -145,7 +149,8 @@ class Deduction implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'employee_deduction' => 'getEmployeeDeduction',
         'company_deduction' => 'getCompanyDeduction',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -211,6 +216,7 @@ class Deduction implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['employee_deduction'] = $data['employee_deduction'] ?? null;
         $this->container['company_deduction'] = $data['company_deduction'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -274,7 +280,7 @@ class Deduction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employee_payroll_run
      *
-     * @param string|null $employee_payroll_run The deduction's employee payroll run.
+     * @param string|null $employee_payroll_run employee_payroll_run
      *
      * @return self
      */
@@ -360,7 +366,7 @@ class Deduction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets remote_data
      *
-     * @return array<string,mixed>[]|null
+     * @return \MergeHRISClient\Model\RemoteData[]|null
      */
     public function getRemoteData()
     {
@@ -370,13 +376,37 @@ class Deduction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets remote_data
      *
-     * @param array<string,mixed>[]|null $remote_data remote_data
+     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
      *
      * @return self
      */
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

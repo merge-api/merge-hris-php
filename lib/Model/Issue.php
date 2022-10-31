@@ -61,7 +61,7 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'status' => 'string',
+        'status' => '\MergeHRISClient\Model\IssueStatusEnum',
         'error_description' => 'string',
         'end_user' => 'array<string,mixed>',
         'first_incident_time' => '\DateTime',
@@ -272,7 +272,7 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return string|null
+     * @return \MergeHRISClient\Model\IssueStatusEnum|null
      */
     public function getStatus()
     {
@@ -282,7 +282,7 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string|null $status status
+     * @param \MergeHRISClient\Model\IssueStatusEnum|null $status status
      *
      * @return self
      */

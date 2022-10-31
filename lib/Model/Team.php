@@ -65,7 +65,8 @@ class Team implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'string',
         'name' => 'string',
         'parent_team' => 'string',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -80,7 +81,8 @@ class Team implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => null,
         'name' => null,
         'parent_team' => 'uuid',
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class Team implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'remote_id',
         'name' => 'name',
         'parent_team' => 'parent_team',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -127,7 +130,8 @@ class Team implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'setRemoteId',
         'name' => 'setName',
         'parent_team' => 'setParentTeam',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -140,7 +144,8 @@ class Team implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'getRemoteId',
         'name' => 'getName',
         'parent_team' => 'getParentTeam',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -205,6 +210,7 @@ class Team implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['name'] = $data['name'] ?? null;
         $this->container['parent_team'] = $data['parent_team'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -316,7 +322,7 @@ class Team implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets parent_team
      *
-     * @param string|null $parent_team The team's parent team.
+     * @param string|null $parent_team parent_team
      *
      * @return self
      */
@@ -347,6 +353,30 @@ class Team implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

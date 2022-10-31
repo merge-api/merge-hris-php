@@ -36,7 +36,7 @@ use \MergeHRISClient\ObjectSerializer;
  * Employment Class Doc Comment
  *
  * @category Class
- * @description # The Employment Object ### Description The &#x60;Employment&#x60; object is used to represent an employment position at a company. These are associated with the employee filling the role.  ### Usage Example Fetch from the &#x60;LIST Employments&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
+ * @description # The Employment Object ### Description The &#x60;Employment&#x60; object is used to represent an employment position at a company. These are associated with the employee filling the role.  Please note: Employment objects are constructed if the object does not exist in the remote system.  ### Usage Example Fetch from the &#x60;LIST Employments&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -66,13 +66,15 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee' => 'string',
         'job_title' => 'string',
         'pay_rate' => 'float',
-        'pay_period' => 'string',
-        'pay_frequency' => 'string',
-        'pay_currency' => 'string',
-        'flsa_status' => 'string',
+        'pay_period' => 'PayPeriodEnum',
+        'pay_frequency' => 'PayFrequencyEnum',
+        'pay_currency' => 'PayCurrencyEnum',
+        'pay_group' => 'string',
+        'flsa_status' => 'FlsaStatusEnum',
         'effective_date' => '\DateTime',
-        'employment_type' => 'string',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
+        'employment_type' => 'EmploymentTypeEnum',
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -91,10 +93,12 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'pay_period' => null,
         'pay_frequency' => null,
         'pay_currency' => null,
+        'pay_group' => 'uuid',
         'flsa_status' => null,
         'effective_date' => 'date-time',
         'employment_type' => null,
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -132,10 +136,12 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'pay_period' => 'pay_period',
         'pay_frequency' => 'pay_frequency',
         'pay_currency' => 'pay_currency',
+        'pay_group' => 'pay_group',
         'flsa_status' => 'flsa_status',
         'effective_date' => 'effective_date',
         'employment_type' => 'employment_type',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -152,10 +158,12 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'pay_period' => 'setPayPeriod',
         'pay_frequency' => 'setPayFrequency',
         'pay_currency' => 'setPayCurrency',
+        'pay_group' => 'setPayGroup',
         'flsa_status' => 'setFlsaStatus',
         'effective_date' => 'setEffectiveDate',
         'employment_type' => 'setEmploymentType',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -172,10 +180,12 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'pay_period' => 'getPayPeriod',
         'pay_frequency' => 'getPayFrequency',
         'pay_currency' => 'getPayCurrency',
+        'pay_group' => 'getPayGroup',
         'flsa_status' => 'getFlsaStatus',
         'effective_date' => 'getEffectiveDate',
         'employment_type' => 'getEmploymentType',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -243,10 +253,12 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['pay_period'] = $data['pay_period'] ?? null;
         $this->container['pay_frequency'] = $data['pay_frequency'] ?? null;
         $this->container['pay_currency'] = $data['pay_currency'] ?? null;
+        $this->container['pay_group'] = $data['pay_group'] ?? null;
         $this->container['flsa_status'] = $data['flsa_status'] ?? null;
         $this->container['effective_date'] = $data['effective_date'] ?? null;
         $this->container['employment_type'] = $data['employment_type'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -334,7 +346,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employee
      *
-     * @param string|null $employee The employee holding this position.
+     * @param string|null $employee employee
      *
      * @return self
      */
@@ -396,7 +408,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets pay_period
      *
-     * @return string|null
+     * @return PayPeriodEnum|null
      */
     public function getPayPeriod()
     {
@@ -406,7 +418,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pay_period
      *
-     * @param string|null $pay_period pay_period
+     * @param PayPeriodEnum|null $pay_period The time period this pay rate encompasses.
      *
      * @return self
      */
@@ -420,7 +432,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets pay_frequency
      *
-     * @return string|null
+     * @return PayFrequencyEnum|null
      */
     public function getPayFrequency()
     {
@@ -430,7 +442,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pay_frequency
      *
-     * @param string|null $pay_frequency pay_frequency
+     * @param PayFrequencyEnum|null $pay_frequency The position's pay frequency.
      *
      * @return self
      */
@@ -444,7 +456,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets pay_currency
      *
-     * @return string|null
+     * @return PayCurrencyEnum|null
      */
     public function getPayCurrency()
     {
@@ -454,7 +466,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pay_currency
      *
-     * @param string|null $pay_currency pay_currency
+     * @param PayCurrencyEnum|null $pay_currency The position's currency code.
      *
      * @return self
      */
@@ -466,9 +478,33 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets flsa_status
+     * Gets pay_group
      *
      * @return string|null
+     */
+    public function getPayGroup()
+    {
+        return $this->container['pay_group'];
+    }
+
+    /**
+     * Sets pay_group
+     *
+     * @param string|null $pay_group pay_group
+     *
+     * @return self
+     */
+    public function setPayGroup($pay_group)
+    {
+        $this->container['pay_group'] = $pay_group;
+
+        return $this;
+    }
+
+    /**
+     * Gets flsa_status
+     *
+     * @return FlsaStatusEnum|null
      */
     public function getFlsaStatus()
     {
@@ -478,7 +514,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets flsa_status
      *
-     * @param string|null $flsa_status flsa_status
+     * @param FlsaStatusEnum|null $flsa_status The position's FLSA status.
      *
      * @return self
      */
@@ -516,7 +552,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets employment_type
      *
-     * @return string|null
+     * @return EmploymentTypeEnum|null
      */
     public function getEmploymentType()
     {
@@ -526,7 +562,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employment_type
      *
-     * @param string|null $employment_type employment_type
+     * @param EmploymentTypeEnum|null $employment_type The position's type of employment.
      *
      * @return self
      */
@@ -557,6 +593,30 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

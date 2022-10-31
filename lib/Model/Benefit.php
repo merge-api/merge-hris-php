@@ -68,7 +68,8 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
         'benefit_plan_type' => 'string',
         'employee_contribution' => 'float',
         'company_contribution' => 'float',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -86,7 +87,8 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
         'benefit_plan_type' => null,
         'employee_contribution' => 'float',
         'company_contribution' => 'float',
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -123,7 +125,8 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
         'benefit_plan_type' => 'benefit_plan_type',
         'employee_contribution' => 'employee_contribution',
         'company_contribution' => 'company_contribution',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -139,7 +142,8 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
         'benefit_plan_type' => 'setBenefitPlanType',
         'employee_contribution' => 'setEmployeeContribution',
         'company_contribution' => 'setCompanyContribution',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -155,7 +159,8 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
         'benefit_plan_type' => 'getBenefitPlanType',
         'employee_contribution' => 'getEmployeeContribution',
         'company_contribution' => 'getCompanyContribution',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -223,6 +228,7 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['employee_contribution'] = $data['employee_contribution'] ?? null;
         $this->container['company_contribution'] = $data['company_contribution'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -310,7 +316,7 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employee
      *
-     * @param string|null $employee The employee on the plan.
+     * @param string|null $employee employee
      *
      * @return self
      */
@@ -358,7 +364,7 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets benefit_plan_type
      *
-     * @param string|null $benefit_plan_type benefit_plan_type
+     * @param string|null $benefit_plan_type The type of benefit plan
      *
      * @return self
      */
@@ -437,6 +443,30 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }
