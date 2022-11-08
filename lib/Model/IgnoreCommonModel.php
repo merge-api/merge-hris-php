@@ -60,7 +60,7 @@ class IgnoreCommonModel implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'reason' => 'ReasonEnum',
+        'reason' => '\MergeHRISClient\Model\ReasonEnum',
         'message' => 'string'
     ];
 

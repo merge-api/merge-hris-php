@@ -64,7 +64,7 @@ class Earning implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'employee_payroll_run' => 'string',
         'amount' => 'float',
-        'type' => 'EarningTypeEnum',
+        'type' => '\MergeHRISClient\Model\EarningTypeEnum',
         'remote_was_deleted' => 'bool'
     ];
 

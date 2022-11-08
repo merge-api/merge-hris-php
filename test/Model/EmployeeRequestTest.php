@@ -340,4 +340,22 @@ class EmployeeRequestTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "integration_params"
+     */
+    public function testPropertyIntegrationParams()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "linked_account_params"
+     */
+    public function testPropertyLinkedAccountParams()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

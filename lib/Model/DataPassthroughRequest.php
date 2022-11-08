@@ -61,13 +61,13 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'method' => 'MethodEnum',
+        'method' => '\MergeHRISClient\Model\MethodEnum',
         'path' => 'string',
         'base_url_override' => 'string',
         'data' => 'string',
         'multipart_form_data' => '\MergeHRISClient\Model\MultipartFormFieldRequest[]',
         'headers' => 'array<string,mixed>',
-        'request_format' => 'RequestFormatEnum',
+        'request_format' => '\MergeHRISClient\Model\RequestFormatEnum',
         'normalize_response' => 'bool'
     ];
 

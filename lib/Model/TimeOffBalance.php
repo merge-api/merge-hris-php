@@ -66,7 +66,7 @@ class TimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee' => 'string',
         'balance' => 'float',
         'used' => 'float',
-        'policy_type' => 'PolicyTypeEnum',
+        'policy_type' => '\MergeHRISClient\Model\PolicyTypeEnum',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
         'remote_was_deleted' => 'bool'
     ];

@@ -66,7 +66,7 @@ class RemoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'int',
         'response' => 'mixed',
         'response_headers' => 'array<string,mixed>',
-        'response_type' => 'ResponseTypeEnum',
+        'response_type' => '\MergeHRISClient\Model\ResponseTypeEnum',
         'headers' => 'array<string,mixed>'
     ];
 

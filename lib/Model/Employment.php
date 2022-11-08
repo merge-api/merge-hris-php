@@ -66,13 +66,13 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee' => 'string',
         'job_title' => 'string',
         'pay_rate' => 'float',
-        'pay_period' => 'PayPeriodEnum',
-        'pay_frequency' => 'PayFrequencyEnum',
-        'pay_currency' => 'PayCurrencyEnum',
+        'pay_period' => '\MergeHRISClient\Model\PayPeriodEnum',
+        'pay_frequency' => '\MergeHRISClient\Model\PayFrequencyEnum',
+        'pay_currency' => '\MergeHRISClient\Model\PayCurrencyEnum',
         'pay_group' => 'string',
-        'flsa_status' => 'FlsaStatusEnum',
+        'flsa_status' => '\MergeHRISClient\Model\FlsaStatusEnum',
         'effective_date' => '\DateTime',
-        'employment_type' => 'EmploymentTypeEnum',
+        'employment_type' => '\MergeHRISClient\Model\EmploymentTypeEnum',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
         'remote_was_deleted' => 'bool'
     ];

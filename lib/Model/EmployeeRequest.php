@@ -79,17 +79,19 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'team' => 'string',
         'pay_group' => 'string',
         'ssn' => 'string',
-        'gender' => 'GenderEnum',
-        'ethnicity' => 'EthnicityEnum',
-        'marital_status' => 'MaritalStatusEnum',
+        'gender' => '\MergeHRISClient\Model\GenderEnum',
+        'ethnicity' => '\MergeHRISClient\Model\EthnicityEnum',
+        'marital_status' => '\MergeHRISClient\Model\MaritalStatusEnum',
         'date_of_birth' => '\DateTime',
         'hire_date' => '\DateTime',
         'start_date' => '\DateTime',
         'remote_created_at' => '\DateTime',
-        'employment_status' => 'EmploymentStatusEnum',
+        'employment_status' => '\MergeHRISClient\Model\EmploymentStatusEnum',
         'termination_date' => '\DateTime',
         'avatar' => 'string',
-        'custom_fields' => 'array<string,mixed>'
+        'custom_fields' => 'array<string,mixed>',
+        'integration_params' => 'array<string,mixed>',
+        'linked_account_params' => 'array<string,mixed>'
     ];
 
     /**
@@ -128,7 +130,9 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'employment_status' => null,
         'termination_date' => 'date-time',
         'avatar' => 'uri',
-        'custom_fields' => null
+        'custom_fields' => null,
+        'integration_params' => null,
+        'linked_account_params' => null
     ];
 
     /**
@@ -186,7 +190,9 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'employment_status' => 'employment_status',
         'termination_date' => 'termination_date',
         'avatar' => 'avatar',
-        'custom_fields' => 'custom_fields'
+        'custom_fields' => 'custom_fields',
+        'integration_params' => 'integration_params',
+        'linked_account_params' => 'linked_account_params'
     ];
 
     /**
@@ -223,7 +229,9 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'employment_status' => 'setEmploymentStatus',
         'termination_date' => 'setTerminationDate',
         'avatar' => 'setAvatar',
-        'custom_fields' => 'setCustomFields'
+        'custom_fields' => 'setCustomFields',
+        'integration_params' => 'setIntegrationParams',
+        'linked_account_params' => 'setLinkedAccountParams'
     ];
 
     /**
@@ -260,7 +268,9 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'employment_status' => 'getEmploymentStatus',
         'termination_date' => 'getTerminationDate',
         'avatar' => 'getAvatar',
-        'custom_fields' => 'getCustomFields'
+        'custom_fields' => 'getCustomFields',
+        'integration_params' => 'getIntegrationParams',
+        'linked_account_params' => 'getLinkedAccountParams'
     ];
 
     /**
@@ -349,6 +359,8 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['termination_date'] = $data['termination_date'] ?? null;
         $this->container['avatar'] = $data['avatar'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
+        $this->container['integration_params'] = $data['integration_params'] ?? null;
+        $this->container['linked_account_params'] = $data['linked_account_params'] ?? null;
     }
 
     /**
@@ -1099,6 +1111,54 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomFields($custom_fields)
     {
         $this->container['custom_fields'] = $custom_fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets integration_params
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getIntegrationParams()
+    {
+        return $this->container['integration_params'];
+    }
+
+    /**
+     * Sets integration_params
+     *
+     * @param array<string,mixed>|null $integration_params integration_params
+     *
+     * @return self
+     */
+    public function setIntegrationParams($integration_params)
+    {
+        $this->container['integration_params'] = $integration_params;
+
+        return $this;
+    }
+
+    /**
+     * Gets linked_account_params
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getLinkedAccountParams()
+    {
+        return $this->container['linked_account_params'];
+    }
+
+    /**
+     * Sets linked_account_params
+     *
+     * @param array<string,mixed>|null $linked_account_params linked_account_params
+     *
+     * @return self
+     */
+    public function setLinkedAccountParams($linked_account_params)
+    {
+        $this->container['linked_account_params'] = $linked_account_params;
 
         return $this;
     }

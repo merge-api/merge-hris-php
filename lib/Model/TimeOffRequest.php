@@ -64,13 +64,15 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'string',
         'employee' => 'string',
         'approver' => 'string',
-        'status' => 'TimeOffStatusEnum',
+        'status' => '\MergeHRISClient\Model\TimeOffStatusEnum',
         'employee_note' => 'string',
-        'units' => 'UnitsEnum',
+        'units' => '\MergeHRISClient\Model\UnitsEnum',
         'amount' => 'float',
-        'request_type' => 'RequestTypeEnum',
+        'request_type' => '\MergeHRISClient\Model\RequestTypeEnum',
         'start_time' => '\DateTime',
-        'end_time' => '\DateTime'
+        'end_time' => '\DateTime',
+        'integration_params' => 'array<string,mixed>',
+        'linked_account_params' => 'array<string,mixed>'
     ];
 
     /**
@@ -90,7 +92,9 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'amount' => 'float',
         'request_type' => null,
         'start_time' => 'date-time',
-        'end_time' => 'date-time'
+        'end_time' => 'date-time',
+        'integration_params' => null,
+        'linked_account_params' => null
     ];
 
     /**
@@ -129,7 +133,9 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'amount' => 'amount',
         'request_type' => 'request_type',
         'start_time' => 'start_time',
-        'end_time' => 'end_time'
+        'end_time' => 'end_time',
+        'integration_params' => 'integration_params',
+        'linked_account_params' => 'linked_account_params'
     ];
 
     /**
@@ -147,7 +153,9 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'amount' => 'setAmount',
         'request_type' => 'setRequestType',
         'start_time' => 'setStartTime',
-        'end_time' => 'setEndTime'
+        'end_time' => 'setEndTime',
+        'integration_params' => 'setIntegrationParams',
+        'linked_account_params' => 'setLinkedAccountParams'
     ];
 
     /**
@@ -165,7 +173,9 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'amount' => 'getAmount',
         'request_type' => 'getRequestType',
         'start_time' => 'getStartTime',
-        'end_time' => 'getEndTime'
+        'end_time' => 'getEndTime',
+        'integration_params' => 'getIntegrationParams',
+        'linked_account_params' => 'getLinkedAccountParams'
     ];
 
     /**
@@ -235,6 +245,8 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['request_type'] = $data['request_type'] ?? null;
         $this->container['start_time'] = $data['start_time'] ?? null;
         $this->container['end_time'] = $data['end_time'] ?? null;
+        $this->container['integration_params'] = $data['integration_params'] ?? null;
+        $this->container['linked_account_params'] = $data['linked_account_params'] ?? null;
     }
 
     /**
@@ -497,6 +509,54 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEndTime($end_time)
     {
         $this->container['end_time'] = $end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets integration_params
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getIntegrationParams()
+    {
+        return $this->container['integration_params'];
+    }
+
+    /**
+     * Sets integration_params
+     *
+     * @param array<string,mixed>|null $integration_params integration_params
+     *
+     * @return self
+     */
+    public function setIntegrationParams($integration_params)
+    {
+        $this->container['integration_params'] = $integration_params;
+
+        return $this;
+    }
+
+    /**
+     * Gets linked_account_params
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getLinkedAccountParams()
+    {
+        return $this->container['linked_account_params'];
+    }
+
+    /**
+     * Sets linked_account_params
+     *
+     * @param array<string,mixed>|null $linked_account_params linked_account_params
+     *
+     * @return self
+     */
+    public function setLinkedAccountParams($linked_account_params)
+    {
+        $this->container['linked_account_params'] = $linked_account_params;
 
         return $this;
     }

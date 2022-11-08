@@ -67,7 +67,7 @@ class BankInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'account_number' => 'string',
         'routing_number' => 'string',
         'bank_name' => 'string',
-        'account_type' => 'AccountTypeEnum',
+        'account_type' => '\MergeHRISClient\Model\AccountTypeEnum',
         'remote_created_at' => '\DateTime',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
         'remote_was_deleted' => 'bool'
