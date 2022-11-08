@@ -65,7 +65,7 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
         'model_id' => 'string',
         'last_sync_start' => '\DateTime',
         'next_sync_start' => '\DateTime',
-        'status' => 'SyncStatusStatusEnum',
+        'status' => '\MergeHRISClient\Model\SyncStatusStatusEnum',
         'is_initial_sync' => 'bool'
     ];
 

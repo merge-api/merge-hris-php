@@ -65,7 +65,7 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'string',
         'parent_group' => 'string',
         'name' => 'string',
-        'type' => 'GroupTypeEnum',
+        'type' => '\MergeHRISClient\Model\GroupTypeEnum',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
         'remote_was_deleted' => 'bool'
     ];

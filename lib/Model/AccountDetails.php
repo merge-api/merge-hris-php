@@ -63,7 +63,7 @@ class AccountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'integration' => 'string',
         'integration_slug' => 'string',
-        'category' => 'CategoryEnum',
+        'category' => '\MergeHRISClient\Model\CategoryEnum',
         'end_user_origin_id' => 'string',
         'end_user_organization_name' => 'string',
         'end_user_email_address' => 'string',

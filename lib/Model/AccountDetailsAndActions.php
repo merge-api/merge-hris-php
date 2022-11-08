@@ -62,8 +62,8 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'category' => 'CategoryEnum',
-        'status' => 'AccountDetailsAndActionsStatusEnum',
+        'category' => '\MergeHRISClient\Model\CategoryEnum',
+        'status' => '\MergeHRISClient\Model\AccountDetailsAndActionsStatusEnum',
         'status_detail' => 'string',
         'end_user_origin_id' => 'string',
         'end_user_organization_name' => 'string',

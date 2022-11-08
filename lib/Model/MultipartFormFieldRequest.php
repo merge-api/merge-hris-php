@@ -63,7 +63,7 @@ class MultipartFormFieldRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'name' => 'string',
         'data' => 'string',
-        'encoding' => 'EncodingEnum',
+        'encoding' => '\MergeHRISClient\Model\EncodingEnum',
         'file_name' => 'string',
         'content_type' => 'string'
     ];

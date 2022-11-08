@@ -33,5 +33,7 @@ Name | Type | Description | Notes
 **termination_date** | [**\DateTime**](\DateTime.md) | The employee&#39;s termination date. | [optional]
 **avatar** | **string** | The URL of the employee&#39;s avatar image. | [optional]
 **custom_fields** | **array<string,mixed>** | Custom fields configured for a given model. | [optional]
+**integration_params** | **array<string,mixed>** |  | [optional]
+**linked_account_params** | **array<string,mixed>** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

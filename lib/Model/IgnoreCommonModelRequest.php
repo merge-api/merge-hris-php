@@ -60,7 +60,7 @@ class IgnoreCommonModelRequest implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'reason' => 'ReasonEnum',
+        'reason' => '\MergeHRISClient\Model\ReasonEnum',
         'message' => 'string'
     ];
 

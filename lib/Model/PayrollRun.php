@@ -63,8 +63,8 @@ class PayrollRun implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'remote_id' => 'string',
-        'run_state' => 'RunStateEnum',
-        'run_type' => 'RunTypeEnum',
+        'run_state' => '\MergeHRISClient\Model\RunStateEnum',
+        'run_type' => '\MergeHRISClient\Model\RunTypeEnum',
         'start_date' => '\DateTime',
         'end_date' => '\DateTime',
         'check_date' => '\DateTime',

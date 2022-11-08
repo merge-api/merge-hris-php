@@ -70,8 +70,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
         'city' => 'string',
         'state' => 'string',
         'zip_code' => 'string',
-        'country' => 'CountryEnum',
-        'location_type' => 'LocationTypeEnum',
+        'country' => '\MergeHRISClient\Model\CountryEnum',
+        'location_type' => '\MergeHRISClient\Model\LocationTypeEnum',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
         'remote_was_deleted' => 'bool'
     ];

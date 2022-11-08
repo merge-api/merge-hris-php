@@ -14,5 +14,7 @@ Name | Type | Description | Notes
 **request_type** | [**RequestTypeEnum**](RequestTypeEnum.md) | The type of time off request. | [optional]
 **start_time** | [**\DateTime**](\DateTime.md) | The day and time of the start of the time requested off. | [optional]
 **end_time** | [**\DateTime**](\DateTime.md) | The day and time of the end of the time requested off. | [optional]
+**integration_params** | **array<string,mixed>** |  | [optional]
+**linked_account_params** | **array<string,mixed>** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
