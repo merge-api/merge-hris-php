@@ -47,6 +47,14 @@ class RequestFormatEnum
     const XML = 'XML';
     const MULTIPART = 'MULTIPART';
     
+
+    /**
+     * Merge attempts to unify all enum values, but in some cases the original value will be retained. Since we cannot
+     * list them all here, this value is present to call attention to this behavior. That being said, PHP 7 does not
+     * have real enums so this MERGE_NONSTANDARD_VALUE is unused for now, just a placeholder.
+     */
+    const MERGE_NONSTANDARD_VALUE = "MERGE_NONSTANDARD_VALUE"
+
     /**
      * Gets allowable values of the enum
      * @return string[]
