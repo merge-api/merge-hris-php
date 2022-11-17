@@ -41,7 +41,7 @@ $x_account_token = 'x_account_token_example'; // string | Token identifying the 
 $created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects created after this datetime.
 $created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects created before this datetime.
 $cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | The pagination cursor value.
-$employee_id = 'employee_id_example'; // string | If provided, will only return time off for this employee.
+$employee_id = 'employee_id_example'; // string | If provided, will return the benefits associated with the employee.
 $include_deleted_data = True; // bool | Whether to include data that was marked as deleted by third party webhooks.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified after this datetime.
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
  **created_after** | **\DateTime**| If provided, will only return objects created after this datetime. | [optional]
  **created_before** | **\DateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **string**| The pagination cursor value. | [optional]
- **employee_id** | **string**| If provided, will only return time off for this employee. | [optional]
+ **employee_id** | **string**| If provided, will return the benefits associated with the employee. | [optional]
  **include_deleted_data** | **bool**| Whether to include data that was marked as deleted by third party webhooks. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **\DateTime**| If provided, will only return objects modified after this datetime. | [optional]
