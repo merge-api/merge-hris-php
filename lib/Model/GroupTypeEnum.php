@@ -54,7 +54,7 @@ class GroupTypeEnum
      * list them all here, this value is present to call attention to this behavior. That being said, PHP 7 does not
      * have real enums so this MERGE_NONSTANDARD_VALUE is unused for now, just a placeholder.
      */
-    const MERGE_NONSTANDARD_VALUE = "MERGE_NONSTANDARD_VALUE"
+    const MERGE_NONSTANDARD_VALUE = "MERGE_NONSTANDARD_VALUE";
 
     /**
      * Gets allowable values of the enum
