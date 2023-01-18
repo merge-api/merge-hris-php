@@ -8,8 +8,8 @@ For more information, please visit [https://www.merge.dev/](https://www.merge.de
 
 ### Requirements
 
-PHP 7.2 and later.
-guzzlehttp/guzzle 7.2 and later.
+- PHP 7.2 and later.
+- guzzlehttp/guzzle 7.4 and later.
 
 ### Composer
 

@@ -344,7 +344,7 @@ class GenerateKeyApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = Query::build($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -365,7 +365,7 @@ class GenerateKeyApi
             $headers
         );
 
-        $query = Query::build($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

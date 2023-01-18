@@ -518,7 +518,7 @@ class LocationsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = Query::build($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -539,7 +539,7 @@ class LocationsApi
             $headers
         );
 
-        $query = Query::build($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -842,7 +842,7 @@ class LocationsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = Query::build($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -863,7 +863,7 @@ class LocationsApi
             $headers
         );
 
-        $query = Query::build($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
