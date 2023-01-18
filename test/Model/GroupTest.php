@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * GroupTest Class Doc Comment
  *
  * @category    Class
- * @description # The Group Object ### Description The &#x60;Group&#x60; object is used to represent Group information that employees belong to. This is often referenced with an Employee object.  Please note: The teams object will fulfill most use cases. The Groups object is for power-users that want all types of groups at a company and the optionality of pulling multiple groups for an employee.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and expand groups to view an employee&#39;s groups.
+ * @description # The Group Object ### Description The &#x60;Group&#x60; object is used to represent any subset of employees, such as &#x60;PayGroup&#x60; or &#x60;Team&#x60;. Employees can be in multiple Groups.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and expand groups to view an employee&#39;s groups.
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -138,6 +138,15 @@ class GroupTest extends TestCase
      * Test attribute "remote_was_deleted"
      */
     public function testPropertyRemoteWasDeleted()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "field_mappings"
+     */
+    public function testPropertyFieldMappings()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -142,4 +142,13 @@ class IssueTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "error_details"
+     */
+    public function testPropertyErrorDetails()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

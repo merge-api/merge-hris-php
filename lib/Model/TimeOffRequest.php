@@ -36,7 +36,7 @@ use \MergeHRISClient\ObjectSerializer;
  * TimeOffRequest Class Doc Comment
  *
  * @category Class
- * @description # The TimeOff Object ### Description The &#x60;TimeOff&#x60; object is used to represent a Time Off Request filed by an employee.  ### Usage Example Fetch from the &#x60;LIST TimeOffs&#x60; endpoint and filter by &#x60;ID&#x60; to show all time off requests.
+ * @description # The TimeOff Object ### Description The &#x60;TimeOff&#x60; object is used to represent all employees&#39; Time Off entries.  ### Usage Example Fetch from the &#x60;LIST TimeOffs&#x60; endpoint and filter by &#x60;ID&#x60; to show all time off requests.
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -310,7 +310,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employee
      *
-     * @param string|null $employee employee
+     * @param string|null $employee The employee requesting time off.
      *
      * @return self
      */
@@ -334,7 +334,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets approver
      *
-     * @param string|null $approver approver
+     * @param string|null $approver The Merge ID of the employee with the ability to approve the time off request.
      *
      * @return self
      */
@@ -406,7 +406,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets units
      *
-     * @param UnitsEnum|null $units The unit of time requested.
+     * @param UnitsEnum|null $units The measurement that the third-party integration uses to count time requested.
      *
      * @return self
      */
@@ -430,7 +430,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount
      *
-     * @param float|null $amount The number of time off units requested.
+     * @param float|null $amount The time off quantity measured by the prescribed “units”.
      *
      * @return self
      */

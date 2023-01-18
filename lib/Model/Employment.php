@@ -36,7 +36,7 @@ use \MergeHRISClient\ObjectSerializer;
  * Employment Class Doc Comment
  *
  * @category Class
- * @description # The Employment Object ### Description The &#x60;Employment&#x60; object is used to represent an employment position at a company. These are associated with the employee filling the role.  Please note: Employment objects are constructed if the object does not exist in the remote system.  ### Usage Example Fetch from the &#x60;LIST Employments&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
+ * @description # The Employment Object ### Description The &#x60;Employment&#x60; object is used to represent a job position at a company.  Please note: When there is a change in pay or title, integrations with historical data will create new Employment objects while integrations without historical data will update existing ones.  ### Usage Example Fetch from the &#x60;LIST Employments&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -74,7 +74,8 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'effective_date' => '\DateTime',
         'employment_type' => '\MergeHRISClient\Model\EmploymentTypeEnum',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
-        'remote_was_deleted' => 'bool'
+        'remote_was_deleted' => 'bool',
+        'field_mappings' => 'array<string,mixed>'
     ];
 
     /**
@@ -98,7 +99,8 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'effective_date' => 'date-time',
         'employment_type' => null,
         'remote_data' => null,
-        'remote_was_deleted' => null
+        'remote_was_deleted' => null,
+        'field_mappings' => null
     ];
 
     /**
@@ -141,7 +143,8 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'effective_date' => 'effective_date',
         'employment_type' => 'employment_type',
         'remote_data' => 'remote_data',
-        'remote_was_deleted' => 'remote_was_deleted'
+        'remote_was_deleted' => 'remote_was_deleted',
+        'field_mappings' => 'field_mappings'
     ];
 
     /**
@@ -163,7 +166,8 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'effective_date' => 'setEffectiveDate',
         'employment_type' => 'setEmploymentType',
         'remote_data' => 'setRemoteData',
-        'remote_was_deleted' => 'setRemoteWasDeleted'
+        'remote_was_deleted' => 'setRemoteWasDeleted',
+        'field_mappings' => 'setFieldMappings'
     ];
 
     /**
@@ -185,7 +189,8 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'effective_date' => 'getEffectiveDate',
         'employment_type' => 'getEmploymentType',
         'remote_data' => 'getRemoteData',
-        'remote_was_deleted' => 'getRemoteWasDeleted'
+        'remote_was_deleted' => 'getRemoteWasDeleted',
+        'field_mappings' => 'getFieldMappings'
     ];
 
     /**
@@ -259,6 +264,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['employment_type'] = $data['employment_type'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
         $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
+        $this->container['field_mappings'] = $data['field_mappings'] ?? null;
     }
 
     /**
@@ -346,7 +352,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employee
      *
-     * @param string|null $employee employee
+     * @param string|null $employee The employee holding this position.
      *
      * @return self
      */
@@ -490,7 +496,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pay_group
      *
-     * @param string|null $pay_group pay_group
+     * @param string|null $pay_group The employment's pay group
      *
      * @return self
      */
@@ -617,6 +623,30 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteWasDeleted($remote_was_deleted)
     {
         $this->container['remote_was_deleted'] = $remote_was_deleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets field_mappings
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getFieldMappings()
+    {
+        return $this->container['field_mappings'];
+    }
+
+    /**
+     * Sets field_mappings
+     *
+     * @param array<string,mixed>|null $field_mappings field_mappings
+     *
+     * @return self
+     */
+    public function setFieldMappings($field_mappings)
+    {
+        $this->container['field_mappings'] = $field_mappings;
 
         return $this;
     }

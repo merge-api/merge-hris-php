@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * TaxTest Class Doc Comment
  *
  * @category    Class
- * @description # The Tax Object ### Description The &#x60;Tax&#x60; object is used to represent a tax for a given employee&#39;s payroll run. One run could include several taxes.  ### Usage Example Fetch from the &#x60;LIST Taxes&#x60; endpoint and filter by &#x60;ID&#x60; to show all taxes.
+ * @description # The Tax Object ### Description The &#x60;Tax&#x60; object is used to represent an array of the tax deductions for a given employee&#39;s payroll run.  ### Usage Example Fetch from the &#x60;LIST Taxes&#x60; endpoint and filter by &#x60;ID&#x60; to show all taxes.
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

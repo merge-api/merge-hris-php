@@ -36,7 +36,7 @@ use \MergeHRISClient\ObjectSerializer;
  * EmployeeRequest Class Doc Comment
  *
  * @category Class
- * @description # The Employee Object ### Description The &#x60;Employee&#x60; object is used to represent an Employee for a company.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
+ * @description # The Employee Object ### Description The &#x60;Employee&#x60; object is used to represent any person who has been employed by a company.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -440,7 +440,7 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employee_number
      *
-     * @param string|null $employee_number The employee's number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user. This value can also change in many API providers.
+     * @param string|null $employee_number The employee's number that appears in the third-party integration's UI.
      *
      * @return self
      */
@@ -464,7 +464,7 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets company
      *
-     * @param string|null $company company
+     * @param string|null $company The ID of the employee's company.
      *
      * @return self
      */
@@ -712,7 +712,7 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets home_location
      *
-     * @param string|null $home_location home_location
+     * @param string|null $home_location The employee's home address.
      *
      * @return self
      */
@@ -736,7 +736,7 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets work_location
      *
-     * @param string|null $work_location work_location
+     * @param string|null $work_location The employee's work address.
      *
      * @return self
      */
@@ -760,7 +760,7 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets manager
      *
-     * @param string|null $manager manager
+     * @param string|null $manager The employee ID of the employee's manager.
      *
      * @return self
      */
@@ -784,7 +784,7 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets team
      *
-     * @param string|null $team team
+     * @param string|null $team The employee's team.
      *
      * @return self
      */
@@ -808,7 +808,7 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pay_group
      *
-     * @param string|null $pay_group pay_group
+     * @param string|null $pay_group The employee's pay group
      *
      * @return self
      */
@@ -908,7 +908,7 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets marital_status
      *
-     * @param MaritalStatusEnum|null $marital_status The employee's marital status.
+     * @param MaritalStatusEnum|null $marital_status The employee's filing status as related to marital status. Possible values include: `SINGLE`, `MARRIED_FILING_JOINTLY`,`MARRIED_FILING_SEPARATELY`,`HEAD_OF_HOUSEHOLD`,`QUALIFYING_WIDOW_OR_WIDOWER_WITH_DEPENDENT_CHILD`, or `-` in cases where there is no clear mapping - the original value passed through.
      *
      * @return self
      */
@@ -980,7 +980,7 @@ class EmployeeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets start_date
      *
-     * @param \DateTime|null $start_date The date that the employee started working. If an employee has multiple start dates from previous employments, this represents the most recent start date.
+     * @param \DateTime|null $start_date The date that the employee started working. If an employee was rehired, the most recent start date will be returned.
      *
      * @return self
      */

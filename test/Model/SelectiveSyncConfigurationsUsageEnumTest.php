@@ -1,6 +1,6 @@
 <?php
 /**
- * EarningTest
+ * SelectiveSyncConfigurationsUsageEnumTest
  *
  * PHP version 7.2
  *
@@ -32,15 +32,15 @@ namespace MergeHRISClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * EarningTest Class Doc Comment
+ * SelectiveSyncConfigurationsUsageEnumTest Class Doc Comment
  *
  * @category    Class
- * @description # The Earning Object ### Description The &#x60;Earning&#x60; object is used to represent an array of different compensations that an employee receives within specific wage categories.  ### Usage Example Fetch from the &#x60;LIST Earnings&#x60; endpoint and filter by &#x60;ID&#x60; to show all earnings.
+ * @description SelectiveSyncConfigurationsUsageEnum
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class EarningTest extends TestCase
+class SelectiveSyncConfigurationsUsageEnumTest extends TestCase
 {
 
     /**
@@ -72,54 +72,9 @@ class EarningTest extends TestCase
     }
 
     /**
-     * Test "Earning"
+     * Test "SelectiveSyncConfigurationsUsageEnum"
      */
-    public function testEarning()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "employee_payroll_run"
-     */
-    public function testPropertyEmployeePayrollRun()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "amount"
-     */
-    public function testPropertyAmount()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "remote_was_deleted"
-     */
-    public function testPropertyRemoteWasDeleted()
+    public function testSelectiveSyncConfigurationsUsageEnum()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

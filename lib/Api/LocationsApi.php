@@ -127,16 +127,17 @@ class LocationsApi
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedLocationList
      */
-    public function locationsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
+    public function locationsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
     {
-        list($response) = $this->locationsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id);
+        list($response) = $this->locationsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $show_enum_origins);
         return $response;
     }
 
@@ -152,16 +153,17 @@ class LocationsApi
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedLocationList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function locationsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
+    public function locationsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
     {
-        $request = $this->locationsListRequest($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id);
+        $request = $this->locationsListRequest($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $show_enum_origins);
 
         try {
             $options = $this->createHttpClientOption();
@@ -246,15 +248,16 @@ class LocationsApi
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function locationsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
+    public function locationsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
     {
-        return $this->locationsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id)
+        return $this->locationsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $show_enum_origins)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -274,16 +277,17 @@ class LocationsApi
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function locationsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
+    public function locationsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedLocationList';
-        $request = $this->locationsListRequest($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id);
+        $request = $this->locationsListRequest($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $show_enum_origins);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -330,13 +334,14 @@ class LocationsApi
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function locationsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
+    public function locationsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -462,6 +467,17 @@ class LocationsApi
                 $queryParams['remote_id'] = $remote_id;
             }
         }
+        // query params
+        if ($show_enum_origins !== null) {
+            if('form' === 'form' && is_array($show_enum_origins)) {
+                foreach($show_enum_origins as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['show_enum_origins'] = $show_enum_origins;
+            }
+        }
 
         // header params
         if ($x_account_token !== null) {
@@ -502,7 +518,7 @@ class LocationsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -523,7 +539,7 @@ class LocationsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -538,15 +554,16 @@ class LocationsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\Location
      */
-    public function locationsRetrieve($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function locationsRetrieve($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
-        list($response) = $this->locationsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields);
+        list($response) = $this->locationsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins);
         return $response;
     }
 
@@ -556,15 +573,16 @@ class LocationsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\Location, HTTP status code, HTTP response headers (array of strings)
      */
-    public function locationsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function locationsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
-        $request = $this->locationsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
+        $request = $this->locationsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins);
 
         try {
             $options = $this->createHttpClientOption();
@@ -643,14 +661,15 @@ class LocationsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function locationsRetrieveAsync($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function locationsRetrieveAsync($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
-        return $this->locationsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields)
+        return $this->locationsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -664,15 +683,16 @@ class LocationsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function locationsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function locationsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
         $returnType = '\MergeHRISClient\Model\Location';
-        $request = $this->locationsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
+        $request = $this->locationsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -713,12 +733,13 @@ class LocationsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function locationsRetrieveRequest($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function locationsRetrieveRequest($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -760,6 +781,17 @@ class LocationsApi
             }
             else {
                 $queryParams['remote_fields'] = $remote_fields;
+            }
+        }
+        // query params
+        if ($show_enum_origins !== null) {
+            if('form' === 'form' && is_array($show_enum_origins)) {
+                foreach($show_enum_origins as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['show_enum_origins'] = $show_enum_origins;
             }
         }
 
@@ -810,7 +842,7 @@ class LocationsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -831,7 +863,7 @@ class LocationsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

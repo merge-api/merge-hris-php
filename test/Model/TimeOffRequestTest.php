@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * TimeOffRequestTest Class Doc Comment
  *
  * @category    Class
- * @description # The TimeOff Object ### Description The &#x60;TimeOff&#x60; object is used to represent a Time Off Request filed by an employee.  ### Usage Example Fetch from the &#x60;LIST TimeOffs&#x60; endpoint and filter by &#x60;ID&#x60; to show all time off requests.
+ * @description # The TimeOff Object ### Description The &#x60;TimeOff&#x60; object is used to represent all employees&#39; Time Off entries.  ### Usage Example Fetch from the &#x60;LIST TimeOffs&#x60; endpoint and filter by &#x60;ID&#x60; to show all time off requests.
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

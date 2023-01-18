@@ -36,7 +36,7 @@ use \MergeHRISClient\ObjectSerializer;
  * Team Class Doc Comment
  *
  * @category Class
- * @description # The Team Object ### Description The &#x60;Team&#x60; object is used to represent a Team within a company. &#x60;Employee&#x60; objects are often grouped this way. Note that in the Merge HRIS API, company subdivisions are all represented with &#x60;Teams&#x60;, rather than &#x60;Teams&#x60; and &#x60;Departments&#x60;.  ### Usage Example If you&#39;re building a way to filter by &#x60;Team&#x60;, you&#39;d hit the &#x60;GET Teams&#x60; endpoint to fetch the &#x60;Teams&#x60;, and then use the &#x60;ID&#x60; of the team your user selects to filter the &#x60;GET Employees&#x60; endpoint.
+ * @description # The Team Object ### Description The &#x60;Team&#x60; object is used to represent a subdivision of the company, usually a department. Each employee will be grouped into one specific Team.  ### Usage Example If you&#39;re building a way to filter by &#x60;Team&#x60;, you&#39;d hit the &#x60;GET Teams&#x60; endpoint to fetch the &#x60;Teams&#x60;, and then use the &#x60;ID&#x60; of the team your user selects to filter the &#x60;GET Employees&#x60; endpoint.
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -66,7 +66,8 @@ class Team implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'parent_team' => 'string',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
-        'remote_was_deleted' => 'bool'
+        'remote_was_deleted' => 'bool',
+        'field_mappings' => 'array<string,mixed>'
     ];
 
     /**
@@ -82,7 +83,8 @@ class Team implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'parent_team' => 'uuid',
         'remote_data' => null,
-        'remote_was_deleted' => null
+        'remote_was_deleted' => null,
+        'field_mappings' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class Team implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'parent_team' => 'parent_team',
         'remote_data' => 'remote_data',
-        'remote_was_deleted' => 'remote_was_deleted'
+        'remote_was_deleted' => 'remote_was_deleted',
+        'field_mappings' => 'field_mappings'
     ];
 
     /**
@@ -131,7 +134,8 @@ class Team implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'parent_team' => 'setParentTeam',
         'remote_data' => 'setRemoteData',
-        'remote_was_deleted' => 'setRemoteWasDeleted'
+        'remote_was_deleted' => 'setRemoteWasDeleted',
+        'field_mappings' => 'setFieldMappings'
     ];
 
     /**
@@ -145,7 +149,8 @@ class Team implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'parent_team' => 'getParentTeam',
         'remote_data' => 'getRemoteData',
-        'remote_was_deleted' => 'getRemoteWasDeleted'
+        'remote_was_deleted' => 'getRemoteWasDeleted',
+        'field_mappings' => 'getFieldMappings'
     ];
 
     /**
@@ -211,6 +216,7 @@ class Team implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['parent_team'] = $data['parent_team'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
         $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
+        $this->container['field_mappings'] = $data['field_mappings'] ?? null;
     }
 
     /**
@@ -322,7 +328,7 @@ class Team implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets parent_team
      *
-     * @param string|null $parent_team parent_team
+     * @param string|null $parent_team The team's parent team.
      *
      * @return self
      */
@@ -377,6 +383,30 @@ class Team implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteWasDeleted($remote_was_deleted)
     {
         $this->container['remote_was_deleted'] = $remote_was_deleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets field_mappings
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getFieldMappings()
+    {
+        return $this->container['field_mappings'];
+    }
+
+    /**
+     * Sets field_mappings
+     *
+     * @param array<string,mixed>|null $field_mappings field_mappings
+     *
+     * @return self
+     */
+    public function setFieldMappings($field_mappings)
+    {
+        $this->container['field_mappings'] = $field_mappings;
 
         return $this;
     }

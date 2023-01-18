@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **type** | [**GroupTypeEnum**](GroupTypeEnum.md) | The group type | [optional]
 **remote_data** | [**\MergeHRISClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
 **remote_was_deleted** | **bool** | Indicates whether or not this object has been deleted by third party webhooks. | [optional] [readonly]
+**field_mappings** | **array<string,mixed>** |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

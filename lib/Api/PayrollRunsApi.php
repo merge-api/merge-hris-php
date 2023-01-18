@@ -129,9 +129,10 @@ class PayrollRunsApi
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $run_type If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;) (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      * @param  \DateTime $started_after If provided, will only return payroll runs started after this datetime. (optional)
      * @param  \DateTime $started_before If provided, will only return payroll runs started before this datetime. (optional)
      *
@@ -139,9 +140,9 @@ class PayrollRunsApi
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedPayrollRunList
      */
-    public function payrollRunsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $run_type = null, $started_after = null, $started_before = null)
+    public function payrollRunsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $run_type = null, $show_enum_origins = null, $started_after = null, $started_before = null)
     {
-        list($response) = $this->payrollRunsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $run_type, $started_after, $started_before);
+        list($response) = $this->payrollRunsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $run_type, $show_enum_origins, $started_after, $started_before);
         return $response;
     }
 
@@ -159,9 +160,10 @@ class PayrollRunsApi
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $run_type If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;) (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      * @param  \DateTime $started_after If provided, will only return payroll runs started after this datetime. (optional)
      * @param  \DateTime $started_before If provided, will only return payroll runs started before this datetime. (optional)
      *
@@ -169,9 +171,9 @@ class PayrollRunsApi
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedPayrollRunList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function payrollRunsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $run_type = null, $started_after = null, $started_before = null)
+    public function payrollRunsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $run_type = null, $show_enum_origins = null, $started_after = null, $started_before = null)
     {
-        $request = $this->payrollRunsListRequest($x_account_token, $created_after, $created_before, $cursor, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $run_type, $started_after, $started_before);
+        $request = $this->payrollRunsListRequest($x_account_token, $created_after, $created_before, $cursor, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $run_type, $show_enum_origins, $started_after, $started_before);
 
         try {
             $options = $this->createHttpClientOption();
@@ -258,18 +260,19 @@ class PayrollRunsApi
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $run_type If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;) (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      * @param  \DateTime $started_after If provided, will only return payroll runs started after this datetime. (optional)
      * @param  \DateTime $started_before If provided, will only return payroll runs started before this datetime. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function payrollRunsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $run_type = null, $started_after = null, $started_before = null)
+    public function payrollRunsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $run_type = null, $show_enum_origins = null, $started_after = null, $started_before = null)
     {
-        return $this->payrollRunsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $run_type, $started_after, $started_before)
+        return $this->payrollRunsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $run_type, $show_enum_origins, $started_after, $started_before)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -291,19 +294,20 @@ class PayrollRunsApi
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $run_type If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;) (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      * @param  \DateTime $started_after If provided, will only return payroll runs started after this datetime. (optional)
      * @param  \DateTime $started_before If provided, will only return payroll runs started before this datetime. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function payrollRunsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $run_type = null, $started_after = null, $started_before = null)
+    public function payrollRunsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $run_type = null, $show_enum_origins = null, $started_after = null, $started_before = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedPayrollRunList';
-        $request = $this->payrollRunsListRequest($x_account_token, $created_after, $created_before, $cursor, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $run_type, $started_after, $started_before);
+        $request = $this->payrollRunsListRequest($x_account_token, $created_after, $created_before, $cursor, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $run_type, $show_enum_origins, $started_after, $started_before);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -352,16 +356,17 @@ class PayrollRunsApi
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $run_type If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;) (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      * @param  \DateTime $started_after If provided, will only return payroll runs started after this datetime. (optional)
      * @param  \DateTime $started_before If provided, will only return payroll runs started before this datetime. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function payrollRunsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $run_type = null, $started_after = null, $started_before = null)
+    public function payrollRunsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $run_type = null, $show_enum_origins = null, $started_after = null, $started_before = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -521,6 +526,17 @@ class PayrollRunsApi
             }
         }
         // query params
+        if ($show_enum_origins !== null) {
+            if('form' === 'form' && is_array($show_enum_origins)) {
+                foreach($show_enum_origins as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['show_enum_origins'] = $show_enum_origins;
+            }
+        }
+        // query params
         if ($started_after !== null) {
             if('form' === 'form' && is_array($started_after)) {
                 foreach($started_after as $key => $value) {
@@ -582,7 +598,7 @@ class PayrollRunsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -603,7 +619,7 @@ class PayrollRunsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -618,15 +634,16 @@ class PayrollRunsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PayrollRun
      */
-    public function payrollRunsRetrieve($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function payrollRunsRetrieve($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
-        list($response) = $this->payrollRunsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields);
+        list($response) = $this->payrollRunsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins);
         return $response;
     }
 
@@ -636,15 +653,16 @@ class PayrollRunsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PayrollRun, HTTP status code, HTTP response headers (array of strings)
      */
-    public function payrollRunsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function payrollRunsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
-        $request = $this->payrollRunsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
+        $request = $this->payrollRunsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins);
 
         try {
             $options = $this->createHttpClientOption();
@@ -723,14 +741,15 @@ class PayrollRunsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function payrollRunsRetrieveAsync($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function payrollRunsRetrieveAsync($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
-        return $this->payrollRunsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields)
+        return $this->payrollRunsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -744,15 +763,16 @@ class PayrollRunsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function payrollRunsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function payrollRunsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
         $returnType = '\MergeHRISClient\Model\PayrollRun';
-        $request = $this->payrollRunsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
+        $request = $this->payrollRunsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -793,12 +813,13 @@ class PayrollRunsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function payrollRunsRetrieveRequest($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function payrollRunsRetrieveRequest($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -840,6 +861,17 @@ class PayrollRunsApi
             }
             else {
                 $queryParams['remote_fields'] = $remote_fields;
+            }
+        }
+        // query params
+        if ($show_enum_origins !== null) {
+            if('form' === 'form' && is_array($show_enum_origins)) {
+                foreach($show_enum_origins as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['show_enum_origins'] = $show_enum_origins;
             }
         }
 
@@ -890,7 +922,7 @@ class PayrollRunsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -911,7 +943,7 @@ class PayrollRunsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

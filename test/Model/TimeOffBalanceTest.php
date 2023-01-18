@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * TimeOffBalanceTest Class Doc Comment
  *
  * @category    Class
- * @description # The TimeOffBalance Object ### Description The &#x60;TimeOffBalance&#x60; object is used to represent a Time Off Balance for an employee.  ### Usage Example Fetch from the &#x60;LIST TimeOffBalances&#x60; endpoint and filter by &#x60;ID&#x60; to show all time off balances.
+ * @description # The TimeOffBalance Object ### Description The &#x60;TimeOffBalance&#x60; object is used to represent current balances for an employee&#39;s Time Off plan.  ### Usage Example Fetch from the &#x60;LIST TimeOffBalances&#x60; endpoint and filter by &#x60;ID&#x60; to show all time off balances.
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -147,6 +147,15 @@ class TimeOffBalanceTest extends TestCase
      * Test attribute "remote_was_deleted"
      */
     public function testPropertyRemoteWasDeleted()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "field_mappings"
+     */
+    public function testPropertyFieldMappings()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

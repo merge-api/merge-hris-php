@@ -463,7 +463,7 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets normalize_response
      *
-     * @param bool|null $normalize_response normalize_response
+     * @param bool|null $normalize_response Optional. If true, the response will always be an object of the form `{\"type\": T, \"value\": ...}` where `T` will be one of `string, boolean, number, null, array, object`.
      *
      * @return self
      */

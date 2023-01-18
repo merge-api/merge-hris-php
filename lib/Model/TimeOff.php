@@ -36,7 +36,7 @@ use \MergeHRISClient\ObjectSerializer;
  * TimeOff Class Doc Comment
  *
  * @category Class
- * @description # The TimeOff Object ### Description The &#x60;TimeOff&#x60; object is used to represent a Time Off Request filed by an employee.  ### Usage Example Fetch from the &#x60;LIST TimeOffs&#x60; endpoint and filter by &#x60;ID&#x60; to show all time off requests.
+ * @description # The TimeOff Object ### Description The &#x60;TimeOff&#x60; object is used to represent all employees&#39; Time Off entries.  ### Usage Example Fetch from the &#x60;LIST TimeOffs&#x60; endpoint and filter by &#x60;ID&#x60; to show all time off requests.
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -73,7 +73,8 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
         'start_time' => '\DateTime',
         'end_time' => '\DateTime',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
-        'remote_was_deleted' => 'bool'
+        'remote_was_deleted' => 'bool',
+        'field_mappings' => 'array<string,mixed>'
     ];
 
     /**
@@ -96,7 +97,8 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
         'start_time' => 'date-time',
         'end_time' => 'date-time',
         'remote_data' => null,
-        'remote_was_deleted' => null
+        'remote_was_deleted' => null,
+        'field_mappings' => null
     ];
 
     /**
@@ -138,7 +140,8 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
         'start_time' => 'start_time',
         'end_time' => 'end_time',
         'remote_data' => 'remote_data',
-        'remote_was_deleted' => 'remote_was_deleted'
+        'remote_was_deleted' => 'remote_was_deleted',
+        'field_mappings' => 'field_mappings'
     ];
 
     /**
@@ -159,7 +162,8 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
         'start_time' => 'setStartTime',
         'end_time' => 'setEndTime',
         'remote_data' => 'setRemoteData',
-        'remote_was_deleted' => 'setRemoteWasDeleted'
+        'remote_was_deleted' => 'setRemoteWasDeleted',
+        'field_mappings' => 'setFieldMappings'
     ];
 
     /**
@@ -180,7 +184,8 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
         'start_time' => 'getStartTime',
         'end_time' => 'getEndTime',
         'remote_data' => 'getRemoteData',
-        'remote_was_deleted' => 'getRemoteWasDeleted'
+        'remote_was_deleted' => 'getRemoteWasDeleted',
+        'field_mappings' => 'getFieldMappings'
     ];
 
     /**
@@ -253,6 +258,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['end_time'] = $data['end_time'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
         $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
+        $this->container['field_mappings'] = $data['field_mappings'] ?? null;
     }
 
     /**
@@ -340,7 +346,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employee
      *
-     * @param string|null $employee employee
+     * @param string|null $employee The employee requesting time off.
      *
      * @return self
      */
@@ -364,7 +370,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets approver
      *
-     * @param string|null $approver approver
+     * @param string|null $approver The Merge ID of the employee with the ability to approve the time off request.
      *
      * @return self
      */
@@ -436,7 +442,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets units
      *
-     * @param UnitsEnum|null $units The unit of time requested.
+     * @param UnitsEnum|null $units The measurement that the third-party integration uses to count time requested.
      *
      * @return self
      */
@@ -460,7 +466,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount
      *
-     * @param float|null $amount The number of time off units requested.
+     * @param float|null $amount The time off quantity measured by the prescribed “units”.
      *
      * @return self
      */
@@ -587,6 +593,30 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteWasDeleted($remote_was_deleted)
     {
         $this->container['remote_was_deleted'] = $remote_was_deleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets field_mappings
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getFieldMappings()
+    {
+        return $this->container['field_mappings'];
+    }
+
+    /**
+     * Sets field_mappings
+     *
+     * @param array<string,mixed>|null $field_mappings field_mappings
+     *
+     * @return self
+     */
+    public function setFieldMappings($field_mappings)
+    {
+        $this->container['field_mappings'] = $field_mappings;
 
         return $this;
     }
