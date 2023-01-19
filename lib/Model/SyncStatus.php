@@ -66,7 +66,8 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_sync_start' => '\DateTime',
         'next_sync_start' => '\DateTime',
         'status' => '\MergeHRISClient\Model\SyncStatusStatusEnum',
-        'is_initial_sync' => 'bool'
+        'is_initial_sync' => 'bool',
+        'selective_sync_configurations_usage' => '\MergeHRISClient\Model\SelectiveSyncConfigurationsUsageEnum'
     ];
 
     /**
@@ -82,7 +83,8 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_sync_start' => 'date-time',
         'next_sync_start' => 'date-time',
         'status' => null,
-        'is_initial_sync' => null
+        'is_initial_sync' => null,
+        'selective_sync_configurations_usage' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_sync_start' => 'last_sync_start',
         'next_sync_start' => 'next_sync_start',
         'status' => 'status',
-        'is_initial_sync' => 'is_initial_sync'
+        'is_initial_sync' => 'is_initial_sync',
+        'selective_sync_configurations_usage' => 'selective_sync_configurations_usage'
     ];
 
     /**
@@ -131,7 +134,8 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_sync_start' => 'setLastSyncStart',
         'next_sync_start' => 'setNextSyncStart',
         'status' => 'setStatus',
-        'is_initial_sync' => 'setIsInitialSync'
+        'is_initial_sync' => 'setIsInitialSync',
+        'selective_sync_configurations_usage' => 'setSelectiveSyncConfigurationsUsage'
     ];
 
     /**
@@ -145,7 +149,8 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_sync_start' => 'getLastSyncStart',
         'next_sync_start' => 'getNextSyncStart',
         'status' => 'getStatus',
-        'is_initial_sync' => 'getIsInitialSync'
+        'is_initial_sync' => 'getIsInitialSync',
+        'selective_sync_configurations_usage' => 'getSelectiveSyncConfigurationsUsage'
     ];
 
     /**
@@ -211,6 +216,7 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['next_sync_start'] = $data['next_sync_start'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['is_initial_sync'] = $data['is_initial_sync'] ?? null;
+        $this->container['selective_sync_configurations_usage'] = $data['selective_sync_configurations_usage'] ?? null;
     }
 
     /**
@@ -389,6 +395,30 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIsInitialSync($is_initial_sync)
     {
         $this->container['is_initial_sync'] = $is_initial_sync;
+
+        return $this;
+    }
+
+    /**
+     * Gets selective_sync_configurations_usage
+     *
+     * @return SelectiveSyncConfigurationsUsageEnum|null
+     */
+    public function getSelectiveSyncConfigurationsUsage()
+    {
+        return $this->container['selective_sync_configurations_usage'];
+    }
+
+    /**
+     * Sets selective_sync_configurations_usage
+     *
+     * @param SelectiveSyncConfigurationsUsageEnum|null $selective_sync_configurations_usage selective_sync_configurations_usage
+     *
+     * @return self
+     */
+    public function setSelectiveSyncConfigurationsUsage($selective_sync_configurations_usage)
+    {
+        $this->container['selective_sync_configurations_usage'] = $selective_sync_configurations_usage;
 
         return $this;
     }

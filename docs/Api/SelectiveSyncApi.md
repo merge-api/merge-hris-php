@@ -166,7 +166,7 @@ $apiInstance = new MergeHRISClient\Api\SelectiveSyncApi(
 );
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $common_model = 'common_model_example'; // string
-$cursor = 56; // int | The pagination cursor value.
+$cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | The pagination cursor value.
 $page_size = 56; // int | Number of results to return per page.
 
 try {
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **string**| Token identifying the end user. |
  **common_model** | **string**|  | [optional]
- **cursor** | **int**| The pagination cursor value. | [optional]
+ **cursor** | **string**| The pagination cursor value. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
 
 ### Return type

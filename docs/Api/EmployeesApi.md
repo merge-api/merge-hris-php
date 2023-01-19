@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 ## `employeesList()`
 
 ```php
-employeesList($x_account_token, $company_id, $created_after, $created_before, $cursor, $display_full_name, $employment_status, $first_name, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $last_name, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_fields, $remote_id, $team_id, $work_email, $work_location_id): \MergeHRISClient\Model\PaginatedEmployeeList
+employeesList($x_account_token, $company_id, $created_after, $created_before, $cursor, $display_full_name, $employment_status, $first_name, $groups, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $last_name, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_fields, $remote_id, $show_enum_origins, $team_id, $work_email, $work_location_id): \MergeHRISClient\Model\PaginatedEmployeeList
 ```
 
 
@@ -182,6 +182,7 @@ $cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | 
 $display_full_name = 'display_full_name_example'; // string | If provided, will only return employees with this display name.
 $employment_status = 'employment_status_example'; // string | If provided, will only return employees with this employment status.
 $first_name = 'first_name_example'; // string | If provided, will only return employees with this first name.
+$groups = 'groups_example'; // string | If provided, will only return employees matching the group ids; multiple groups can be separated by commas.
 $include_deleted_data = True; // bool | Whether to include data that was marked as deleted by third party webhooks.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $include_sensitive_fields = True; // bool | Whether to include sensitive fields (such as social security numbers) in the response.
@@ -192,14 +193,15 @@ $modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If
 $page_size = 56; // int | Number of results to return per page.
 $pay_group_id = 'pay_group_id_example'; // string | If provided, will only return employees for this pay group
 $personal_email = 'personal_email_example'; // string | If provided, will only return Employees with this personal email
-$remote_fields = employment_status,ethnicity,gender,marital_status; // string | Which fields should be returned in non-normalized form.
+$remote_fields = employment_status,ethnicity,gender,marital_status; // string | Deprecated. Use show_enum_origins.
 $remote_id = 'remote_id_example'; // string | The API provider's ID for the given object.
+$show_enum_origins = employment_status,ethnicity,gender,marital_status; // string | Which fields should be returned in non-normalized form.
 $team_id = 'team_id_example'; // string | If provided, will only return employees for this team.
 $work_email = 'work_email_example'; // string | If provided, will only return Employees with this work email
 $work_location_id = 'work_location_id_example'; // string | If provided, will only return employees for this location.
 
 try {
-    $result = $apiInstance->employeesList($x_account_token, $company_id, $created_after, $created_before, $cursor, $display_full_name, $employment_status, $first_name, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $last_name, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_fields, $remote_id, $team_id, $work_email, $work_location_id);
+    $result = $apiInstance->employeesList($x_account_token, $company_id, $created_after, $created_before, $cursor, $display_full_name, $employment_status, $first_name, $groups, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $last_name, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_fields, $remote_id, $show_enum_origins, $team_id, $work_email, $work_location_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeesApi->employeesList: ', $e->getMessage(), PHP_EOL;
@@ -218,6 +220,7 @@ Name | Type | Description  | Notes
  **display_full_name** | **string**| If provided, will only return employees with this display name. | [optional]
  **employment_status** | **string**| If provided, will only return employees with this employment status. | [optional]
  **first_name** | **string**| If provided, will only return employees with this first name. | [optional]
+ **groups** | **string**| If provided, will only return employees matching the group ids; multiple groups can be separated by commas. | [optional]
  **include_deleted_data** | **bool**| Whether to include data that was marked as deleted by third party webhooks. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **include_sensitive_fields** | **bool**| Whether to include sensitive fields (such as social security numbers) in the response. | [optional]
@@ -228,8 +231,9 @@ Name | Type | Description  | Notes
  **page_size** | **int**| Number of results to return per page. | [optional]
  **pay_group_id** | **string**| If provided, will only return employees for this pay group | [optional]
  **personal_email** | [**string**](../Model/.md)| If provided, will only return Employees with this personal email | [optional]
- **remote_fields** | **string**| Which fields should be returned in non-normalized form. | [optional]
+ **remote_fields** | **string**| Deprecated. Use show_enum_origins. | [optional]
  **remote_id** | **string**| The API provider&#39;s ID for the given object. | [optional]
+ **show_enum_origins** | **string**| Which fields should be returned in non-normalized form. | [optional]
  **team_id** | **string**| If provided, will only return employees for this team. | [optional]
  **work_email** | [**string**](../Model/.md)| If provided, will only return Employees with this work email | [optional]
  **work_location_id** | **string**| If provided, will only return employees for this location. | [optional]
@@ -316,7 +320,7 @@ Name | Type | Description  | Notes
 ## `employeesRetrieve()`
 
 ```php
-employeesRetrieve($x_account_token, $id, $include_remote_data, $include_sensitive_fields, $remote_fields): \MergeHRISClient\Model\Employee
+employeesRetrieve($x_account_token, $id, $include_remote_data, $include_sensitive_fields, $remote_fields, $show_enum_origins): \MergeHRISClient\Model\Employee
 ```
 
 
@@ -346,10 +350,11 @@ $x_account_token = 'x_account_token_example'; // string | Token identifying the 
 $id = 'id_example'; // string
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $include_sensitive_fields = True; // bool | Whether to include sensitive fields (such as social security numbers) in the response.
-$remote_fields = employment_status,ethnicity,gender,marital_status; // string | Which fields should be returned in non-normalized form.
+$remote_fields = employment_status,ethnicity,gender,marital_status; // string | Deprecated. Use show_enum_origins.
+$show_enum_origins = employment_status,ethnicity,gender,marital_status; // string | Which fields should be returned in non-normalized form.
 
 try {
-    $result = $apiInstance->employeesRetrieve($x_account_token, $id, $include_remote_data, $include_sensitive_fields, $remote_fields);
+    $result = $apiInstance->employeesRetrieve($x_account_token, $id, $include_remote_data, $include_sensitive_fields, $remote_fields, $show_enum_origins);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeesApi->employeesRetrieve: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +369,8 @@ Name | Type | Description  | Notes
  **id** | [**string**](../Model/.md)|  |
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **include_sensitive_fields** | **bool**| Whether to include sensitive fields (such as social security numbers) in the response. | [optional]
- **remote_fields** | **string**| Which fields should be returned in non-normalized form. | [optional]
+ **remote_fields** | **string**| Deprecated. Use show_enum_origins. | [optional]
+ **show_enum_origins** | **string**| Which fields should be returned in non-normalized form. | [optional]
 
 ### Return type
 

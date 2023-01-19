@@ -36,7 +36,7 @@ use \MergeHRISClient\ObjectSerializer;
  * Group Class Doc Comment
  *
  * @category Class
- * @description # The Group Object ### Description The &#x60;Group&#x60; object is used to represent Group information that employees belong to. This is often referenced with an Employee object.  Please note: The teams object will fulfill most use cases. The Groups object is for power-users that want all types of groups at a company and the optionality of pulling multiple groups for an employee.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and expand groups to view an employee&#39;s groups.
+ * @description # The Group Object ### Description The &#x60;Group&#x60; object is used to represent any subset of employees, such as &#x60;PayGroup&#x60; or &#x60;Team&#x60;. Employees can be in multiple Groups.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and expand groups to view an employee&#39;s groups.
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -67,7 +67,8 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'type' => '\MergeHRISClient\Model\GroupTypeEnum',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
-        'remote_was_deleted' => 'bool'
+        'remote_was_deleted' => 'bool',
+        'field_mappings' => 'array<string,mixed>'
     ];
 
     /**
@@ -84,7 +85,8 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'type' => null,
         'remote_data' => null,
-        'remote_was_deleted' => null
+        'remote_was_deleted' => null,
+        'field_mappings' => null
     ];
 
     /**
@@ -120,7 +122,8 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'type' => 'type',
         'remote_data' => 'remote_data',
-        'remote_was_deleted' => 'remote_was_deleted'
+        'remote_was_deleted' => 'remote_was_deleted',
+        'field_mappings' => 'field_mappings'
     ];
 
     /**
@@ -135,7 +138,8 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'type' => 'setType',
         'remote_data' => 'setRemoteData',
-        'remote_was_deleted' => 'setRemoteWasDeleted'
+        'remote_was_deleted' => 'setRemoteWasDeleted',
+        'field_mappings' => 'setFieldMappings'
     ];
 
     /**
@@ -150,7 +154,8 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'type' => 'getType',
         'remote_data' => 'getRemoteData',
-        'remote_was_deleted' => 'getRemoteWasDeleted'
+        'remote_was_deleted' => 'getRemoteWasDeleted',
+        'field_mappings' => 'getFieldMappings'
     ];
 
     /**
@@ -217,6 +222,7 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['type'] = $data['type'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
         $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
+        $this->container['field_mappings'] = $data['field_mappings'] ?? null;
     }
 
     /**
@@ -407,6 +413,30 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteWasDeleted($remote_was_deleted)
     {
         $this->container['remote_was_deleted'] = $remote_was_deleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets field_mappings
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getFieldMappings()
+    {
+        return $this->container['field_mappings'];
+    }
+
+    /**
+     * Sets field_mappings
+     *
+     * @param array<string,mixed>|null $field_mappings field_mappings
+     *
+     * @return self
+     */
+    public function setFieldMappings($field_mappings)
+    {
+        $this->container['field_mappings'] = $field_mappings;
 
         return $this;
     }

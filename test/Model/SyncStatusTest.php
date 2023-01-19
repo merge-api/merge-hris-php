@@ -133,4 +133,13 @@ class SyncStatusTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "selective_sync_configurations_usage"
+     */
+    public function testPropertySelectiveSyncConfigurationsUsage()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

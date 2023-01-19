@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * TeamTest Class Doc Comment
  *
  * @category    Class
- * @description # The Team Object ### Description The &#x60;Team&#x60; object is used to represent a Team within a company. &#x60;Employee&#x60; objects are often grouped this way. Note that in the Merge HRIS API, company subdivisions are all represented with &#x60;Teams&#x60;, rather than &#x60;Teams&#x60; and &#x60;Departments&#x60;.  ### Usage Example If you&#39;re building a way to filter by &#x60;Team&#x60;, you&#39;d hit the &#x60;GET Teams&#x60; endpoint to fetch the &#x60;Teams&#x60;, and then use the &#x60;ID&#x60; of the team your user selects to filter the &#x60;GET Employees&#x60; endpoint.
+ * @description # The Team Object ### Description The &#x60;Team&#x60; object is used to represent a subdivision of the company, usually a department. Each employee will be grouped into one specific Team.  ### Usage Example If you&#39;re building a way to filter by &#x60;Team&#x60;, you&#39;d hit the &#x60;GET Teams&#x60; endpoint to fetch the &#x60;Teams&#x60;, and then use the &#x60;ID&#x60; of the team your user selects to filter the &#x60;GET Employees&#x60; endpoint.
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -129,6 +129,15 @@ class TeamTest extends TestCase
      * Test attribute "remote_was_deleted"
      */
     public function testPropertyRemoteWasDeleted()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "field_mappings"
+     */
+    public function testPropertyFieldMappings()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

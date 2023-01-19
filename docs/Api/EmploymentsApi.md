@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `employmentsList()`
 
 ```php
-employmentsList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_fields, $remote_id): \MergeHRISClient\Model\PaginatedEmploymentList
+employmentsList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_fields, $remote_id, $show_enum_origins): \MergeHRISClient\Model\PaginatedEmploymentList
 ```
 
 
@@ -48,11 +48,12 @@ $modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If 
 $modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified before this datetime.
 $order_by = 'order_by_example'; // string | Overrides the default ordering for this endpoint.
 $page_size = 56; // int | Number of results to return per page.
-$remote_fields = employment_type,flsa_status,pay_frequency,pay_period; // string | Which fields should be returned in non-normalized form.
+$remote_fields = employment_type,flsa_status,pay_frequency,pay_period; // string | Deprecated. Use show_enum_origins.
 $remote_id = 'remote_id_example'; // string | The API provider's ID for the given object.
+$show_enum_origins = employment_type,flsa_status,pay_frequency,pay_period; // string | Which fields should be returned in non-normalized form.
 
 try {
-    $result = $apiInstance->employmentsList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_fields, $remote_id);
+    $result = $apiInstance->employmentsList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_fields, $remote_id, $show_enum_origins);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmploymentsApi->employmentsList: ', $e->getMessage(), PHP_EOL;
@@ -74,8 +75,9 @@ Name | Type | Description  | Notes
  **modified_before** | **\DateTime**| If provided, will only return objects modified before this datetime. | [optional]
  **order_by** | **string**| Overrides the default ordering for this endpoint. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
- **remote_fields** | **string**| Which fields should be returned in non-normalized form. | [optional]
+ **remote_fields** | **string**| Deprecated. Use show_enum_origins. | [optional]
  **remote_id** | **string**| The API provider&#39;s ID for the given object. | [optional]
+ **show_enum_origins** | **string**| Which fields should be returned in non-normalized form. | [optional]
 
 ### Return type
 
@@ -97,7 +99,7 @@ Name | Type | Description  | Notes
 ## `employmentsRetrieve()`
 
 ```php
-employmentsRetrieve($x_account_token, $id, $include_remote_data, $remote_fields): \MergeHRISClient\Model\Employment
+employmentsRetrieve($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins): \MergeHRISClient\Model\Employment
 ```
 
 
@@ -126,10 +128,11 @@ $apiInstance = new MergeHRISClient\Api\EmploymentsApi(
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $id = 'id_example'; // string
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
-$remote_fields = employment_type,flsa_status,pay_frequency,pay_period; // string | Which fields should be returned in non-normalized form.
+$remote_fields = employment_type,flsa_status,pay_frequency,pay_period; // string | Deprecated. Use show_enum_origins.
+$show_enum_origins = employment_type,flsa_status,pay_frequency,pay_period; // string | Which fields should be returned in non-normalized form.
 
 try {
-    $result = $apiInstance->employmentsRetrieve($x_account_token, $id, $include_remote_data, $remote_fields);
+    $result = $apiInstance->employmentsRetrieve($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmploymentsApi->employmentsRetrieve: ', $e->getMessage(), PHP_EOL;
@@ -143,7 +146,8 @@ Name | Type | Description  | Notes
  **x_account_token** | **string**| Token identifying the end user. |
  **id** | [**string**](../Model/.md)|  |
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
- **remote_fields** | **string**| Which fields should be returned in non-normalized form. | [optional]
+ **remote_fields** | **string**| Deprecated. Use show_enum_origins. | [optional]
+ **show_enum_origins** | **string**| Which fields should be returned in non-normalized form. | [optional]
 
 ### Return type
 

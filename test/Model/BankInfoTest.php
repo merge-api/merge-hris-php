@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * BankInfoTest Class Doc Comment
  *
  * @category    Class
- * @description # The BankInfo Object ### Description The &#x60;BankInfo&#x60; object is used to represent the Bank Account information for an Employee. This is often referenced with an Employee object.  ### Usage Example Fetch from the &#x60;LIST BankInfo&#x60; endpoint and filter by &#x60;ID&#x60; to show all bank information.
+ * @description # The BankInfo Object ### Description The &#x60;BankInfo&#x60; object is used to represent the Bank Account information for an Employee.  ### Usage Example Fetch from the &#x60;LIST BankInfo&#x60; endpoint and filter by &#x60;ID&#x60; to show all bank information.
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -165,6 +165,15 @@ class BankInfoTest extends TestCase
      * Test attribute "remote_was_deleted"
      */
     public function testPropertyRemoteWasDeleted()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "field_mappings"
+     */
+    public function testPropertyFieldMappings()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -36,7 +36,7 @@ use \MergeHRISClient\ObjectSerializer;
  * EmployeePayrollRun Class Doc Comment
  *
  * @category Class
- * @description # The EmployeePayrollRun Object ### Description The &#x60;EmployeePayrollRun&#x60; object is used to represent a payroll run for a specific employee.  ### Usage Example Fetch from the &#x60;LIST EmployeePayrollRun&#x60; endpoint and filter by &#x60;ID&#x60; to show all employee payroll runs.
+ * @description # The EmployeePayrollRun Object ### Description The &#x60;EmployeePayrollRun&#x60; object is used to represent an employee&#39;s pay statement for a specific payroll run.  ### Usage Example Fetch from the &#x60;LIST EmployeePayrollRun&#x60; endpoint and filter by &#x60;ID&#x60; to show all employee payroll runs.
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -74,7 +74,8 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
         'deductions' => '\MergeHRISClient\Model\Deduction[]',
         'taxes' => '\MergeHRISClient\Model\Tax[]',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
-        'remote_was_deleted' => 'bool'
+        'remote_was_deleted' => 'bool',
+        'field_mappings' => 'array<string,mixed>'
     ];
 
     /**
@@ -98,7 +99,8 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
         'deductions' => null,
         'taxes' => null,
         'remote_data' => null,
-        'remote_was_deleted' => null
+        'remote_was_deleted' => null,
+        'field_mappings' => null
     ];
 
     /**
@@ -141,7 +143,8 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
         'deductions' => 'deductions',
         'taxes' => 'taxes',
         'remote_data' => 'remote_data',
-        'remote_was_deleted' => 'remote_was_deleted'
+        'remote_was_deleted' => 'remote_was_deleted',
+        'field_mappings' => 'field_mappings'
     ];
 
     /**
@@ -163,7 +166,8 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
         'deductions' => 'setDeductions',
         'taxes' => 'setTaxes',
         'remote_data' => 'setRemoteData',
-        'remote_was_deleted' => 'setRemoteWasDeleted'
+        'remote_was_deleted' => 'setRemoteWasDeleted',
+        'field_mappings' => 'setFieldMappings'
     ];
 
     /**
@@ -185,7 +189,8 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
         'deductions' => 'getDeductions',
         'taxes' => 'getTaxes',
         'remote_data' => 'getRemoteData',
-        'remote_was_deleted' => 'getRemoteWasDeleted'
+        'remote_was_deleted' => 'getRemoteWasDeleted',
+        'field_mappings' => 'getFieldMappings'
     ];
 
     /**
@@ -259,6 +264,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['taxes'] = $data['taxes'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
         $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
+        $this->container['field_mappings'] = $data['field_mappings'] ?? null;
     }
 
     /**
@@ -346,7 +352,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets employee
      *
-     * @param string|null $employee employee
+     * @param string|null $employee The employee whose payroll is being run.
      *
      * @return self
      */
@@ -370,7 +376,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets payroll_run
      *
-     * @param string|null $payroll_run payroll_run
+     * @param string|null $payroll_run The payroll being run.
      *
      * @return self
      */
@@ -394,7 +400,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets gross_pay
      *
-     * @param float|null $gross_pay The gross pay from the run.
+     * @param float|null $gross_pay The total earnings throughout a given period for an employee before any deductions are made.
      *
      * @return self
      */
@@ -418,7 +424,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets net_pay
      *
-     * @param float|null $net_pay The net pay from the run.
+     * @param float|null $net_pay The take-home pay throughout a given period for an employee after deductions are made.
      *
      * @return self
      */
@@ -617,6 +623,30 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setRemoteWasDeleted($remote_was_deleted)
     {
         $this->container['remote_was_deleted'] = $remote_was_deleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets field_mappings
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getFieldMappings()
+    {
+        return $this->container['field_mappings'];
+    }
+
+    /**
+     * Sets field_mappings
+     *
+     * @param array<string,mixed>|null $field_mappings field_mappings
+     *
+     * @return self
+     */
+    public function setFieldMappings($field_mappings)
+    {
+        $this->container['field_mappings'] = $field_mappings;
 
         return $this;
     }

@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **next_sync_start** | [**\DateTime**](\DateTime.md) |  | [optional]
 **status** | [**SyncStatusStatusEnum**](SyncStatusStatusEnum.md) |  |
 **is_initial_sync** | **bool** |  |
+**selective_sync_configurations_usage** | [**SelectiveSyncConfigurationsUsageEnum**](SelectiveSyncConfigurationsUsageEnum.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

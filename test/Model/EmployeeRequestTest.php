@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * EmployeeRequestTest Class Doc Comment
  *
  * @category    Class
- * @description # The Employee Object ### Description The &#x60;Employee&#x60; object is used to represent an Employee for a company.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
+ * @description # The Employee Object ### Description The &#x60;Employee&#x60; object is used to represent any person who has been employed by a company.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

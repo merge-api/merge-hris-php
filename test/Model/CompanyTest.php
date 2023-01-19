@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CompanyTest Class Doc Comment
  *
  * @category    Class
- * @description # The Company Object ### Description The &#x60;Company&#x60; object is used to represent a Company within the HRIS / Payroll system.  ### Usage Example Fetch from the &#x60;LIST Companies&#x60; endpoint and filter by &#x60;ID&#x60; to show all companies.
+ * @description # The Company Object ### Description The &#x60;Company&#x60; object is used to represent a company within the HRIS / Payroll system.  ### Usage Example Fetch from the &#x60;LIST Companies&#x60; endpoint and filter by &#x60;ID&#x60; to show all companies.
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -138,6 +138,15 @@ class CompanyTest extends TestCase
      * Test attribute "remote_was_deleted"
      */
     public function testPropertyRemoteWasDeleted()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "field_mappings"
+     */
+    public function testPropertyFieldMappings()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

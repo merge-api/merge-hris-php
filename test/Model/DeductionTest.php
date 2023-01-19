@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * DeductionTest Class Doc Comment
  *
  * @category    Class
- * @description # The Deduction Object ### Description The &#x60;Deduction&#x60; object is used to represent a deduction for a given employee&#39;s payroll run. One run could include several deductions.  ### Usage Example Fetch from the &#x60;LIST Deductions&#x60; endpoint and filter by &#x60;ID&#x60; to show all deductions.
+ * @description # The Deduction Object ### Description The &#x60;Deduction&#x60; object is used to represent an array of the wages withheld from total earnings for the purpose of paying taxes.  ### Usage Example Fetch from the &#x60;LIST Deductions&#x60; endpoint and filter by &#x60;ID&#x60; to show all deductions.
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -126,18 +126,18 @@ class DeductionTest extends TestCase
     }
 
     /**
-     * Test attribute "remote_data"
+     * Test attribute "remote_was_deleted"
      */
-    public function testPropertyRemoteData()
+    public function testPropertyRemoteWasDeleted()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "remote_was_deleted"
+     * Test attribute "field_mappings"
      */
-    public function testPropertyRemoteWasDeleted()
+    public function testPropertyFieldMappings()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

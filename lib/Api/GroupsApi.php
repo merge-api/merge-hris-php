@@ -127,16 +127,18 @@ class GroupsApi
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $types If provided, will only return groups of these types. Multiple values can be separated by commas. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedGroupList
      */
-    public function groupsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
+    public function groupsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null, $types = null)
     {
-        list($response) = $this->groupsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id);
+        list($response) = $this->groupsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $show_enum_origins, $types);
         return $response;
     }
 
@@ -152,16 +154,18 @@ class GroupsApi
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $types If provided, will only return groups of these types. Multiple values can be separated by commas. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedGroupList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function groupsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
+    public function groupsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null, $types = null)
     {
-        $request = $this->groupsListRequest($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id);
+        $request = $this->groupsListRequest($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $show_enum_origins, $types);
 
         try {
             $options = $this->createHttpClientOption();
@@ -246,15 +250,17 @@ class GroupsApi
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $types If provided, will only return groups of these types. Multiple values can be separated by commas. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function groupsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
+    public function groupsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null, $types = null)
     {
-        return $this->groupsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id)
+        return $this->groupsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $show_enum_origins, $types)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -274,16 +280,18 @@ class GroupsApi
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $types If provided, will only return groups of these types. Multiple values can be separated by commas. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function groupsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
+    public function groupsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null, $types = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedGroupList';
-        $request = $this->groupsListRequest($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id);
+        $request = $this->groupsListRequest($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $show_enum_origins, $types);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -330,13 +338,15 @@ class GroupsApi
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $types If provided, will only return groups of these types. Multiple values can be separated by commas. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function groupsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
+    public function groupsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null, $types = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -462,6 +472,28 @@ class GroupsApi
                 $queryParams['remote_id'] = $remote_id;
             }
         }
+        // query params
+        if ($show_enum_origins !== null) {
+            if('form' === 'form' && is_array($show_enum_origins)) {
+                foreach($show_enum_origins as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['show_enum_origins'] = $show_enum_origins;
+            }
+        }
+        // query params
+        if ($types !== null) {
+            if('form' === 'form' && is_array($types)) {
+                foreach($types as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['types'] = $types;
+            }
+        }
 
         // header params
         if ($x_account_token !== null) {
@@ -502,7 +534,7 @@ class GroupsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -523,7 +555,7 @@ class GroupsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -538,15 +570,16 @@ class GroupsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\Group
      */
-    public function groupsRetrieve($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function groupsRetrieve($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
-        list($response) = $this->groupsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields);
+        list($response) = $this->groupsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins);
         return $response;
     }
 
@@ -556,15 +589,16 @@ class GroupsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\Group, HTTP status code, HTTP response headers (array of strings)
      */
-    public function groupsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function groupsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
-        $request = $this->groupsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
+        $request = $this->groupsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins);
 
         try {
             $options = $this->createHttpClientOption();
@@ -643,14 +677,15 @@ class GroupsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function groupsRetrieveAsync($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function groupsRetrieveAsync($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
-        return $this->groupsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields)
+        return $this->groupsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -664,15 +699,16 @@ class GroupsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function groupsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function groupsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
         $returnType = '\MergeHRISClient\Model\Group';
-        $request = $this->groupsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
+        $request = $this->groupsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -713,12 +749,13 @@ class GroupsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function groupsRetrieveRequest($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function groupsRetrieveRequest($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -760,6 +797,17 @@ class GroupsApi
             }
             else {
                 $queryParams['remote_fields'] = $remote_fields;
+            }
+        }
+        // query params
+        if ($show_enum_origins !== null) {
+            if('form' === 'form' && is_array($show_enum_origins)) {
+                foreach($show_enum_origins as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['show_enum_origins'] = $show_enum_origins;
             }
         }
 
@@ -810,7 +858,7 @@ class GroupsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -831,7 +879,7 @@ class GroupsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

@@ -1,6 +1,6 @@
 <?php
 /**
- * PayPeriodEnum
+ * SelectiveSyncConfigurationsUsageEnum
  *
  * PHP version 7.2
  *
@@ -31,27 +31,20 @@ namespace MergeHRISClient\Model;
 use \MergeHRISClient\ObjectSerializer;
 
 /**
- * PayPeriodEnum Class Doc Comment
+ * SelectiveSyncConfigurationsUsageEnum Class Doc Comment
  *
  * @category Class
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PayPeriodEnum
+class SelectiveSyncConfigurationsUsageEnum
 {
     /**
      * Possible values of this enum
      */
-    const HOUR = 'HOUR';
-    const DAY = 'DAY';
-    const WEEK = 'WEEK';
-    const EVERY_TWO_WEEKS = 'EVERY_TWO_WEEKS';
-    const SEMIMONTHLY = 'SEMIMONTHLY';
-    const MONTH = 'MONTH';
-    const QUARTER = 'QUARTER';
-    const EVERY_SIX_MONTHS = 'EVERY_SIX_MONTHS';
-    const YEAR = 'YEAR';
+    const NEXT_SYNC = 'IN_NEXT_SYNC';
+    const LAST_SYNC = 'IN_LAST_SYNC';
     
 
     /**
@@ -68,15 +61,8 @@ class PayPeriodEnum
     public static function getAllowableEnumValues()
     {
         return [
-            self::HOUR,
-            self::DAY,
-            self::WEEK,
-            self::EVERY_TWO_WEEKS,
-            self::SEMIMONTHLY,
-            self::MONTH,
-            self::QUARTER,
-            self::EVERY_SIX_MONTHS,
-            self::YEAR,
+            self::NEXT_SYNC,
+            self::LAST_SYNC,
         ];
     }
 }

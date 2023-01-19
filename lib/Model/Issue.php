@@ -66,7 +66,8 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_user' => 'array<string,mixed>',
         'first_incident_time' => '\DateTime',
         'last_incident_time' => '\DateTime',
-        'is_muted' => 'bool'
+        'is_muted' => 'bool',
+        'error_details' => 'array<string,mixed>'
     ];
 
     /**
@@ -83,7 +84,8 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_user' => null,
         'first_incident_time' => 'date-time',
         'last_incident_time' => 'date-time',
-        'is_muted' => null
+        'is_muted' => null,
+        'error_details' => null
     ];
 
     /**
@@ -119,7 +121,8 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_user' => 'end_user',
         'first_incident_time' => 'first_incident_time',
         'last_incident_time' => 'last_incident_time',
-        'is_muted' => 'is_muted'
+        'is_muted' => 'is_muted',
+        'error_details' => 'error_details'
     ];
 
     /**
@@ -134,7 +137,8 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_user' => 'setEndUser',
         'first_incident_time' => 'setFirstIncidentTime',
         'last_incident_time' => 'setLastIncidentTime',
-        'is_muted' => 'setIsMuted'
+        'is_muted' => 'setIsMuted',
+        'error_details' => 'setErrorDetails'
     ];
 
     /**
@@ -149,7 +153,8 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_user' => 'getEndUser',
         'first_incident_time' => 'getFirstIncidentTime',
         'last_incident_time' => 'getLastIncidentTime',
-        'is_muted' => 'getIsMuted'
+        'is_muted' => 'getIsMuted',
+        'error_details' => 'getErrorDetails'
     ];
 
     /**
@@ -216,6 +221,7 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['first_incident_time'] = $data['first_incident_time'] ?? null;
         $this->container['last_incident_time'] = $data['last_incident_time'] ?? null;
         $this->container['is_muted'] = $data['is_muted'] ?? null;
+        $this->container['error_details'] = $data['error_details'] ?? null;
     }
 
     /**
@@ -272,7 +278,7 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return \MergeHRISClient\Model\IssueStatusEnum|null
+     * @return IssueStatusEnum|null
      */
     public function getStatus()
     {
@@ -282,7 +288,7 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param \MergeHRISClient\Model\IssueStatusEnum|null $status status
+     * @param IssueStatusEnum|null $status status
      *
      * @return self
      */
@@ -409,6 +415,30 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIsMuted($is_muted)
     {
         $this->container['is_muted'] = $is_muted;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_details
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getErrorDetails()
+    {
+        return $this->container['error_details'];
+    }
+
+    /**
+     * Sets error_details
+     *
+     * @param array<string,mixed>|null $error_details error_details
+     *
+     * @return self
+     */
+    public function setErrorDetails($error_details)
+    {
+        $this->container['error_details'] = $error_details;
 
         return $this;
     }

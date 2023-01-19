@@ -129,16 +129,17 @@ class EmploymentsApi
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  string $order_by Overrides the default ordering for this endpoint. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedEmploymentList
      */
-    public function employmentsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_fields = null, $remote_id = null)
+    public function employmentsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
     {
-        list($response) = $this->employmentsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_fields, $remote_id);
+        list($response) = $this->employmentsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_fields, $remote_id, $show_enum_origins);
         return $response;
     }
 
@@ -156,16 +157,17 @@ class EmploymentsApi
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  string $order_by Overrides the default ordering for this endpoint. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedEmploymentList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function employmentsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_fields = null, $remote_id = null)
+    public function employmentsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
     {
-        $request = $this->employmentsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_fields, $remote_id);
+        $request = $this->employmentsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_fields, $remote_id, $show_enum_origins);
 
         try {
             $options = $this->createHttpClientOption();
@@ -252,15 +254,16 @@ class EmploymentsApi
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  string $order_by Overrides the default ordering for this endpoint. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employmentsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_fields = null, $remote_id = null)
+    public function employmentsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
     {
-        return $this->employmentsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_fields, $remote_id)
+        return $this->employmentsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_fields, $remote_id, $show_enum_origins)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -282,16 +285,17 @@ class EmploymentsApi
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  string $order_by Overrides the default ordering for this endpoint. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employmentsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_fields = null, $remote_id = null)
+    public function employmentsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedEmploymentList';
-        $request = $this->employmentsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_fields, $remote_id);
+        $request = $this->employmentsListRequest($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $order_by, $page_size, $remote_fields, $remote_id, $show_enum_origins);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -340,13 +344,14 @@ class EmploymentsApi
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  string $order_by Overrides the default ordering for this endpoint. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function employmentsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_fields = null, $remote_id = null)
+    public function employmentsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $order_by = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -494,6 +499,17 @@ class EmploymentsApi
                 $queryParams['remote_id'] = $remote_id;
             }
         }
+        // query params
+        if ($show_enum_origins !== null) {
+            if('form' === 'form' && is_array($show_enum_origins)) {
+                foreach($show_enum_origins as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['show_enum_origins'] = $show_enum_origins;
+            }
+        }
 
         // header params
         if ($x_account_token !== null) {
@@ -534,7 +550,7 @@ class EmploymentsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -555,7 +571,7 @@ class EmploymentsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -570,15 +586,16 @@ class EmploymentsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\Employment
      */
-    public function employmentsRetrieve($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function employmentsRetrieve($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
-        list($response) = $this->employmentsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields);
+        list($response) = $this->employmentsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins);
         return $response;
     }
 
@@ -588,15 +605,16 @@ class EmploymentsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\Employment, HTTP status code, HTTP response headers (array of strings)
      */
-    public function employmentsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function employmentsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
-        $request = $this->employmentsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
+        $request = $this->employmentsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins);
 
         try {
             $options = $this->createHttpClientOption();
@@ -675,14 +693,15 @@ class EmploymentsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employmentsRetrieveAsync($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function employmentsRetrieveAsync($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
-        return $this->employmentsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields)
+        return $this->employmentsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -696,15 +715,16 @@ class EmploymentsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employmentsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function employmentsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
         $returnType = '\MergeHRISClient\Model\Employment';
-        $request = $this->employmentsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
+        $request = $this->employmentsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -745,12 +765,13 @@ class EmploymentsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
+     * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
+     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function employmentsRetrieveRequest($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
+    public function employmentsRetrieveRequest($x_account_token, $id, $include_remote_data = null, $remote_fields = null, $show_enum_origins = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -792,6 +813,17 @@ class EmploymentsApi
             }
             else {
                 $queryParams['remote_fields'] = $remote_fields;
+            }
+        }
+        // query params
+        if ($show_enum_origins !== null) {
+            if('form' === 'form' && is_array($show_enum_origins)) {
+                foreach($show_enum_origins as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['show_enum_origins'] = $show_enum_origins;
             }
         }
 
@@ -842,7 +874,7 @@ class EmploymentsApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -863,7 +895,7 @@ class EmploymentsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

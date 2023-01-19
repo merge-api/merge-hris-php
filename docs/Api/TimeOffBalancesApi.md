@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `timeOffBalancesList()`
 
 ```php
-timeOffBalancesList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_fields, $remote_id): \MergeHRISClient\Model\PaginatedTimeOffBalanceList
+timeOffBalancesList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_fields, $remote_id, $show_enum_origins): \MergeHRISClient\Model\PaginatedTimeOffBalanceList
 ```
 
 
@@ -48,11 +48,12 @@ $modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If 
 $modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified before this datetime.
 $page_size = 56; // int | Number of results to return per page.
 $policy_type = 'policy_type_example'; // string | If provided, will only return TimeOffBalance with this policy type. Options: ('VACATION', 'SICK', 'PERSONAL', 'JURY_DUTY', 'VOLUNTEER', 'BEREAVEMENT')
-$remote_fields = policy_type; // string | Which fields should be returned in non-normalized form.
+$remote_fields = policy_type; // string | Deprecated. Use show_enum_origins.
 $remote_id = 'remote_id_example'; // string | The API provider's ID for the given object.
+$show_enum_origins = policy_type; // string | Which fields should be returned in non-normalized form.
 
 try {
-    $result = $apiInstance->timeOffBalancesList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_fields, $remote_id);
+    $result = $apiInstance->timeOffBalancesList($x_account_token, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $policy_type, $remote_fields, $remote_id, $show_enum_origins);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimeOffBalancesApi->timeOffBalancesList: ', $e->getMessage(), PHP_EOL;
@@ -74,8 +75,9 @@ Name | Type | Description  | Notes
  **modified_before** | **\DateTime**| If provided, will only return objects modified before this datetime. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
  **policy_type** | **string**| If provided, will only return TimeOffBalance with this policy type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) | [optional]
- **remote_fields** | **string**| Which fields should be returned in non-normalized form. | [optional]
+ **remote_fields** | **string**| Deprecated. Use show_enum_origins. | [optional]
  **remote_id** | **string**| The API provider&#39;s ID for the given object. | [optional]
+ **show_enum_origins** | **string**| Which fields should be returned in non-normalized form. | [optional]
 
 ### Return type
 
@@ -97,7 +99,7 @@ Name | Type | Description  | Notes
 ## `timeOffBalancesRetrieve()`
 
 ```php
-timeOffBalancesRetrieve($x_account_token, $id, $include_remote_data, $remote_fields): \MergeHRISClient\Model\TimeOffBalance
+timeOffBalancesRetrieve($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins): \MergeHRISClient\Model\TimeOffBalance
 ```
 
 
@@ -126,10 +128,11 @@ $apiInstance = new MergeHRISClient\Api\TimeOffBalancesApi(
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $id = 'id_example'; // string
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
-$remote_fields = policy_type; // string | Which fields should be returned in non-normalized form.
+$remote_fields = policy_type; // string | Deprecated. Use show_enum_origins.
+$show_enum_origins = policy_type; // string | Which fields should be returned in non-normalized form.
 
 try {
-    $result = $apiInstance->timeOffBalancesRetrieve($x_account_token, $id, $include_remote_data, $remote_fields);
+    $result = $apiInstance->timeOffBalancesRetrieve($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimeOffBalancesApi->timeOffBalancesRetrieve: ', $e->getMessage(), PHP_EOL;
@@ -143,7 +146,8 @@ Name | Type | Description  | Notes
  **x_account_token** | **string**| Token identifying the end user. |
  **id** | [**string**](../Model/.md)|  |
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
- **remote_fields** | **string**| Which fields should be returned in non-normalized form. | [optional]
+ **remote_fields** | **string**| Deprecated. Use show_enum_origins. | [optional]
+ **show_enum_origins** | **string**| Which fields should be returned in non-normalized form. | [optional]
 
 ### Return type
 

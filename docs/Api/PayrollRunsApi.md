@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `payrollRunsList()`
 
 ```php
-payrollRunsList($x_account_token, $created_after, $created_before, $cursor, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $run_type, $started_after, $started_before): \MergeHRISClient\Model\PaginatedPayrollRunList
+payrollRunsList($x_account_token, $created_after, $created_before, $cursor, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $run_type, $show_enum_origins, $started_after, $started_before): \MergeHRISClient\Model\PaginatedPayrollRunList
 ```
 
 
@@ -48,14 +48,15 @@ $include_remote_data = True; // bool | Whether to include the original data Merg
 $modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified after this datetime.
 $modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified before this datetime.
 $page_size = 56; // int | Number of results to return per page.
-$remote_fields = run_state,run_type; // string | Which fields should be returned in non-normalized form.
+$remote_fields = run_state,run_type; // string | Deprecated. Use show_enum_origins.
 $remote_id = 'remote_id_example'; // string | The API provider's ID for the given object.
 $run_type = 'run_type_example'; // string | If provided, will only return PayrollRun's with this status. Options: ('REGULAR', 'OFF_CYCLE', 'CORRECTION', 'TERMINATION', 'SIGN_ON_BONUS')
+$show_enum_origins = run_state,run_type; // string | Which fields should be returned in non-normalized form.
 $started_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return payroll runs started after this datetime.
 $started_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return payroll runs started before this datetime.
 
 try {
-    $result = $apiInstance->payrollRunsList($x_account_token, $created_after, $created_before, $cursor, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $run_type, $started_after, $started_before);
+    $result = $apiInstance->payrollRunsList($x_account_token, $created_after, $created_before, $cursor, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $run_type, $show_enum_origins, $started_after, $started_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PayrollRunsApi->payrollRunsList: ', $e->getMessage(), PHP_EOL;
@@ -77,9 +78,10 @@ Name | Type | Description  | Notes
  **modified_after** | **\DateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **\DateTime**| If provided, will only return objects modified before this datetime. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
- **remote_fields** | **string**| Which fields should be returned in non-normalized form. | [optional]
+ **remote_fields** | **string**| Deprecated. Use show_enum_origins. | [optional]
  **remote_id** | **string**| The API provider&#39;s ID for the given object. | [optional]
  **run_type** | **string**| If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;) | [optional]
+ **show_enum_origins** | **string**| Which fields should be returned in non-normalized form. | [optional]
  **started_after** | **\DateTime**| If provided, will only return payroll runs started after this datetime. | [optional]
  **started_before** | **\DateTime**| If provided, will only return payroll runs started before this datetime. | [optional]
 
@@ -103,7 +105,7 @@ Name | Type | Description  | Notes
 ## `payrollRunsRetrieve()`
 
 ```php
-payrollRunsRetrieve($x_account_token, $id, $include_remote_data, $remote_fields): \MergeHRISClient\Model\PayrollRun
+payrollRunsRetrieve($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins): \MergeHRISClient\Model\PayrollRun
 ```
 
 
@@ -132,10 +134,11 @@ $apiInstance = new MergeHRISClient\Api\PayrollRunsApi(
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $id = 'id_example'; // string
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
-$remote_fields = run_state,run_type; // string | Which fields should be returned in non-normalized form.
+$remote_fields = run_state,run_type; // string | Deprecated. Use show_enum_origins.
+$show_enum_origins = run_state,run_type; // string | Which fields should be returned in non-normalized form.
 
 try {
-    $result = $apiInstance->payrollRunsRetrieve($x_account_token, $id, $include_remote_data, $remote_fields);
+    $result = $apiInstance->payrollRunsRetrieve($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PayrollRunsApi->payrollRunsRetrieve: ', $e->getMessage(), PHP_EOL;
@@ -149,7 +152,8 @@ Name | Type | Description  | Notes
  **x_account_token** | **string**| Token identifying the end user. |
  **id** | [**string**](../Model/.md)|  |
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
- **remote_fields** | **string**| Which fields should be returned in non-normalized form. | [optional]
+ **remote_fields** | **string**| Deprecated. Use show_enum_origins. | [optional]
+ **show_enum_origins** | **string**| Which fields should be returned in non-normalized form. | [optional]
 
 ### Return type
 

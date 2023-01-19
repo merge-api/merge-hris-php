@@ -206,9 +206,6 @@ class LinkToken implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['link_token'] === null) {
             $invalidProperties[] = "'link_token' can't be null";
         }
-        if ($this->container['integration_name'] === null) {
-            $invalidProperties[] = "'integration_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -251,7 +248,7 @@ class LinkToken implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets integration_name
      *
-     * @return string
+     * @return string|null
      */
     public function getIntegrationName()
     {
@@ -261,7 +258,7 @@ class LinkToken implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets integration_name
      *
-     * @param string $integration_name integration_name
+     * @param string|null $integration_name integration_name
      *
      * @return self
      */

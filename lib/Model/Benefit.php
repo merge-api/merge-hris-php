@@ -36,7 +36,7 @@ use \MergeHRISClient\ObjectSerializer;
  * Benefit Class Doc Comment
  *
  * @category Class
- * @description # The Benefit Object ### Description The &#x60;Benefit&#x60; object is used to represent a Benefit for an employee.  ### Usage Example Fetch from the &#x60;LIST Benefits&#x60; endpoint and filter by &#x60;ID&#x60; to show all benefits.
+ * @description # The Benefit Object ### Description The &#x60;Benefit&#x60; object is used to represent a benefit that an employee has enrolled in.  ### Usage Example Fetch from the &#x60;LIST Benefits&#x60; endpoint and filter by &#x60;ID&#x60; to show all benefits.
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -69,7 +69,8 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee_contribution' => 'float',
         'company_contribution' => 'float',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
-        'remote_was_deleted' => 'bool'
+        'remote_was_deleted' => 'bool',
+        'field_mappings' => 'array<string,mixed>'
     ];
 
     /**
@@ -88,7 +89,8 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee_contribution' => 'float',
         'company_contribution' => 'float',
         'remote_data' => null,
-        'remote_was_deleted' => null
+        'remote_was_deleted' => null,
+        'field_mappings' => null
     ];
 
     /**
@@ -126,7 +128,8 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee_contribution' => 'employee_contribution',
         'company_contribution' => 'company_contribution',
         'remote_data' => 'remote_data',
-        'remote_was_deleted' => 'remote_was_deleted'
+        'remote_was_deleted' => 'remote_was_deleted',
+        'field_mappings' => 'field_mappings'
     ];
 
     /**
@@ -143,7 +146,8 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee_contribution' => 'setEmployeeContribution',
         'company_contribution' => 'setCompanyContribution',
         'remote_data' => 'setRemoteData',
-        'remote_was_deleted' => 'setRemoteWasDeleted'
+        'remote_was_deleted' => 'setRemoteWasDeleted',
+        'field_mappings' => 'setFieldMappings'
     ];
 
     /**
@@ -160,7 +164,8 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee_contribution' => 'getEmployeeContribution',
         'company_contribution' => 'getCompanyContribution',
         'remote_data' => 'getRemoteData',
-        'remote_was_deleted' => 'getRemoteWasDeleted'
+        'remote_was_deleted' => 'getRemoteWasDeleted',
+        'field_mappings' => 'getFieldMappings'
     ];
 
     /**
@@ -229,6 +234,7 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['company_contribution'] = $data['company_contribution'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
         $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
+        $this->container['field_mappings'] = $data['field_mappings'] ?? null;
     }
 
     /**
@@ -316,7 +322,7 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employee
      *
-     * @param string|null $employee employee
+     * @param string|null $employee The employee on the plan.
      *
      * @return self
      */
@@ -467,6 +473,30 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteWasDeleted($remote_was_deleted)
     {
         $this->container['remote_was_deleted'] = $remote_was_deleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets field_mappings
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getFieldMappings()
+    {
+        return $this->container['field_mappings'];
+    }
+
+    /**
+     * Sets field_mappings
+     *
+     * @param array<string,mixed>|null $field_mappings field_mappings
+     *
+     * @return self
+     */
+    public function setFieldMappings($field_mappings)
+    {
+        $this->container['field_mappings'] = $field_mappings;
 
         return $this;
     }
