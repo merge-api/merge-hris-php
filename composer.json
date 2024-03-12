@@ -1,6 +1,6 @@
 {
     "name": "merge-api/merge-hris-php",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "The unified API for building rich integrations with multiple HR Information System platforms.",
     "keywords": [
         "openapitools",
@@ -24,7 +24,7 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^7.4"
+        "guzzlehttp/guzzle": "^6.0 || ^7.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0 || ^9.0",
