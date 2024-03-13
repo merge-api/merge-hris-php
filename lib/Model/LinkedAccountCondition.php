@@ -309,7 +309,7 @@ class LinkedAccountCondition implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets native_name
      *
-     * @param string $native_name User-facing *native condition* name. e.g. \"Skip Manager\".
+     * @param string $native_name native_name
      *
      * @return self
      */
@@ -381,7 +381,7 @@ class LinkedAccountCondition implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets field_name
      *
-     * @param string $field_name The name of the field on the common model that this condition corresponds to, if they conceptually match. e.g. \"location_type\".
+     * @param string $field_name field_name
      *
      * @return self
      */

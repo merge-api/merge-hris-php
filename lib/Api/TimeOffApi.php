@@ -430,24 +430,28 @@ class TimeOffApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off for this employee. (optional)
+     * @param  \DateTime $ended_after If provided, will only return employees that ended after this datetime. (optional)
+     * @param  \DateTime $ended_before If provided, will only return time-offs that ended before this datetime. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
-     * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;) (optional)
+     * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;)  * &#x60;VACATION&#x60; - VACATION * &#x60;SICK&#x60; - SICK * &#x60;PERSONAL&#x60; - PERSONAL * &#x60;JURY_DUTY&#x60; - JURY_DUTY * &#x60;VOLUNTEER&#x60; - VOLUNTEER * &#x60;BEREAVEMENT&#x60; - BEREAVEMENT (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
+     * @param  \DateTime $started_after If provided, will only return time-offs that started after this datetime. (optional)
+     * @param  \DateTime $started_before If provided, will only return time-offs that started before this datetime. (optional)
+     * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;)  * &#x60;REQUESTED&#x60; - REQUESTED * &#x60;APPROVED&#x60; - APPROVED * &#x60;DECLINED&#x60; - DECLINED * &#x60;CANCELLED&#x60; - CANCELLED * &#x60;DELETED&#x60; - DELETED (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedTimeOffList
      */
-    public function timeOffList($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $request_type = null, $show_enum_origins = null, $status = null)
+    public function timeOffList($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $request_type = null, $show_enum_origins = null, $started_after = null, $started_before = null, $status = null)
     {
-        list($response) = $this->timeOffListWithHttpInfo($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $request_type, $show_enum_origins, $status);
+        list($response) = $this->timeOffListWithHttpInfo($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $request_type, $show_enum_origins, $started_after, $started_before, $status);
         return $response;
     }
 
@@ -460,24 +464,28 @@ class TimeOffApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off for this employee. (optional)
+     * @param  \DateTime $ended_after If provided, will only return employees that ended after this datetime. (optional)
+     * @param  \DateTime $ended_before If provided, will only return time-offs that ended before this datetime. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
-     * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;) (optional)
+     * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;)  * &#x60;VACATION&#x60; - VACATION * &#x60;SICK&#x60; - SICK * &#x60;PERSONAL&#x60; - PERSONAL * &#x60;JURY_DUTY&#x60; - JURY_DUTY * &#x60;VOLUNTEER&#x60; - VOLUNTEER * &#x60;BEREAVEMENT&#x60; - BEREAVEMENT (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
+     * @param  \DateTime $started_after If provided, will only return time-offs that started after this datetime. (optional)
+     * @param  \DateTime $started_before If provided, will only return time-offs that started before this datetime. (optional)
+     * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;)  * &#x60;REQUESTED&#x60; - REQUESTED * &#x60;APPROVED&#x60; - APPROVED * &#x60;DECLINED&#x60; - DECLINED * &#x60;CANCELLED&#x60; - CANCELLED * &#x60;DELETED&#x60; - DELETED (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedTimeOffList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function timeOffListWithHttpInfo($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $request_type = null, $show_enum_origins = null, $status = null)
+    public function timeOffListWithHttpInfo($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $request_type = null, $show_enum_origins = null, $started_after = null, $started_before = null, $status = null)
     {
-        $request = $this->timeOffListRequest($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $request_type, $show_enum_origins, $status);
+        $request = $this->timeOffListRequest($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $request_type, $show_enum_origins, $started_after, $started_before, $status);
 
         try {
             $options = $this->createHttpClientOption();
@@ -559,23 +567,27 @@ class TimeOffApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off for this employee. (optional)
+     * @param  \DateTime $ended_after If provided, will only return employees that ended after this datetime. (optional)
+     * @param  \DateTime $ended_before If provided, will only return time-offs that ended before this datetime. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
-     * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;) (optional)
+     * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;)  * &#x60;VACATION&#x60; - VACATION * &#x60;SICK&#x60; - SICK * &#x60;PERSONAL&#x60; - PERSONAL * &#x60;JURY_DUTY&#x60; - JURY_DUTY * &#x60;VOLUNTEER&#x60; - VOLUNTEER * &#x60;BEREAVEMENT&#x60; - BEREAVEMENT (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
+     * @param  \DateTime $started_after If provided, will only return time-offs that started after this datetime. (optional)
+     * @param  \DateTime $started_before If provided, will only return time-offs that started before this datetime. (optional)
+     * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;)  * &#x60;REQUESTED&#x60; - REQUESTED * &#x60;APPROVED&#x60; - APPROVED * &#x60;DECLINED&#x60; - DECLINED * &#x60;CANCELLED&#x60; - CANCELLED * &#x60;DELETED&#x60; - DELETED (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffListAsync($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $request_type = null, $show_enum_origins = null, $status = null)
+    public function timeOffListAsync($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $request_type = null, $show_enum_origins = null, $started_after = null, $started_before = null, $status = null)
     {
-        return $this->timeOffListAsyncWithHttpInfo($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $request_type, $show_enum_origins, $status)
+        return $this->timeOffListAsyncWithHttpInfo($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $request_type, $show_enum_origins, $started_after, $started_before, $status)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -592,24 +604,28 @@ class TimeOffApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off for this employee. (optional)
+     * @param  \DateTime $ended_after If provided, will only return employees that ended after this datetime. (optional)
+     * @param  \DateTime $ended_before If provided, will only return time-offs that ended before this datetime. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
-     * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;) (optional)
+     * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;)  * &#x60;VACATION&#x60; - VACATION * &#x60;SICK&#x60; - SICK * &#x60;PERSONAL&#x60; - PERSONAL * &#x60;JURY_DUTY&#x60; - JURY_DUTY * &#x60;VOLUNTEER&#x60; - VOLUNTEER * &#x60;BEREAVEMENT&#x60; - BEREAVEMENT (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
+     * @param  \DateTime $started_after If provided, will only return time-offs that started after this datetime. (optional)
+     * @param  \DateTime $started_before If provided, will only return time-offs that started before this datetime. (optional)
+     * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;)  * &#x60;REQUESTED&#x60; - REQUESTED * &#x60;APPROVED&#x60; - APPROVED * &#x60;DECLINED&#x60; - DECLINED * &#x60;CANCELLED&#x60; - CANCELLED * &#x60;DELETED&#x60; - DELETED (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffListAsyncWithHttpInfo($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $request_type = null, $show_enum_origins = null, $status = null)
+    public function timeOffListAsyncWithHttpInfo($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $request_type = null, $show_enum_origins = null, $started_after = null, $started_before = null, $status = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedTimeOffList';
-        $request = $this->timeOffListRequest($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $request_type, $show_enum_origins, $status);
+        $request = $this->timeOffListRequest($x_account_token, $approver_id, $created_after, $created_before, $cursor, $employee_id, $ended_after, $ended_before, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $request_type, $show_enum_origins, $started_after, $started_before, $status);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -653,21 +669,25 @@ class TimeOffApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $employee_id If provided, will only return time off for this employee. (optional)
+     * @param  \DateTime $ended_after If provided, will only return employees that ended after this datetime. (optional)
+     * @param  \DateTime $ended_before If provided, will only return time-offs that ended before this datetime. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
-     * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;) (optional)
+     * @param  string $request_type If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;)  * &#x60;VACATION&#x60; - VACATION * &#x60;SICK&#x60; - SICK * &#x60;PERSONAL&#x60; - PERSONAL * &#x60;JURY_DUTY&#x60; - JURY_DUTY * &#x60;VOLUNTEER&#x60; - VOLUNTEER * &#x60;BEREAVEMENT&#x60; - BEREAVEMENT (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
+     * @param  \DateTime $started_after If provided, will only return time-offs that started after this datetime. (optional)
+     * @param  \DateTime $started_before If provided, will only return time-offs that started before this datetime. (optional)
+     * @param  string $status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;)  * &#x60;REQUESTED&#x60; - REQUESTED * &#x60;APPROVED&#x60; - APPROVED * &#x60;DECLINED&#x60; - DECLINED * &#x60;CANCELLED&#x60; - CANCELLED * &#x60;DELETED&#x60; - DELETED (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function timeOffListRequest($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $request_type = null, $show_enum_origins = null, $status = null)
+    public function timeOffListRequest($x_account_token, $approver_id = null, $created_after = null, $created_before = null, $cursor = null, $employee_id = null, $ended_after = null, $ended_before = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $request_type = null, $show_enum_origins = null, $started_after = null, $started_before = null, $status = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -736,6 +756,28 @@ class TimeOffApi
             }
             else {
                 $queryParams['employee_id'] = $employee_id;
+            }
+        }
+        // query params
+        if ($ended_after !== null) {
+            if('form' === 'form' && is_array($ended_after)) {
+                foreach($ended_after as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['ended_after'] = $ended_after;
+            }
+        }
+        // query params
+        if ($ended_before !== null) {
+            if('form' === 'form' && is_array($ended_before)) {
+                foreach($ended_before as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['ended_before'] = $ended_before;
             }
         }
         // query params
@@ -835,6 +877,28 @@ class TimeOffApi
             }
             else {
                 $queryParams['show_enum_origins'] = $show_enum_origins;
+            }
+        }
+        // query params
+        if ($started_after !== null) {
+            if('form' === 'form' && is_array($started_after)) {
+                foreach($started_after as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['started_after'] = $started_after;
+            }
+        }
+        // query params
+        if ($started_before !== null) {
+            if('form' === 'form' && is_array($started_before)) {
+                foreach($started_before as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['started_before'] = $started_before;
             }
         }
         // query params
@@ -1182,7 +1246,7 @@ class TimeOffApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1201,7 +1265,7 @@ class TimeOffApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1289,7 +1353,7 @@ class TimeOffApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1311,7 +1375,7 @@ class TimeOffApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1361,7 +1425,7 @@ class TimeOffApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -304,7 +304,7 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets path
      *
-     * @param string $path path
+     * @param string $path The path of the request in the third party's platform.
      *
      * @return self
      */
@@ -333,7 +333,7 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets base_url_override
      *
-     * @param string|null $base_url_override base_url_override
+     * @param string|null $base_url_override An optional override of the third party's base url for the request.
      *
      * @return self
      */
@@ -362,7 +362,7 @@ class DataPassthroughRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets data
      *
-     * @param string|null $data data
+     * @param string|null $data The data with the request. You must include a `request_format` parameter matching the data's format
      *
      * @return self
      */

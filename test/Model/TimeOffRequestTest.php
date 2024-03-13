@@ -81,15 +81,6 @@ class TimeOffRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "remote_id"
-     */
-    public function testPropertyRemoteId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "employee"
      */
     public function testPropertyEmployee()

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * LocationTypeEnumTest Class Doc Comment
  *
  * @category    Class
- * @description LocationTypeEnum
+ * @description * &#x60;HOME&#x60; - HOME * &#x60;WORK&#x60; - WORK
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

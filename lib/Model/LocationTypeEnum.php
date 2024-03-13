@@ -34,6 +34,7 @@ use \MergeHRISClient\ObjectSerializer;
  * LocationTypeEnum Class Doc Comment
  *
  * @category Class
+ * @description * &#x60;HOME&#x60; - HOME * &#x60;WORK&#x60; - WORK
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

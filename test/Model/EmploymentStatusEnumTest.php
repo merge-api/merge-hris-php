@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * EmploymentStatusEnumTest Class Doc Comment
  *
  * @category    Class
- * @description EmploymentStatusEnum
+ * @description * &#x60;ACTIVE&#x60; - ACTIVE * &#x60;PENDING&#x60; - PENDING * &#x60;INACTIVE&#x60; - INACTIVE
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

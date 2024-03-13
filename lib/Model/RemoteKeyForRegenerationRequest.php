@@ -227,7 +227,7 @@ class RemoteKeyForRegenerationRequest implements ModelInterface, ArrayAccess, \J
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name The name of the remote key
      *
      * @return self
      */

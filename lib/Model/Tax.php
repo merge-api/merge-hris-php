@@ -62,11 +62,16 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
+        'remote_id' => 'string',
+        'created_at' => '\DateTime',
+        'modified_at' => '\DateTime',
         'employee_payroll_run' => 'string',
         'name' => 'string',
-        'amount' => 'float',
+        'amount' => 'double',
         'employer_tax' => 'bool',
-        'remote_was_deleted' => 'bool'
+        'remote_was_deleted' => 'bool',
+        'field_mappings' => 'array<string,mixed>',
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
     /**
@@ -78,11 +83,16 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'id' => 'uuid',
+        'remote_id' => null,
+        'created_at' => 'date-time',
+        'modified_at' => 'date-time',
         'employee_payroll_run' => 'uuid',
         'name' => null,
-        'amount' => 'float',
+        'amount' => 'double',
         'employer_tax' => null,
-        'remote_was_deleted' => null
+        'remote_was_deleted' => null,
+        'field_mappings' => null,
+        'remote_data' => null
     ];
 
     /**
@@ -113,11 +123,16 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'remote_id' => 'remote_id',
+        'created_at' => 'created_at',
+        'modified_at' => 'modified_at',
         'employee_payroll_run' => 'employee_payroll_run',
         'name' => 'name',
         'amount' => 'amount',
         'employer_tax' => 'employer_tax',
-        'remote_was_deleted' => 'remote_was_deleted'
+        'remote_was_deleted' => 'remote_was_deleted',
+        'field_mappings' => 'field_mappings',
+        'remote_data' => 'remote_data'
     ];
 
     /**
@@ -127,11 +142,16 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'id' => 'setId',
+        'remote_id' => 'setRemoteId',
+        'created_at' => 'setCreatedAt',
+        'modified_at' => 'setModifiedAt',
         'employee_payroll_run' => 'setEmployeePayrollRun',
         'name' => 'setName',
         'amount' => 'setAmount',
         'employer_tax' => 'setEmployerTax',
-        'remote_was_deleted' => 'setRemoteWasDeleted'
+        'remote_was_deleted' => 'setRemoteWasDeleted',
+        'field_mappings' => 'setFieldMappings',
+        'remote_data' => 'setRemoteData'
     ];
 
     /**
@@ -141,11 +161,16 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'id' => 'getId',
+        'remote_id' => 'getRemoteId',
+        'created_at' => 'getCreatedAt',
+        'modified_at' => 'getModifiedAt',
         'employee_payroll_run' => 'getEmployeePayrollRun',
         'name' => 'getName',
         'amount' => 'getAmount',
         'employer_tax' => 'getEmployerTax',
-        'remote_was_deleted' => 'getRemoteWasDeleted'
+        'remote_was_deleted' => 'getRemoteWasDeleted',
+        'field_mappings' => 'getFieldMappings',
+        'remote_data' => 'getRemoteData'
     ];
 
     /**
@@ -206,11 +231,16 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['id'] = $data['id'] ?? null;
+        $this->container['remote_id'] = $data['remote_id'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['modified_at'] = $data['modified_at'] ?? null;
         $this->container['employee_payroll_run'] = $data['employee_payroll_run'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['amount'] = $data['amount'] ?? null;
         $this->container['employer_tax'] = $data['employer_tax'] ?? null;
         $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
+        $this->container['field_mappings'] = $data['field_mappings'] ?? null;
+        $this->container['remote_data'] = $data['remote_data'] ?? null;
     }
 
     /**
@@ -257,6 +287,78 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_id
+     *
+     * @return string|null
+     */
+    public function getRemoteId()
+    {
+        return $this->container['remote_id'];
+    }
+
+    /**
+     * Sets remote_id
+     *
+     * @param string|null $remote_id The third-party API ID of the matching object.
+     *
+     * @return self
+     */
+    public function setRemoteId($remote_id)
+    {
+        $this->container['remote_id'] = $remote_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets modified_at
+     *
+     * @return \DateTime|null
+     */
+    public function getModifiedAt()
+    {
+        return $this->container['modified_at'];
+    }
+
+    /**
+     * Sets modified_at
+     *
+     * @param \DateTime|null $modified_at This is the datetime that this object was last updated by Merge
+     *
+     * @return self
+     */
+    public function setModifiedAt($modified_at)
+    {
+        $this->container['modified_at'] = $modified_at;
 
         return $this;
     }
@@ -312,7 +414,7 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets amount
      *
-     * @return float|null
+     * @return double|null
      */
     public function getAmount()
     {
@@ -322,7 +424,7 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount
      *
-     * @param float|null $amount The tax amount.
+     * @param double|null $amount The tax amount.
      *
      * @return self
      */
@@ -370,13 +472,61 @@ class Tax implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets remote_was_deleted
      *
-     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted in the third party platform.
      *
      * @return self
      */
     public function setRemoteWasDeleted($remote_was_deleted)
     {
         $this->container['remote_was_deleted'] = $remote_was_deleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets field_mappings
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getFieldMappings()
+    {
+        return $this->container['field_mappings'];
+    }
+
+    /**
+     * Sets field_mappings
+     *
+     * @param array<string,mixed>|null $field_mappings field_mappings
+     *
+     * @return self
+     */
+    public function setFieldMappings($field_mappings)
+    {
+        $this->container['field_mappings'] = $field_mappings;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_data
+     *
+     * @return \MergeHRISClient\Model\RemoteData[]|null
+     */
+    public function getRemoteData()
+    {
+        return $this->container['remote_data'];
+    }
+
+    /**
+     * Sets remote_data
+     *
+     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
+     *
+     * @return self
+     */
+    public function setRemoteData($remote_data)
+    {
+        $this->container['remote_data'] = $remote_data;
 
         return $this;
     }

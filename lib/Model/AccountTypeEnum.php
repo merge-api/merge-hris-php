@@ -34,6 +34,7 @@ use \MergeHRISClient\ObjectSerializer;
  * AccountTypeEnum Class Doc Comment
  *
  * @category Class
+ * @description * &#x60;SAVINGS&#x60; - SAVINGS * &#x60;CHECKING&#x60; - CHECKING
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -36,7 +36,7 @@ $apiInstance = new MergeHRISClient\Api\LinkedAccountsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$category = 'category_example'; // string
+$category = 'category_example'; // string | Options: `accounting`, `ats`, `crm`, `filestorage`, `hris`, `mktg`, `ticketing`  * `hris` - hris * `ats` - ats * `accounting` - accounting * `ticketing` - ticketing * `crm` - crm * `mktg` - mktg * `filestorage` - filestorage * `datawarehouse` - datawarehouse
 $cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | The pagination cursor value.
 $end_user_email_address = 'end_user_email_address_example'; // string | If provided, will only return linked accounts associated with the given email address.
 $end_user_organization_name = 'end_user_organization_name_example'; // string | If provided, will only return linked accounts associated with the given organization name.
@@ -62,7 +62,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **category** | **string**|  | [optional]
+ **category** | **string**| Options: &#x60;accounting&#x60;, &#x60;ats&#x60;, &#x60;crm&#x60;, &#x60;filestorage&#x60;, &#x60;hris&#x60;, &#x60;mktg&#x60;, &#x60;ticketing&#x60;  * &#x60;hris&#x60; - hris * &#x60;ats&#x60; - ats * &#x60;accounting&#x60; - accounting * &#x60;ticketing&#x60; - ticketing * &#x60;crm&#x60; - crm * &#x60;mktg&#x60; - mktg * &#x60;filestorage&#x60; - filestorage * &#x60;datawarehouse&#x60; - datawarehouse | [optional]
  **cursor** | **string**| The pagination cursor value. | [optional]
  **end_user_email_address** | **string**| If provided, will only return linked accounts associated with the given email address. | [optional]
  **end_user_organization_name** | **string**| If provided, will only return linked accounts associated with the given organization name. | [optional]

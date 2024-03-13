@@ -36,7 +36,7 @@ use \MergeHRISClient\ObjectSerializer;
  * Group Class Doc Comment
  *
  * @category Class
- * @description # The Group Object ### Description The &#x60;Group&#x60; object is used to represent any subset of employees, such as &#x60;PayGroup&#x60; or &#x60;Team&#x60;. Employees can be in multiple Groups.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and expand groups to view an employee&#39;s groups.
+ * @description # The Group Object ### Description The &#x60;Group&#x60; object is used to represent any subset of employees across, for example, &#x60;DEPARTMENT&#x60; or &#x60;TEAM&#x60;. Employees can be in multiple Groups.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and expand groups to view an employee&#39;s groups.
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -63,12 +63,14 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'remote_id' => 'string',
+        'created_at' => '\DateTime',
+        'modified_at' => '\DateTime',
         'parent_group' => 'string',
         'name' => 'string',
         'type' => '\MergeHRISClient\Model\GroupTypeEnum',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
         'remote_was_deleted' => 'bool',
-        'field_mappings' => 'array<string,mixed>'
+        'field_mappings' => 'array<string,mixed>',
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
     /**
@@ -81,12 +83,14 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'remote_id' => null,
+        'created_at' => 'date-time',
+        'modified_at' => 'date-time',
         'parent_group' => 'uuid',
         'name' => null,
         'type' => null,
-        'remote_data' => null,
         'remote_was_deleted' => null,
-        'field_mappings' => null
+        'field_mappings' => null,
+        'remote_data' => null
     ];
 
     /**
@@ -118,12 +122,14 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'id' => 'id',
         'remote_id' => 'remote_id',
+        'created_at' => 'created_at',
+        'modified_at' => 'modified_at',
         'parent_group' => 'parent_group',
         'name' => 'name',
         'type' => 'type',
-        'remote_data' => 'remote_data',
         'remote_was_deleted' => 'remote_was_deleted',
-        'field_mappings' => 'field_mappings'
+        'field_mappings' => 'field_mappings',
+        'remote_data' => 'remote_data'
     ];
 
     /**
@@ -134,12 +140,14 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'id' => 'setId',
         'remote_id' => 'setRemoteId',
+        'created_at' => 'setCreatedAt',
+        'modified_at' => 'setModifiedAt',
         'parent_group' => 'setParentGroup',
         'name' => 'setName',
         'type' => 'setType',
-        'remote_data' => 'setRemoteData',
         'remote_was_deleted' => 'setRemoteWasDeleted',
-        'field_mappings' => 'setFieldMappings'
+        'field_mappings' => 'setFieldMappings',
+        'remote_data' => 'setRemoteData'
     ];
 
     /**
@@ -150,12 +158,14 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'id' => 'getId',
         'remote_id' => 'getRemoteId',
+        'created_at' => 'getCreatedAt',
+        'modified_at' => 'getModifiedAt',
         'parent_group' => 'getParentGroup',
         'name' => 'getName',
         'type' => 'getType',
-        'remote_data' => 'getRemoteData',
         'remote_was_deleted' => 'getRemoteWasDeleted',
-        'field_mappings' => 'getFieldMappings'
+        'field_mappings' => 'getFieldMappings',
+        'remote_data' => 'getRemoteData'
     ];
 
     /**
@@ -217,12 +227,14 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['id'] = $data['id'] ?? null;
         $this->container['remote_id'] = $data['remote_id'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['modified_at'] = $data['modified_at'] ?? null;
         $this->container['parent_group'] = $data['parent_group'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
-        $this->container['remote_data'] = $data['remote_data'] ?? null;
         $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
         $this->container['field_mappings'] = $data['field_mappings'] ?? null;
+        $this->container['remote_data'] = $data['remote_data'] ?? null;
     }
 
     /**
@@ -298,6 +310,54 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets modified_at
+     *
+     * @return \DateTime|null
+     */
+    public function getModifiedAt()
+    {
+        return $this->container['modified_at'];
+    }
+
+    /**
+     * Sets modified_at
+     *
+     * @param \DateTime|null $modified_at This is the datetime that this object was last updated by Merge
+     *
+     * @return self
+     */
+    public function setModifiedAt($modified_at)
+    {
+        $this->container['modified_at'] = $modified_at;
+
+        return $this;
+    }
+
+    /**
      * Gets parent_group
      *
      * @return string|null
@@ -358,37 +418,13 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param GroupTypeEnum|null $type The group type
+     * @param GroupTypeEnum|null $type The group type  * `TEAM` - TEAM * `DEPARTMENT` - DEPARTMENT * `COST_CENTER` - COST_CENTER * `BUSINESS_UNIT` - BUSINESS_UNIT * `GROUP` - GROUP
      *
      * @return self
      */
     public function setType($type)
     {
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets remote_data
-     *
-     * @return \MergeHRISClient\Model\RemoteData[]|null
-     */
-    public function getRemoteData()
-    {
-        return $this->container['remote_data'];
-    }
-
-    /**
-     * Sets remote_data
-     *
-     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
-     *
-     * @return self
-     */
-    public function setRemoteData($remote_data)
-    {
-        $this->container['remote_data'] = $remote_data;
 
         return $this;
     }
@@ -406,7 +442,7 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets remote_was_deleted
      *
-     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted in the third party platform.
      *
      * @return self
      */
@@ -437,6 +473,30 @@ class Group implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setFieldMappings($field_mappings)
     {
         $this->container['field_mappings'] = $field_mappings;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_data
+     *
+     * @return \MergeHRISClient\Model\RemoteData[]|null
+     */
+    public function getRemoteData()
+    {
+        return $this->container['remote_data'];
+    }
+
+    /**
+     * Sets remote_data
+     *
+     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
+     *
+     * @return self
+     */
+    public function setRemoteData($remote_data)
+    {
+        $this->container['remote_data'] = $remote_data;
 
         return $this;
     }

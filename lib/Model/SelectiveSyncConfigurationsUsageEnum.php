@@ -34,6 +34,7 @@ use \MergeHRISClient\ObjectSerializer;
  * SelectiveSyncConfigurationsUsageEnum Class Doc Comment
  *
  * @category Class
+ * @description * &#x60;IN_NEXT_SYNC&#x60; - IN_NEXT_SYNC * &#x60;IN_LAST_SYNC&#x60; - IN_LAST_SYNC
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

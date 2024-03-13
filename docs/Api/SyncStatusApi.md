@@ -15,7 +15,7 @@ syncStatusList($x_account_token, $cursor, $page_size): \MergeHRISClient\Model\Pa
 
 
 
-Get syncing status. Possible values: `DISABLED`, `DONE`, `FAILED`, `PAUSED`, `SYNCING`
+Get syncing status. Possible values: `DISABLED`, `DONE`, `FAILED`, `PARTIALLY_SYNCED`, `PAUSED`, `SYNCING`. Learn more about sync status in our [Help Center](https://help.merge.dev/en/articles/8184193-merge-sync-statuses).
 
 ### Example
 

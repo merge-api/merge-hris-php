@@ -70,7 +70,8 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         'end_user_email_address' => 'string',
         'webhook_listener_url' => 'string',
         'is_duplicate' => 'bool',
-        'integration' => '\MergeHRISClient\Model\AccountDetailsAndActionsIntegration'
+        'integration' => '\MergeHRISClient\Model\AccountDetailsAndActionsIntegration',
+        'account_type' => 'string'
     ];
 
     /**
@@ -90,7 +91,8 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         'end_user_email_address' => null,
         'webhook_listener_url' => null,
         'is_duplicate' => null,
-        'integration' => null
+        'integration' => null,
+        'account_type' => null
     ];
 
     /**
@@ -129,7 +131,8 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         'end_user_email_address' => 'end_user_email_address',
         'webhook_listener_url' => 'webhook_listener_url',
         'is_duplicate' => 'is_duplicate',
-        'integration' => 'integration'
+        'integration' => 'integration',
+        'account_type' => 'account_type'
     ];
 
     /**
@@ -147,7 +150,8 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         'end_user_email_address' => 'setEndUserEmailAddress',
         'webhook_listener_url' => 'setWebhookListenerUrl',
         'is_duplicate' => 'setIsDuplicate',
-        'integration' => 'setIntegration'
+        'integration' => 'setIntegration',
+        'account_type' => 'setAccountType'
     ];
 
     /**
@@ -165,7 +169,8 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         'end_user_email_address' => 'getEndUserEmailAddress',
         'webhook_listener_url' => 'getWebhookListenerUrl',
         'is_duplicate' => 'getIsDuplicate',
-        'integration' => 'getIntegration'
+        'integration' => 'getIntegration',
+        'account_type' => 'getAccountType'
     ];
 
     /**
@@ -235,6 +240,7 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         $this->container['webhook_listener_url'] = $data['webhook_listener_url'] ?? null;
         $this->container['is_duplicate'] = $data['is_duplicate'] ?? null;
         $this->container['integration'] = $data['integration'] ?? null;
+        $this->container['account_type'] = $data['account_type'] ?? null;
     }
 
     /**
@@ -260,6 +266,9 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         }
         if ($this->container['webhook_listener_url'] === null) {
             $invalidProperties[] = "'webhook_listener_url' can't be null";
+        }
+        if ($this->container['account_type'] === null) {
+            $invalidProperties[] = "'account_type' can't be null";
         }
         return $invalidProperties;
     }
@@ -512,6 +521,30 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
     public function setIntegration($integration)
     {
         $this->container['integration'] = $integration;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_type
+     *
+     * @return string
+     */
+    public function getAccountType()
+    {
+        return $this->container['account_type'];
+    }
+
+    /**
+     * Sets account_type
+     *
+     * @param string $account_type account_type
+     *
+     * @return self
+     */
+    public function setAccountType($account_type)
+    {
+        $this->container['account_type'] = $account_type;
 
         return $this;
     }

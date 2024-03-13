@@ -61,13 +61,12 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'remote_id' => 'string',
         'employee' => 'string',
         'approver' => 'string',
         'status' => '\MergeHRISClient\Model\TimeOffStatusEnum',
         'employee_note' => 'string',
         'units' => '\MergeHRISClient\Model\UnitsEnum',
-        'amount' => 'float',
+        'amount' => 'double',
         'request_type' => '\MergeHRISClient\Model\RequestTypeEnum',
         'start_time' => '\DateTime',
         'end_time' => '\DateTime',
@@ -83,13 +82,12 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'remote_id' => null,
         'employee' => 'uuid',
         'approver' => 'uuid',
         'status' => null,
         'employee_note' => null,
         'units' => null,
-        'amount' => 'float',
+        'amount' => 'double',
         'request_type' => null,
         'start_time' => 'date-time',
         'end_time' => 'date-time',
@@ -124,7 +122,6 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'remote_id' => 'remote_id',
         'employee' => 'employee',
         'approver' => 'approver',
         'status' => 'status',
@@ -144,7 +141,6 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'remote_id' => 'setRemoteId',
         'employee' => 'setEmployee',
         'approver' => 'setApprover',
         'status' => 'setStatus',
@@ -164,7 +160,6 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'remote_id' => 'getRemoteId',
         'employee' => 'getEmployee',
         'approver' => 'getApprover',
         'status' => 'getStatus',
@@ -235,7 +230,6 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['remote_id'] = $data['remote_id'] ?? null;
         $this->container['employee'] = $data['employee'] ?? null;
         $this->container['approver'] = $data['approver'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
@@ -272,30 +266,6 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets remote_id
-     *
-     * @return string|null
-     */
-    public function getRemoteId()
-    {
-        return $this->container['remote_id'];
-    }
-
-    /**
-     * Sets remote_id
-     *
-     * @param string|null $remote_id The third-party API ID of the matching object.
-     *
-     * @return self
-     */
-    public function setRemoteId($remote_id)
-    {
-        $this->container['remote_id'] = $remote_id;
-
-        return $this;
-    }
 
     /**
      * Gets employee
@@ -358,7 +328,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param TimeOffStatusEnum|null $status The status of this time off request.
+     * @param TimeOffStatusEnum|null $status The status of this time off request.  * `REQUESTED` - REQUESTED * `APPROVED` - APPROVED * `DECLINED` - DECLINED * `CANCELLED` - CANCELLED * `DELETED` - DELETED
      *
      * @return self
      */
@@ -406,7 +376,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets units
      *
-     * @param UnitsEnum|null $units The measurement that the third-party integration uses to count time requested.
+     * @param UnitsEnum|null $units The measurement that the third-party integration uses to count time requested.  * `HOURS` - HOURS * `DAYS` - DAYS
      *
      * @return self
      */
@@ -420,7 +390,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets amount
      *
-     * @return float|null
+     * @return double|null
      */
     public function getAmount()
     {
@@ -430,7 +400,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount
      *
-     * @param float|null $amount The time off quantity measured by the prescribed “units”.
+     * @param double|null $amount The time off quantity measured by the prescribed “units”.
      *
      * @return self
      */
@@ -454,7 +424,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets request_type
      *
-     * @param RequestTypeEnum|null $request_type The type of time off request.
+     * @param RequestTypeEnum|null $request_type The type of time off request.  * `VACATION` - VACATION * `SICK` - SICK * `PERSONAL` - PERSONAL * `JURY_DUTY` - JURY_DUTY * `VOLUNTEER` - VOLUNTEER * `BEREAVEMENT` - BEREAVEMENT
      *
      * @return self
      */

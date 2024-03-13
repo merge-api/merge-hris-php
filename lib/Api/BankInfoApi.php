@@ -119,7 +119,7 @@ class BankInfoApi
      * Operation bankInfoList
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $account_type If provided, will only return BankInfo&#39;s with this account type. Options: (&#39;SAVINGS&#39;, &#39;CHECKING&#39;) (optional)
+     * @param  string $account_type If provided, will only return BankInfo&#39;s with this account type. Options: (&#39;SAVINGS&#39;, &#39;CHECKING&#39;)  * &#x60;SAVINGS&#x60; - SAVINGS * &#x60;CHECKING&#x60; - CHECKING (optional)
      * @param  string $bank_name If provided, will only return BankInfo&#39;s with this bank name. (optional)
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
@@ -127,13 +127,13 @@ class BankInfoApi
      * @param  string $employee_id If provided, will only return bank accounts for this employee. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
-     * @param  string $order_by Overrides the default ordering for this endpoint. (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
+     * @param  string $order_by Overrides the default ordering for this endpoint. Possible values include: remote_created_at, -remote_created_at. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -149,7 +149,7 @@ class BankInfoApi
      * Operation bankInfoListWithHttpInfo
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $account_type If provided, will only return BankInfo&#39;s with this account type. Options: (&#39;SAVINGS&#39;, &#39;CHECKING&#39;) (optional)
+     * @param  string $account_type If provided, will only return BankInfo&#39;s with this account type. Options: (&#39;SAVINGS&#39;, &#39;CHECKING&#39;)  * &#x60;SAVINGS&#x60; - SAVINGS * &#x60;CHECKING&#x60; - CHECKING (optional)
      * @param  string $bank_name If provided, will only return BankInfo&#39;s with this bank name. (optional)
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
@@ -157,13 +157,13 @@ class BankInfoApi
      * @param  string $employee_id If provided, will only return bank accounts for this employee. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
-     * @param  string $order_by Overrides the default ordering for this endpoint. (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
+     * @param  string $order_by Overrides the default ordering for this endpoint. Possible values include: remote_created_at, -remote_created_at. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -248,7 +248,7 @@ class BankInfoApi
      * Operation bankInfoListAsync
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $account_type If provided, will only return BankInfo&#39;s with this account type. Options: (&#39;SAVINGS&#39;, &#39;CHECKING&#39;) (optional)
+     * @param  string $account_type If provided, will only return BankInfo&#39;s with this account type. Options: (&#39;SAVINGS&#39;, &#39;CHECKING&#39;)  * &#x60;SAVINGS&#x60; - SAVINGS * &#x60;CHECKING&#x60; - CHECKING (optional)
      * @param  string $bank_name If provided, will only return BankInfo&#39;s with this bank name. (optional)
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
@@ -256,13 +256,13 @@ class BankInfoApi
      * @param  string $employee_id If provided, will only return bank accounts for this employee. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
-     * @param  string $order_by Overrides the default ordering for this endpoint. (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
+     * @param  string $order_by Overrides the default ordering for this endpoint. Possible values include: remote_created_at, -remote_created_at. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -281,7 +281,7 @@ class BankInfoApi
      * Operation bankInfoListAsyncWithHttpInfo
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $account_type If provided, will only return BankInfo&#39;s with this account type. Options: (&#39;SAVINGS&#39;, &#39;CHECKING&#39;) (optional)
+     * @param  string $account_type If provided, will only return BankInfo&#39;s with this account type. Options: (&#39;SAVINGS&#39;, &#39;CHECKING&#39;)  * &#x60;SAVINGS&#x60; - SAVINGS * &#x60;CHECKING&#x60; - CHECKING (optional)
      * @param  string $bank_name If provided, will only return BankInfo&#39;s with this bank name. (optional)
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
@@ -289,13 +289,13 @@ class BankInfoApi
      * @param  string $employee_id If provided, will only return bank accounts for this employee. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
-     * @param  string $order_by Overrides the default ordering for this endpoint. (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
+     * @param  string $order_by Overrides the default ordering for this endpoint. Possible values include: remote_created_at, -remote_created_at. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -342,7 +342,7 @@ class BankInfoApi
      * Create request for operation 'bankInfoList'
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $account_type If provided, will only return BankInfo&#39;s with this account type. Options: (&#39;SAVINGS&#39;, &#39;CHECKING&#39;) (optional)
+     * @param  string $account_type If provided, will only return BankInfo&#39;s with this account type. Options: (&#39;SAVINGS&#39;, &#39;CHECKING&#39;)  * &#x60;SAVINGS&#x60; - SAVINGS * &#x60;CHECKING&#x60; - CHECKING (optional)
      * @param  string $bank_name If provided, will only return BankInfo&#39;s with this bank name. (optional)
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
@@ -350,13 +350,13 @@ class BankInfoApi
      * @param  string $employee_id If provided, will only return bank accounts for this employee. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
-     * @param  string $order_by Overrides the default ordering for this endpoint. (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
+     * @param  string $order_by Overrides the default ordering for this endpoint. Possible values include: remote_created_at, -remote_created_at. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -619,7 +619,7 @@ class BankInfoApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -638,7 +638,7 @@ class BankInfoApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -726,7 +726,7 @@ class BankInfoApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -748,7 +748,7 @@ class BankInfoApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -798,7 +798,7 @@ class BankInfoApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

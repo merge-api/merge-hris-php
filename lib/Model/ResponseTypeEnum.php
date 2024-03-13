@@ -34,6 +34,7 @@ use \MergeHRISClient\ObjectSerializer;
  * ResponseTypeEnum Class Doc Comment
  *
  * @category Class
+ * @description * &#x60;JSON&#x60; - JSON * &#x60;BASE64_GZIP&#x60; - BASE64_GZIP
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

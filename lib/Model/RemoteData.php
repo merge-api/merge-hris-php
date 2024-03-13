@@ -61,7 +61,7 @@ class RemoteData implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'path' => 'string',
-        'data' => 'array<string,mixed>'
+        'data' => 'mixed'
     ];
 
     /**
@@ -242,7 +242,7 @@ class RemoteData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return array<string,mixed>|null
+     * @return mixed|null
      */
     public function getData()
     {
@@ -252,7 +252,7 @@ class RemoteData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param array<string,mixed>|null $data data
+     * @param mixed|null $data data
      *
      * @return self
      */

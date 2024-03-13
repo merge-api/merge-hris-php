@@ -4,13 +4,13 @@ All URIs are relative to https://api.merge.dev/api/hris/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteAccountCreate()**](DeleteAccountApi.md#deleteAccountCreate) | **POST** /delete-account | 
+[**deleteAccountDelete()**](DeleteAccountApi.md#deleteAccountDelete) | **POST** /delete-account | 
 
 
-## `deleteAccountCreate()`
+## `deleteAccountDelete()`
 
 ```php
-deleteAccountCreate($x_account_token)
+deleteAccountDelete($x_account_token)
 ```
 
 
@@ -39,9 +39,9 @@ $apiInstance = new MergeHRISClient\Api\DeleteAccountApi(
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 
 try {
-    $apiInstance->deleteAccountCreate($x_account_token);
+    $apiInstance->deleteAccountDelete($x_account_token);
 } catch (Exception $e) {
-    echo 'Exception when calling DeleteAccountApi->deleteAccountCreate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeleteAccountApi->deleteAccountDelete: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

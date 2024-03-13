@@ -91,7 +91,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'OpenAPI-Generator/2.0.2/PHP';
+    protected $userAgent = 'OpenAPI-Generator/2.0.3/PHP';
 
     /**
      * Debug switch (default set to false)
@@ -400,7 +400,7 @@ class Configuration
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    The version of the OpenAPI document: 1.0' . PHP_EOL;
-        $report .= '    SDK Package Version: 2.0.2' . PHP_EOL;
+        $report .= '    SDK Package Version: 2.0.3' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
@@ -446,6 +446,10 @@ class Configuration
             [
                 "url" => "https://api-sandbox.merge.dev/api/hris/v1",
                 "description" => "Sandbox",
+            ],
+            [
+                "url" => "https://api-eu.merge.dev/api/hris/v1",
+                "description" => "Production EU",
             ]
         ];
     }

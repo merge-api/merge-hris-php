@@ -318,7 +318,7 @@ class ConditionSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets native_name
      *
-     * @param string $native_name User-facing *native condition* name. e.g. \"Skip Manager\".
+     * @param string $native_name native_name
      *
      * @return self
      */
@@ -342,7 +342,7 @@ class ConditionSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets field_name
      *
-     * @param string $field_name The name of the field on the common model that this condition corresponds to, if they conceptually match. e.g. \"location_type\".
+     * @param string $field_name field_name
      *
      * @return self
      */
@@ -380,7 +380,7 @@ class ConditionSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets condition_type
      *
-     * @return \MergeHRISClient\Model\ConditionTypeEnum
+     * @return ConditionTypeEnum
      */
     public function getConditionType()
     {
@@ -390,7 +390,7 @@ class ConditionSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets condition_type
      *
-     * @param \MergeHRISClient\Model\ConditionTypeEnum $condition_type condition_type
+     * @param ConditionTypeEnum $condition_type The type of value(s) that can be set for this condition.  * `BOOLEAN` - BOOLEAN * `DATE` - DATE * `DATE_TIME` - DATE_TIME * `INTEGER` - INTEGER * `FLOAT` - FLOAT * `STRING` - STRING * `LIST_OF_STRINGS` - LIST_OF_STRINGS
      *
      * @return self
      */

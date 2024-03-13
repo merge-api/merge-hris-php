@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * PayFrequencyEnumTest Class Doc Comment
  *
  * @category    Class
- * @description PayFrequencyEnum
+ * @description * &#x60;WEEKLY&#x60; - WEEKLY * &#x60;BIWEEKLY&#x60; - BIWEEKLY * &#x60;MONTHLY&#x60; - MONTHLY * &#x60;QUARTERLY&#x60; - QUARTERLY * &#x60;SEMIANNUALLY&#x60; - SEMIANNUALLY * &#x60;ANNUALLY&#x60; - ANNUALLY * &#x60;THIRTEEN-MONTHLY&#x60; - THIRTEEN-MONTHLY * &#x60;PRO_RATA&#x60; - PRO_RATA * &#x60;SEMIMONTHLY&#x60; - SEMIMONTHLY
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

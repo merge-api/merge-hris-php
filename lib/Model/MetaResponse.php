@@ -61,6 +61,7 @@ class MetaResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'request_schema' => 'array<string,mixed>',
+        'remote_field_classes' => 'array<string,mixed>',
         'status' => '\MergeHRISClient\Model\LinkedAccountStatus',
         'has_conditional_params' => 'bool',
         'has_required_linked_account_params' => 'bool'
@@ -75,6 +76,7 @@ class MetaResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'request_schema' => null,
+        'remote_field_classes' => null,
         'status' => null,
         'has_conditional_params' => null,
         'has_required_linked_account_params' => null
@@ -108,6 +110,7 @@ class MetaResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'request_schema' => 'request_schema',
+        'remote_field_classes' => 'remote_field_classes',
         'status' => 'status',
         'has_conditional_params' => 'has_conditional_params',
         'has_required_linked_account_params' => 'has_required_linked_account_params'
@@ -120,6 +123,7 @@ class MetaResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'request_schema' => 'setRequestSchema',
+        'remote_field_classes' => 'setRemoteFieldClasses',
         'status' => 'setStatus',
         'has_conditional_params' => 'setHasConditionalParams',
         'has_required_linked_account_params' => 'setHasRequiredLinkedAccountParams'
@@ -132,6 +136,7 @@ class MetaResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'request_schema' => 'getRequestSchema',
+        'remote_field_classes' => 'getRemoteFieldClasses',
         'status' => 'getStatus',
         'has_conditional_params' => 'getHasConditionalParams',
         'has_required_linked_account_params' => 'getHasRequiredLinkedAccountParams'
@@ -195,6 +200,7 @@ class MetaResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['request_schema'] = $data['request_schema'] ?? null;
+        $this->container['remote_field_classes'] = $data['remote_field_classes'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['has_conditional_params'] = $data['has_conditional_params'] ?? null;
         $this->container['has_required_linked_account_params'] = $data['has_required_linked_account_params'] ?? null;
@@ -253,6 +259,30 @@ class MetaResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRequestSchema($request_schema)
     {
         $this->container['request_schema'] = $request_schema;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_field_classes
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getRemoteFieldClasses()
+    {
+        return $this->container['remote_field_classes'];
+    }
+
+    /**
+     * Sets remote_field_classes
+     *
+     * @param array<string,mixed>|null $remote_field_classes remote_field_classes
+     *
+     * @return self
+     */
+    public function setRemoteFieldClasses($remote_field_classes)
+    {
+        $this->container['remote_field_classes'] = $remote_field_classes;
 
         return $this;
     }

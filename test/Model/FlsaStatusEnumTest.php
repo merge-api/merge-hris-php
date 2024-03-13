@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * FlsaStatusEnumTest Class Doc Comment
  *
  * @category    Class
- * @description FlsaStatusEnum
+ * @description * &#x60;EXEMPT&#x60; - EXEMPT * &#x60;SALARIED_NONEXEMPT&#x60; - SALARIED_NONEXEMPT * &#x60;NONEXEMPT&#x60; - NONEXEMPT * &#x60;OWNER&#x60; - OWNER
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

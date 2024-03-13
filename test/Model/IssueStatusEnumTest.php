@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * IssueStatusEnumTest Class Doc Comment
  *
  * @category    Class
- * @description IssueStatusEnum
+ * @description * &#x60;ONGOING&#x60; - ONGOING * &#x60;RESOLVED&#x60; - RESOLVED
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -45,13 +45,13 @@ $ended_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If pro
 $ended_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return payroll runs ended before this datetime.
 $include_deleted_data = True; // bool | Whether to include data that was marked as deleted by third party webhooks.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
-$modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified after this datetime.
-$modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified before this datetime.
+$modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, only objects synced by Merge after this date time will be returned.
+$modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, only objects synced by Merge before this date time will be returned.
 $page_size = 56; // int | Number of results to return per page.
 $remote_fields = run_state,run_type; // string | Deprecated. Use show_enum_origins.
 $remote_id = 'remote_id_example'; // string | The API provider's ID for the given object.
-$run_type = 'run_type_example'; // string | If provided, will only return PayrollRun's with this status. Options: ('REGULAR', 'OFF_CYCLE', 'CORRECTION', 'TERMINATION', 'SIGN_ON_BONUS')
-$show_enum_origins = run_state,run_type; // string | Which fields should be returned in non-normalized form.
+$run_type = 'run_type_example'; // string | If provided, will only return PayrollRun's with this status. Options: ('REGULAR', 'OFF_CYCLE', 'CORRECTION', 'TERMINATION', 'SIGN_ON_BONUS')  * `REGULAR` - REGULAR * `OFF_CYCLE` - OFF_CYCLE * `CORRECTION` - CORRECTION * `TERMINATION` - TERMINATION * `SIGN_ON_BONUS` - SIGN_ON_BONUS
+$show_enum_origins = run_state,run_type; // string | A comma separated list of enum field names for which you'd like the original values to be returned, instead of Merge's normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
 $started_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return payroll runs started after this datetime.
 $started_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return payroll runs started before this datetime.
 
@@ -75,13 +75,13 @@ Name | Type | Description  | Notes
  **ended_before** | **\DateTime**| If provided, will only return payroll runs ended before this datetime. | [optional]
  **include_deleted_data** | **bool**| Whether to include data that was marked as deleted by third party webhooks. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
- **modified_after** | **\DateTime**| If provided, will only return objects modified after this datetime. | [optional]
- **modified_before** | **\DateTime**| If provided, will only return objects modified before this datetime. | [optional]
+ **modified_after** | **\DateTime**| If provided, only objects synced by Merge after this date time will be returned. | [optional]
+ **modified_before** | **\DateTime**| If provided, only objects synced by Merge before this date time will be returned. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
  **remote_fields** | **string**| Deprecated. Use show_enum_origins. | [optional]
  **remote_id** | **string**| The API provider&#39;s ID for the given object. | [optional]
- **run_type** | **string**| If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;) | [optional]
- **show_enum_origins** | **string**| Which fields should be returned in non-normalized form. | [optional]
+ **run_type** | **string**| If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;)  * &#x60;REGULAR&#x60; - REGULAR * &#x60;OFF_CYCLE&#x60; - OFF_CYCLE * &#x60;CORRECTION&#x60; - CORRECTION * &#x60;TERMINATION&#x60; - TERMINATION * &#x60;SIGN_ON_BONUS&#x60; - SIGN_ON_BONUS | [optional]
+ **show_enum_origins** | **string**| A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) | [optional]
  **started_after** | **\DateTime**| If provided, will only return payroll runs started after this datetime. | [optional]
  **started_before** | **\DateTime**| If provided, will only return payroll runs started before this datetime. | [optional]
 
@@ -135,7 +135,7 @@ $x_account_token = 'x_account_token_example'; // string | Token identifying the 
 $id = 'id_example'; // string
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $remote_fields = run_state,run_type; // string | Deprecated. Use show_enum_origins.
-$show_enum_origins = run_state,run_type; // string | Which fields should be returned in non-normalized form.
+$show_enum_origins = run_state,run_type; // string | A comma separated list of enum field names for which you'd like the original values to be returned, instead of Merge's normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter)
 
 try {
     $result = $apiInstance->payrollRunsRetrieve($x_account_token, $id, $include_remote_data, $remote_fields, $show_enum_origins);
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
  **id** | [**string**](../Model/.md)|  |
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **remote_fields** | **string**| Deprecated. Use show_enum_origins. | [optional]
- **show_enum_origins** | **string**| Which fields should be returned in non-normalized form. | [optional]
+ **show_enum_origins** | **string**| A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) | [optional]
 
 ### Return type
 

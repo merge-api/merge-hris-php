@@ -34,6 +34,7 @@ use \MergeHRISClient\ObjectSerializer;
  * UnitsEnum Class Doc Comment
  *
  * @category Class
+ * @description * &#x60;HOURS&#x60; - HOURS * &#x60;DAYS&#x60; - DAYS
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

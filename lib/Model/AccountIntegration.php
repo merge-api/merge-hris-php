@@ -65,7 +65,10 @@ class AccountIntegration implements ModelInterface, ArrayAccess, \JsonSerializab
         'image' => 'string',
         'square_image' => 'string',
         'color' => 'string',
-        'slug' => 'string'
+        'slug' => 'string',
+        'api_endpoints_to_documentation_urls' => 'array<string,mixed>',
+        'webhook_setup_guide_url' => 'string',
+        'category_beta_status' => 'object'
     ];
 
     /**
@@ -81,7 +84,10 @@ class AccountIntegration implements ModelInterface, ArrayAccess, \JsonSerializab
         'image' => 'uri',
         'square_image' => 'uri',
         'color' => null,
-        'slug' => null
+        'slug' => null,
+        'api_endpoints_to_documentation_urls' => null,
+        'webhook_setup_guide_url' => null,
+        'category_beta_status' => null
     ];
 
     /**
@@ -116,7 +122,10 @@ class AccountIntegration implements ModelInterface, ArrayAccess, \JsonSerializab
         'image' => 'image',
         'square_image' => 'square_image',
         'color' => 'color',
-        'slug' => 'slug'
+        'slug' => 'slug',
+        'api_endpoints_to_documentation_urls' => 'api_endpoints_to_documentation_urls',
+        'webhook_setup_guide_url' => 'webhook_setup_guide_url',
+        'category_beta_status' => 'category_beta_status'
     ];
 
     /**
@@ -130,7 +139,10 @@ class AccountIntegration implements ModelInterface, ArrayAccess, \JsonSerializab
         'image' => 'setImage',
         'square_image' => 'setSquareImage',
         'color' => 'setColor',
-        'slug' => 'setSlug'
+        'slug' => 'setSlug',
+        'api_endpoints_to_documentation_urls' => 'setApiEndpointsToDocumentationUrls',
+        'webhook_setup_guide_url' => 'setWebhookSetupGuideUrl',
+        'category_beta_status' => 'setCategoryBetaStatus'
     ];
 
     /**
@@ -144,7 +156,10 @@ class AccountIntegration implements ModelInterface, ArrayAccess, \JsonSerializab
         'image' => 'getImage',
         'square_image' => 'getSquareImage',
         'color' => 'getColor',
-        'slug' => 'getSlug'
+        'slug' => 'getSlug',
+        'api_endpoints_to_documentation_urls' => 'getApiEndpointsToDocumentationUrls',
+        'webhook_setup_guide_url' => 'getWebhookSetupGuideUrl',
+        'category_beta_status' => 'getCategoryBetaStatus'
     ];
 
     /**
@@ -210,6 +225,9 @@ class AccountIntegration implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['square_image'] = $data['square_image'] ?? null;
         $this->container['color'] = $data['color'] ?? null;
         $this->container['slug'] = $data['slug'] ?? null;
+        $this->container['api_endpoints_to_documentation_urls'] = $data['api_endpoints_to_documentation_urls'] ?? null;
+        $this->container['webhook_setup_guide_url'] = $data['webhook_setup_guide_url'] ?? null;
+        $this->container['category_beta_status'] = $data['category_beta_status'] ?? null;
     }
 
     /**
@@ -284,7 +302,7 @@ class AccountIntegration implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets categories
      *
-     * @param \MergeHRISClient\Model\CategoriesEnum[]|null $categories Category or categories this integration belongs to. Multiple categories should be comma separated.<br/><br>Example: For [ats, hris], enter <i>ats,hris</i>
+     * @param \MergeHRISClient\Model\CategoriesEnum[]|null $categories Category or categories this integration belongs to. Multiple categories should be comma separated, i.e. [ats, hris].
      *
      * @return self
      */
@@ -394,6 +412,78 @@ class AccountIntegration implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setSlug($slug)
     {
         $this->container['slug'] = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Gets api_endpoints_to_documentation_urls
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getApiEndpointsToDocumentationUrls()
+    {
+        return $this->container['api_endpoints_to_documentation_urls'];
+    }
+
+    /**
+     * Sets api_endpoints_to_documentation_urls
+     *
+     * @param array<string,mixed>|null $api_endpoints_to_documentation_urls Mapping of API endpoints to documentation urls for support. Example: {'GET': [['/common-model-scopes', 'https://docs.merge.dev/accounting/common-model-scopes/#common_model_scopes_retrieve'],['/common-model-actions', 'https://docs.merge.dev/accounting/common-model-actions/#common_model_actions_retrieve']], 'POST': []}
+     *
+     * @return self
+     */
+    public function setApiEndpointsToDocumentationUrls($api_endpoints_to_documentation_urls)
+    {
+        $this->container['api_endpoints_to_documentation_urls'] = $api_endpoints_to_documentation_urls;
+
+        return $this;
+    }
+
+    /**
+     * Gets webhook_setup_guide_url
+     *
+     * @return string|null
+     */
+    public function getWebhookSetupGuideUrl()
+    {
+        return $this->container['webhook_setup_guide_url'];
+    }
+
+    /**
+     * Sets webhook_setup_guide_url
+     *
+     * @param string|null $webhook_setup_guide_url Setup guide URL for third party webhook creation. Exposed in Merge Docs.
+     *
+     * @return self
+     */
+    public function setWebhookSetupGuideUrl($webhook_setup_guide_url)
+    {
+        $this->container['webhook_setup_guide_url'] = $webhook_setup_guide_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets category_beta_status
+     *
+     * @return object|null
+     */
+    public function getCategoryBetaStatus()
+    {
+        return $this->container['category_beta_status'];
+    }
+
+    /**
+     * Sets category_beta_status
+     *
+     * @param object|null $category_beta_status Category or categories this integration is in beta status for.
+     *
+     * @return self
+     */
+    public function setCategoryBetaStatus($category_beta_status)
+    {
+        $this->container['category_beta_status'] = $category_beta_status;
 
         return $this;
     }

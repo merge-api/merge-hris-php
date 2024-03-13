@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * EmploymentTypeEnumTest Class Doc Comment
  *
  * @category    Class
- * @description EmploymentTypeEnum
+ * @description * &#x60;FULL_TIME&#x60; - FULL_TIME * &#x60;PART_TIME&#x60; - PART_TIME * &#x60;INTERN&#x60; - INTERN * &#x60;CONTRACTOR&#x60; - CONTRACTOR * &#x60;FREELANCE&#x60; - FREELANCE
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

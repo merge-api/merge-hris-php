@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * PayPeriodEnumTest Class Doc Comment
  *
  * @category    Class
- * @description PayPeriodEnum
+ * @description * &#x60;HOUR&#x60; - HOUR * &#x60;DAY&#x60; - DAY * &#x60;WEEK&#x60; - WEEK * &#x60;EVERY_TWO_WEEKS&#x60; - EVERY_TWO_WEEKS * &#x60;SEMIMONTHLY&#x60; - SEMIMONTHLY * &#x60;MONTH&#x60; - MONTH * &#x60;QUARTER&#x60; - QUARTER * &#x60;EVERY_SIX_MONTHS&#x60; - EVERY_SIX_MONTHS * &#x60;YEAR&#x60; - YEAR
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

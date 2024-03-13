@@ -46,8 +46,8 @@ $ended_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If pro
 $ended_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return employee payroll runs ended before this datetime.
 $include_deleted_data = True; // bool | Whether to include data that was marked as deleted by third party webhooks.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
-$modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified after this datetime.
-$modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified before this datetime.
+$modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, only objects synced by Merge after this date time will be returned.
+$modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, only objects synced by Merge before this date time will be returned.
 $page_size = 56; // int | Number of results to return per page.
 $payroll_run_id = 'payroll_run_id_example'; // string | If provided, will only return employee payroll runs for this employee.
 $remote_id = 'remote_id_example'; // string | The API provider's ID for the given object.
@@ -75,8 +75,8 @@ Name | Type | Description  | Notes
  **ended_before** | **\DateTime**| If provided, will only return employee payroll runs ended before this datetime. | [optional]
  **include_deleted_data** | **bool**| Whether to include data that was marked as deleted by third party webhooks. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
- **modified_after** | **\DateTime**| If provided, will only return objects modified after this datetime. | [optional]
- **modified_before** | **\DateTime**| If provided, will only return objects modified before this datetime. | [optional]
+ **modified_after** | **\DateTime**| If provided, only objects synced by Merge after this date time will be returned. | [optional]
+ **modified_before** | **\DateTime**| If provided, only objects synced by Merge before this date time will be returned. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
  **payroll_run_id** | **string**| If provided, will only return employee payroll runs for this employee. | [optional]
  **remote_id** | **string**| The API provider&#39;s ID for the given object. | [optional]

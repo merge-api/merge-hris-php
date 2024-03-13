@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * AccountDetailsAndActionsStatusEnumTest Class Doc Comment
  *
  * @category    Class
- * @description AccountDetailsAndActionsStatusEnum
+ * @description * &#x60;COMPLETE&#x60; - COMPLETE * &#x60;INCOMPLETE&#x60; - INCOMPLETE * &#x60;RELINK_NEEDED&#x60; - RELINK_NEEDED
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

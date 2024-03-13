@@ -34,6 +34,7 @@ use \MergeHRISClient\ObjectSerializer;
  * ReasonEnum Class Doc Comment
  *
  * @category Class
+ * @description * &#x60;GENERAL_CUSTOMER_REQUEST&#x60; - GENERAL_CUSTOMER_REQUEST * &#x60;GDPR&#x60; - GDPR * &#x60;OTHER&#x60; - OTHER
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

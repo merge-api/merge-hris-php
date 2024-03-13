@@ -69,7 +69,8 @@ class AccountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_user_email_address' => 'string',
         'status' => 'string',
         'webhook_listener_url' => 'string',
-        'is_duplicate' => 'bool'
+        'is_duplicate' => 'bool',
+        'account_type' => 'string'
     ];
 
     /**
@@ -89,7 +90,8 @@ class AccountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_user_email_address' => 'email',
         'status' => null,
         'webhook_listener_url' => 'uri',
-        'is_duplicate' => null
+        'is_duplicate' => null,
+        'account_type' => null
     ];
 
     /**
@@ -128,7 +130,8 @@ class AccountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_user_email_address' => 'end_user_email_address',
         'status' => 'status',
         'webhook_listener_url' => 'webhook_listener_url',
-        'is_duplicate' => 'is_duplicate'
+        'is_duplicate' => 'is_duplicate',
+        'account_type' => 'account_type'
     ];
 
     /**
@@ -146,7 +149,8 @@ class AccountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_user_email_address' => 'setEndUserEmailAddress',
         'status' => 'setStatus',
         'webhook_listener_url' => 'setWebhookListenerUrl',
-        'is_duplicate' => 'setIsDuplicate'
+        'is_duplicate' => 'setIsDuplicate',
+        'account_type' => 'setAccountType'
     ];
 
     /**
@@ -164,7 +168,8 @@ class AccountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_user_email_address' => 'getEndUserEmailAddress',
         'status' => 'getStatus',
         'webhook_listener_url' => 'getWebhookListenerUrl',
-        'is_duplicate' => 'getIsDuplicate'
+        'is_duplicate' => 'getIsDuplicate',
+        'account_type' => 'getAccountType'
     ];
 
     /**
@@ -234,6 +239,7 @@ class AccountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['status'] = $data['status'] ?? null;
         $this->container['webhook_listener_url'] = $data['webhook_listener_url'] ?? null;
         $this->container['is_duplicate'] = $data['is_duplicate'] ?? null;
+        $this->container['account_type'] = $data['account_type'] ?? null;
     }
 
     /**
@@ -496,6 +502,30 @@ class AccountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIsDuplicate($is_duplicate)
     {
         $this->container['is_duplicate'] = $is_duplicate;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_type
+     *
+     * @return string|null
+     */
+    public function getAccountType()
+    {
+        return $this->container['account_type'];
+    }
+
+    /**
+     * Sets account_type
+     *
+     * @param string|null $account_type account_type
+     *
+     * @return self
+     */
+    public function setAccountType($account_type)
+    {
+        $this->container['account_type'] = $account_type;
 
         return $this;
     }

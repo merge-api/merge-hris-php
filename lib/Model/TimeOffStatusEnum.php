@@ -34,6 +34,7 @@ use \MergeHRISClient\ObjectSerializer;
  * TimeOffStatusEnum Class Doc Comment
  *
  * @category Class
+ * @description * &#x60;REQUESTED&#x60; - REQUESTED * &#x60;APPROVED&#x60; - APPROVED * &#x60;DECLINED&#x60; - DECLINED * &#x60;CANCELLED&#x60; - CANCELLED * &#x60;DELETED&#x60; - DELETED
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
