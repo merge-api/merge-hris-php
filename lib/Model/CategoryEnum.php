@@ -34,6 +34,7 @@ use \MergeHRISClient\ObjectSerializer;
  * CategoryEnum Class Doc Comment
  *
  * @category Class
+ * @description * &#x60;hris&#x60; - hris * &#x60;ats&#x60; - ats * &#x60;accounting&#x60; - accounting * &#x60;ticketing&#x60; - ticketing * &#x60;crm&#x60; - crm * &#x60;mktg&#x60; - mktg * &#x60;filestorage&#x60; - filestorage
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -48,6 +49,8 @@ class CategoryEnum
     const ACCOUNTING = 'accounting';
     const TICKETING = 'ticketing';
     const CRM = 'crm';
+    const MKTG = 'mktg';
+    const FILESTORAGE = 'filestorage';
     
 
     /**
@@ -69,6 +72,8 @@ class CategoryEnum
             self::ACCOUNTING,
             self::TICKETING,
             self::CRM,
+            self::MKTG,
+            self::FILESTORAGE,
         ];
     }
 }

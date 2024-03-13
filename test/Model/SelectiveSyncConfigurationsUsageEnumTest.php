@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * SelectiveSyncConfigurationsUsageEnumTest Class Doc Comment
  *
  * @category    Class
- * @description SelectiveSyncConfigurationsUsageEnum
+ * @description * &#x60;IN_NEXT_SYNC&#x60; - IN_NEXT_SYNC * &#x60;IN_LAST_SYNC&#x60; - IN_LAST_SYNC
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

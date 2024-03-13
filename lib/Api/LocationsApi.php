@@ -124,20 +124,21 @@ class LocationsApi
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
+     * @param  string $location_type If provided, will only return locations with this location_type  * &#x60;HOME&#x60; - HOME * &#x60;WORK&#x60; - WORK (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedLocationList
      */
-    public function locationsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
+    public function locationsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $location_type = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
     {
-        list($response) = $this->locationsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $show_enum_origins);
+        list($response) = $this->locationsListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $location_type, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $show_enum_origins);
         return $response;
     }
 
@@ -150,20 +151,21 @@ class LocationsApi
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
+     * @param  string $location_type If provided, will only return locations with this location_type  * &#x60;HOME&#x60; - HOME * &#x60;WORK&#x60; - WORK (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedLocationList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function locationsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
+    public function locationsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $location_type = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
     {
-        $request = $this->locationsListRequest($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $show_enum_origins);
+        $request = $this->locationsListRequest($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $location_type, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $show_enum_origins);
 
         try {
             $options = $this->createHttpClientOption();
@@ -245,19 +247,20 @@ class LocationsApi
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
+     * @param  string $location_type If provided, will only return locations with this location_type  * &#x60;HOME&#x60; - HOME * &#x60;WORK&#x60; - WORK (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function locationsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
+    public function locationsListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $location_type = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
     {
-        return $this->locationsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $show_enum_origins)
+        return $this->locationsListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $location_type, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $show_enum_origins)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -274,20 +277,21 @@ class LocationsApi
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
+     * @param  string $location_type If provided, will only return locations with this location_type  * &#x60;HOME&#x60; - HOME * &#x60;WORK&#x60; - WORK (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function locationsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
+    public function locationsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $location_type = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedLocationList';
-        $request = $this->locationsListRequest($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $show_enum_origins);
+        $request = $this->locationsListRequest($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $location_type, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $show_enum_origins);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -331,17 +335,18 @@ class LocationsApi
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
+     * @param  string $location_type If provided, will only return locations with this location_type  * &#x60;HOME&#x60; - HOME * &#x60;WORK&#x60; - WORK (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function locationsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
+    public function locationsListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $location_type = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -410,6 +415,17 @@ class LocationsApi
             }
             else {
                 $queryParams['include_remote_data'] = $include_remote_data;
+            }
+        }
+        // query params
+        if ($location_type !== null) {
+            if('form' === 'form' && is_array($location_type)) {
+                foreach($location_type as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['location_type'] = $location_type;
             }
         }
         // query params
@@ -555,7 +571,7 @@ class LocationsApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -574,7 +590,7 @@ class LocationsApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -662,7 +678,7 @@ class LocationsApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -684,7 +700,7 @@ class LocationsApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -734,7 +750,7 @@ class LocationsApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

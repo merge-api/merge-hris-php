@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * RunTypeEnumTest Class Doc Comment
  *
  * @category    Class
- * @description RunTypeEnum
+ * @description * &#x60;REGULAR&#x60; - REGULAR * &#x60;OFF_CYCLE&#x60; - OFF_CYCLE * &#x60;CORRECTION&#x60; - CORRECTION * &#x60;TERMINATION&#x60; - TERMINATION * &#x60;SIGN_ON_BONUS&#x60; - SIGN_ON_BONUS
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

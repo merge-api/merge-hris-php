@@ -73,12 +73,12 @@ class DeleteAccountApiTest extends TestCase
     }
 
     /**
-     * Test case for deleteAccountCreate
+     * Test case for deleteAccountDelete
      *
      * .
      *
      */
-    public function testDeleteAccountCreate()
+    public function testDeleteAccountDelete()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

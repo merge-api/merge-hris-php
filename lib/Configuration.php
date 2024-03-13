@@ -446,6 +446,10 @@ class Configuration
             [
                 "url" => "https://api-sandbox.merge.dev/api/hris/v1",
                 "description" => "Sandbox",
+            ],
+            [
+                "url" => "https://api-eu.merge.dev/api/hris/v1",
+                "description" => "Production EU",
             ]
         ];
     }

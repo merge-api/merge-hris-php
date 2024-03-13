@@ -402,7 +402,7 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets selective_sync_configurations_usage
      *
-     * @return SelectiveSyncConfigurationsUsageEnum|null
+     * @return \MergeHRISClient\Model\SelectiveSyncConfigurationsUsageEnum|null
      */
     public function getSelectiveSyncConfigurationsUsage()
     {
@@ -412,7 +412,7 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets selective_sync_configurations_usage
      *
-     * @param SelectiveSyncConfigurationsUsageEnum|null $selective_sync_configurations_usage selective_sync_configurations_usage
+     * @param \MergeHRISClient\Model\SelectiveSyncConfigurationsUsageEnum|null $selective_sync_configurations_usage selective_sync_configurations_usage
      *
      * @return self
      */

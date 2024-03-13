@@ -116,7 +116,7 @@ class DeleteAccountApi
     }
 
     /**
-     * Operation deleteAccountCreate
+     * Operation deleteAccountDelete
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      *
@@ -124,13 +124,13 @@ class DeleteAccountApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteAccountCreate($x_account_token)
+    public function deleteAccountDelete($x_account_token)
     {
-        $this->deleteAccountCreateWithHttpInfo($x_account_token);
+        $this->deleteAccountDeleteWithHttpInfo($x_account_token);
     }
 
     /**
-     * Operation deleteAccountCreateWithHttpInfo
+     * Operation deleteAccountDeleteWithHttpInfo
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      *
@@ -138,9 +138,9 @@ class DeleteAccountApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteAccountCreateWithHttpInfo($x_account_token)
+    public function deleteAccountDeleteWithHttpInfo($x_account_token)
     {
-        $request = $this->deleteAccountCreateRequest($x_account_token);
+        $request = $this->deleteAccountDeleteRequest($x_account_token);
 
         try {
             $options = $this->createHttpClientOption();
@@ -180,16 +180,16 @@ class DeleteAccountApi
     }
 
     /**
-     * Operation deleteAccountCreateAsync
+     * Operation deleteAccountDeleteAsync
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAccountCreateAsync($x_account_token)
+    public function deleteAccountDeleteAsync($x_account_token)
     {
-        return $this->deleteAccountCreateAsyncWithHttpInfo($x_account_token)
+        return $this->deleteAccountDeleteAsyncWithHttpInfo($x_account_token)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -198,17 +198,17 @@ class DeleteAccountApi
     }
 
     /**
-     * Operation deleteAccountCreateAsyncWithHttpInfo
+     * Operation deleteAccountDeleteAsyncWithHttpInfo
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAccountCreateAsyncWithHttpInfo($x_account_token)
+    public function deleteAccountDeleteAsyncWithHttpInfo($x_account_token)
     {
         $returnType = '';
-        $request = $this->deleteAccountCreateRequest($x_account_token);
+        $request = $this->deleteAccountDeleteRequest($x_account_token);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -234,19 +234,19 @@ class DeleteAccountApi
     }
 
     /**
-     * Create request for operation 'deleteAccountCreate'
+     * Create request for operation 'deleteAccountDelete'
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteAccountCreateRequest($x_account_token)
+    public function deleteAccountDeleteRequest($x_account_token)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $x_account_token when calling deleteAccountCreate'
+                'Missing the required parameter $x_account_token when calling deleteAccountDelete'
             );
         }
 

@@ -63,9 +63,11 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'remote_id' => 'string',
+        'created_at' => '\DateTime',
+        'modified_at' => '\DateTime',
         'employee' => 'string',
         'job_title' => 'string',
-        'pay_rate' => 'float',
+        'pay_rate' => 'double',
         'pay_period' => '\MergeHRISClient\Model\PayPeriodEnum',
         'pay_frequency' => '\MergeHRISClient\Model\PayFrequencyEnum',
         'pay_currency' => '\MergeHRISClient\Model\PayCurrencyEnum',
@@ -73,9 +75,9 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'flsa_status' => '\MergeHRISClient\Model\FlsaStatusEnum',
         'effective_date' => '\DateTime',
         'employment_type' => '\MergeHRISClient\Model\EmploymentTypeEnum',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
         'remote_was_deleted' => 'bool',
-        'field_mappings' => 'array<string,mixed>'
+        'field_mappings' => 'array<string,mixed>',
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
     /**
@@ -88,9 +90,11 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'remote_id' => null,
+        'created_at' => 'date-time',
+        'modified_at' => 'date-time',
         'employee' => 'uuid',
         'job_title' => null,
-        'pay_rate' => 'float',
+        'pay_rate' => 'double',
         'pay_period' => null,
         'pay_frequency' => null,
         'pay_currency' => null,
@@ -98,9 +102,9 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'flsa_status' => null,
         'effective_date' => 'date-time',
         'employment_type' => null,
-        'remote_data' => null,
         'remote_was_deleted' => null,
-        'field_mappings' => null
+        'field_mappings' => null,
+        'remote_data' => null
     ];
 
     /**
@@ -132,6 +136,8 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'id' => 'id',
         'remote_id' => 'remote_id',
+        'created_at' => 'created_at',
+        'modified_at' => 'modified_at',
         'employee' => 'employee',
         'job_title' => 'job_title',
         'pay_rate' => 'pay_rate',
@@ -142,9 +148,9 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'flsa_status' => 'flsa_status',
         'effective_date' => 'effective_date',
         'employment_type' => 'employment_type',
-        'remote_data' => 'remote_data',
         'remote_was_deleted' => 'remote_was_deleted',
-        'field_mappings' => 'field_mappings'
+        'field_mappings' => 'field_mappings',
+        'remote_data' => 'remote_data'
     ];
 
     /**
@@ -155,6 +161,8 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'id' => 'setId',
         'remote_id' => 'setRemoteId',
+        'created_at' => 'setCreatedAt',
+        'modified_at' => 'setModifiedAt',
         'employee' => 'setEmployee',
         'job_title' => 'setJobTitle',
         'pay_rate' => 'setPayRate',
@@ -165,9 +173,9 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'flsa_status' => 'setFlsaStatus',
         'effective_date' => 'setEffectiveDate',
         'employment_type' => 'setEmploymentType',
-        'remote_data' => 'setRemoteData',
         'remote_was_deleted' => 'setRemoteWasDeleted',
-        'field_mappings' => 'setFieldMappings'
+        'field_mappings' => 'setFieldMappings',
+        'remote_data' => 'setRemoteData'
     ];
 
     /**
@@ -178,6 +186,8 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'id' => 'getId',
         'remote_id' => 'getRemoteId',
+        'created_at' => 'getCreatedAt',
+        'modified_at' => 'getModifiedAt',
         'employee' => 'getEmployee',
         'job_title' => 'getJobTitle',
         'pay_rate' => 'getPayRate',
@@ -188,9 +198,9 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         'flsa_status' => 'getFlsaStatus',
         'effective_date' => 'getEffectiveDate',
         'employment_type' => 'getEmploymentType',
-        'remote_data' => 'getRemoteData',
         'remote_was_deleted' => 'getRemoteWasDeleted',
-        'field_mappings' => 'getFieldMappings'
+        'field_mappings' => 'getFieldMappings',
+        'remote_data' => 'getRemoteData'
     ];
 
     /**
@@ -252,6 +262,8 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['id'] = $data['id'] ?? null;
         $this->container['remote_id'] = $data['remote_id'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['modified_at'] = $data['modified_at'] ?? null;
         $this->container['employee'] = $data['employee'] ?? null;
         $this->container['job_title'] = $data['job_title'] ?? null;
         $this->container['pay_rate'] = $data['pay_rate'] ?? null;
@@ -262,9 +274,9 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['flsa_status'] = $data['flsa_status'] ?? null;
         $this->container['effective_date'] = $data['effective_date'] ?? null;
         $this->container['employment_type'] = $data['employment_type'] ?? null;
-        $this->container['remote_data'] = $data['remote_data'] ?? null;
         $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
         $this->container['field_mappings'] = $data['field_mappings'] ?? null;
+        $this->container['remote_data'] = $data['remote_data'] ?? null;
     }
 
     /**
@@ -340,6 +352,54 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets modified_at
+     *
+     * @return \DateTime|null
+     */
+    public function getModifiedAt()
+    {
+        return $this->container['modified_at'];
+    }
+
+    /**
+     * Sets modified_at
+     *
+     * @param \DateTime|null $modified_at This is the datetime that this object was last updated by Merge
+     *
+     * @return self
+     */
+    public function setModifiedAt($modified_at)
+    {
+        $this->container['modified_at'] = $modified_at;
+
+        return $this;
+    }
+
+    /**
      * Gets employee
      *
      * @return string|null
@@ -390,7 +450,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets pay_rate
      *
-     * @return float|null
+     * @return double|null
      */
     public function getPayRate()
     {
@@ -400,7 +460,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pay_rate
      *
-     * @param float|null $pay_rate The position's pay rate in dollars.
+     * @param double|null $pay_rate The position's pay rate in dollars.
      *
      * @return self
      */
@@ -424,7 +484,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pay_period
      *
-     * @param PayPeriodEnum|null $pay_period The time period this pay rate encompasses.
+     * @param PayPeriodEnum|null $pay_period The time period this pay rate encompasses.  * `HOUR` - HOUR * `DAY` - DAY * `WEEK` - WEEK * `EVERY_TWO_WEEKS` - EVERY_TWO_WEEKS * `SEMIMONTHLY` - SEMIMONTHLY * `MONTH` - MONTH * `QUARTER` - QUARTER * `EVERY_SIX_MONTHS` - EVERY_SIX_MONTHS * `YEAR` - YEAR
      *
      * @return self
      */
@@ -448,7 +508,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pay_frequency
      *
-     * @param PayFrequencyEnum|null $pay_frequency The position's pay frequency.
+     * @param PayFrequencyEnum|null $pay_frequency The position's pay frequency.  * `WEEKLY` - WEEKLY * `BIWEEKLY` - BIWEEKLY * `MONTHLY` - MONTHLY * `QUARTERLY` - QUARTERLY * `SEMIANNUALLY` - SEMIANNUALLY * `ANNUALLY` - ANNUALLY * `THIRTEEN-MONTHLY` - THIRTEEN-MONTHLY * `PRO_RATA` - PRO_RATA * `SEMIMONTHLY` - SEMIMONTHLY
      *
      * @return self
      */
@@ -472,7 +532,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pay_currency
      *
-     * @param PayCurrencyEnum|null $pay_currency The position's currency code.
+     * @param PayCurrencyEnum|null $pay_currency The position's currency code.  * `XUA` - ADB Unit of Account * `AFN` - Afghan Afghani * `AFA` - Afghan Afghani (1927–2002) * `ALL` - Albanian Lek * `ALK` - Albanian Lek (1946–1965) * `DZD` - Algerian Dinar * `ADP` - Andorran Peseta * `AOA` - Angolan Kwanza * `AOK` - Angolan Kwanza (1977–1991) * `AON` - Angolan New Kwanza (1990–2000) * `AOR` - Angolan Readjusted Kwanza (1995–1999) * `ARA` - Argentine Austral * `ARS` - Argentine Peso * `ARM` - Argentine Peso (1881–1970) * `ARP` - Argentine Peso (1983–1985) * `ARL` - Argentine Peso Ley (1970–1983) * `AMD` - Armenian Dram * `AWG` - Aruban Florin * `AUD` - Australian Dollar * `ATS` - Austrian Schilling * `AZN` - Azerbaijani Manat * `AZM` - Azerbaijani Manat (1993–2006) * `BSD` - Bahamian Dollar * `BHD` - Bahraini Dinar * `BDT` - Bangladeshi Taka * `BBD` - Barbadian Dollar * `BYN` - Belarusian Ruble * `BYB` - Belarusian Ruble (1994–1999) * `BYR` - Belarusian Ruble (2000–2016) * `BEF` - Belgian Franc * `BEC` - Belgian Franc (convertible) * `BEL` - Belgian Franc (financial) * `BZD` - Belize Dollar * `BMD` - Bermudan Dollar * `BTN` - Bhutanese Ngultrum * `BOB` - Bolivian Boliviano * `BOL` - Bolivian Boliviano (1863–1963) * `BOV` - Bolivian Mvdol * `BOP` - Bolivian Peso * `BAM` - Bosnia-Herzegovina Convertible Mark * `BAD` - Bosnia-Herzegovina Dinar (1992–1994) * `BAN` - Bosnia-Herzegovina New Dinar (1994–1997) * `BWP` - Botswanan Pula * `BRC` - Brazilian Cruzado (1986–1989) * `BRZ` - Brazilian Cruzeiro (1942–1967) * `BRE` - Brazilian Cruzeiro (1990–1993) * `BRR` - Brazilian Cruzeiro (1993–1994) * `BRN` - Brazilian New Cruzado (1989–1990) * `BRB` - Brazilian New Cruzeiro (1967–1986) * `BRL` - Brazilian Real * `GBP` - British Pound * `BND` - Brunei Dollar * `BGL` - Bulgarian Hard Lev * `BGN` - Bulgarian Lev * `BGO` - Bulgarian Lev (1879–1952) * `BGM` - Bulgarian Socialist Lev * `BUK` - Burmese Kyat * `BIF` - Burundian Franc * `XPF` - CFP Franc * `KHR` - Cambodian Riel * `CAD` - Canadian Dollar * `CVE` - Cape Verdean Escudo * `KYD` - Cayman Islands Dollar * `XAF` - Central African CFA Franc * `CLE` - Chilean Escudo * `CLP` - Chilean Peso * `CLF` - Chilean Unit of Account (UF) * `CNX` - Chinese People’s Bank Dollar * `CNY` - Chinese Yuan * `CNH` - Chinese Yuan (offshore) * `COP` - Colombian Peso * `COU` - Colombian Real Value Unit * `KMF` - Comorian Franc * `CDF` - Congolese Franc * `CRC` - Costa Rican Colón * `HRD` - Croatian Dinar * `HRK` - Croatian Kuna * `CUC` - Cuban Convertible Peso * `CUP` - Cuban Peso * `CYP` - Cypriot Pound * `CZK` - Czech Koruna * `CSK` - Czechoslovak Hard Koruna * `DKK` - Danish Krone * `DJF` - Djiboutian Franc * `DOP` - Dominican Peso * `NLG` - Dutch Guilder * `XCD` - East Caribbean Dollar * `DDM` - East German Mark * `ECS` - Ecuadorian Sucre * `ECV` - Ecuadorian Unit of Constant Value * `EGP` - Egyptian Pound * `GQE` - Equatorial Guinean Ekwele * `ERN` - Eritrean Nakfa * `EEK` - Estonian Kroon * `ETB` - Ethiopian Birr * `EUR` - Euro * `XBA` - European Composite Unit * `XEU` - European Currency Unit * `XBB` - European Monetary Unit * `XBC` - European Unit of Account (XBC) * `XBD` - European Unit of Account (XBD) * `FKP` - Falkland Islands Pound * `FJD` - Fijian Dollar * `FIM` - Finnish Markka * `FRF` - French Franc * `XFO` - French Gold Franc * `XFU` - French UIC-Franc * `GMD` - Gambian Dalasi * `GEK` - Georgian Kupon Larit * `GEL` - Georgian Lari * `DEM` - German Mark * `GHS` - Ghanaian Cedi * `GHC` - Ghanaian Cedi (1979–2007) * `GIP` - Gibraltar Pound * `XAU` - Gold * `GRD` - Greek Drachma * `GTQ` - Guatemalan Quetzal * `GWP` - Guinea-Bissau Peso * `GNF` - Guinean Franc * `GNS` - Guinean Syli * `GYD` - Guyanaese Dollar * `HTG` - Haitian Gourde * `HNL` - Honduran Lempira * `HKD` - Hong Kong Dollar * `HUF` - Hungarian Forint * `IMP` - IMP * `ISK` - Icelandic Króna * `ISJ` - Icelandic Króna (1918–1981) * `INR` - Indian Rupee * `IDR` - Indonesian Rupiah * `IRR` - Iranian Rial * `IQD` - Iraqi Dinar * `IEP` - Irish Pound * `ILS` - Israeli New Shekel * `ILP` - Israeli Pound * `ILR` - Israeli Shekel (1980–1985) * `ITL` - Italian Lira * `JMD` - Jamaican Dollar * `JPY` - Japanese Yen * `JOD` - Jordanian Dinar * `KZT` - Kazakhstani Tenge * `KES` - Kenyan Shilling * `KWD` - Kuwaiti Dinar * `KGS` - Kyrgystani Som * `LAK` - Laotian Kip * `LVL` - Latvian Lats * `LVR` - Latvian Ruble * `LBP` - Lebanese Pound * `LSL` - Lesotho Loti * `LRD` - Liberian Dollar * `LYD` - Libyan Dinar * `LTL` - Lithuanian Litas * `LTT` - Lithuanian Talonas * `LUL` - Luxembourg Financial Franc * `LUC` - Luxembourgian Convertible Franc * `LUF` - Luxembourgian Franc * `MOP` - Macanese Pataca * `MKD` - Macedonian Denar * `MKN` - Macedonian Denar (1992–1993) * `MGA` - Malagasy Ariary * `MGF` - Malagasy Franc * `MWK` - Malawian Kwacha * `MYR` - Malaysian Ringgit * `MVR` - Maldivian Rufiyaa * `MVP` - Maldivian Rupee (1947–1981) * `MLF` - Malian Franc * `MTL` - Maltese Lira * `MTP` - Maltese Pound * `MRU` - Mauritanian Ouguiya * `MRO` - Mauritanian Ouguiya (1973–2017) * `MUR` - Mauritian Rupee * `MXV` - Mexican Investment Unit * `MXN` - Mexican Peso * `MXP` - Mexican Silver Peso (1861–1992) * `MDC` - Moldovan Cupon * `MDL` - Moldovan Leu * `MCF` - Monegasque Franc * `MNT` - Mongolian Tugrik * `MAD` - Moroccan Dirham * `MAF` - Moroccan Franc * `MZE` - Mozambican Escudo * `MZN` - Mozambican Metical * `MZM` - Mozambican Metical (1980–2006) * `MMK` - Myanmar Kyat * `NAD` - Namibian Dollar * `NPR` - Nepalese Rupee * `ANG` - Netherlands Antillean Guilder * `TWD` - New Taiwan Dollar * `NZD` - New Zealand Dollar * `NIO` - Nicaraguan Córdoba * `NIC` - Nicaraguan Córdoba (1988–1991) * `NGN` - Nigerian Naira * `KPW` - North Korean Won * `NOK` - Norwegian Krone * `OMR` - Omani Rial * `PKR` - Pakistani Rupee * `XPD` - Palladium * `PAB` - Panamanian Balboa * `PGK` - Papua New Guinean Kina * `PYG` - Paraguayan Guarani * `PEI` - Peruvian Inti * `PEN` - Peruvian Sol * `PES` - Peruvian Sol (1863–1965) * `PHP` - Philippine Peso * `XPT` - Platinum * `PLN` - Polish Zloty * `PLZ` - Polish Zloty (1950–1995) * `PTE` - Portuguese Escudo * `GWE` - Portuguese Guinea Escudo * `QAR` - Qatari Rial * `XRE` - RINET Funds * `RHD` - Rhodesian Dollar * `RON` - Romanian Leu * `ROL` - Romanian Leu (1952–2006) * `RUB` - Russian Ruble * `RUR` - Russian Ruble (1991–1998) * `RWF` - Rwandan Franc * `SVC` - Salvadoran Colón * `WST` - Samoan Tala * `SAR` - Saudi Riyal * `RSD` - Serbian Dinar * `CSD` - Serbian Dinar (2002–2006) * `SCR` - Seychellois Rupee * `SLL` - Sierra Leonean Leone * `XAG` - Silver * `SGD` - Singapore Dollar * `SKK` - Slovak Koruna * `SIT` - Slovenian Tolar * `SBD` - Solomon Islands Dollar * `SOS` - Somali Shilling * `ZAR` - South African Rand * `ZAL` - South African Rand (financial) * `KRH` - South Korean Hwan (1953–1962) * `KRW` - South Korean Won * `KRO` - South Korean Won (1945–1953) * `SSP` - South Sudanese Pound * `SUR` - Soviet Rouble * `ESP` - Spanish Peseta * `ESA` - Spanish Peseta (A account) * `ESB` - Spanish Peseta (convertible account) * `XDR` - Special Drawing Rights * `LKR` - Sri Lankan Rupee * `SHP` - St. Helena Pound * `XSU` - Sucre * `SDD` - Sudanese Dinar (1992–2007) * `SDG` - Sudanese Pound * `SDP` - Sudanese Pound (1957–1998) * `SRD` - Surinamese Dollar * `SRG` - Surinamese Guilder * `SZL` - Swazi Lilangeni * `SEK` - Swedish Krona * `CHF` - Swiss Franc * `SYP` - Syrian Pound * `STN` - São Tomé & Príncipe Dobra * `STD` - São Tomé & Príncipe Dobra (1977–2017) * `TVD` - TVD * `TJR` - Tajikistani Ruble * `TJS` - Tajikistani Somoni * `TZS` - Tanzanian Shilling * `XTS` - Testing Currency Code * `THB` - Thai Baht * `XXX` - The codes assigned for transactions where no currency is involved * `TPE` - Timorese Escudo * `TOP` - Tongan Paʻanga * `TTD` - Trinidad & Tobago Dollar * `TND` - Tunisian Dinar * `TRY` - Turkish Lira * `TRL` - Turkish Lira (1922–2005) * `TMT` - Turkmenistani Manat * `TMM` - Turkmenistani Manat (1993–2009) * `USD` - US Dollar * `USN` - US Dollar (Next day) * `USS` - US Dollar (Same day) * `UGX` - Ugandan Shilling * `UGS` - Ugandan Shilling (1966–1987) * `UAH` - Ukrainian Hryvnia * `UAK` - Ukrainian Karbovanets * `AED` - United Arab Emirates Dirham * `UYW` - Uruguayan Nominal Wage Index Unit * `UYU` - Uruguayan Peso * `UYP` - Uruguayan Peso (1975–1993) * `UYI` - Uruguayan Peso (Indexed Units) * `UZS` - Uzbekistani Som * `VUV` - Vanuatu Vatu * `VES` - Venezuelan Bolívar * `VEB` - Venezuelan Bolívar (1871–2008) * `VEF` - Venezuelan Bolívar (2008–2018) * `VND` - Vietnamese Dong * `VNN` - Vietnamese Dong (1978–1985) * `CHE` - WIR Euro * `CHW` - WIR Franc * `XOF` - West African CFA Franc * `YDD` - Yemeni Dinar * `YER` - Yemeni Rial * `YUN` - Yugoslavian Convertible Dinar (1990–1992) * `YUD` - Yugoslavian Hard Dinar (1966–1990) * `YUM` - Yugoslavian New Dinar (1994–2002) * `YUR` - Yugoslavian Reformed Dinar (1992–1993) * `ZWN` - ZWN * `ZRN` - Zairean New Zaire (1993–1998) * `ZRZ` - Zairean Zaire (1971–1993) * `ZMW` - Zambian Kwacha * `ZMK` - Zambian Kwacha (1968–2012) * `ZWD` - Zimbabwean Dollar (1980–2008) * `ZWR` - Zimbabwean Dollar (2008) * `ZWL` - Zimbabwean Dollar (2009)
      *
      * @return self
      */
@@ -520,7 +580,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets flsa_status
      *
-     * @param FlsaStatusEnum|null $flsa_status The position's FLSA status.
+     * @param FlsaStatusEnum|null $flsa_status The position's FLSA status.  * `EXEMPT` - EXEMPT * `SALARIED_NONEXEMPT` - SALARIED_NONEXEMPT * `NONEXEMPT` - NONEXEMPT * `OWNER` - OWNER
      *
      * @return self
      */
@@ -568,37 +628,13 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employment_type
      *
-     * @param EmploymentTypeEnum|null $employment_type The position's type of employment.
+     * @param EmploymentTypeEnum|null $employment_type The position's type of employment.  * `FULL_TIME` - FULL_TIME * `PART_TIME` - PART_TIME * `INTERN` - INTERN * `CONTRACTOR` - CONTRACTOR * `FREELANCE` - FREELANCE
      *
      * @return self
      */
     public function setEmploymentType($employment_type)
     {
         $this->container['employment_type'] = $employment_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets remote_data
-     *
-     * @return \MergeHRISClient\Model\RemoteData[]|null
-     */
-    public function getRemoteData()
-    {
-        return $this->container['remote_data'];
-    }
-
-    /**
-     * Sets remote_data
-     *
-     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
-     *
-     * @return self
-     */
-    public function setRemoteData($remote_data)
-    {
-        $this->container['remote_data'] = $remote_data;
 
         return $this;
     }
@@ -616,7 +652,7 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets remote_was_deleted
      *
-     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted in the third party platform.
      *
      * @return self
      */
@@ -647,6 +683,30 @@ class Employment implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setFieldMappings($field_mappings)
     {
         $this->container['field_mappings'] = $field_mappings;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_data
+     *
+     * @return \MergeHRISClient\Model\RemoteData[]|null
+     */
+    public function getRemoteData()
+    {
+        return $this->container['remote_data'];
+    }
+
+    /**
+     * Sets remote_data
+     *
+     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
+     *
+     * @return self
+     */
+    public function setRemoteData($remote_data)
+    {
+        $this->container['remote_data'] = $remote_data;
 
         return $this;
     }

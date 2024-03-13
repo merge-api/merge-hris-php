@@ -90,6 +90,15 @@ class MetaResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "remote_field_classes"
+     */
+    public function testPropertyRemoteFieldClasses()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "status"
      */
     public function testPropertyStatus()

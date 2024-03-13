@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * RequestFormatEnumTest Class Doc Comment
  *
  * @category    Class
- * @description RequestFormatEnum
+ * @description * &#x60;JSON&#x60; - JSON * &#x60;XML&#x60; - XML * &#x60;MULTIPART&#x60; - MULTIPART
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

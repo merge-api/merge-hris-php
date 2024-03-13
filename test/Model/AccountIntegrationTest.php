@@ -133,4 +133,31 @@ class AccountIntegrationTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "api_endpoints_to_documentation_urls"
+     */
+    public function testPropertyApiEndpointsToDocumentationUrls()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "webhook_setup_guide_url"
+     */
+    public function testPropertyWebhookSetupGuideUrl()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "category_beta_status"
+     */
+    public function testPropertyCategoryBetaStatus()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

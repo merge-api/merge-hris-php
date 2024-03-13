@@ -99,18 +99,27 @@ class PayGroupTest extends TestCase
     }
 
     /**
-     * Test attribute "pay_group_name"
+     * Test attribute "created_at"
      */
-    public function testPropertyPayGroupName()
+    public function testPropertyCreatedAt()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "remote_data"
+     * Test attribute "modified_at"
      */
-    public function testPropertyRemoteData()
+    public function testPropertyModifiedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "pay_group_name"
+     */
+    public function testPropertyPayGroupName()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -129,6 +138,15 @@ class PayGroupTest extends TestCase
      * Test attribute "field_mappings"
      */
     public function testPropertyFieldMappings()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "remote_data"
+     */
+    public function testPropertyRemoteData()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

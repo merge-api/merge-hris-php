@@ -67,7 +67,7 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
         'first_incident_time' => '\DateTime',
         'last_incident_time' => '\DateTime',
         'is_muted' => 'bool',
-        'error_details' => 'array<string,mixed>'
+        'error_details' => 'string[]'
     ];
 
     /**
@@ -288,7 +288,7 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param IssueStatusEnum|null $status status
+     * @param IssueStatusEnum|null $status Status of the issue. Options: ('ONGOING', 'RESOLVED')  * `ONGOING` - ONGOING * `RESOLVED` - RESOLVED
      *
      * @return self
      */
@@ -422,7 +422,7 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets error_details
      *
-     * @return array<string,mixed>|null
+     * @return string[]|null
      */
     public function getErrorDetails()
     {
@@ -432,7 +432,7 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets error_details
      *
-     * @param array<string,mixed>|null $error_details error_details
+     * @param string[]|null $error_details error_details
      *
      * @return self
      */

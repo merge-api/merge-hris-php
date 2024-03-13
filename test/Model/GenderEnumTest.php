@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * GenderEnumTest Class Doc Comment
  *
  * @category    Class
- * @description GenderEnum
+ * @description * &#x60;MALE&#x60; - MALE * &#x60;FEMALE&#x60; - FEMALE * &#x60;NON-BINARY&#x60; - NON-BINARY * &#x60;OTHER&#x60; - OTHER * &#x60;PREFER_NOT_TO_DISCLOSE&#x60; - PREFER_NOT_TO_DISCLOSE
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

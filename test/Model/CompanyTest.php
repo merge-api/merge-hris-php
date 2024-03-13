@@ -99,6 +99,24 @@ class CompanyTest extends TestCase
     }
 
     /**
+     * Test attribute "created_at"
+     */
+    public function testPropertyCreatedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "modified_at"
+     */
+    public function testPropertyModifiedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "legal_name"
      */
     public function testPropertyLegalName()
@@ -126,15 +144,6 @@ class CompanyTest extends TestCase
     }
 
     /**
-     * Test attribute "remote_data"
-     */
-    public function testPropertyRemoteData()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "remote_was_deleted"
      */
     public function testPropertyRemoteWasDeleted()
@@ -147,6 +156,15 @@ class CompanyTest extends TestCase
      * Test attribute "field_mappings"
      */
     public function testPropertyFieldMappings()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "remote_data"
+     */
+    public function testPropertyRemoteData()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

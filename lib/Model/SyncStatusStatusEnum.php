@@ -34,6 +34,7 @@ use \MergeHRISClient\ObjectSerializer;
  * SyncStatusStatusEnum Class Doc Comment
  *
  * @category Class
+ * @description * &#x60;SYNCING&#x60; - SYNCING * &#x60;DONE&#x60; - DONE * &#x60;FAILED&#x60; - FAILED * &#x60;DISABLED&#x60; - DISABLED * &#x60;PAUSED&#x60; - PAUSED * &#x60;PARTIALLY_SYNCED&#x60; - PARTIALLY_SYNCED
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

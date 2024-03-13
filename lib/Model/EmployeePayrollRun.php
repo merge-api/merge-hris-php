@@ -63,19 +63,21 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'id' => 'string',
         'remote_id' => 'string',
+        'created_at' => '\DateTime',
+        'modified_at' => '\DateTime',
         'employee' => 'string',
         'payroll_run' => 'string',
-        'gross_pay' => 'float',
-        'net_pay' => 'float',
+        'gross_pay' => 'double',
+        'net_pay' => 'double',
         'start_date' => '\DateTime',
         'end_date' => '\DateTime',
         'check_date' => '\DateTime',
         'earnings' => '\MergeHRISClient\Model\Earning[]',
         'deductions' => '\MergeHRISClient\Model\Deduction[]',
         'taxes' => '\MergeHRISClient\Model\Tax[]',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
         'remote_was_deleted' => 'bool',
-        'field_mappings' => 'array<string,mixed>'
+        'field_mappings' => 'array<string,mixed>',
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
     /**
@@ -88,19 +90,21 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'remote_id' => null,
+        'created_at' => 'date-time',
+        'modified_at' => 'date-time',
         'employee' => 'uuid',
         'payroll_run' => 'uuid',
-        'gross_pay' => 'float',
-        'net_pay' => 'float',
+        'gross_pay' => 'double',
+        'net_pay' => 'double',
         'start_date' => 'date-time',
         'end_date' => 'date-time',
         'check_date' => 'date-time',
         'earnings' => null,
         'deductions' => null,
         'taxes' => null,
-        'remote_data' => null,
         'remote_was_deleted' => null,
-        'field_mappings' => null
+        'field_mappings' => null,
+        'remote_data' => null
     ];
 
     /**
@@ -132,6 +136,8 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $attributeMap = [
         'id' => 'id',
         'remote_id' => 'remote_id',
+        'created_at' => 'created_at',
+        'modified_at' => 'modified_at',
         'employee' => 'employee',
         'payroll_run' => 'payroll_run',
         'gross_pay' => 'gross_pay',
@@ -142,9 +148,9 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
         'earnings' => 'earnings',
         'deductions' => 'deductions',
         'taxes' => 'taxes',
-        'remote_data' => 'remote_data',
         'remote_was_deleted' => 'remote_was_deleted',
-        'field_mappings' => 'field_mappings'
+        'field_mappings' => 'field_mappings',
+        'remote_data' => 'remote_data'
     ];
 
     /**
@@ -155,6 +161,8 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $setters = [
         'id' => 'setId',
         'remote_id' => 'setRemoteId',
+        'created_at' => 'setCreatedAt',
+        'modified_at' => 'setModifiedAt',
         'employee' => 'setEmployee',
         'payroll_run' => 'setPayrollRun',
         'gross_pay' => 'setGrossPay',
@@ -165,9 +173,9 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
         'earnings' => 'setEarnings',
         'deductions' => 'setDeductions',
         'taxes' => 'setTaxes',
-        'remote_data' => 'setRemoteData',
         'remote_was_deleted' => 'setRemoteWasDeleted',
-        'field_mappings' => 'setFieldMappings'
+        'field_mappings' => 'setFieldMappings',
+        'remote_data' => 'setRemoteData'
     ];
 
     /**
@@ -178,6 +186,8 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $getters = [
         'id' => 'getId',
         'remote_id' => 'getRemoteId',
+        'created_at' => 'getCreatedAt',
+        'modified_at' => 'getModifiedAt',
         'employee' => 'getEmployee',
         'payroll_run' => 'getPayrollRun',
         'gross_pay' => 'getGrossPay',
@@ -188,9 +198,9 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
         'earnings' => 'getEarnings',
         'deductions' => 'getDeductions',
         'taxes' => 'getTaxes',
-        'remote_data' => 'getRemoteData',
         'remote_was_deleted' => 'getRemoteWasDeleted',
-        'field_mappings' => 'getFieldMappings'
+        'field_mappings' => 'getFieldMappings',
+        'remote_data' => 'getRemoteData'
     ];
 
     /**
@@ -252,6 +262,8 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $this->container['id'] = $data['id'] ?? null;
         $this->container['remote_id'] = $data['remote_id'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['modified_at'] = $data['modified_at'] ?? null;
         $this->container['employee'] = $data['employee'] ?? null;
         $this->container['payroll_run'] = $data['payroll_run'] ?? null;
         $this->container['gross_pay'] = $data['gross_pay'] ?? null;
@@ -262,9 +274,9 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['earnings'] = $data['earnings'] ?? null;
         $this->container['deductions'] = $data['deductions'] ?? null;
         $this->container['taxes'] = $data['taxes'] ?? null;
-        $this->container['remote_data'] = $data['remote_data'] ?? null;
         $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
         $this->container['field_mappings'] = $data['field_mappings'] ?? null;
+        $this->container['remote_data'] = $data['remote_data'] ?? null;
     }
 
     /**
@@ -340,6 +352,54 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets modified_at
+     *
+     * @return \DateTime|null
+     */
+    public function getModifiedAt()
+    {
+        return $this->container['modified_at'];
+    }
+
+    /**
+     * Sets modified_at
+     *
+     * @param \DateTime|null $modified_at This is the datetime that this object was last updated by Merge
+     *
+     * @return self
+     */
+    public function setModifiedAt($modified_at)
+    {
+        $this->container['modified_at'] = $modified_at;
+
+        return $this;
+    }
+
+    /**
      * Gets employee
      *
      * @return string|null
@@ -390,7 +450,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets gross_pay
      *
-     * @return float|null
+     * @return double|null
      */
     public function getGrossPay()
     {
@@ -400,7 +460,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets gross_pay
      *
-     * @param float|null $gross_pay The total earnings throughout a given period for an employee before any deductions are made.
+     * @param double|null $gross_pay The total earnings throughout a given period for an employee before any deductions are made.
      *
      * @return self
      */
@@ -414,7 +474,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets net_pay
      *
-     * @return float|null
+     * @return double|null
      */
     public function getNetPay()
     {
@@ -424,7 +484,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets net_pay
      *
-     * @param float|null $net_pay The take-home pay throughout a given period for an employee after deductions are made.
+     * @param double|null $net_pay The take-home pay throughout a given period for an employee after deductions are made.
      *
      * @return self
      */
@@ -580,30 +640,6 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets remote_data
-     *
-     * @return \MergeHRISClient\Model\RemoteData[]|null
-     */
-    public function getRemoteData()
-    {
-        return $this->container['remote_data'];
-    }
-
-    /**
-     * Sets remote_data
-     *
-     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
-     *
-     * @return self
-     */
-    public function setRemoteData($remote_data)
-    {
-        $this->container['remote_data'] = $remote_data;
-
-        return $this;
-    }
-
-    /**
      * Gets remote_was_deleted
      *
      * @return bool|null
@@ -616,7 +652,7 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets remote_was_deleted
      *
-     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted in the third party platform.
      *
      * @return self
      */
@@ -647,6 +683,30 @@ class EmployeePayrollRun implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setFieldMappings($field_mappings)
     {
         $this->container['field_mappings'] = $field_mappings;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_data
+     *
+     * @return \MergeHRISClient\Model\RemoteData[]|null
+     */
+    public function getRemoteData()
+    {
+        return $this->container['remote_data'];
+    }
+
+    /**
+     * Sets remote_data
+     *
+     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
+     *
+     * @return self
+     */
+    public function setRemoteData($remote_data)
+    {
+        $this->container['remote_data'] = $remote_data;
 
         return $this;
     }

@@ -8,8 +8,7 @@ For more information, please visit [https://www.merge.dev/](https://www.merge.de
 
 ### Requirements
 
-- PHP 7.2 and later.
-- guzzlehttp/guzzle 7.4 and later.
+PHP 7.2 and later.
 
 ### Composer
 
@@ -81,6 +80,9 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountDetailsApi* | [**accountDetailsRetrieve**](docs/Api/AccountDetailsApi.md#accountdetailsretrieve) | **GET** /account-details | 
 *AccountTokenApi* | [**accountTokenRetrieve**](docs/Api/AccountTokenApi.md#accounttokenretrieve) | **GET** /account-token/{public_token} | 
+*AsyncPassthroughApi* | [**asyncPassthroughCreate**](docs/Api/AsyncPassthroughApi.md#asyncpassthroughcreate) | **POST** /async-passthrough | 
+*AsyncPassthroughApi* | [**asyncPassthroughRetrieve**](docs/Api/AsyncPassthroughApi.md#asyncpassthroughretrieve) | **GET** /async-passthrough/{async_passthrough_receipt_id} | 
+*AuditTrailApi* | [**auditTrailList**](docs/Api/AuditTrailApi.md#audittraillist) | **GET** /audit-trail | 
 *AvailableActionsApi* | [**availableActionsRetrieve**](docs/Api/AvailableActionsApi.md#availableactionsretrieve) | **GET** /available-actions | 
 *BankInfoApi* | [**bankInfoList**](docs/Api/BankInfoApi.md#bankinfolist) | **GET** /bank-info | 
 *BankInfoApi* | [**bankInfoRetrieve**](docs/Api/BankInfoApi.md#bankinforetrieve) | **GET** /bank-info/{id} | 
@@ -88,7 +90,9 @@ Class | Method | HTTP request | Description
 *BenefitsApi* | [**benefitsRetrieve**](docs/Api/BenefitsApi.md#benefitsretrieve) | **GET** /benefits/{id} | 
 *CompaniesApi* | [**companiesList**](docs/Api/CompaniesApi.md#companieslist) | **GET** /companies | 
 *CompaniesApi* | [**companiesRetrieve**](docs/Api/CompaniesApi.md#companiesretrieve) | **GET** /companies/{id} | 
-*DeleteAccountApi* | [**deleteAccountCreate**](docs/Api/DeleteAccountApi.md#deleteaccountcreate) | **POST** /delete-account | 
+*DeleteAccountApi* | [**deleteAccountDelete**](docs/Api/DeleteAccountApi.md#deleteaccountdelete) | **POST** /delete-account | 
+*DependentsApi* | [**dependentsList**](docs/Api/DependentsApi.md#dependentslist) | **GET** /dependents | 
+*DependentsApi* | [**dependentsRetrieve**](docs/Api/DependentsApi.md#dependentsretrieve) | **GET** /dependents/{id} | 
 *EmployeePayrollRunsApi* | [**employeePayrollRunsList**](docs/Api/EmployeePayrollRunsApi.md#employeepayrollrunslist) | **GET** /employee-payroll-runs | 
 *EmployeePayrollRunsApi* | [**employeePayrollRunsRetrieve**](docs/Api/EmployeePayrollRunsApi.md#employeepayrollrunsretrieve) | **GET** /employee-payroll-runs/{id} | 
 *EmployeesApi* | [**employeesCreate**](docs/Api/EmployeesApi.md#employeescreate) | **POST** /employees | 
@@ -96,8 +100,16 @@ Class | Method | HTTP request | Description
 *EmployeesApi* | [**employeesList**](docs/Api/EmployeesApi.md#employeeslist) | **GET** /employees | 
 *EmployeesApi* | [**employeesMetaPostRetrieve**](docs/Api/EmployeesApi.md#employeesmetapostretrieve) | **GET** /employees/meta/post | 
 *EmployeesApi* | [**employeesRetrieve**](docs/Api/EmployeesApi.md#employeesretrieve) | **GET** /employees/{id} | 
+*EmployerBenefitsApi* | [**employerBenefitsList**](docs/Api/EmployerBenefitsApi.md#employerbenefitslist) | **GET** /employer-benefits | 
+*EmployerBenefitsApi* | [**employerBenefitsRetrieve**](docs/Api/EmployerBenefitsApi.md#employerbenefitsretrieve) | **GET** /employer-benefits/{id} | 
 *EmploymentsApi* | [**employmentsList**](docs/Api/EmploymentsApi.md#employmentslist) | **GET** /employments | 
 *EmploymentsApi* | [**employmentsRetrieve**](docs/Api/EmploymentsApi.md#employmentsretrieve) | **GET** /employments/{id} | 
+*FieldMappingApi* | [**fieldMappingsCreate**](docs/Api/FieldMappingApi.md#fieldmappingscreate) | **POST** /field-mappings | 
+*FieldMappingApi* | [**fieldMappingsDestroy**](docs/Api/FieldMappingApi.md#fieldmappingsdestroy) | **DELETE** /field-mappings/{field_mapping_id} | 
+*FieldMappingApi* | [**fieldMappingsPartialUpdate**](docs/Api/FieldMappingApi.md#fieldmappingspartialupdate) | **PATCH** /field-mappings/{field_mapping_id} | 
+*FieldMappingApi* | [**fieldMappingsRetrieve**](docs/Api/FieldMappingApi.md#fieldmappingsretrieve) | **GET** /field-mappings | 
+*FieldMappingApi* | [**remoteFieldsRetrieve**](docs/Api/FieldMappingApi.md#remotefieldsretrieve) | **GET** /remote-fields | 
+*FieldMappingApi* | [**targetFieldsRetrieve**](docs/Api/FieldMappingApi.md#targetfieldsretrieve) | **GET** /target-fields | 
 *ForceResyncApi* | [**syncStatusResyncCreate**](docs/Api/ForceResyncApi.md#syncstatusresynccreate) | **POST** /sync-status/resync | 
 *GenerateKeyApi* | [**generateKeyCreate**](docs/Api/GenerateKeyApi.md#generatekeycreate) | **POST** /generate-key | 
 *GroupsApi* | [**groupsList**](docs/Api/GroupsApi.md#groupslist) | **GET** /groups | 
@@ -114,6 +126,9 @@ Class | Method | HTTP request | Description
 *PayrollRunsApi* | [**payrollRunsList**](docs/Api/PayrollRunsApi.md#payrollrunslist) | **GET** /payroll-runs | 
 *PayrollRunsApi* | [**payrollRunsRetrieve**](docs/Api/PayrollRunsApi.md#payrollrunsretrieve) | **GET** /payroll-runs/{id} | 
 *RegenerateKeyApi* | [**regenerateKeyCreate**](docs/Api/RegenerateKeyApi.md#regeneratekeycreate) | **POST** /regenerate-key | 
+*ScopesApi* | [**defaultScopesRetrieve**](docs/Api/ScopesApi.md#defaultscopesretrieve) | **GET** /default-scopes | 
+*ScopesApi* | [**linkedAccountScopesCreate**](docs/Api/ScopesApi.md#linkedaccountscopescreate) | **POST** /linked-account-scopes | 
+*ScopesApi* | [**linkedAccountScopesRetrieve**](docs/Api/ScopesApi.md#linkedaccountscopesretrieve) | **GET** /linked-account-scopes | 
 *SelectiveSyncApi* | [**selectiveSyncConfigurationsList**](docs/Api/SelectiveSyncApi.md#selectivesyncconfigurationslist) | **GET** /selective-sync/configurations | 
 *SelectiveSyncApi* | [**selectiveSyncConfigurationsUpdate**](docs/Api/SelectiveSyncApi.md#selectivesyncconfigurationsupdate) | **PUT** /selective-sync/configurations | 
 *SelectiveSyncApi* | [**selectiveSyncMetaList**](docs/Api/SelectiveSyncApi.md#selectivesyncmetalist) | **GET** /selective-sync/meta | 
@@ -126,6 +141,10 @@ Class | Method | HTTP request | Description
 *TimeOffApi* | [**timeOffRetrieve**](docs/Api/TimeOffApi.md#timeoffretrieve) | **GET** /time-off/{id} | 
 *TimeOffBalancesApi* | [**timeOffBalancesList**](docs/Api/TimeOffBalancesApi.md#timeoffbalanceslist) | **GET** /time-off-balances | 
 *TimeOffBalancesApi* | [**timeOffBalancesRetrieve**](docs/Api/TimeOffBalancesApi.md#timeoffbalancesretrieve) | **GET** /time-off-balances/{id} | 
+*TimesheetEntriesApi* | [**timesheetEntriesCreate**](docs/Api/TimesheetEntriesApi.md#timesheetentriescreate) | **POST** /timesheet-entries | 
+*TimesheetEntriesApi* | [**timesheetEntriesList**](docs/Api/TimesheetEntriesApi.md#timesheetentrieslist) | **GET** /timesheet-entries | 
+*TimesheetEntriesApi* | [**timesheetEntriesMetaPostRetrieve**](docs/Api/TimesheetEntriesApi.md#timesheetentriesmetapostretrieve) | **GET** /timesheet-entries/meta/post | 
+*TimesheetEntriesApi* | [**timesheetEntriesRetrieve**](docs/Api/TimesheetEntriesApi.md#timesheetentriesretrieve) | **GET** /timesheet-entries/{id} | 
 *WebhookReceiversApi* | [**webhookReceiversCreate**](docs/Api/WebhookReceiversApi.md#webhookreceiverscreate) | **POST** /webhook-receivers | 
 *WebhookReceiversApi* | [**webhookReceiversList**](docs/Api/WebhookReceiversApi.md#webhookreceiverslist) | **GET** /webhook-receivers | 
 
@@ -138,19 +157,27 @@ Class | Method | HTTP request | Description
 - [AccountIntegration](docs/Model/AccountIntegration.md)
 - [AccountToken](docs/Model/AccountToken.md)
 - [AccountTypeEnum](docs/Model/AccountTypeEnum.md)
+- [AdvancedMetadata](docs/Model/AdvancedMetadata.md)
+- [AsyncPassthroughReciept](docs/Model/AsyncPassthroughReciept.md)
+- [AuditLogEvent](docs/Model/AuditLogEvent.md)
 - [AvailableActions](docs/Model/AvailableActions.md)
 - [BankInfo](docs/Model/BankInfo.md)
 - [Benefit](docs/Model/Benefit.md)
+- [BenefitPlanTypeEnum](docs/Model/BenefitPlanTypeEnum.md)
 - [CategoriesEnum](docs/Model/CategoriesEnum.md)
 - [CategoryEnum](docs/Model/CategoryEnum.md)
+- [CommonModelScopeAPI](docs/Model/CommonModelScopeAPI.md)
+- [CommonModelScopesBodyRequest](docs/Model/CommonModelScopesBodyRequest.md)
 - [Company](docs/Model/Company.md)
 - [ConditionSchema](docs/Model/ConditionSchema.md)
 - [ConditionTypeEnum](docs/Model/ConditionTypeEnum.md)
 - [CountryEnum](docs/Model/CountryEnum.md)
+- [CreateFieldMappingRequest](docs/Model/CreateFieldMappingRequest.md)
 - [DataPassthroughRequest](docs/Model/DataPassthroughRequest.md)
 - [DebugModeLog](docs/Model/DebugModeLog.md)
 - [DebugModelLogSummary](docs/Model/DebugModelLogSummary.md)
 - [Deduction](docs/Model/Deduction.md)
+- [Dependent](docs/Model/Dependent.md)
 - [Earning](docs/Model/Earning.md)
 - [EarningTypeEnum](docs/Model/EarningTypeEnum.md)
 - [Employee](docs/Model/Employee.md)
@@ -158,23 +185,38 @@ Class | Method | HTTP request | Description
 - [EmployeePayrollRun](docs/Model/EmployeePayrollRun.md)
 - [EmployeeRequest](docs/Model/EmployeeRequest.md)
 - [EmployeeResponse](docs/Model/EmployeeResponse.md)
+- [EmployerBenefit](docs/Model/EmployerBenefit.md)
 - [Employment](docs/Model/Employment.md)
 - [EmploymentStatusEnum](docs/Model/EmploymentStatusEnum.md)
 - [EmploymentTypeEnum](docs/Model/EmploymentTypeEnum.md)
+- [EnabledActionsEnum](docs/Model/EnabledActionsEnum.md)
 - [EncodingEnum](docs/Model/EncodingEnum.md)
 - [EndUserDetailsRequest](docs/Model/EndUserDetailsRequest.md)
 - [ErrorValidationProblem](docs/Model/ErrorValidationProblem.md)
 - [EthnicityEnum](docs/Model/EthnicityEnum.md)
+- [EventTypeEnum](docs/Model/EventTypeEnum.md)
+- [ExternalTargetFieldAPI](docs/Model/ExternalTargetFieldAPI.md)
+- [ExternalTargetFieldAPIResponse](docs/Model/ExternalTargetFieldAPIResponse.md)
+- [FieldMappingApiInstance](docs/Model/FieldMappingApiInstance.md)
+- [FieldMappingApiInstanceRemoteField](docs/Model/FieldMappingApiInstanceRemoteField.md)
+- [FieldMappingApiInstanceRemoteFieldRemoteEndpointInfo](docs/Model/FieldMappingApiInstanceRemoteFieldRemoteEndpointInfo.md)
+- [FieldMappingApiInstanceResponse](docs/Model/FieldMappingApiInstanceResponse.md)
+- [FieldMappingApiInstanceTargetField](docs/Model/FieldMappingApiInstanceTargetField.md)
+- [FieldMappingInstanceResponse](docs/Model/FieldMappingInstanceResponse.md)
+- [FieldPermissionDeserializer](docs/Model/FieldPermissionDeserializer.md)
+- [FieldPermissionDeserializerRequest](docs/Model/FieldPermissionDeserializerRequest.md)
 - [FlsaStatusEnum](docs/Model/FlsaStatusEnum.md)
 - [GenderEnum](docs/Model/GenderEnum.md)
 - [GenerateRemoteKeyRequest](docs/Model/GenerateRemoteKeyRequest.md)
 - [Group](docs/Model/Group.md)
 - [GroupTypeEnum](docs/Model/GroupTypeEnum.md)
-- [IgnoreCommonModel](docs/Model/IgnoreCommonModel.md)
 - [IgnoreCommonModelRequest](docs/Model/IgnoreCommonModelRequest.md)
+- [IndividualCommonModelScopeDeserializer](docs/Model/IndividualCommonModelScopeDeserializer.md)
+- [IndividualCommonModelScopeDeserializerRequest](docs/Model/IndividualCommonModelScopeDeserializerRequest.md)
 - [Issue](docs/Model/Issue.md)
 - [IssueStatusEnum](docs/Model/IssueStatusEnum.md)
 - [LinkToken](docs/Model/LinkToken.md)
+- [LinkedAccountCommonModelScopeDeserializerRequest](docs/Model/LinkedAccountCommonModelScopeDeserializerRequest.md)
 - [LinkedAccountCondition](docs/Model/LinkedAccountCondition.md)
 - [LinkedAccountConditionRequest](docs/Model/LinkedAccountConditionRequest.md)
 - [LinkedAccountSelectiveSyncConfiguration](docs/Model/LinkedAccountSelectiveSyncConfiguration.md)
@@ -187,15 +229,20 @@ Class | Method | HTTP request | Description
 - [MetaResponse](docs/Model/MetaResponse.md)
 - [MethodEnum](docs/Model/MethodEnum.md)
 - [ModelOperation](docs/Model/ModelOperation.md)
+- [ModelPermissionDeserializer](docs/Model/ModelPermissionDeserializer.md)
+- [ModelPermissionDeserializerRequest](docs/Model/ModelPermissionDeserializerRequest.md)
 - [MultipartFormFieldRequest](docs/Model/MultipartFormFieldRequest.md)
 - [OperatorSchema](docs/Model/OperatorSchema.md)
 - [PaginatedAccountDetailsAndActionsList](docs/Model/PaginatedAccountDetailsAndActionsList.md)
+- [PaginatedAuditLogEventList](docs/Model/PaginatedAuditLogEventList.md)
 - [PaginatedBankInfoList](docs/Model/PaginatedBankInfoList.md)
 - [PaginatedBenefitList](docs/Model/PaginatedBenefitList.md)
 - [PaginatedCompanyList](docs/Model/PaginatedCompanyList.md)
 - [PaginatedConditionSchemaList](docs/Model/PaginatedConditionSchemaList.md)
+- [PaginatedDependentList](docs/Model/PaginatedDependentList.md)
 - [PaginatedEmployeeList](docs/Model/PaginatedEmployeeList.md)
 - [PaginatedEmployeePayrollRunList](docs/Model/PaginatedEmployeePayrollRunList.md)
+- [PaginatedEmployerBenefitList](docs/Model/PaginatedEmployerBenefitList.md)
 - [PaginatedEmploymentList](docs/Model/PaginatedEmploymentList.md)
 - [PaginatedGroupList](docs/Model/PaginatedGroupList.md)
 - [PaginatedIssueList](docs/Model/PaginatedIssueList.md)
@@ -206,6 +253,8 @@ Class | Method | HTTP request | Description
 - [PaginatedTeamList](docs/Model/PaginatedTeamList.md)
 - [PaginatedTimeOffBalanceList](docs/Model/PaginatedTimeOffBalanceList.md)
 - [PaginatedTimeOffList](docs/Model/PaginatedTimeOffList.md)
+- [PaginatedTimesheetEntryList](docs/Model/PaginatedTimesheetEntryList.md)
+- [PatchedEditFieldMappingRequest](docs/Model/PatchedEditFieldMappingRequest.md)
 - [PayCurrencyEnum](docs/Model/PayCurrencyEnum.md)
 - [PayFrequencyEnum](docs/Model/PayFrequencyEnum.md)
 - [PayGroup](docs/Model/PayGroup.md)
@@ -213,13 +262,18 @@ Class | Method | HTTP request | Description
 - [PayrollRun](docs/Model/PayrollRun.md)
 - [PolicyTypeEnum](docs/Model/PolicyTypeEnum.md)
 - [ReasonEnum](docs/Model/ReasonEnum.md)
+- [RelationshipEnum](docs/Model/RelationshipEnum.md)
 - [RemoteData](docs/Model/RemoteData.md)
+- [RemoteEndpointInfo](docs/Model/RemoteEndpointInfo.md)
+- [RemoteFieldAPI](docs/Model/RemoteFieldAPI.md)
+- [RemoteFieldAPIResponse](docs/Model/RemoteFieldAPIResponse.md)
 - [RemoteKey](docs/Model/RemoteKey.md)
 - [RemoteKeyForRegenerationRequest](docs/Model/RemoteKeyForRegenerationRequest.md)
 - [RemoteResponse](docs/Model/RemoteResponse.md)
 - [RequestFormatEnum](docs/Model/RequestFormatEnum.md)
 - [RequestTypeEnum](docs/Model/RequestTypeEnum.md)
 - [ResponseTypeEnum](docs/Model/ResponseTypeEnum.md)
+- [RoleEnum](docs/Model/RoleEnum.md)
 - [RunStateEnum](docs/Model/RunStateEnum.md)
 - [RunTypeEnum](docs/Model/RunTypeEnum.md)
 - [SelectiveSyncConfigurationsUsageEnum](docs/Model/SelectiveSyncConfigurationsUsageEnum.md)
@@ -233,6 +287,10 @@ Class | Method | HTTP request | Description
 - [TimeOffRequest](docs/Model/TimeOffRequest.md)
 - [TimeOffResponse](docs/Model/TimeOffResponse.md)
 - [TimeOffStatusEnum](docs/Model/TimeOffStatusEnum.md)
+- [TimesheetEntry](docs/Model/TimesheetEntry.md)
+- [TimesheetEntryEndpointRequest](docs/Model/TimesheetEntryEndpointRequest.md)
+- [TimesheetEntryRequest](docs/Model/TimesheetEntryRequest.md)
+- [TimesheetEntryResponse](docs/Model/TimesheetEntryResponse.md)
 - [UnitsEnum](docs/Model/UnitsEnum.md)
 - [ValidationProblemSource](docs/Model/ValidationProblemSource.md)
 - [WarningValidationProblem](docs/Model/WarningValidationProblem.md)

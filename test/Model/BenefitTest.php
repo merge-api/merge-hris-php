@@ -99,6 +99,24 @@ class BenefitTest extends TestCase
     }
 
     /**
+     * Test attribute "created_at"
+     */
+    public function testPropertyCreatedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "modified_at"
+     */
+    public function testPropertyModifiedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "employee"
      */
     public function testPropertyEmployee()
@@ -144,9 +162,18 @@ class BenefitTest extends TestCase
     }
 
     /**
-     * Test attribute "remote_data"
+     * Test attribute "start_date"
      */
-    public function testPropertyRemoteData()
+    public function testPropertyStartDate()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "end_date"
+     */
+    public function testPropertyEndDate()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -162,9 +189,27 @@ class BenefitTest extends TestCase
     }
 
     /**
+     * Test attribute "employer_benefit"
+     */
+    public function testPropertyEmployerBenefit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "field_mappings"
      */
     public function testPropertyFieldMappings()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "remote_data"
+     */
+    public function testPropertyRemoteData()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

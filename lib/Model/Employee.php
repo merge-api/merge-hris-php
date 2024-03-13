@@ -63,10 +63,13 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'remote_id' => 'string',
+        'created_at' => '\DateTime',
+        'modified_at' => '\DateTime',
         'employee_number' => 'string',
         'company' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
+        'preferred_name' => 'string',
         'display_full_name' => 'string',
         'username' => 'string',
         'groups' => 'string[]',
@@ -90,10 +93,10 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'employment_status' => '\MergeHRISClient\Model\EmploymentStatusEnum',
         'termination_date' => '\DateTime',
         'avatar' => 'string',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
         'custom_fields' => 'array<string,mixed>',
         'remote_was_deleted' => 'bool',
-        'field_mappings' => 'array<string,mixed>'
+        'field_mappings' => 'array<string,mixed>',
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
     /**
@@ -106,10 +109,13 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'remote_id' => null,
+        'created_at' => 'date-time',
+        'modified_at' => 'date-time',
         'employee_number' => null,
         'company' => 'uuid',
         'first_name' => null,
         'last_name' => null,
+        'preferred_name' => null,
         'display_full_name' => null,
         'username' => null,
         'groups' => 'uuid',
@@ -133,10 +139,10 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'employment_status' => null,
         'termination_date' => 'date-time',
         'avatar' => 'uri',
-        'remote_data' => null,
         'custom_fields' => null,
         'remote_was_deleted' => null,
-        'field_mappings' => null
+        'field_mappings' => null,
+        'remote_data' => null
     ];
 
     /**
@@ -168,10 +174,13 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'id' => 'id',
         'remote_id' => 'remote_id',
+        'created_at' => 'created_at',
+        'modified_at' => 'modified_at',
         'employee_number' => 'employee_number',
         'company' => 'company',
         'first_name' => 'first_name',
         'last_name' => 'last_name',
+        'preferred_name' => 'preferred_name',
         'display_full_name' => 'display_full_name',
         'username' => 'username',
         'groups' => 'groups',
@@ -195,10 +204,10 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'employment_status' => 'employment_status',
         'termination_date' => 'termination_date',
         'avatar' => 'avatar',
-        'remote_data' => 'remote_data',
         'custom_fields' => 'custom_fields',
         'remote_was_deleted' => 'remote_was_deleted',
-        'field_mappings' => 'field_mappings'
+        'field_mappings' => 'field_mappings',
+        'remote_data' => 'remote_data'
     ];
 
     /**
@@ -209,10 +218,13 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'id' => 'setId',
         'remote_id' => 'setRemoteId',
+        'created_at' => 'setCreatedAt',
+        'modified_at' => 'setModifiedAt',
         'employee_number' => 'setEmployeeNumber',
         'company' => 'setCompany',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
+        'preferred_name' => 'setPreferredName',
         'display_full_name' => 'setDisplayFullName',
         'username' => 'setUsername',
         'groups' => 'setGroups',
@@ -236,10 +248,10 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'employment_status' => 'setEmploymentStatus',
         'termination_date' => 'setTerminationDate',
         'avatar' => 'setAvatar',
-        'remote_data' => 'setRemoteData',
         'custom_fields' => 'setCustomFields',
         'remote_was_deleted' => 'setRemoteWasDeleted',
-        'field_mappings' => 'setFieldMappings'
+        'field_mappings' => 'setFieldMappings',
+        'remote_data' => 'setRemoteData'
     ];
 
     /**
@@ -250,10 +262,13 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'id' => 'getId',
         'remote_id' => 'getRemoteId',
+        'created_at' => 'getCreatedAt',
+        'modified_at' => 'getModifiedAt',
         'employee_number' => 'getEmployeeNumber',
         'company' => 'getCompany',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
+        'preferred_name' => 'getPreferredName',
         'display_full_name' => 'getDisplayFullName',
         'username' => 'getUsername',
         'groups' => 'getGroups',
@@ -277,10 +292,10 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         'employment_status' => 'getEmploymentStatus',
         'termination_date' => 'getTerminationDate',
         'avatar' => 'getAvatar',
-        'remote_data' => 'getRemoteData',
         'custom_fields' => 'getCustomFields',
         'remote_was_deleted' => 'getRemoteWasDeleted',
-        'field_mappings' => 'getFieldMappings'
+        'field_mappings' => 'getFieldMappings',
+        'remote_data' => 'getRemoteData'
     ];
 
     /**
@@ -342,10 +357,13 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['id'] = $data['id'] ?? null;
         $this->container['remote_id'] = $data['remote_id'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['modified_at'] = $data['modified_at'] ?? null;
         $this->container['employee_number'] = $data['employee_number'] ?? null;
         $this->container['company'] = $data['company'] ?? null;
         $this->container['first_name'] = $data['first_name'] ?? null;
         $this->container['last_name'] = $data['last_name'] ?? null;
+        $this->container['preferred_name'] = $data['preferred_name'] ?? null;
         $this->container['display_full_name'] = $data['display_full_name'] ?? null;
         $this->container['username'] = $data['username'] ?? null;
         $this->container['groups'] = $data['groups'] ?? null;
@@ -369,10 +387,10 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['employment_status'] = $data['employment_status'] ?? null;
         $this->container['termination_date'] = $data['termination_date'] ?? null;
         $this->container['avatar'] = $data['avatar'] ?? null;
-        $this->container['remote_data'] = $data['remote_data'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
         $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
         $this->container['field_mappings'] = $data['field_mappings'] ?? null;
+        $this->container['remote_data'] = $data['remote_data'] ?? null;
     }
 
     /**
@@ -459,6 +477,54 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteId($remote_id)
     {
         $this->container['remote_id'] = $remote_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets modified_at
+     *
+     * @return \DateTime|null
+     */
+    public function getModifiedAt()
+    {
+        return $this->container['modified_at'];
+    }
+
+    /**
+     * Sets modified_at
+     *
+     * @param \DateTime|null $modified_at This is the datetime that this object was last updated by Merge
+     *
+     * @return self
+     */
+    public function setModifiedAt($modified_at)
+    {
+        $this->container['modified_at'] = $modified_at;
 
         return $this;
     }
@@ -555,6 +621,30 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setLastName($last_name)
     {
         $this->container['last_name'] = $last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets preferred_name
+     *
+     * @return string|null
+     */
+    public function getPreferredName()
+    {
+        return $this->container['preferred_name'];
+    }
+
+    /**
+     * Sets preferred_name
+     *
+     * @param string|null $preferred_name The employee's preferred first name.
+     *
+     * @return self
+     */
+    public function setPreferredName($preferred_name)
+    {
+        $this->container['preferred_name'] = $preferred_name;
 
         return $this;
     }
@@ -896,7 +986,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gender
      *
-     * @param GenderEnum|null $gender The employee's gender.
+     * @param GenderEnum|null $gender The employee's gender.  * `MALE` - MALE * `FEMALE` - FEMALE * `NON-BINARY` - NON-BINARY * `OTHER` - OTHER * `PREFER_NOT_TO_DISCLOSE` - PREFER_NOT_TO_DISCLOSE
      *
      * @return self
      */
@@ -920,7 +1010,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ethnicity
      *
-     * @param EthnicityEnum|null $ethnicity The employee's ethnicity.
+     * @param EthnicityEnum|null $ethnicity The employee's ethnicity.  * `AMERICAN_INDIAN_OR_ALASKA_NATIVE` - AMERICAN_INDIAN_OR_ALASKA_NATIVE * `ASIAN_OR_INDIAN_SUBCONTINENT` - ASIAN_OR_INDIAN_SUBCONTINENT * `BLACK_OR_AFRICAN_AMERICAN` - BLACK_OR_AFRICAN_AMERICAN * `HISPANIC_OR_LATINO` - HISPANIC_OR_LATINO * `NATIVE_HAWAIIAN_OR_OTHER_PACIFIC_ISLANDER` - NATIVE_HAWAIIAN_OR_OTHER_PACIFIC_ISLANDER * `TWO_OR_MORE_RACES` - TWO_OR_MORE_RACES * `WHITE` - WHITE * `PREFER_NOT_TO_DISCLOSE` - PREFER_NOT_TO_DISCLOSE
      *
      * @return self
      */
@@ -944,7 +1034,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets marital_status
      *
-     * @param MaritalStatusEnum|null $marital_status The employee's filing status as related to marital status. Possible values include: `SINGLE`, `MARRIED_FILING_JOINTLY`,`MARRIED_FILING_SEPARATELY`,`HEAD_OF_HOUSEHOLD`,`QUALIFYING_WIDOW_OR_WIDOWER_WITH_DEPENDENT_CHILD`, or `-` in cases where there is no clear mapping - the original value passed through.
+     * @param MaritalStatusEnum|null $marital_status The employee's filing status as related to marital status.  * `SINGLE` - SINGLE * `MARRIED_FILING_JOINTLY` - MARRIED_FILING_JOINTLY * `MARRIED_FILING_SEPARATELY` - MARRIED_FILING_SEPARATELY * `HEAD_OF_HOUSEHOLD` - HEAD_OF_HOUSEHOLD * `QUALIFYING_WIDOW_OR_WIDOWER_WITH_DEPENDENT_CHILD` - QUALIFYING_WIDOW_OR_WIDOWER_WITH_DEPENDENT_CHILD
      *
      * @return self
      */
@@ -1064,7 +1154,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employment_status
      *
-     * @param EmploymentStatusEnum|null $employment_status The employment status of the employee.
+     * @param EmploymentStatusEnum|null $employment_status The employment status of the employee.  * `ACTIVE` - ACTIVE * `PENDING` - PENDING * `INACTIVE` - INACTIVE
      *
      * @return self
      */
@@ -1123,30 +1213,6 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['avatar'] = $avatar;
-
-        return $this;
-    }
-
-    /**
-     * Gets remote_data
-     *
-     * @return \MergeHRISClient\Model\RemoteData[]|null
-     */
-    public function getRemoteData()
-    {
-        return $this->container['remote_data'];
-    }
-
-    /**
-     * Sets remote_data
-     *
-     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
-     *
-     * @return self
-     */
-    public function setRemoteData($remote_data)
-    {
-        $this->container['remote_data'] = $remote_data;
 
         return $this;
     }
@@ -1219,6 +1285,30 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setFieldMappings($field_mappings)
     {
         $this->container['field_mappings'] = $field_mappings;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_data
+     *
+     * @return \MergeHRISClient\Model\RemoteData[]|null
+     */
+    public function getRemoteData()
+    {
+        return $this->container['remote_data'];
+    }
+
+    /**
+     * Sets remote_data
+     *
+     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
+     *
+     * @return self
+     */
+    public function setRemoteData($remote_data)
+    {
+        $this->container['remote_data'] = $remote_data;
 
         return $this;
     }

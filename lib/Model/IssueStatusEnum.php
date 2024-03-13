@@ -34,6 +34,7 @@ use \MergeHRISClient\ObjectSerializer;
  * IssueStatusEnum Class Doc Comment
  *
  * @category Class
+ * @description * &#x60;ONGOING&#x60; - ONGOING * &#x60;RESOLVED&#x60; - RESOLVED
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

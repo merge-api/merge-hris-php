@@ -124,13 +124,13 @@ class IssuesApi
      * @param  string $end_user_organization_name end_user_organization_name (optional)
      * @param  \DateTime $first_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
      * @param  \DateTime $first_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
-     * @param  string $include_muted If True, will include muted issues (optional)
+     * @param  string $include_muted If true, will include muted issues (optional)
      * @param  string $integration_name integration_name (optional)
-     * @param  \DateTime $last_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
-     * @param  \DateTime $last_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
+     * @param  \DateTime $last_incident_time_after If provided, will only return issues whose last incident time was after this datetime. (optional)
+     * @param  \DateTime $last_incident_time_before If provided, will only return issues whose last incident time was before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $start_date If included, will only include issues whose most recent action occurred after this time (optional)
-     * @param  string $status status (optional)
+     * @param  string $status Status of the issue. Options: (&#39;ONGOING&#39;, &#39;RESOLVED&#39;)  * &#x60;ONGOING&#x60; - ONGOING * &#x60;RESOLVED&#x60; - RESOLVED (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -151,13 +151,13 @@ class IssuesApi
      * @param  string $end_user_organization_name (optional)
      * @param  \DateTime $first_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
      * @param  \DateTime $first_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
-     * @param  string $include_muted If True, will include muted issues (optional)
+     * @param  string $include_muted If true, will include muted issues (optional)
      * @param  string $integration_name (optional)
-     * @param  \DateTime $last_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
-     * @param  \DateTime $last_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
+     * @param  \DateTime $last_incident_time_after If provided, will only return issues whose last incident time was after this datetime. (optional)
+     * @param  \DateTime $last_incident_time_before If provided, will only return issues whose last incident time was before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $start_date If included, will only include issues whose most recent action occurred after this time (optional)
-     * @param  string $status (optional)
+     * @param  string $status Status of the issue. Options: (&#39;ONGOING&#39;, &#39;RESOLVED&#39;)  * &#x60;ONGOING&#x60; - ONGOING * &#x60;RESOLVED&#x60; - RESOLVED (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -247,13 +247,13 @@ class IssuesApi
      * @param  string $end_user_organization_name (optional)
      * @param  \DateTime $first_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
      * @param  \DateTime $first_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
-     * @param  string $include_muted If True, will include muted issues (optional)
+     * @param  string $include_muted If true, will include muted issues (optional)
      * @param  string $integration_name (optional)
-     * @param  \DateTime $last_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
-     * @param  \DateTime $last_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
+     * @param  \DateTime $last_incident_time_after If provided, will only return issues whose last incident time was after this datetime. (optional)
+     * @param  \DateTime $last_incident_time_before If provided, will only return issues whose last incident time was before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $start_date If included, will only include issues whose most recent action occurred after this time (optional)
-     * @param  string $status (optional)
+     * @param  string $status Status of the issue. Options: (&#39;ONGOING&#39;, &#39;RESOLVED&#39;)  * &#x60;ONGOING&#x60; - ONGOING * &#x60;RESOLVED&#x60; - RESOLVED (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -277,13 +277,13 @@ class IssuesApi
      * @param  string $end_user_organization_name (optional)
      * @param  \DateTime $first_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
      * @param  \DateTime $first_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
-     * @param  string $include_muted If True, will include muted issues (optional)
+     * @param  string $include_muted If true, will include muted issues (optional)
      * @param  string $integration_name (optional)
-     * @param  \DateTime $last_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
-     * @param  \DateTime $last_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
+     * @param  \DateTime $last_incident_time_after If provided, will only return issues whose last incident time was after this datetime. (optional)
+     * @param  \DateTime $last_incident_time_before If provided, will only return issues whose last incident time was before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $start_date If included, will only include issues whose most recent action occurred after this time (optional)
-     * @param  string $status (optional)
+     * @param  string $status Status of the issue. Options: (&#39;ONGOING&#39;, &#39;RESOLVED&#39;)  * &#x60;ONGOING&#x60; - ONGOING * &#x60;RESOLVED&#x60; - RESOLVED (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -335,13 +335,13 @@ class IssuesApi
      * @param  string $end_user_organization_name (optional)
      * @param  \DateTime $first_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
      * @param  \DateTime $first_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
-     * @param  string $include_muted If True, will include muted issues (optional)
+     * @param  string $include_muted If true, will include muted issues (optional)
      * @param  string $integration_name (optional)
-     * @param  \DateTime $last_incident_time_after If provided, will only return issues whose first incident time was after this datetime. (optional)
-     * @param  \DateTime $last_incident_time_before If provided, will only return issues whose first incident time was before this datetime. (optional)
+     * @param  \DateTime $last_incident_time_after If provided, will only return issues whose last incident time was after this datetime. (optional)
+     * @param  \DateTime $last_incident_time_before If provided, will only return issues whose last incident time was before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $start_date If included, will only include issues whose most recent action occurred after this time (optional)
-     * @param  string $status (optional)
+     * @param  string $status Status of the issue. Options: (&#39;ONGOING&#39;, &#39;RESOLVED&#39;)  * &#x60;ONGOING&#x60; - ONGOING * &#x60;RESOLVED&#x60; - RESOLVED (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

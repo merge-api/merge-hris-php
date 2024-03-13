@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CategoryEnumTest Class Doc Comment
  *
  * @category    Class
- * @description CategoryEnum
+ * @description * &#x60;hris&#x60; - hris * &#x60;ats&#x60; - ats * &#x60;accounting&#x60; - accounting * &#x60;ticketing&#x60; - ticketing * &#x60;crm&#x60; - crm * &#x60;mktg&#x60; - mktg * &#x60;filestorage&#x60; - filestorage
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

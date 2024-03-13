@@ -99,6 +99,24 @@ class EmployeeTest extends TestCase
     }
 
     /**
+     * Test attribute "created_at"
+     */
+    public function testPropertyCreatedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "modified_at"
+     */
+    public function testPropertyModifiedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "employee_number"
      */
     public function testPropertyEmployeeNumber()
@@ -129,6 +147,15 @@ class EmployeeTest extends TestCase
      * Test attribute "last_name"
      */
     public function testPropertyLastName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "preferred_name"
+     */
+    public function testPropertyPreferredName()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -342,15 +369,6 @@ class EmployeeTest extends TestCase
     }
 
     /**
-     * Test attribute "remote_data"
-     */
-    public function testPropertyRemoteData()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "custom_fields"
      */
     public function testPropertyCustomFields()
@@ -372,6 +390,15 @@ class EmployeeTest extends TestCase
      * Test attribute "field_mappings"
      */
     public function testPropertyFieldMappings()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "remote_data"
+     */
+    public function testPropertyRemoteData()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

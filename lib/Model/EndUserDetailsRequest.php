@@ -66,7 +66,10 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'categories' => '\MergeHRISClient\Model\CategoriesEnum[]',
         'integration' => 'string',
         'link_expiry_mins' => 'int',
-        'should_create_magic_link_url' => 'bool'
+        'should_create_magic_link_url' => 'bool',
+        'common_models' => '\MergeHRISClient\Model\CommonModelScopesBodyRequest[]',
+        'category_common_model_scopes' => 'array<string,\MergeHRISClient\Model\IndividualCommonModelScopeDeserializerRequest[]>',
+        'language' => 'string'
     ];
 
     /**
@@ -83,7 +86,10 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'categories' => null,
         'integration' => null,
         'link_expiry_mins' => null,
-        'should_create_magic_link_url' => null
+        'should_create_magic_link_url' => null,
+        'common_models' => null,
+        'category_common_model_scopes' => null,
+        'language' => null
     ];
 
     /**
@@ -119,7 +125,10 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'categories' => 'categories',
         'integration' => 'integration',
         'link_expiry_mins' => 'link_expiry_mins',
-        'should_create_magic_link_url' => 'should_create_magic_link_url'
+        'should_create_magic_link_url' => 'should_create_magic_link_url',
+        'common_models' => 'common_models',
+        'category_common_model_scopes' => 'category_common_model_scopes',
+        'language' => 'language'
     ];
 
     /**
@@ -134,7 +143,10 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'categories' => 'setCategories',
         'integration' => 'setIntegration',
         'link_expiry_mins' => 'setLinkExpiryMins',
-        'should_create_magic_link_url' => 'setShouldCreateMagicLinkUrl'
+        'should_create_magic_link_url' => 'setShouldCreateMagicLinkUrl',
+        'common_models' => 'setCommonModels',
+        'category_common_model_scopes' => 'setCategoryCommonModelScopes',
+        'language' => 'setLanguage'
     ];
 
     /**
@@ -149,7 +161,10 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'categories' => 'getCategories',
         'integration' => 'getIntegration',
         'link_expiry_mins' => 'getLinkExpiryMins',
-        'should_create_magic_link_url' => 'getShouldCreateMagicLinkUrl'
+        'should_create_magic_link_url' => 'getShouldCreateMagicLinkUrl',
+        'common_models' => 'getCommonModels',
+        'category_common_model_scopes' => 'getCategoryCommonModelScopes',
+        'language' => 'getLanguage'
     ];
 
     /**
@@ -216,6 +231,9 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->container['integration'] = $data['integration'] ?? null;
         $this->container['link_expiry_mins'] = $data['link_expiry_mins'] ?? 30;
         $this->container['should_create_magic_link_url'] = $data['should_create_magic_link_url'] ?? false;
+        $this->container['common_models'] = $data['common_models'] ?? null;
+        $this->container['category_common_model_scopes'] = $data['category_common_model_scopes'] ?? null;
+        $this->container['language'] = $data['language'] ?? null;
     }
 
     /**
@@ -273,6 +291,14 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
         if (!is_null($this->container['link_expiry_mins']) && ($this->container['link_expiry_mins'] < 30)) {
             $invalidProperties[] = "invalid value for 'link_expiry_mins', must be bigger than or equal to 30.";
+        }
+
+        if (!is_null($this->container['language']) && (mb_strlen($this->container['language']) > 2)) {
+            $invalidProperties[] = "invalid value for 'language', the character length must be smaller than or equal to 2.";
+        }
+
+        if (!is_null($this->container['language']) && (mb_strlen($this->container['language']) < 1)) {
+            $invalidProperties[] = "invalid value for 'language', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -420,7 +446,7 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets integration
      *
-     * @param string|null $integration The slug of a specific pre-selected integration for this linking flow token. For examples of slugs, see https://www.merge.dev/docs/basics/integration-metadata/.
+     * @param string|null $integration The slug of a specific pre-selected integration for this linking flow token. For examples of slugs, see https://docs.merge.dev/guides/merge-link/single-integration/.
      *
      * @return self
      */
@@ -481,13 +507,92 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets should_create_magic_link_url
      *
-     * @param bool|null $should_create_magic_link_url Whether to generate a Magic Link URL. Defaults to false. For more information on Magic Link, see https://merge.dev/blog/product/integrations,-fast.-say-hello-to-magic-link/.
+     * @param bool|null $should_create_magic_link_url Whether to generate a Magic Link URL. Defaults to false. For more information on Magic Link, see https://merge.dev/blog/integrations-fast-say-hello-to-magic-link.
      *
      * @return self
      */
     public function setShouldCreateMagicLinkUrl($should_create_magic_link_url)
     {
         $this->container['should_create_magic_link_url'] = $should_create_magic_link_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets common_models
+     *
+     * @return \MergeHRISClient\Model\CommonModelScopesBodyRequest[]|null
+     */
+    public function getCommonModels()
+    {
+        return $this->container['common_models'];
+    }
+
+    /**
+     * Sets common_models
+     *
+     * @param \MergeHRISClient\Model\CommonModelScopesBodyRequest[]|null $common_models An array of objects to specify the models and fields that will be disabled for a given Linked Account. Each object uses model_id, enabled_actions, and disabled_fields to specify the model, method, and fields that are scoped for a given Linked Account.
+     *
+     * @return self
+     */
+    public function setCommonModels($common_models)
+    {
+        $this->container['common_models'] = $common_models;
+
+        return $this;
+    }
+
+    /**
+     * Gets category_common_model_scopes
+     *
+     * @return array<string,\MergeHRISClient\Model\IndividualCommonModelScopeDeserializerRequest[]>|null
+     */
+    public function getCategoryCommonModelScopes()
+    {
+        return $this->container['category_common_model_scopes'];
+    }
+
+    /**
+     * Sets category_common_model_scopes
+     *
+     * @param array<string,\MergeHRISClient\Model\IndividualCommonModelScopeDeserializerRequest[]>|null $category_common_model_scopes When creating a Link Token, you can set permissions for Common Models that will apply to the account that is going to be linked. Any model or field not specified in link token payload will default to existing settings.
+     *
+     * @return self
+     */
+    public function setCategoryCommonModelScopes($category_common_model_scopes)
+    {
+        $this->container['category_common_model_scopes'] = $category_common_model_scopes;
+
+        return $this;
+    }
+
+    /**
+     * Gets language
+     *
+     * @return string|null
+     */
+    public function getLanguage()
+    {
+        return $this->container['language'];
+    }
+
+    /**
+     * Sets language
+     *
+     * @param string|null $language The language code for the language to localize Merge Link to.
+     *
+     * @return self
+     */
+    public function setLanguage($language)
+    {
+        if (!is_null($language) && (mb_strlen($language) > 2)) {
+            throw new \InvalidArgumentException('invalid length for $language when calling EndUserDetailsRequest., must be smaller than or equal to 2.');
+        }
+        if (!is_null($language) && (mb_strlen($language) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $language when calling EndUserDetailsRequest., must be bigger than or equal to 1.');
+        }
+
+        $this->container['language'] = $language;
 
         return $this;
     }

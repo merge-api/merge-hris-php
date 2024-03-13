@@ -34,6 +34,7 @@ use \MergeHRISClient\ObjectSerializer;
  * RequestFormatEnum Class Doc Comment
  *
  * @category Class
+ * @description * &#x60;JSON&#x60; - JSON * &#x60;XML&#x60; - XML * &#x60;MULTIPART&#x60; - MULTIPART
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

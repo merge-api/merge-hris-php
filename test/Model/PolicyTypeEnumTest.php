@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * PolicyTypeEnumTest Class Doc Comment
  *
  * @category    Class
- * @description PolicyTypeEnum
+ * @description * &#x60;VACATION&#x60; - VACATION * &#x60;SICK&#x60; - SICK * &#x60;PERSONAL&#x60; - PERSONAL * &#x60;JURY_DUTY&#x60; - JURY_DUTY * &#x60;VOLUNTEER&#x60; - VOLUNTEER * &#x60;BEREAVEMENT&#x60; - BEREAVEMENT
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

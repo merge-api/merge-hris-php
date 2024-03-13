@@ -118,7 +118,7 @@ class LinkedAccountsApi
     /**
      * Operation linkedAccountsList
      *
-     * @param  string $category category (optional)
+     * @param  string $category Options: &#x60;accounting&#x60;, &#x60;ats&#x60;, &#x60;crm&#x60;, &#x60;filestorage&#x60;, &#x60;hris&#x60;, &#x60;mktg&#x60;, &#x60;ticketing&#x60;  * &#x60;hris&#x60; - hris * &#x60;ats&#x60; - ats * &#x60;accounting&#x60; - accounting * &#x60;ticketing&#x60; - ticketing * &#x60;crm&#x60; - crm * &#x60;mktg&#x60; - mktg * &#x60;filestorage&#x60; - filestorage * &#x60;datawarehouse&#x60; - datawarehouse (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $end_user_email_address If provided, will only return linked accounts associated with the given email address. (optional)
      * @param  string $end_user_organization_name If provided, will only return linked accounts associated with the given organization name. (optional)
@@ -145,7 +145,7 @@ class LinkedAccountsApi
     /**
      * Operation linkedAccountsListWithHttpInfo
      *
-     * @param  string $category (optional)
+     * @param  string $category Options: &#x60;accounting&#x60;, &#x60;ats&#x60;, &#x60;crm&#x60;, &#x60;filestorage&#x60;, &#x60;hris&#x60;, &#x60;mktg&#x60;, &#x60;ticketing&#x60;  * &#x60;hris&#x60; - hris * &#x60;ats&#x60; - ats * &#x60;accounting&#x60; - accounting * &#x60;ticketing&#x60; - ticketing * &#x60;crm&#x60; - crm * &#x60;mktg&#x60; - mktg * &#x60;filestorage&#x60; - filestorage * &#x60;datawarehouse&#x60; - datawarehouse (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $end_user_email_address If provided, will only return linked accounts associated with the given email address. (optional)
      * @param  string $end_user_organization_name If provided, will only return linked accounts associated with the given organization name. (optional)
@@ -241,7 +241,7 @@ class LinkedAccountsApi
     /**
      * Operation linkedAccountsListAsync
      *
-     * @param  string $category (optional)
+     * @param  string $category Options: &#x60;accounting&#x60;, &#x60;ats&#x60;, &#x60;crm&#x60;, &#x60;filestorage&#x60;, &#x60;hris&#x60;, &#x60;mktg&#x60;, &#x60;ticketing&#x60;  * &#x60;hris&#x60; - hris * &#x60;ats&#x60; - ats * &#x60;accounting&#x60; - accounting * &#x60;ticketing&#x60; - ticketing * &#x60;crm&#x60; - crm * &#x60;mktg&#x60; - mktg * &#x60;filestorage&#x60; - filestorage * &#x60;datawarehouse&#x60; - datawarehouse (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $end_user_email_address If provided, will only return linked accounts associated with the given email address. (optional)
      * @param  string $end_user_organization_name If provided, will only return linked accounts associated with the given organization name. (optional)
@@ -271,7 +271,7 @@ class LinkedAccountsApi
     /**
      * Operation linkedAccountsListAsyncWithHttpInfo
      *
-     * @param  string $category (optional)
+     * @param  string $category Options: &#x60;accounting&#x60;, &#x60;ats&#x60;, &#x60;crm&#x60;, &#x60;filestorage&#x60;, &#x60;hris&#x60;, &#x60;mktg&#x60;, &#x60;ticketing&#x60;  * &#x60;hris&#x60; - hris * &#x60;ats&#x60; - ats * &#x60;accounting&#x60; - accounting * &#x60;ticketing&#x60; - ticketing * &#x60;crm&#x60; - crm * &#x60;mktg&#x60; - mktg * &#x60;filestorage&#x60; - filestorage * &#x60;datawarehouse&#x60; - datawarehouse (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $end_user_email_address If provided, will only return linked accounts associated with the given email address. (optional)
      * @param  string $end_user_organization_name If provided, will only return linked accounts associated with the given organization name. (optional)
@@ -329,7 +329,7 @@ class LinkedAccountsApi
     /**
      * Create request for operation 'linkedAccountsList'
      *
-     * @param  string $category (optional)
+     * @param  string $category Options: &#x60;accounting&#x60;, &#x60;ats&#x60;, &#x60;crm&#x60;, &#x60;filestorage&#x60;, &#x60;hris&#x60;, &#x60;mktg&#x60;, &#x60;ticketing&#x60;  * &#x60;hris&#x60; - hris * &#x60;ats&#x60; - ats * &#x60;accounting&#x60; - accounting * &#x60;ticketing&#x60; - ticketing * &#x60;crm&#x60; - crm * &#x60;mktg&#x60; - mktg * &#x60;filestorage&#x60; - filestorage * &#x60;datawarehouse&#x60; - datawarehouse (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $end_user_email_address If provided, will only return linked accounts associated with the given email address. (optional)
      * @param  string $end_user_organization_name If provided, will only return linked accounts associated with the given organization name. (optional)

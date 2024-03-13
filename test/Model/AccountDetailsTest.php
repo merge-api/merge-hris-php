@@ -169,4 +169,13 @@ class AccountDetailsTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "account_type"
+     */
+    public function testPropertyAccountType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

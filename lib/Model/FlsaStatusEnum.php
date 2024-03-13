@@ -34,6 +34,7 @@ use \MergeHRISClient\ObjectSerializer;
  * FlsaStatusEnum Class Doc Comment
  *
  * @category Class
+ * @description * &#x60;EXEMPT&#x60; - EXEMPT * &#x60;SALARIED_NONEXEMPT&#x60; - SALARIED_NONEXEMPT * &#x60;NONEXEMPT&#x60; - NONEXEMPT * &#x60;OWNER&#x60; - OWNER
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -43,13 +43,13 @@ $end_date = 'end_date_example'; // string | If included, will only include issue
 $end_user_organization_name = 'end_user_organization_name_example'; // string
 $first_incident_time_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return issues whose first incident time was after this datetime.
 $first_incident_time_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return issues whose first incident time was before this datetime.
-$include_muted = 'include_muted_example'; // string | If True, will include muted issues
+$include_muted = 'include_muted_example'; // string | If true, will include muted issues
 $integration_name = 'integration_name_example'; // string
-$last_incident_time_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return issues whose first incident time was after this datetime.
-$last_incident_time_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return issues whose first incident time was before this datetime.
+$last_incident_time_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return issues whose last incident time was after this datetime.
+$last_incident_time_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return issues whose last incident time was before this datetime.
 $page_size = 56; // int | Number of results to return per page.
 $start_date = 'start_date_example'; // string | If included, will only include issues whose most recent action occurred after this time
-$status = 'status_example'; // string
+$status = 'status_example'; // string | Status of the issue. Options: ('ONGOING', 'RESOLVED')  * `ONGOING` - ONGOING * `RESOLVED` - RESOLVED
 
 try {
     $result = $apiInstance->issuesList($account_token, $cursor, $end_date, $end_user_organization_name, $first_incident_time_after, $first_incident_time_before, $include_muted, $integration_name, $last_incident_time_after, $last_incident_time_before, $page_size, $start_date, $status);
@@ -69,13 +69,13 @@ Name | Type | Description  | Notes
  **end_user_organization_name** | **string**|  | [optional]
  **first_incident_time_after** | **\DateTime**| If provided, will only return issues whose first incident time was after this datetime. | [optional]
  **first_incident_time_before** | **\DateTime**| If provided, will only return issues whose first incident time was before this datetime. | [optional]
- **include_muted** | **string**| If True, will include muted issues | [optional]
+ **include_muted** | **string**| If true, will include muted issues | [optional]
  **integration_name** | **string**|  | [optional]
- **last_incident_time_after** | **\DateTime**| If provided, will only return issues whose first incident time was after this datetime. | [optional]
- **last_incident_time_before** | **\DateTime**| If provided, will only return issues whose first incident time was before this datetime. | [optional]
+ **last_incident_time_after** | **\DateTime**| If provided, will only return issues whose last incident time was after this datetime. | [optional]
+ **last_incident_time_before** | **\DateTime**| If provided, will only return issues whose last incident time was before this datetime. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
  **start_date** | **string**| If included, will only include issues whose most recent action occurred after this time | [optional]
- **status** | **string**|  | [optional]
+ **status** | **string**| Status of the issue. Options: (&#39;ONGOING&#39;, &#39;RESOLVED&#39;)  * &#x60;ONGOING&#x60; - ONGOING * &#x60;RESOLVED&#x60; - RESOLVED | [optional]
 
 ### Return type
 

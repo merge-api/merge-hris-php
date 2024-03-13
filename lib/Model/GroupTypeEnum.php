@@ -34,6 +34,7 @@ use \MergeHRISClient\ObjectSerializer;
  * GroupTypeEnum Class Doc Comment
  *
  * @category Class
+ * @description * &#x60;TEAM&#x60; - TEAM * &#x60;DEPARTMENT&#x60; - DEPARTMENT * &#x60;COST_CENTER&#x60; - COST_CENTER * &#x60;BUSINESS_UNIT&#x60; - BUSINESS_UNIT * &#x60;GROUP&#x60; - GROUP
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -47,6 +48,7 @@ class GroupTypeEnum
     const DEPARTMENT = 'DEPARTMENT';
     const COST_CENTER = 'COST_CENTER';
     const BUSINESS_UNIT = 'BUSINESS_UNIT';
+    const GROUP = 'GROUP';
     
 
     /**
@@ -67,6 +69,7 @@ class GroupTypeEnum
             self::DEPARTMENT,
             self::COST_CENTER,
             self::BUSINESS_UNIT,
+            self::GROUP,
         ];
     }
 }

@@ -63,14 +63,19 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'remote_id' => 'string',
+        'created_at' => '\DateTime',
+        'modified_at' => '\DateTime',
         'employee' => 'string',
         'provider_name' => 'string',
         'benefit_plan_type' => 'string',
-        'employee_contribution' => 'float',
-        'company_contribution' => 'float',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
+        'employee_contribution' => 'double',
+        'company_contribution' => 'double',
+        'start_date' => '\DateTime',
+        'end_date' => '\DateTime',
         'remote_was_deleted' => 'bool',
-        'field_mappings' => 'array<string,mixed>'
+        'employer_benefit' => 'string',
+        'field_mappings' => 'array<string,mixed>',
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
     /**
@@ -83,14 +88,19 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'remote_id' => null,
+        'created_at' => 'date-time',
+        'modified_at' => 'date-time',
         'employee' => 'uuid',
         'provider_name' => null,
         'benefit_plan_type' => null,
-        'employee_contribution' => 'float',
-        'company_contribution' => 'float',
-        'remote_data' => null,
+        'employee_contribution' => 'double',
+        'company_contribution' => 'double',
+        'start_date' => 'date-time',
+        'end_date' => 'date-time',
         'remote_was_deleted' => null,
-        'field_mappings' => null
+        'employer_benefit' => 'uuid',
+        'field_mappings' => null,
+        'remote_data' => null
     ];
 
     /**
@@ -122,14 +132,19 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'id' => 'id',
         'remote_id' => 'remote_id',
+        'created_at' => 'created_at',
+        'modified_at' => 'modified_at',
         'employee' => 'employee',
         'provider_name' => 'provider_name',
         'benefit_plan_type' => 'benefit_plan_type',
         'employee_contribution' => 'employee_contribution',
         'company_contribution' => 'company_contribution',
-        'remote_data' => 'remote_data',
+        'start_date' => 'start_date',
+        'end_date' => 'end_date',
         'remote_was_deleted' => 'remote_was_deleted',
-        'field_mappings' => 'field_mappings'
+        'employer_benefit' => 'employer_benefit',
+        'field_mappings' => 'field_mappings',
+        'remote_data' => 'remote_data'
     ];
 
     /**
@@ -140,14 +155,19 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'id' => 'setId',
         'remote_id' => 'setRemoteId',
+        'created_at' => 'setCreatedAt',
+        'modified_at' => 'setModifiedAt',
         'employee' => 'setEmployee',
         'provider_name' => 'setProviderName',
         'benefit_plan_type' => 'setBenefitPlanType',
         'employee_contribution' => 'setEmployeeContribution',
         'company_contribution' => 'setCompanyContribution',
-        'remote_data' => 'setRemoteData',
+        'start_date' => 'setStartDate',
+        'end_date' => 'setEndDate',
         'remote_was_deleted' => 'setRemoteWasDeleted',
-        'field_mappings' => 'setFieldMappings'
+        'employer_benefit' => 'setEmployerBenefit',
+        'field_mappings' => 'setFieldMappings',
+        'remote_data' => 'setRemoteData'
     ];
 
     /**
@@ -158,14 +178,19 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'id' => 'getId',
         'remote_id' => 'getRemoteId',
+        'created_at' => 'getCreatedAt',
+        'modified_at' => 'getModifiedAt',
         'employee' => 'getEmployee',
         'provider_name' => 'getProviderName',
         'benefit_plan_type' => 'getBenefitPlanType',
         'employee_contribution' => 'getEmployeeContribution',
         'company_contribution' => 'getCompanyContribution',
-        'remote_data' => 'getRemoteData',
+        'start_date' => 'getStartDate',
+        'end_date' => 'getEndDate',
         'remote_was_deleted' => 'getRemoteWasDeleted',
-        'field_mappings' => 'getFieldMappings'
+        'employer_benefit' => 'getEmployerBenefit',
+        'field_mappings' => 'getFieldMappings',
+        'remote_data' => 'getRemoteData'
     ];
 
     /**
@@ -227,14 +252,19 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['id'] = $data['id'] ?? null;
         $this->container['remote_id'] = $data['remote_id'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['modified_at'] = $data['modified_at'] ?? null;
         $this->container['employee'] = $data['employee'] ?? null;
         $this->container['provider_name'] = $data['provider_name'] ?? null;
         $this->container['benefit_plan_type'] = $data['benefit_plan_type'] ?? null;
         $this->container['employee_contribution'] = $data['employee_contribution'] ?? null;
         $this->container['company_contribution'] = $data['company_contribution'] ?? null;
-        $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['start_date'] = $data['start_date'] ?? null;
+        $this->container['end_date'] = $data['end_date'] ?? null;
         $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
+        $this->container['employer_benefit'] = $data['employer_benefit'] ?? null;
         $this->container['field_mappings'] = $data['field_mappings'] ?? null;
+        $this->container['remote_data'] = $data['remote_data'] ?? null;
     }
 
     /**
@@ -305,6 +335,54 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteId($remote_id)
     {
         $this->container['remote_id'] = $remote_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets modified_at
+     *
+     * @return \DateTime|null
+     */
+    public function getModifiedAt()
+    {
+        return $this->container['modified_at'];
+    }
+
+    /**
+     * Sets modified_at
+     *
+     * @param \DateTime|null $modified_at This is the datetime that this object was last updated by Merge
+     *
+     * @return self
+     */
+    public function setModifiedAt($modified_at)
+    {
+        $this->container['modified_at'] = $modified_at;
 
         return $this;
     }
@@ -384,7 +462,7 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets employee_contribution
      *
-     * @return float|null
+     * @return double|null
      */
     public function getEmployeeContribution()
     {
@@ -394,7 +472,7 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets employee_contribution
      *
-     * @param float|null $employee_contribution The employee's contribution.
+     * @param double|null $employee_contribution The employee's contribution.
      *
      * @return self
      */
@@ -408,7 +486,7 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets company_contribution
      *
-     * @return float|null
+     * @return double|null
      */
     public function getCompanyContribution()
     {
@@ -418,7 +496,7 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets company_contribution
      *
-     * @param float|null $company_contribution The company's contribution.
+     * @param double|null $company_contribution The company's contribution.
      *
      * @return self
      */
@@ -430,25 +508,49 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets remote_data
+     * Gets start_date
      *
-     * @return \MergeHRISClient\Model\RemoteData[]|null
+     * @return \DateTime|null
      */
-    public function getRemoteData()
+    public function getStartDate()
     {
-        return $this->container['remote_data'];
+        return $this->container['start_date'];
     }
 
     /**
-     * Sets remote_data
+     * Sets start_date
      *
-     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
+     * @param \DateTime|null $start_date The day and time the benefit started.
      *
      * @return self
      */
-    public function setRemoteData($remote_data)
+    public function setStartDate($start_date)
     {
-        $this->container['remote_data'] = $remote_data;
+        $this->container['start_date'] = $start_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_date
+     *
+     * @return \DateTime|null
+     */
+    public function getEndDate()
+    {
+        return $this->container['end_date'];
+    }
+
+    /**
+     * Sets end_date
+     *
+     * @param \DateTime|null $end_date The day and time the benefit ended.
+     *
+     * @return self
+     */
+    public function setEndDate($end_date)
+    {
+        $this->container['end_date'] = $end_date;
 
         return $this;
     }
@@ -466,13 +568,37 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets remote_was_deleted
      *
-     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted in the third party platform.
      *
      * @return self
      */
     public function setRemoteWasDeleted($remote_was_deleted)
     {
         $this->container['remote_was_deleted'] = $remote_was_deleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets employer_benefit
+     *
+     * @return string|null
+     */
+    public function getEmployerBenefit()
+    {
+        return $this->container['employer_benefit'];
+    }
+
+    /**
+     * Sets employer_benefit
+     *
+     * @param string|null $employer_benefit The employer benefit plan the employee is enrolled in.
+     *
+     * @return self
+     */
+    public function setEmployerBenefit($employer_benefit)
+    {
+        $this->container['employer_benefit'] = $employer_benefit;
 
         return $this;
     }
@@ -497,6 +623,30 @@ class Benefit implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setFieldMappings($field_mappings)
     {
         $this->container['field_mappings'] = $field_mappings;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_data
+     *
+     * @return \MergeHRISClient\Model\RemoteData[]|null
+     */
+    public function getRemoteData()
+    {
+        return $this->container['remote_data'];
+    }
+
+    /**
+     * Sets remote_data
+     *
+     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
+     *
+     * @return self
+     */
+    public function setRemoteData($remote_data)
+    {
+        $this->container['remote_data'] = $remote_data;
 
         return $this;
     }

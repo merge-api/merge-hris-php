@@ -430,12 +430,11 @@ class EmployeesApi
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\IgnoreCommonModel
+     * @return void
      */
     public function employeesIgnoreCreate($x_account_token, $model_id, $ignore_common_model_request)
     {
-        list($response) = $this->employeesIgnoreCreateWithHttpInfo($x_account_token, $model_id, $ignore_common_model_request);
-        return $response;
+        $this->employeesIgnoreCreateWithHttpInfo($x_account_token, $model_id, $ignore_common_model_request);
     }
 
     /**
@@ -447,7 +446,7 @@ class EmployeesApi
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\IgnoreCommonModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
     public function employeesIgnoreCreateWithHttpInfo($x_account_token, $model_id, $ignore_common_model_request)
     {
@@ -481,44 +480,10 @@ class EmployeesApi
                 );
             }
 
-            switch($statusCode) {
-                case 200:
-                    if ('\MergeHRISClient\Model\IgnoreCommonModel' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\IgnoreCommonModel', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\MergeHRISClient\Model\IgnoreCommonModel';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
+            return [null, $statusCode, $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\MergeHRISClient\Model\IgnoreCommonModel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
             }
             throw $e;
         }
@@ -556,24 +521,14 @@ class EmployeesApi
      */
     public function employeesIgnoreCreateAsyncWithHttpInfo($x_account_token, $model_id, $ignore_common_model_request)
     {
-        $returnType = '\MergeHRISClient\Model\IgnoreCommonModel';
+        $returnType = '';
         $request = $this->employeesIgnoreCreateRequest($x_account_token, $model_id, $ignore_common_model_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -648,11 +603,11 @@ class EmployeesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data']
             );
         }
@@ -723,23 +678,30 @@ class EmployeesApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $display_full_name If provided, will only return employees with this display name. (optional)
-     * @param  string $employment_status If provided, will only return employees with this employment status. (optional)
+     * @param  string $employment_status If provided, will only return employees with this employment status.  * &#x60;ACTIVE&#x60; - ACTIVE * &#x60;PENDING&#x60; - PENDING * &#x60;INACTIVE&#x60; - INACTIVE (optional)
+     * @param  string $employment_type If provided, will only return employees that have an employment of the specified employment_type. (optional)
      * @param  string $first_name If provided, will only return employees with this first name. (optional)
      * @param  string $groups If provided, will only return employees matching the group ids; multiple groups can be separated by commas. (optional)
+     * @param  string $home_location_id If provided, will only return employees for this home location. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
+     * @param  string $job_title If provided, will only return employees that have an employment of the specified job_title. (optional)
      * @param  string $last_name If provided, will only return employees with this last name. (optional)
      * @param  string $manager_id If provided, will only return employees for this manager. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $pay_group_id If provided, will only return employees for this pay group (optional)
      * @param  string $personal_email If provided, will only return Employees with this personal email (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
+     * @param  \DateTime $started_after If provided, will only return employees that started after this datetime. (optional)
+     * @param  \DateTime $started_before If provided, will only return employees that started before this datetime. (optional)
      * @param  string $team_id If provided, will only return employees for this team. (optional)
+     * @param  \DateTime $terminated_after If provided, will only return employees that were terminated after this datetime. (optional)
+     * @param  \DateTime $terminated_before If provided, will only return employees that were terminated before this datetime. (optional)
      * @param  string $work_email If provided, will only return Employees with this work email (optional)
      * @param  string $work_location_id If provided, will only return employees for this location. (optional)
      *
@@ -747,9 +709,9 @@ class EmployeesApi
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedEmployeeList
      */
-    public function employeesList($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $display_full_name = null, $employment_status = null, $first_name = null, $groups = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $last_name = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null, $team_id = null, $work_email = null, $work_location_id = null)
+    public function employeesList($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $display_full_name = null, $employment_status = null, $employment_type = null, $first_name = null, $groups = null, $home_location_id = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $job_title = null, $last_name = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null, $started_after = null, $started_before = null, $team_id = null, $terminated_after = null, $terminated_before = null, $work_email = null, $work_location_id = null)
     {
-        list($response) = $this->employeesListWithHttpInfo($x_account_token, $company_id, $created_after, $created_before, $cursor, $display_full_name, $employment_status, $first_name, $groups, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $last_name, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_fields, $remote_id, $show_enum_origins, $team_id, $work_email, $work_location_id);
+        list($response) = $this->employeesListWithHttpInfo($x_account_token, $company_id, $created_after, $created_before, $cursor, $display_full_name, $employment_status, $employment_type, $first_name, $groups, $home_location_id, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $job_title, $last_name, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_fields, $remote_id, $show_enum_origins, $started_after, $started_before, $team_id, $terminated_after, $terminated_before, $work_email, $work_location_id);
         return $response;
     }
 
@@ -762,23 +724,30 @@ class EmployeesApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $display_full_name If provided, will only return employees with this display name. (optional)
-     * @param  string $employment_status If provided, will only return employees with this employment status. (optional)
+     * @param  string $employment_status If provided, will only return employees with this employment status.  * &#x60;ACTIVE&#x60; - ACTIVE * &#x60;PENDING&#x60; - PENDING * &#x60;INACTIVE&#x60; - INACTIVE (optional)
+     * @param  string $employment_type If provided, will only return employees that have an employment of the specified employment_type. (optional)
      * @param  string $first_name If provided, will only return employees with this first name. (optional)
      * @param  string $groups If provided, will only return employees matching the group ids; multiple groups can be separated by commas. (optional)
+     * @param  string $home_location_id If provided, will only return employees for this home location. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
+     * @param  string $job_title If provided, will only return employees that have an employment of the specified job_title. (optional)
      * @param  string $last_name If provided, will only return employees with this last name. (optional)
      * @param  string $manager_id If provided, will only return employees for this manager. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $pay_group_id If provided, will only return employees for this pay group (optional)
      * @param  string $personal_email If provided, will only return Employees with this personal email (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
+     * @param  \DateTime $started_after If provided, will only return employees that started after this datetime. (optional)
+     * @param  \DateTime $started_before If provided, will only return employees that started before this datetime. (optional)
      * @param  string $team_id If provided, will only return employees for this team. (optional)
+     * @param  \DateTime $terminated_after If provided, will only return employees that were terminated after this datetime. (optional)
+     * @param  \DateTime $terminated_before If provided, will only return employees that were terminated before this datetime. (optional)
      * @param  string $work_email If provided, will only return Employees with this work email (optional)
      * @param  string $work_location_id If provided, will only return employees for this location. (optional)
      *
@@ -786,9 +755,9 @@ class EmployeesApi
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedEmployeeList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function employeesListWithHttpInfo($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $display_full_name = null, $employment_status = null, $first_name = null, $groups = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $last_name = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null, $team_id = null, $work_email = null, $work_location_id = null)
+    public function employeesListWithHttpInfo($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $display_full_name = null, $employment_status = null, $employment_type = null, $first_name = null, $groups = null, $home_location_id = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $job_title = null, $last_name = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null, $started_after = null, $started_before = null, $team_id = null, $terminated_after = null, $terminated_before = null, $work_email = null, $work_location_id = null)
     {
-        $request = $this->employeesListRequest($x_account_token, $company_id, $created_after, $created_before, $cursor, $display_full_name, $employment_status, $first_name, $groups, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $last_name, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_fields, $remote_id, $show_enum_origins, $team_id, $work_email, $work_location_id);
+        $request = $this->employeesListRequest($x_account_token, $company_id, $created_after, $created_before, $cursor, $display_full_name, $employment_status, $employment_type, $first_name, $groups, $home_location_id, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $job_title, $last_name, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_fields, $remote_id, $show_enum_origins, $started_after, $started_before, $team_id, $terminated_after, $terminated_before, $work_email, $work_location_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -870,32 +839,39 @@ class EmployeesApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $display_full_name If provided, will only return employees with this display name. (optional)
-     * @param  string $employment_status If provided, will only return employees with this employment status. (optional)
+     * @param  string $employment_status If provided, will only return employees with this employment status.  * &#x60;ACTIVE&#x60; - ACTIVE * &#x60;PENDING&#x60; - PENDING * &#x60;INACTIVE&#x60; - INACTIVE (optional)
+     * @param  string $employment_type If provided, will only return employees that have an employment of the specified employment_type. (optional)
      * @param  string $first_name If provided, will only return employees with this first name. (optional)
      * @param  string $groups If provided, will only return employees matching the group ids; multiple groups can be separated by commas. (optional)
+     * @param  string $home_location_id If provided, will only return employees for this home location. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
+     * @param  string $job_title If provided, will only return employees that have an employment of the specified job_title. (optional)
      * @param  string $last_name If provided, will only return employees with this last name. (optional)
      * @param  string $manager_id If provided, will only return employees for this manager. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $pay_group_id If provided, will only return employees for this pay group (optional)
      * @param  string $personal_email If provided, will only return Employees with this personal email (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
+     * @param  \DateTime $started_after If provided, will only return employees that started after this datetime. (optional)
+     * @param  \DateTime $started_before If provided, will only return employees that started before this datetime. (optional)
      * @param  string $team_id If provided, will only return employees for this team. (optional)
+     * @param  \DateTime $terminated_after If provided, will only return employees that were terminated after this datetime. (optional)
+     * @param  \DateTime $terminated_before If provided, will only return employees that were terminated before this datetime. (optional)
      * @param  string $work_email If provided, will only return Employees with this work email (optional)
      * @param  string $work_location_id If provided, will only return employees for this location. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employeesListAsync($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $display_full_name = null, $employment_status = null, $first_name = null, $groups = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $last_name = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null, $team_id = null, $work_email = null, $work_location_id = null)
+    public function employeesListAsync($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $display_full_name = null, $employment_status = null, $employment_type = null, $first_name = null, $groups = null, $home_location_id = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $job_title = null, $last_name = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null, $started_after = null, $started_before = null, $team_id = null, $terminated_after = null, $terminated_before = null, $work_email = null, $work_location_id = null)
     {
-        return $this->employeesListAsyncWithHttpInfo($x_account_token, $company_id, $created_after, $created_before, $cursor, $display_full_name, $employment_status, $first_name, $groups, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $last_name, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_fields, $remote_id, $show_enum_origins, $team_id, $work_email, $work_location_id)
+        return $this->employeesListAsyncWithHttpInfo($x_account_token, $company_id, $created_after, $created_before, $cursor, $display_full_name, $employment_status, $employment_type, $first_name, $groups, $home_location_id, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $job_title, $last_name, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_fields, $remote_id, $show_enum_origins, $started_after, $started_before, $team_id, $terminated_after, $terminated_before, $work_email, $work_location_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -912,33 +888,40 @@ class EmployeesApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $display_full_name If provided, will only return employees with this display name. (optional)
-     * @param  string $employment_status If provided, will only return employees with this employment status. (optional)
+     * @param  string $employment_status If provided, will only return employees with this employment status.  * &#x60;ACTIVE&#x60; - ACTIVE * &#x60;PENDING&#x60; - PENDING * &#x60;INACTIVE&#x60; - INACTIVE (optional)
+     * @param  string $employment_type If provided, will only return employees that have an employment of the specified employment_type. (optional)
      * @param  string $first_name If provided, will only return employees with this first name. (optional)
      * @param  string $groups If provided, will only return employees matching the group ids; multiple groups can be separated by commas. (optional)
+     * @param  string $home_location_id If provided, will only return employees for this home location. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
+     * @param  string $job_title If provided, will only return employees that have an employment of the specified job_title. (optional)
      * @param  string $last_name If provided, will only return employees with this last name. (optional)
      * @param  string $manager_id If provided, will only return employees for this manager. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $pay_group_id If provided, will only return employees for this pay group (optional)
      * @param  string $personal_email If provided, will only return Employees with this personal email (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
+     * @param  \DateTime $started_after If provided, will only return employees that started after this datetime. (optional)
+     * @param  \DateTime $started_before If provided, will only return employees that started before this datetime. (optional)
      * @param  string $team_id If provided, will only return employees for this team. (optional)
+     * @param  \DateTime $terminated_after If provided, will only return employees that were terminated after this datetime. (optional)
+     * @param  \DateTime $terminated_before If provided, will only return employees that were terminated before this datetime. (optional)
      * @param  string $work_email If provided, will only return Employees with this work email (optional)
      * @param  string $work_location_id If provided, will only return employees for this location. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function employeesListAsyncWithHttpInfo($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $display_full_name = null, $employment_status = null, $first_name = null, $groups = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $last_name = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null, $team_id = null, $work_email = null, $work_location_id = null)
+    public function employeesListAsyncWithHttpInfo($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $display_full_name = null, $employment_status = null, $employment_type = null, $first_name = null, $groups = null, $home_location_id = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $job_title = null, $last_name = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null, $started_after = null, $started_before = null, $team_id = null, $terminated_after = null, $terminated_before = null, $work_email = null, $work_location_id = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedEmployeeList';
-        $request = $this->employeesListRequest($x_account_token, $company_id, $created_after, $created_before, $cursor, $display_full_name, $employment_status, $first_name, $groups, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $last_name, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_fields, $remote_id, $show_enum_origins, $team_id, $work_email, $work_location_id);
+        $request = $this->employeesListRequest($x_account_token, $company_id, $created_after, $created_before, $cursor, $display_full_name, $employment_status, $employment_type, $first_name, $groups, $home_location_id, $include_deleted_data, $include_remote_data, $include_sensitive_fields, $job_title, $last_name, $manager_id, $modified_after, $modified_before, $page_size, $pay_group_id, $personal_email, $remote_fields, $remote_id, $show_enum_origins, $started_after, $started_before, $team_id, $terminated_after, $terminated_before, $work_email, $work_location_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -982,30 +965,37 @@ class EmployeesApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
      * @param  string $display_full_name If provided, will only return employees with this display name. (optional)
-     * @param  string $employment_status If provided, will only return employees with this employment status. (optional)
+     * @param  string $employment_status If provided, will only return employees with this employment status.  * &#x60;ACTIVE&#x60; - ACTIVE * &#x60;PENDING&#x60; - PENDING * &#x60;INACTIVE&#x60; - INACTIVE (optional)
+     * @param  string $employment_type If provided, will only return employees that have an employment of the specified employment_type. (optional)
      * @param  string $first_name If provided, will only return employees with this first name. (optional)
      * @param  string $groups If provided, will only return employees matching the group ids; multiple groups can be separated by commas. (optional)
+     * @param  string $home_location_id If provided, will only return employees for this home location. (optional)
      * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
+     * @param  string $job_title If provided, will only return employees that have an employment of the specified job_title. (optional)
      * @param  string $last_name If provided, will only return employees with this last name. (optional)
      * @param  string $manager_id If provided, will only return employees for this manager. (optional)
-     * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
-     * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
+     * @param  \DateTime $modified_after If provided, only objects synced by Merge after this date time will be returned. (optional)
+     * @param  \DateTime $modified_before If provided, only objects synced by Merge before this date time will be returned. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $pay_group_id If provided, will only return employees for this pay group (optional)
      * @param  string $personal_email If provided, will only return Employees with this personal email (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
+     * @param  \DateTime $started_after If provided, will only return employees that started after this datetime. (optional)
+     * @param  \DateTime $started_before If provided, will only return employees that started before this datetime. (optional)
      * @param  string $team_id If provided, will only return employees for this team. (optional)
+     * @param  \DateTime $terminated_after If provided, will only return employees that were terminated after this datetime. (optional)
+     * @param  \DateTime $terminated_before If provided, will only return employees that were terminated before this datetime. (optional)
      * @param  string $work_email If provided, will only return Employees with this work email (optional)
      * @param  string $work_location_id If provided, will only return employees for this location. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function employeesListRequest($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $display_full_name = null, $employment_status = null, $first_name = null, $groups = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $last_name = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null, $team_id = null, $work_email = null, $work_location_id = null)
+    public function employeesListRequest($x_account_token, $company_id = null, $created_after = null, $created_before = null, $cursor = null, $display_full_name = null, $employment_status = null, $employment_type = null, $first_name = null, $groups = null, $home_location_id = null, $include_deleted_data = null, $include_remote_data = null, $include_sensitive_fields = null, $job_title = null, $last_name = null, $manager_id = null, $modified_after = null, $modified_before = null, $page_size = null, $pay_group_id = null, $personal_email = null, $remote_fields = null, $remote_id = null, $show_enum_origins = null, $started_after = null, $started_before = null, $team_id = null, $terminated_after = null, $terminated_before = null, $work_email = null, $work_location_id = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -1088,6 +1078,17 @@ class EmployeesApi
             }
         }
         // query params
+        if ($employment_type !== null) {
+            if('form' === 'form' && is_array($employment_type)) {
+                foreach($employment_type as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['employment_type'] = $employment_type;
+            }
+        }
+        // query params
         if ($first_name !== null) {
             if('form' === 'form' && is_array($first_name)) {
                 foreach($first_name as $key => $value) {
@@ -1107,6 +1108,17 @@ class EmployeesApi
             }
             else {
                 $queryParams['groups'] = $groups;
+            }
+        }
+        // query params
+        if ($home_location_id !== null) {
+            if('form' === 'form' && is_array($home_location_id)) {
+                foreach($home_location_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['home_location_id'] = $home_location_id;
             }
         }
         // query params
@@ -1140,6 +1152,17 @@ class EmployeesApi
             }
             else {
                 $queryParams['include_sensitive_fields'] = $include_sensitive_fields;
+            }
+        }
+        // query params
+        if ($job_title !== null) {
+            if('form' === 'form' && is_array($job_title)) {
+                foreach($job_title as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['job_title'] = $job_title;
             }
         }
         // query params
@@ -1253,6 +1276,28 @@ class EmployeesApi
             }
         }
         // query params
+        if ($started_after !== null) {
+            if('form' === 'form' && is_array($started_after)) {
+                foreach($started_after as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['started_after'] = $started_after;
+            }
+        }
+        // query params
+        if ($started_before !== null) {
+            if('form' === 'form' && is_array($started_before)) {
+                foreach($started_before as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['started_before'] = $started_before;
+            }
+        }
+        // query params
         if ($team_id !== null) {
             if('form' === 'form' && is_array($team_id)) {
                 foreach($team_id as $key => $value) {
@@ -1261,6 +1306,28 @@ class EmployeesApi
             }
             else {
                 $queryParams['team_id'] = $team_id;
+            }
+        }
+        // query params
+        if ($terminated_after !== null) {
+            if('form' === 'form' && is_array($terminated_after)) {
+                foreach($terminated_after as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['terminated_after'] = $terminated_after;
+            }
+        }
+        // query params
+        if ($terminated_before !== null) {
+            if('form' === 'form' && is_array($terminated_before)) {
+                foreach($terminated_before as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['terminated_before'] = $terminated_before;
             }
         }
         // query params
@@ -1620,7 +1687,7 @@ class EmployeesApi
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1640,7 +1707,7 @@ class EmployeesApi
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1729,7 +1796,7 @@ class EmployeesApi
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1752,7 +1819,7 @@ class EmployeesApi
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1803,7 +1870,7 @@ class EmployeesApi
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  bool $include_sensitive_fields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
      * @param  string $remote_fields Deprecated. Use show_enum_origins. (optional)
-     * @param  string $show_enum_origins Which fields should be returned in non-normalized form. (optional)
+     * @param  string $show_enum_origins A comma separated list of enum field names for which you&#39;d like the original values to be returned, instead of Merge&#39;s normalized enum values. [Learn more](https://help.merge.dev/en/articles/8950958-show_enum_origins-query-parameter) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

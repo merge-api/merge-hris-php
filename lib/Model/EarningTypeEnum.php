@@ -34,6 +34,7 @@ use \MergeHRISClient\ObjectSerializer;
  * EarningTypeEnum Class Doc Comment
  *
  * @category Class
+ * @description * &#x60;SALARY&#x60; - SALARY * &#x60;REIMBURSEMENT&#x60; - REIMBURSEMENT * &#x60;OVERTIME&#x60; - OVERTIME * &#x60;BONUS&#x60; - BONUS
  * @package  MergeHRISClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

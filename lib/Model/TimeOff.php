@@ -63,18 +63,20 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'remote_id' => 'string',
+        'created_at' => '\DateTime',
+        'modified_at' => '\DateTime',
         'employee' => 'string',
         'approver' => 'string',
         'status' => '\MergeHRISClient\Model\TimeOffStatusEnum',
         'employee_note' => 'string',
         'units' => '\MergeHRISClient\Model\UnitsEnum',
-        'amount' => 'float',
+        'amount' => 'double',
         'request_type' => '\MergeHRISClient\Model\RequestTypeEnum',
         'start_time' => '\DateTime',
         'end_time' => '\DateTime',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
         'remote_was_deleted' => 'bool',
-        'field_mappings' => 'array<string,mixed>'
+        'field_mappings' => 'array<string,mixed>',
+        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
     /**
@@ -87,18 +89,20 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'remote_id' => null,
+        'created_at' => 'date-time',
+        'modified_at' => 'date-time',
         'employee' => 'uuid',
         'approver' => 'uuid',
         'status' => null,
         'employee_note' => null,
         'units' => null,
-        'amount' => 'float',
+        'amount' => 'double',
         'request_type' => null,
         'start_time' => 'date-time',
         'end_time' => 'date-time',
-        'remote_data' => null,
         'remote_was_deleted' => null,
-        'field_mappings' => null
+        'field_mappings' => null,
+        'remote_data' => null
     ];
 
     /**
@@ -130,6 +134,8 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'id' => 'id',
         'remote_id' => 'remote_id',
+        'created_at' => 'created_at',
+        'modified_at' => 'modified_at',
         'employee' => 'employee',
         'approver' => 'approver',
         'status' => 'status',
@@ -139,9 +145,9 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
         'request_type' => 'request_type',
         'start_time' => 'start_time',
         'end_time' => 'end_time',
-        'remote_data' => 'remote_data',
         'remote_was_deleted' => 'remote_was_deleted',
-        'field_mappings' => 'field_mappings'
+        'field_mappings' => 'field_mappings',
+        'remote_data' => 'remote_data'
     ];
 
     /**
@@ -152,6 +158,8 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'id' => 'setId',
         'remote_id' => 'setRemoteId',
+        'created_at' => 'setCreatedAt',
+        'modified_at' => 'setModifiedAt',
         'employee' => 'setEmployee',
         'approver' => 'setApprover',
         'status' => 'setStatus',
@@ -161,9 +169,9 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
         'request_type' => 'setRequestType',
         'start_time' => 'setStartTime',
         'end_time' => 'setEndTime',
-        'remote_data' => 'setRemoteData',
         'remote_was_deleted' => 'setRemoteWasDeleted',
-        'field_mappings' => 'setFieldMappings'
+        'field_mappings' => 'setFieldMappings',
+        'remote_data' => 'setRemoteData'
     ];
 
     /**
@@ -174,6 +182,8 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'id' => 'getId',
         'remote_id' => 'getRemoteId',
+        'created_at' => 'getCreatedAt',
+        'modified_at' => 'getModifiedAt',
         'employee' => 'getEmployee',
         'approver' => 'getApprover',
         'status' => 'getStatus',
@@ -183,9 +193,9 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
         'request_type' => 'getRequestType',
         'start_time' => 'getStartTime',
         'end_time' => 'getEndTime',
-        'remote_data' => 'getRemoteData',
         'remote_was_deleted' => 'getRemoteWasDeleted',
-        'field_mappings' => 'getFieldMappings'
+        'field_mappings' => 'getFieldMappings',
+        'remote_data' => 'getRemoteData'
     ];
 
     /**
@@ -247,6 +257,8 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['id'] = $data['id'] ?? null;
         $this->container['remote_id'] = $data['remote_id'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['modified_at'] = $data['modified_at'] ?? null;
         $this->container['employee'] = $data['employee'] ?? null;
         $this->container['approver'] = $data['approver'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
@@ -256,9 +268,9 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['request_type'] = $data['request_type'] ?? null;
         $this->container['start_time'] = $data['start_time'] ?? null;
         $this->container['end_time'] = $data['end_time'] ?? null;
-        $this->container['remote_data'] = $data['remote_data'] ?? null;
         $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
         $this->container['field_mappings'] = $data['field_mappings'] ?? null;
+        $this->container['remote_data'] = $data['remote_data'] ?? null;
     }
 
     /**
@@ -334,6 +346,54 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets modified_at
+     *
+     * @return \DateTime|null
+     */
+    public function getModifiedAt()
+    {
+        return $this->container['modified_at'];
+    }
+
+    /**
+     * Sets modified_at
+     *
+     * @param \DateTime|null $modified_at This is the datetime that this object was last updated by Merge
+     *
+     * @return self
+     */
+    public function setModifiedAt($modified_at)
+    {
+        $this->container['modified_at'] = $modified_at;
+
+        return $this;
+    }
+
+    /**
      * Gets employee
      *
      * @return string|null
@@ -394,7 +454,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param TimeOffStatusEnum|null $status The status of this time off request.
+     * @param TimeOffStatusEnum|null $status The status of this time off request.  * `REQUESTED` - REQUESTED * `APPROVED` - APPROVED * `DECLINED` - DECLINED * `CANCELLED` - CANCELLED * `DELETED` - DELETED
      *
      * @return self
      */
@@ -442,7 +502,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets units
      *
-     * @param UnitsEnum|null $units The measurement that the third-party integration uses to count time requested.
+     * @param UnitsEnum|null $units The measurement that the third-party integration uses to count time requested.  * `HOURS` - HOURS * `DAYS` - DAYS
      *
      * @return self
      */
@@ -456,7 +516,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets amount
      *
-     * @return float|null
+     * @return double|null
      */
     public function getAmount()
     {
@@ -466,7 +526,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount
      *
-     * @param float|null $amount The time off quantity measured by the prescribed “units”.
+     * @param double|null $amount The time off quantity measured by the prescribed “units”.
      *
      * @return self
      */
@@ -490,7 +550,7 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets request_type
      *
-     * @param RequestTypeEnum|null $request_type The type of time off request.
+     * @param RequestTypeEnum|null $request_type The type of time off request.  * `VACATION` - VACATION * `SICK` - SICK * `PERSONAL` - PERSONAL * `JURY_DUTY` - JURY_DUTY * `VOLUNTEER` - VOLUNTEER * `BEREAVEMENT` - BEREAVEMENT
      *
      * @return self
      */
@@ -550,30 +610,6 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets remote_data
-     *
-     * @return \MergeHRISClient\Model\RemoteData[]|null
-     */
-    public function getRemoteData()
-    {
-        return $this->container['remote_data'];
-    }
-
-    /**
-     * Sets remote_data
-     *
-     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
-     *
-     * @return self
-     */
-    public function setRemoteData($remote_data)
-    {
-        $this->container['remote_data'] = $remote_data;
-
-        return $this;
-    }
-
-    /**
      * Gets remote_was_deleted
      *
      * @return bool|null
@@ -617,6 +653,30 @@ class TimeOff implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setFieldMappings($field_mappings)
     {
         $this->container['field_mappings'] = $field_mappings;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_data
+     *
+     * @return \MergeHRISClient\Model\RemoteData[]|null
+     */
+    public function getRemoteData()
+    {
+        return $this->container['remote_data'];
+    }
+
+    /**
+     * Sets remote_data
+     *
+     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
+     *
+     * @return self
+     */
+    public function setRemoteData($remote_data)
+    {
+        $this->container['remote_data'] = $remote_data;
 
         return $this;
     }

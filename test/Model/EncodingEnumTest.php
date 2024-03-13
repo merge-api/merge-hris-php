@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * EncodingEnumTest Class Doc Comment
  *
  * @category    Class
- * @description EncodingEnum
+ * @description * &#x60;RAW&#x60; - RAW * &#x60;BASE64&#x60; - BASE64 * &#x60;GZIP_BASE64&#x60; - GZIP_BASE64
  * @package     MergeHRISClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
