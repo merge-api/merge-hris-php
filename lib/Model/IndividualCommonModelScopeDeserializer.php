@@ -127,7 +127,7 @@ class IndividualCommonModelScopeDeserializer implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'model_name' => 'getModelName',
+        'model_name' => 'getMergeModelName',
         'model_permissions' => 'getModelPermissions',
         'field_permissions' => 'getFieldPermissions'
     ];
@@ -226,7 +226,7 @@ class IndividualCommonModelScopeDeserializer implements ModelInterface, ArrayAcc
      *
      * @return string
      */
-    public function getModelName()
+    public function getMergeModelName()
     {
         return $this->container['model_name'];
     }
